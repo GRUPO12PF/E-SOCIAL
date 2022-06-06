@@ -1,10 +1,20 @@
 import mongoose from "mongoose";
 
-const productSchema = mongoose.Schema(
+const booksSchema = mongoose.Schema(
     {
-        id: {
+        nombre: {
             type: String,
             trim: true,
+            required: true,
+        },
+        descripcion: {
+            type: String,
+            trim: true,
+            required: true,
+        },
+        creador: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Usuario",
             required: true,
         },
         colection: {
@@ -14,10 +24,6 @@ const productSchema = mongoose.Schema(
         category: {
             type: mongoose.Schema.Types.String,
             ref: "Categorias",
-        },
-        ownerId: {
-            type: mongoose.Schema.Types.String,
-            ref: "Usuario",
         },
         // image: {
         //     type: Text,
@@ -49,5 +55,5 @@ const productSchema = mongoose.Schema(
     }
 );
 
-const ProductCreated = mongoose.model("ProductCreated", productSchema);
-export default ProductCreated;
+const BooksCreated = mongoose.model("Books", booksSchema);
+export default BooksCreated;
