@@ -22,5 +22,5 @@ router
     .delete(checkAuth, eliminarBook);
 
 
-    console.log("prueba para el pull request")
+    console.log("prueba 2 para el pr ")
 export default router;
