@@ -94,7 +94,7 @@ const handleSubmit = (e) => {
 };
 
   return (
-    <div className="contRegister">
+    <div>
       <div>
         <div>
           <div>
@@ -102,7 +102,6 @@ const handleSubmit = (e) => {
             <form onSubmit={handleSubmit}>
               <label htmlFor="email">email</label>
               <input
-                className={errors.email ? "inputError" : "input"}
                 id="email"
                 value={usuario.email}
                 type="text"
@@ -112,12 +111,11 @@ const handleSubmit = (e) => {
               />
               {errors.email && (
                 <div>
-                  <p className="error">{errors.email}</p>
+                  <p>{errors.email}</p>
                 </div>
               )}
               <label htmlFor="password">password</label>
               <input
-                className={errors.password ? "inputError" : "input"}
                 id="password"
                 type="password"
                 value={usuario.password}
@@ -127,13 +125,13 @@ const handleSubmit = (e) => {
               />
               {errors.password && (
                 <div>
-                  <p className="error">{errors.password}</p>
+                  <p>{errors.password}</p>
                 </div>
               )}
               {errorEmail && !usuario.email && !usuario.password ? (
-                <p className="error">{errorEmail} </p>
+                <p>{errorEmail} </p>
               ) : null}
-              <button type="submit" className="buttonPrimary">
+              <button type="submit">
                 LOGIN
               </button>
             </form>

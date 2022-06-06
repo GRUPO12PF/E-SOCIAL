@@ -74,7 +74,6 @@ export default function Register() {
             <form onSubmit={handleSubmit}>
               <label htmlFor="user">Username</label>
               <input
-                className={errores[0] === 1 ? "inputError" : "input"}
                 name="nombre"
                 value={estado.username}
                 onChange={handleChange}
@@ -84,7 +83,6 @@ export default function Register() {
               />
               <label htmlFor="email">Email</label>
               <input
-                className={errores[0] === 2 ? "inputError" : "input"}
                 name="email"
                 value={estado.email}
                 onChange={handleChange}
@@ -94,11 +92,8 @@ export default function Register() {
               />
               <label htmlFor="password">Password</label>
               <input
-                className={
-                  errores[0] === 3 || errores[0] === 5 ? "inputError" : ""
-                }
                 name="password1"
-                value={estado.password}
+                value={estado.password1}
                 onChange={handleChange}
                 id="password1"
                 type="password"
@@ -106,9 +101,6 @@ export default function Register() {
               />
               <label htmlFor="password">Repeat password</label>
               <input
-                className={
-                  errores[0] === 4 || errores[0] === 5 ? "inputError" : ""
-                }
                 name="password2"
                 value={estado.password2}
                 onChange={handleChange}
@@ -116,8 +108,8 @@ export default function Register() {
                 type="password"
                 placeholder="enter password again"
               />
-              {errores.length !== 0 && <p className="error">{errores[1]}</p>}
-              <button type="submit" className="buttonPrimary">
+              {errores.length !== 0 && <p>{errores[1]}</p>}
+              <button type="submit">
                 Register
               </button>
             </form>
