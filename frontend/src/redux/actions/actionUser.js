@@ -90,3 +90,54 @@ export function registroUsuario({ nombre, email, password1 }) {
       type: "LOGOUT_USER",
     });
   }
+
+  export function setToResetPassword(data) {
+    return async function (dispatch) {
+      try {
+        let json = await clienteAxios.post(`/usuarios/olvide-password/`, {
+          email: data,
+        });
+  
+        toast.success(json.data.msg);
+  
+        return dispatch({
+          type: "SEND_EMAIL_TO_RESET_PASSWORD",
+          payload: json.data,
+        });
+      } catch (error) {
+        toast.error(error.response.data.msg);
+        return dispatch({
+          type: "SEND_EMAIL_TO_RESET_PASSWORD",
+          payload: { error: error.response.data.msg },
+        });
+      }
+    };
+  }
+  export function resetPassword(data) {
+    const { token, password } = data;
+    return async function (dispatch) {
+      try {
+        let json = await clienteAxios.post(`/usuarios/olvide-password/${token}`, {
+          password,
+        });
+        return dispatch({
+          type: "RESET_PASSWORD",
+          payload: json.data,
+        });
+      } catch (error) {
+        return dispatch({
+          type: "RESET_PASSWORD",
+          payload: { error: error.response.data.msg },
+        });
+      }
+    };
+  }
+  export function setStateEmail() {
+    return async function (dispatch) {
+      let reseet = [];
+      return dispatch({
+        type: "RESET_ERROR",
+        payload: reseet,
+      });
+    };
+  }

@@ -12,6 +12,7 @@ import NewPassword from "./pages/NewPassword.jsx";
 import ConfirmAccount from "./pages/ConfirmAccount.jsx";
 import VerificationUser from "./pages/VerificationUser.jsx";
 import Home from "./pages/Home.jsx";
+import UpdatePassword from "./pages/UpdatePassword.jsx"
 
 function App() {
   return (
@@ -23,12 +24,12 @@ function App() {
         <Route path="olvide-password" element={<ForgotPassword />} />
         <Route path="olvide-password/:token" element={<NewPassword />} />
         <Route path="confirmar/:id" element={<ConfirmAccount />} />
-
-        <Route path="/home/" element={<VerificationUser />}>
+        <Route path="/update-password" element={<UpdatePassword />} />
+        
+        
+        <Route path="/home" element={<VerificationUser />}>
           <Route index element={<Home />} />
         </Route>
-
-        
       </Routes>
     </Router>
   );
