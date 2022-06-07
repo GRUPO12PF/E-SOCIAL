@@ -1,9 +1,7 @@
 import Book from "../models/Book.js";
 
 const obtenerBooks = async (req, res) => {
-    // const books = await Book.find().where("creador").equals(req.usuario);
-    const books = await Book.findAll()
-
+    const books = await Book.find().where("creador").equals(req.usuario);
     res.json(books)
 };
 
