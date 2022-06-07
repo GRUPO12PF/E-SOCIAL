@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import { userLogout } from "../redux/actions/actionUSER";
+import { userLogout } from "../../redux/actions/actionUSER";
 import { useDispatch } from "react-redux";
 
 export default function Home() {

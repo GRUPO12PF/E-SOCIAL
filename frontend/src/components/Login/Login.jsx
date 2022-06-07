@@ -5,9 +5,9 @@ import { useNavigate } from "react-router";
 import {
   login,
   resetErrorLoginUser,
-} from "../redux/actions/actionUser";
-import validarEmail from "../middleware/validarEmail";
-import validatePassword from "../middleware/validarPassword";
+} from "../../redux/actions/actionUser";
+import validarEmail from "../../middleware/validarEmail";
+import validatePassword from "../../middleware/validarPassword";
 
 
 function validate(email, password) {
