@@ -1,5 +1,5 @@
 import Book from "../models/Book.js";
-import Category from "../models/Category.js"
+
 
 const obtenerBooks = async (req, res) => {
     const books = await Book.find().where("creador").equals(req.usuario);
@@ -64,22 +64,11 @@ const eliminarBook = async (req, res) => {
     
 };
 
-const getCategory = async (req, res) => {
-    const category = new Category(req.body)
-    category.creador = req.usuario._id
 
-    try {
-        const categoryAlmacenado = await category.save()
-        res.json(categoryAlmacenado);
-    } catch (error) {
-        console.log(error)
-    }
-}; 
 export {
     obtenerBook,
     obtenerBooks,
     nuevoBook,
     editarBook,
-    eliminarBook,
-    getCategory
+    eliminarBook
 }

@@ -4,8 +4,7 @@ import {
     obtenerBooks,
     nuevoBook,
     editarBook,
-    eliminarBook,
-    getCategory
+    eliminarBook
 } from '../controllers/booksControllers.js';
 import checkAuth from '../middleware/checkAuth.js';
 
@@ -22,9 +21,5 @@ router
     .put(checkAuth, editarBook)
     .delete(checkAuth, eliminarBook);
 
-router
-    .route('/category')
-    .get(checkAuth, getCategory )
 
-    console.log("last test")
 export default router;
