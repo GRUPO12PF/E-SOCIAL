@@ -77,7 +77,18 @@ const editarBook = async (req, res) => {
 }
 
 const eliminarBook = async (req, res) => {
-
+  try{
+    const {id} = req.params;
+    const bookId = await Book.findById(id)
+    await Book.deleteOne({
+      where: {
+        id,
+      },
+    });
+    res.send('Libro eliminado correctamente')
+  } catch(error){
+    console.log(error)
+  }
 }
 
 
