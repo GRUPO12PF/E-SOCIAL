@@ -5,16 +5,17 @@ const obtenerBooks = async (req, res) => {
     // booksByQuery
     if (req.query.name) {
       const { name } = req.query
-      const bookQuery = await Book.find({ 'nombre': { $regex: `^.*${name}.*` } })
+      const bookQuery = await Book.find({ 'nombre': { $regex: `^.*${name}.*` } },  '-createdAt -updatedAt -__v')
       if (bookQuery.length) {
         res.json(bookQuery)
       } else {
-        res.status(404).json({ error_msg: '¡Libro no encontrado!' })
+        const error = new Error('No se encontró el libro.')
+        res.status(404).json({ msg: error.message })
       }
 
     } else {
       // getAllBooks      
-      const books = await Book.find()
+      const books = await Book.find(null, '-createdAt -updatedAt -__v')
       res.json(books)
     }
   } catch (error) {
@@ -34,21 +35,20 @@ const nuevoBook = async (req, res) => {
   }
 }
 
-const obtenerBook = async (req, res) => {
-  const { id } = req.params
+const detailBook = async (req, res) => {
+  try {
+    const { id } = req.params
+    const book = await Book.findById(id, '-createdAt -updatedAt -__v')
 
-  const book = await Book.findById(id)
+    if (!book) {
+      const error = new Error('No se encontró el libro.')
+      return res.status(404).json({ msg: error.message })
+    }
 
-  if (!book) {
-    const error = new Error('No Enctontrado el Book')
-    return res.status(404).json({ msg: error.message })
+    res.json(book)
+  } catch (error) {
+    console.log(error)
   }
-
-  if (book.creador.toString() !== req.usuario._id.toString()) {
-    const error = new Error('Accion No Valida')
-    return res.status(401).json({ msg: error.message })
-  }
-  res.json(book)
 }
 
 const editarBook = async (req, res) => {
@@ -82,8 +82,8 @@ const eliminarBook = async (req, res) => {
 
 
 export {
-  obtenerBook,
   obtenerBooks,
+  detailBook,
   nuevoBook,
   editarBook,
   eliminarBook
