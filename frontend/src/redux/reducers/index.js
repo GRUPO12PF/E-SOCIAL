@@ -7,6 +7,7 @@ const initialState = {
   email: [],
   invalidToken: true,
   loginUser: false,
+  post:[],
 };
 
 function rootReducer(state = initialState, action) {
@@ -70,6 +71,12 @@ function rootReducer(state = initialState, action) {
             ...state,
             email: [],
           };
+        
+        case "POST_CREATE":
+            return{
+              ...state,
+                
+            }  
     default:
       return state;
   }
