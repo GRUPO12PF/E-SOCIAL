@@ -18,7 +18,6 @@ router
 router
     .route('/:id')
     .get(checkAuth, detailBook)
-    .get(obtenerBook)
     .put(checkAuth, editarBook)
     .delete(checkAuth, eliminarBook);
 
