@@ -17,7 +17,9 @@ export default function Home() {
 
   return (
     <div>
-      <div><h1>HOME</h1></div>
+      <div>
+        <h1>HOME</h1>
+      </div>
       <div onClick={() => logOut()}>
         <Link to="/">
           <h3>Logout</h3>

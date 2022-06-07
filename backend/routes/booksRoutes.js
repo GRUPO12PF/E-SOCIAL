@@ -12,12 +12,12 @@ const router = express.Router();
 
 router
     .route('/')
-    .get(checkAuth, obtenerBooks)
+    .get(obtenerBooks)
     .post(checkAuth, nuevoBook);
 
 router
     .route('/:id')
-    .get(checkAuth, obtenerBook)
+    .get(obtenerBook)
     .put(checkAuth, editarBook)
     .delete(checkAuth, eliminarBook);
 
