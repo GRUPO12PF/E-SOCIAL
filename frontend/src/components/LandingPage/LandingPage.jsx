@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Modal from "react-modal";
-import { autenticarUser } from "../redux/actions/actionUser";
+import { autenticarUser } from "../../redux/actions/actionUser";
 
 
 Modal.setAppElement("#root");

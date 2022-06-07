@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { setToResetPassword, setStateEmail } from "../redux/actions/actionUser";
-import validarEmail from "../middleware/validarEmail";
+import {
+  setToResetPassword,
+  setStateEmail,
+} from "../../redux/actions/actionUser";
+import validarEmail from "../../middleware/validarEmail";
 
-export default function ForgotPassword() {
+export default function OlvidePassword() {
   const [email, setEmail] = useState("");
   const [errors, setErrors] = useState({});
-  const respuesta = useSelector((state) => state.email);
+  const respuesta = useSelector((state) => state.errorEmail);
 
   const dispatch = useDispatch();
 
@@ -22,10 +25,10 @@ export default function ForgotPassword() {
     if (validarEmail(e.target.value)) {
       e.target.value.length > 40
         ? setErrors({
-            email: "Largo invalido",
+            email: "invalid length",
           })
         : setErrors({
-            email: "Email invalido",
+            email: "invalid email",
           });
     } else {
       setErrors({
@@ -33,12 +36,13 @@ export default function ForgotPassword() {
       });
     }
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (email === "") {
       setErrors({
-        email: "Esto es requerido",
+        email: "this field is required",
       });
     } else {
       dispatch(setToResetPassword(email));
@@ -48,9 +52,9 @@ export default function ForgotPassword() {
 
   return (
     <div>
-      <div>
+      <div >
         <div>
-          <h3>Ingrese su correo electrónico para recuperar su contraseña</h3>
+          <h3>Enter your email to change your password</h3>
           <form onSubmit={handleSubmit}>
             <label htmlFor="email">email</label>
             <input
@@ -61,18 +65,24 @@ export default function ForgotPassword() {
               type="email"
               placeholder="Reset email"
             />
+
             {errors.email && (
               <div>
-                <p>{errors.email}</p>
+                <p className="error">{errors.email}</p>
               </div>
             )}
+
             {respuesta.msg ? (
               <Link to="/">
                 {" "}
-                <button type="submit">Go back</button>{" "}
+                <button type="submit" className="buttonMorado">
+                  Go back home
+                </button>{" "}
               </Link>
             ) : (
-              <button type="submit">Reset password</button>
+              <button type="submit" className="buttonPrimary">
+                Reset password
+              </button>
             )}
           </form>
         </div>

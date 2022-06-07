@@ -4,15 +4,15 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import LandingPage from "./pages/LandingPage.jsx";
-import Login from "./pages/Login.jsx";
-import Register from "./pages/Register.jsx";
-import ForgotPassword from "./pages/ForgotPassword.jsx";
-import NewPassword from "./pages/NewPassword.jsx";
-import ConfirmAccount from "./pages/ConfirmAccount.jsx";
-import VerificationUser from "./pages/VerificationUser.jsx";
-import Home from "./pages/Home.jsx";
-import UpdatePassword from "./pages/UpdatePassword.jsx"
+import LandingPage from "./components/LandingPage/LandingPage";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
+import NewPassword from "./components/NewPassword/NewPassword";
+import ConfirmAccount from "./components/ConfirmAccount/ConfirmAccount";
+import VerificationUser from "./components/VerificationUser/VerificationUser";
+import Home from "./components/Home/Home";
+import UpdatePassword from "./components/UpdatePassword/UpdatePassword";
 
 function App() {
   return (
@@ -36,8 +36,3 @@ function App() {
 }
 
 export default App;
-
-//Language: javascript
-
-//maria
-

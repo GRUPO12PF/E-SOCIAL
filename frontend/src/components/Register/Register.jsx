@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { registroUsuario } from "../redux/actions/actionUser";
+import { registroUsuario } from "../../redux/actions/actionUser";
 import { useNavigate } from "react-router";
-import validarEmail from "../middleware/validarEmail";
-import validatePassword from "../middleware/validarPassword";
+import validarEmail from "../../middleware/validarEmail";
+import validatePassword from "../../middleware/validarPassword";
 import { Link } from "react-router-dom";
 
 export default function Register() {

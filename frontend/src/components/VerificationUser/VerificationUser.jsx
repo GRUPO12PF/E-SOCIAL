@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Outlet, Navigate } from "react-router-dom";
-import { autenticarUser } from "../redux/actions/actionUser.js";
+import { autenticarUser } from "../../redux/actions/actionUser.js";
 
 export default function VerificationUser() {
   const dispatch = useDispatch();
