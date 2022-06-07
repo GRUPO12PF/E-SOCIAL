@@ -12,6 +12,10 @@ const getCategory = async (req, res) => {
     }
 }; 
 
+const postCategory = async (req, res) => {
+    
+}
+
 export {
     getCategory
 }
