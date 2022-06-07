@@ -3,7 +3,9 @@
 
 
 .contRegister{
-  margin: 4rem auto;
+  margin: 10rem auto;
+  padding: 3rem;
+
 }
 
 @include m.telefono{
@@ -24,16 +26,4 @@
         width: 70%;
       }
     }
-  }
-
-  .error {
-    @include m.error;
-  }
-  
-  .input {
-    @include m.input;
-  }
-  
-  .inputError {
-    @include m.inputError;
   }
