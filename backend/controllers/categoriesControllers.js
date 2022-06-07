@@ -1,6 +1,6 @@
 import Category from "../models/Category.js"
 
-const getCategory = async (req, res) => {
+const postCategory = async (req, res) => {
     const category = new Category(req.body)
     category.creador = req.usuario._id
 
@@ -12,10 +12,12 @@ const getCategory = async (req, res) => {
     }
 }; 
 
-const postCategory = async (req, res) => {
-    
+const getCategory = async (req, res) => {
+    const categories = await Category.find();
+    res.json(categories)
 }
 
 export {
+    postCategory,
     getCategory
 }
