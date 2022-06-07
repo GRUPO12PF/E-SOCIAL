@@ -5,7 +5,6 @@ const obtenerBooks = async (req, res) => {
     // booksByQuery
     if (req.query.name) {
       const { name } = req.query
-      console.log("🚀 ~ file: booksControllers.js ~ line 5 ~ obtenerBooks ~ req =", name)
       const bookQuery = await Book.find({ 'nombre': { $regex: `^.*${name}.*` } })
       if (bookQuery.length) {
         res.json(bookQuery)
@@ -16,7 +15,6 @@ const obtenerBooks = async (req, res) => {
     } else {
       // getAllBooks      
       const books = await Book.find()
-      // .where('creador').equals(req.usuario) // TODO ¿estaba por algo en particular esta condición?
       res.json(books)
     }
   } catch (error) {
