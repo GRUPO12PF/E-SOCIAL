@@ -1,7 +1,8 @@
 import Book from "../models/Book.js";
 
 const obtenerBooks = async (req, res) => {
-    const books = await Book.find().where("creador").equals(req.usuario);
+    // const books = await Book.find().where("creador").equals(req.usuario);
+    const books = await Book.findAll()
 
     res.json(books)
 };
@@ -36,7 +37,30 @@ const obtenerBook = async (req, res) => {
 };
 
 const editarBook = async (req, res) => {
+    try {
+        const { id } = req.params
+        const {
+            nombre,
+            descripcion,
+            creador,
+            colection,
+            category,
+            price,
+            ranking,
+            avaliable
+        } = req.body;
+
+        await Book.findByIdAndUpdate({nombre, descripcion, creador, colection, category, price, ranking, avaliable}, {
+            where: {
+                id: id
+            }
+        }) 
+
+        res.send("Libro modificado")
     
+    } catch (error) {
+        console.log(error)
+    }
 };
 
 const eliminarBook = async (req, res) => {
