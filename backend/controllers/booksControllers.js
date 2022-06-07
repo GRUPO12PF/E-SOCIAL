@@ -1,8 +1,8 @@
 import Book from "../models/Book.js";
 
+
 const obtenerBooks = async (req, res) => {
     const books = await Book.find().where("creador").equals(req.usuario);
-
     res.json(books)
 };
 
@@ -36,17 +36,39 @@ const obtenerBook = async (req, res) => {
 };
 
 const editarBook = async (req, res) => {
+    try {
+        const { id } = req.params
+        const bookId = await Book.findById(id)
+        if(bookId){
+            const {
+                nombre,
+                descripcion,
+                colection,
+                category,
+                price,
+                rating
+            } = req.body;
+
+            await Book.updateOne({nombre, descripcion, colection, category, price, rating}) 
+        } else {
+            console.log("no hay libro con dicho ID")
+        }     
+        res.send("Libro modificado")
     
+    } catch (error) {
+        console.log(error)
+    }
 };
 
 const eliminarBook = async (req, res) => {
     
 };
 
+
 export {
     obtenerBook,
     obtenerBooks,
     nuevoBook,
     editarBook,
-    eliminarBook,
+    eliminarBook
 }
