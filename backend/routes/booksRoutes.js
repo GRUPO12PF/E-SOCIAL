@@ -21,4 +21,6 @@ router
     .put(checkAuth, editarBook)
     .delete(checkAuth, eliminarBook);
 
+
+    console.log("last test")
 export default router;

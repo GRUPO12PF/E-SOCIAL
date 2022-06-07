@@ -36,4 +36,3 @@ function App() {
 }
 
 export default App;
-//prueba 2
