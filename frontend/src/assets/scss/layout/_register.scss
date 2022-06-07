@@ -4,6 +4,7 @@
 
 .contRegister{
   margin: 4rem auto;
+  padding: 2rem;
 }
 
 @include m.telefono{
@@ -26,14 +27,3 @@
     }
   }
 
-  .error {
-    @include m.error;
-  }
-  
-  .input {
-    @include m.input;
-  }
-  
-  .inputError {
-    @include m.inputError;
-  }
