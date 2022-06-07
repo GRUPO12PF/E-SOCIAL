@@ -5,6 +5,7 @@ import conectarDB from './config/db.js';
 import usuarioRoutes from './routes/usuarioRoutes.js';
 import booksRoutes from './routes/booksRoutes.js';
 import proyectoRoutes from './routes/proyectoRoutes.js';
+import categoriesRoutes from './routes/categoriesRoutes.js';
 
 import cors from "cors";
 
@@ -30,6 +31,7 @@ app.use((req, res, next) => {
 app.use("/api/usuarios", usuarioRoutes);
 app.use("/api/books", booksRoutes);
 app.use("/api/proyectos", proyectoRoutes);
+app.use("/api/categories", categoriesRoutes);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
