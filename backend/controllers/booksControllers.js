@@ -1,4 +1,5 @@
 import Book from "../models/Book.js";
+import Category from "../models/Category.js"
 
 const obtenerBooks = async (req, res) => {
     const books = await Book.find().where("creador").equals(req.usuario);
@@ -37,23 +38,21 @@ const obtenerBook = async (req, res) => {
 const editarBook = async (req, res) => {
     try {
         const { id } = req.params
-        const {
-            nombre,
-            descripcion,
-            creador,
-            colection,
-            category,
-            price,
-            ranking,
-            avaliable
-        } = req.body;
+        const bookId = await Book.findById(id)
+        if(bookId){
+            const {
+                nombre,
+                descripcion,
+                colection,
+                category,
+                price,
+                rating
+            } = req.body;
 
-        await Book.findByIdAndUpdate({nombre, descripcion, creador, colection, category, price, ranking, avaliable}, {
-            where: {
-                id: id
-            }
-        }) 
-
+            await Book.updateOne({nombre, descripcion, colection, category, price, rating}) 
+        } else {
+            console.log("no hay libro con dicho ID")
+        }     
         res.send("Libro modificado")
     
     } catch (error) {
@@ -65,10 +64,22 @@ const eliminarBook = async (req, res) => {
     
 };
 
+const getCategory = async (req, res) => {
+    const category = new Category(req.body)
+    category.creador = req.usuario._id
+
+    try {
+        const categoryAlmacenado = await category.save()
+        res.json(categoryAlmacenado);
+    } catch (error) {
+        console.log(error)
+    }
+}; 
 export {
     obtenerBook,
     obtenerBooks,
     nuevoBook,
     editarBook,
     eliminarBook,
+    getCategory
 }

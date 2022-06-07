@@ -21,10 +21,12 @@ const booksSchema = mongoose.Schema(
             type: mongoose.Schema.Types.String,
             ref: "Coleccion",
         },
-        category: {
-            type: mongoose.Schema.Types.String,
-            ref: "Categorias",
-        },
+        category: [
+            {
+                type: mongoose.Schema.Types.String,
+                ref: "Usuario",
+            },
+        ],
         // image: {
         //     type: Text,
         // },
