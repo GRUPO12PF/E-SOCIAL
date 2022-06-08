@@ -13,13 +13,14 @@ const router = express.Router();
 router
     .route('/')
     .get(obtenerBooks)
-    .post(checkAuth, nuevoBook);
+    .post(nuevoBook);
 
 router
     .route('/:id')
-    .get(checkAuth, detailBook)
-    .put(checkAuth, editarBook)
-    .delete(checkAuth, eliminarBook);
+    // .get(checkAuth, detailBook)
+    .get(detailBook)
+    .put(editarBook)
+    .delete(eliminarBook);
 
 
 export default router;
