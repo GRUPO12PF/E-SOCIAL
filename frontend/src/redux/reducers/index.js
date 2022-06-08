@@ -102,6 +102,12 @@ function rootReducer(state = initialState, action) {
         ...state,
         detail: action.payload,
       };
+
+    case "ACTUAL":
+      return {
+        ...state,
+        usuarioActual: action.payload,
+      };
     default:
       return state;
   }

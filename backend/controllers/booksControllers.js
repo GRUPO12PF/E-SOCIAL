@@ -8,6 +8,7 @@ const obtenerBooks = async (req, res) => {
     if (req.query.name) {
       const { name } = req.query
       const bookQuery = await Book.find({ 'nombre': { $regex: `^.${name}.` } }, projection)
+
       if (bookQuery.length) {
         res.json(bookQuery)
       } else {
@@ -18,7 +19,7 @@ const obtenerBooks = async (req, res) => {
       // booksByCategory
     } else if (req.query.category) {
       const { category } = req.query
-      const categoryQuery = await Book.find({ category: { $in: [`${ category }`] } }, projection)
+      const categoryQuery = await Book.find({ category: { $in: [`${ category }`] } }, '-createdAt -updatedAt -__v -avaliable')
       if (categoryQuery.length) {
         res.json(categoryQuery)
       } else {
@@ -56,6 +57,7 @@ const detailBook = async (req, res) => {
   try {
     const { id } = req.params
     const book = await Book.findById(id, projection)
+
     
 
     if (!book) {
@@ -73,6 +75,7 @@ const editarBook = async (req, res) => {
   try {
     const { id } = req.params
     const bookId = await Book.findById(id, projection)
+
     if (bookId) {
       const { nombre, descripcion, colection, category, price, rating } = req.body
       await Book.updateOne({ nombre, descripcion, colection, category, price, rating })
@@ -89,6 +92,7 @@ const editarBook = async (req, res) => {
 const eliminarBook = async (req, res) => {
   try {
     const { id } = req.params
+
     const bookId = await Book.findById(id, projection)
     if (bookId) {
       await Book.deleteOne({

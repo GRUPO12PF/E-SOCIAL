@@ -6,13 +6,19 @@ import usuarioRoutes from './routes/usuarioRoutes.js';
 import booksRoutes from './routes/booksRoutes.js';
 import proyectoRoutes from './routes/proyectoRoutes.js';
 import categoriesRoutes from './routes/categoriesRoutes.js';
+import fileUpload from "express-fileupload";
 
 import cors from "cors";
 
 const app = express();
 app.use(express.json())
 dotenv.config()
-
+app.use(
+  fileUpload({
+    tempFileDir: "./upload",
+    useTempFiles: true,
+  })
+);
 conectarDB();
 
 //cors
