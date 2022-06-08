@@ -13,7 +13,7 @@ const router = express.Router();
 router
     .route('/')
     .get(obtenerBooks)
-    .post(nuevoBook);
+    .post(checkAuth, nuevoBook);
 
 router
     .route('/:id')
