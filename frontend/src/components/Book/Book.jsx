@@ -1,6 +1,7 @@
 import React from 'react'
 
 function Book({nombre,image}) {
+    
     return (
         <div>
             <div>

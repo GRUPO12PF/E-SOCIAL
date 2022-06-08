@@ -9,7 +9,7 @@ const initialState = {
   email: [],
   invalidToken: true,
   loginUser: false,
-  post:[],
+  detail:[],
 };
 
 function rootReducer(state = initialState, action) {
@@ -82,8 +82,14 @@ function rootReducer(state = initialState, action) {
         case "POST_CREATE":
             return{
               ...state,
-                
-            }  
+
+            };
+
+        case "GET_DETAIL":
+          return{
+            ...state,
+            detail:action.payload[0]
+          }
     default:
       return state;
   }
