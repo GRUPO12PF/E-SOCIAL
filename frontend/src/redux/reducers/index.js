@@ -90,6 +90,19 @@ function rootReducer(state = initialState, action) {
             ...state,
             detail:action.payload[0]
           }
+                
+            }  
+            case "SEARCH_BY_NAME":
+              return {
+                  ...state,
+                  books: action.payload
+              };  
+
+              case "CLEAN_DATA":
+            return {
+                ...state,
+                detail: action.payload,
+              };
     default:
       return state;
   }
