@@ -9,8 +9,8 @@ export default function Pagination({ allBooks, pageSize, page, goToPreviousPage,
     }
      
     return (
-        <nav className={s.nav}>
-            <div className={s.pagination}>
+        <nav className={s.pagination}>
+            <div className={s.nav}>
                 <button onClick={goToPreviousPage} className={s.btn}>Prev</button>
                 {pageNumbers && pageNumbers.map(number => {
                     return (

@@ -84,6 +84,17 @@ function rootReducer(state = initialState, action) {
               ...state,
                 
             }  
+            case "SEARCH_BY_NAME":
+              return {
+                  ...state,
+                  books: action.payload
+              };  
+
+              case "CLEAN_DATA":
+            return {
+                ...state,
+                detail: action.payload,
+              };
     default:
       return state;
   }

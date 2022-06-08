@@ -29,25 +29,27 @@ export default function Home() {
   }
   // eslint-disable-next-line
   //const [order, setOrder] = useState('');
-  const [pageCurrent, setPageCurrent] = useState(1);
-  const pageSize = 8;
-  const indexOfLastBooks = pageCurrent * pageSize;
-  const indexOfFirstBooks = indexOfLastBooks - pageSize;
-  const currentBooks = allBooks?.slice(indexOfFirstBooks, indexOfLastBooks)
+  // const [pageCurrent, setPageCurrent] = useState(1);
+  // const pageSize = 8;
+  // const indexOfLastBooks = pageCurrent * pageSize;
+  // const indexOfFirstBooks = indexOfLastBooks - pageSize;
+  // const currentBooks = allBooks?.slice(indexOfFirstBooks, indexOfLastBooks)
   const [loading, setLoading] = useState(true);
 
 
-  if (allBooks.length > 0 && loading) {
-    setLoading(false);
-  }
-  const page = (pageNumber) => {
-    setPageCurrent(pageNumber)
-  };
 
-  const goToNextPage = () => setPageCurrent(pageCurrent + 1);
-  const goToPreviousPage = () => {
-    if (pageCurrent > 1) setPageCurrent(pageCurrent - 1)
+  if (allBooks.length > 0 && loading) {
+     setLoading(false)
+
   }
+  // const page = (pageNumber) => {
+  //   setPageCurrent(pageNumber)
+  // };
+
+  // const goToNextPage = () => setPageCurrent(pageCurrent + 1);
+  // const goToPreviousPage = () => {
+  //   if (pageCurrent > 1) setPageCurrent(pageCurrent - 1)
+  // }
 
   return (
     <div>
@@ -57,8 +59,8 @@ export default function Home() {
           <h3>Logout</h3>
         </Link>
       </div>
-      {currentBooks.length > 0 && !loading ? (
-        currentBooks && allBooks?.map((e, i) => {
+      {allBooks.length > 0 && !loading ? (
+        allBooks && allBooks?.map((e, i) => {
           // console.log para revisar qué llega de cada elemento en los libros! 
           console.log(e) 
           //-----------------------------
@@ -74,19 +76,19 @@ export default function Home() {
             </div>
           )
         })
-      ) : !currentBooks.length > 0 && loading ? (
+      ) : !allBooks.length > 0 && loading ? (
         <Loading />
       ) : (
         <NotFound />
       )
       }
-      <Pagination
+      {/* <Pagination
         pageSize={pageSize}
         allBooks={allBooks.length}
         page={page}
         goToNextPage={goToNextPage}
         goToPreviousPage={goToPreviousPage}
-      />
+      /> */}
     </div>
   );
 }
