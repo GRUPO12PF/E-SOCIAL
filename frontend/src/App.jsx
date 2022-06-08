@@ -16,6 +16,7 @@ import UpdatePassword from "./components/UpdatePassword/UpdatePassword";
 import Forms from './components/Form/Forms'
 import Details from './components/Details/Details'
 import Settings from "./components/Settings/Settings";
+import About from "./components/About/About";
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
         
         
         <Route path="/create" element={<Forms />} />
-
+        <Route path="/about" element={<About />} />
         <Route path="/home" element={<VerificationUser />}>
           <Route index element={<Home />} />
         </Route>

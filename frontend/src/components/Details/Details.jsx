@@ -13,7 +13,7 @@ const Details = () => {
       
     dispatch(detailsBook(id))
      
-    }, [id])
+    }, [dispatch, id])
     
   return (
     <div>

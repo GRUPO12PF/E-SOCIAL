@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-import { userLogout } from "../../redux/actions/actionUser";
 import { getBooks } from "../../redux/actions/actionBooks";
 import { useDispatch, useSelector } from "react-redux";
 import Book from "../Book/Book.jsx";
-import Pagination from "../Pagination/Pagination.jsx";
+import { userLogout } from "../../redux/actions/actionUser";
+
+//import Pagination from "../Pagination/Pagination.jsx";
 import Loading from "../Loading/Loading.jsx";
 import NotFound from "../NotFound/NotFound.jsx";
+import NavBar from "../NavBar/NavBar";
 
 
 export default function Home() {
@@ -39,7 +41,7 @@ export default function Home() {
 
 
   if (allBooks.length > 0 && loading) {
-     setLoading(false)
+    setLoading(false)
 
   }
   // const page = (pageNumber) => {
@@ -53,7 +55,10 @@ export default function Home() {
 
   return (
     <div>
-      <div><h1>HOME</h1></div>
+
+      <div>
+        <NavBar />
+      </div>
       <div onClick={() => logOut()}>
         <Link to="/">
           <h3>Logout</h3>
@@ -61,11 +66,14 @@ export default function Home() {
       </div>
       {allBooks.length > 0 && !loading ? (
         allBooks && allBooks?.map((e, i) => {
-          
+
+          // console.log para revisar qué llega de cada elemento en los libros! 
+          console.log(e)
+
           return (
             <div key={i}>
               {e.error ? <h1>ERROR!</h1> :
-                <Link to={"/details/" + e.id}>
+                <Link to={"/details/" + e._id}>
                   <Book
                     id={e.id}
                     nombre={e.nombre}
