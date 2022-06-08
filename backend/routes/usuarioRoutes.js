@@ -6,7 +6,8 @@ import {
     olvidePassword,
     comprobarToken,
     nuevoPassword,
-    perfil
+    perfil,
+    cambiarImage
 } from "../controllers/usuarioControllers.js";
 
 import checkAuth from "../middleware/checkAuth.js";
@@ -21,6 +22,6 @@ router.post('/olvide-password', olvidePassword); //poder renovar password
 router.route("/olvide-password/:token").get(comprobarToken).post(nuevoPassword); //modificar y guardar password
 
 router.get('/perfil', checkAuth, perfil); //Ingresar al perfil solo si es el usuario
-
+router.put("/imagen", checkAuth, cambiarImage);//Cambiar imagen de perfil
 
 export default router;
