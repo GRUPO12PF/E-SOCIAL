@@ -26,8 +26,27 @@ const Details = () => {
       <div>
         <NavBar />
       </div>
-      <p> Details</p>
+      
+      <h1> Details</h1>
       {detail.image}
+      
+      <h3>Nombre</h3>
+      {detail.nombre}
+      
+      <h3>Descripción</h3>
+      {detail.descripcion}
+      
+      <h3>Colección</h3>
+      {detail.colection}
+      
+      <h3>Categoría</h3>
+      {detail.category}
+      
+      <h3>Precio</h3>
+      {detail.price}
+      
+      <h3>rating</h3>
+      {detail.rating ? detail.rating : "no tiene rating"}
 
     </div>
   )

@@ -3,7 +3,8 @@ import { projection } from './booksControllers.js'
 
 const getCategory = async (req, res) => {
     const categories = await Category.find(null, projection)
-    res.json(categories)
+    const mappedCategories = categories.map(e => e.nombre)
+    res.json(mappedCategories)
 }
 
 const postCategory = async (req, res) => {
