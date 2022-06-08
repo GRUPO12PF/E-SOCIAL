@@ -27,7 +27,7 @@ export default function LandingPage() {
     let usuarioA = dispatch(autenticarUser(config));
     usuarioA ? navigate("/home") : null;
   }, []);
-
+console.log("prueba")
   return (
     <div>
       <img className={s.image} src={image} alt='' />
