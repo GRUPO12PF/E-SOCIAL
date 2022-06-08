@@ -14,7 +14,9 @@ const obtenerBooks = async (req, res) => {
 
     } else {
       // getAllBooks      
-      const books = await Book.find()
+      const limit = req.query.limit  || 8
+      const page = req.query.page || 1
+      const books = await Book.paginate({}, {limit, page})
       res.json(books)
     }
   } catch (error) {
