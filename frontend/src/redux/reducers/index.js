@@ -91,7 +91,6 @@ function rootReducer(state = initialState, action) {
             detail:action.payload[0]
           }
                 
-            }  
             case "SEARCH_BY_NAME":
               return {
                   ...state,
