@@ -18,11 +18,9 @@ const obtenerBooks = async (req, res) => {
       // booksByCategory
     } else if (req.query.category) {
       const { category } = req.query
-      
-      const bookQuery = await Book.find({ 'category': { $regex: `^.*${category}.*` } }, projection)
-
-      if (bookQuery.length) {
-        res.json(bookQuery)
+      const categoryQuery = await Book.find({ category: { $in: [`${ category }`] } }, projection)
+      if (categoryQuery.length) {
+        res.json(categoryQuery)
       } else {
         const error = new Error('No se encontraron libros en esa categoría.')
         res.status(404).json({ msg: error.message })
