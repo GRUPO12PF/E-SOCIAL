@@ -58,13 +58,15 @@ export default function Home() {
         </Link>
       </div>
       {currentBooks.length > 0 && !loading ? (
-        currentBooks && allBooks.map(e => {
+        currentBooks && allBooks?.map((e, i) => {
+          // console.log para revisar qué llega de cada elemento en los libros! 
+          console.log(e) 
+          //-----------------------------
           return (
-            <div key={e.id}>
+            <div key={i}>
               {e.error ? <h1>ERROR!</h1> :
                 <Link to={"/home/" + e.id}>
                   <Book
-                    key={e.id}
                     nombre={e.nombre}
                     image={e.image}
                   />
