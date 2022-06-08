@@ -1,16 +1,15 @@
-import express from 'express';
+import express from 'express'
 import {
     getCategory,
     postCategory
-} from '../controllers/categoriesControllers.js';
-import checkAuth from '../middleware/checkAuth.js';
+} from '../controllers/categoriesControllers.js'
+import checkAuth from '../middleware/checkAuth.js'
 
-const router = express.Router();
+const router = express.Router()
 
 router
     .route('/')
     .post(checkAuth, postCategory)
-    .get(checkAuth, getCategory)
+    .get(getCategory)
 
-    console.log("last test")
-export default router;
+export default router
