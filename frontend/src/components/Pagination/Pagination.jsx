@@ -7,7 +7,7 @@ export default function Pagination({ allBooks, pageSize, page, goToPreviousPage,
     for (let i = 1; i <= Math.ceil(allBooks / pageSize); i++) {
         pageNumbers.push(i);;
     }
-    console.log("prueba")
+    
     return (
         <nav className={s.nav}>
             <div className={s.pagination}>

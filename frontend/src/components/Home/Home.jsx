@@ -48,7 +48,7 @@ export default function Home() {
   const goToPreviousPage = () => {
     if (pageCurrent > 1) setPageCurrent(pageCurrent - 1)
   }
-console.log("prueba")
+
   return (
     <div>
       <div><h1>HOME</h1></div>
