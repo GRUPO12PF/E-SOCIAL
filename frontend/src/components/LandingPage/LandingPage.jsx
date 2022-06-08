@@ -11,7 +11,7 @@ function LandingPage() {
               <h1>Welcome</h1>
               <div className={s.link}>
                   <Link to='/homeout'>
-                      <button className={s.btn}>Click here to get started 📖 📚 </button>
+                      <button className={s.btn}>📚 📖 Click here to get started 📖 📚 </button>
                   </Link>
               </div>
           </div>
