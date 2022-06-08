@@ -67,8 +67,9 @@ export default function Home() {
           return (
             <div key={i}>
               {e.error ? <h1>ERROR!</h1> :
-                <Link to={"/home/" + e.id}>
+                <Link to={"/details/" + e.id}>
                   <Book
+                    id={e.id}
                     nombre={e.nombre}
                     image={e.image}
                   />

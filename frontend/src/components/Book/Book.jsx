@@ -2,6 +2,7 @@ import React from 'react'
 import s from './Book.module.css'
 
 function Book({nombre,image}) {
+    
     return (
         <div>
             <div>

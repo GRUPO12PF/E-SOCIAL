@@ -13,6 +13,8 @@ import ConfirmAccount from "./components/ConfirmAccount/ConfirmAccount";
 import VerificationUser from "./components/VerificationUser/VerificationUser";
 import Home from "./components/Home/Home";
 import UpdatePassword from "./components/UpdatePassword/UpdatePassword";
+import Forms from './components/Form/Forms'
+import Details from './components/Details/Details'
 import Form from "./components/Form/Form";
 import Settings from "./components/Settings/Settings";
 
@@ -27,6 +29,10 @@ function App() {
         <Route path="olvide-password/:token" element={<NewPassword />} />
         <Route path="confirmar/:id" element={<ConfirmAccount />} />
         <Route path="/update-password" element={<UpdatePassword />} />
+        <Route path="/create" element={<Forms/>} />
+        <Route path="/details/:id" element={<Details/>} />
+        
+        
         <Route path="/create" element={<Form />} />
 
         <Route path="/home" element={<VerificationUser />}>
