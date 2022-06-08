@@ -18,9 +18,10 @@ const usuarioSchema = mongoose.Schema({
         trim: true,
         unique: true,
     },
-    //image: {
-    //    type: Text,
-    //},
+    image: {
+        public_id: String,
+        url: String,
+      },
     token: {
         type: String,
     },

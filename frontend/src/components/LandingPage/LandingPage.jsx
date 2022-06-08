@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Modal from "react-modal";
 import { autenticarUser } from "../../redux/actions/actionUser";
-
+import s from './LandingPage.module.css';
+import image from "../../assets/images/image1.jpg";
 
 Modal.setAppElement("#root");
 
@@ -26,9 +27,10 @@ export default function LandingPage() {
     let usuarioA = dispatch(autenticarUser(config));
     usuarioA ? navigate("/home") : null;
   }, []);
-
+console.log("prueba")
   return (
     <div>
+      <img className={s.image} src={image} alt='' />
       <div>
         <Link to="/login">
           <button>LOGIN</button>

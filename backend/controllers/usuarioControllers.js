@@ -143,7 +143,12 @@ const perfil = async (req, res) => {
 
     res.json(usuario);
 }
- 
+
+const cambiarImage = async (req, res) => {
+console.log("x")
+}
+
+
 export { 
     registrar, 
     autenticar, 
@@ -152,4 +157,5 @@ export {
     comprobarToken, 
     nuevoPassword,
     perfil,
+    cambiarImage,
  };
