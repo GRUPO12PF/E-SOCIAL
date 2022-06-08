@@ -141,3 +141,6 @@ export function registroUsuario({ nombre, email, password1 }) {
       });
     };
   }
+
+
+ 
