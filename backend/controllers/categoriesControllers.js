@@ -1,4 +1,10 @@
-import Category from "../models/Category.js"
+import Category from '../models/Category.js'
+import { projection } from './booksControllers.js'
+
+const getCategory = async (req, res) => {
+    const categories = await Category.find(null, projection)
+    res.json(categories)
+}
 
 const postCategory = async (req, res) => {
     const category = new Category(req.body)
@@ -6,15 +12,10 @@ const postCategory = async (req, res) => {
 
     try {
         const categoryAlmacenado = await category.save()
-        res.json(categoryAlmacenado);
+        res.json(categoryAlmacenado)
     } catch (error) {
         console.log(error)
     }
-}; 
-
-const getCategory = async (req, res) => {
-    const categories = await Category.find();
-    res.json(categories)
 }
 
 export {

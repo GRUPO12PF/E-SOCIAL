@@ -1,7 +1,6 @@
 
 
-// 
-import clienteAxios from '../../config/clienteAxios'
+import clienteAxios from '../../config/clienteAxios.jsx';
 
  export const detailsBook = (id) => {
     return async function (dispatch) {

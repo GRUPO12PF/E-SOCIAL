@@ -15,10 +15,11 @@ const Details = () => {
     useEffect(() => {
       dispatch(detailsBook(id))
     }, [dispatch])
-    
+ 
     if (!token) {
       navigate("/");
     }
+  
   return (
     <div>
      <p> Details</p>

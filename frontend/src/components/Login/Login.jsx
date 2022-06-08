@@ -47,9 +47,9 @@ const [errors, setErrors] = useState({
 
 useEffect(() => {
   token ? navigate("/home") : null;
-  return () => {
-    dispatch(resetErrorLoginUser());
-  };
+  // return () => {
+  //   dispatch(resetErrorLoginUser());
+  // };
 }, [token]);
 
 function handleChangeEmail(e) {
