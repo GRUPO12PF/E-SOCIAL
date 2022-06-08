@@ -66,9 +66,10 @@ export default function Home() {
       </div>
       {allBooks.length > 0 && !loading ? (
         allBooks && allBooks?.map((e, i) => {
+
           // console.log para revisar qué llega de cada elemento en los libros! 
           console.log(e)
-          //-----------------------------
+
           return (
             <div key={i}>
               {e.error ? <h1>ERROR!</h1> :
