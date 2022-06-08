@@ -15,6 +15,10 @@ const obtenerBooks = async (req, res) => {
 
     } else {
       // getAllBooks      
+      const limit = req.query.limit  || 8
+      const page = req.query.page || 1
+      const books = await Book.paginate({}, {limit, page})
+
       const books = await Book.find(null, '-createdAt -updatedAt -__v')
       res.json(books)
     }
