@@ -32,7 +32,7 @@ function App() {
         <Route path="/details/:id" element={<Details/>} />
         
         
-        <Route path="/create" element={<Form />} />
+        <Route path="/create" element={<Forms />} />
 
         <Route path="/home" element={<VerificationUser />}>
           <Route index element={<Home />} />
