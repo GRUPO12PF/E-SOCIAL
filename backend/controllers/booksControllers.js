@@ -7,7 +7,7 @@ const obtenerBooks = async (req, res) => {
     // booksByQuery
     if (req.query.name) {
       const { name } = req.query
-      const bookQuery = await Book.find({ 'nombre': { $regex: `^.*${name}.*` } }, projection)
+      const bookQuery = await Book.find({ 'nombre': { $regex: `^.*${name}.*` } }, '-createdAt -updatedAt -__v -avaliable')
       if (bookQuery.length) {
         res.json(bookQuery)
       } else {
@@ -18,7 +18,7 @@ const obtenerBooks = async (req, res) => {
       // booksByCategory
     } else if (req.query.category) {
       const { category } = req.query
-      const categoryQuery = await Book.find({ category: { $in: [`${ category }`] } }, projection)
+      const categoryQuery = await Book.find({ category: { $in: [`${ category }`] } }, '-createdAt -updatedAt -__v -avaliable')
       if (categoryQuery.length) {
         res.json(categoryQuery)
       } else {
@@ -55,7 +55,8 @@ const nuevoBook = async (req, res) => {
 const detailBook = async (req, res) => {
   try {
     const { id } = req.params
-    const book = await Book.findById(id, projection)
+    const book = await Book.findById(id, '-createdAt -updatedAt -__v -avaliable')
+    
 
     if (!book) {
       const error = new Error('No se encontró el libro.')
@@ -71,7 +72,7 @@ const detailBook = async (req, res) => {
 const editarBook = async (req, res) => {
   try {
     const { id } = req.params
-    const bookId = await Book.findById(id)
+    const bookId = await Book.findById(id, '-createdAt -updatedAt -__v -avaliable')
     if (bookId) {
       const { nombre, descripcion, colection, category, price, rating } = req.body
       await Book.updateOne({ nombre, descripcion, colection, category, price, rating })
@@ -88,7 +89,7 @@ const editarBook = async (req, res) => {
 const eliminarBook = async (req, res) => {
   try {
     const { id } = req.params
-    const bookId = await Book.findById(id)
+    const bookId = await Book.findById(id, '-createdAt -updatedAt -__v -avaliable')
     if (bookId) {
       await Book.deleteOne({
         where: { id },
