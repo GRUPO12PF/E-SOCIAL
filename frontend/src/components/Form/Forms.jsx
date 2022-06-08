@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState,useEffect } from 'react'
 import {Formik,Field, ErrorMessage,Form} from 'formik'
 import {Link,useNavigate} from 'react-router-dom'
 import { useDispatch } from 'react-redux';
@@ -7,9 +7,13 @@ import { postCreate } from '../../redux/actions/postProducts';
 const Forms = () => {
     let navigate=useNavigate()
     const dispatch = useDispatch()
+
+    
+    
     const form = useRef();
      return (
     <div>
+        
 
    <Link to="/home">Back</Link>
    <Formik
@@ -46,11 +50,10 @@ const Forms = () => {
 
         return errors;
     }}
-    onSubmit={(valores,{resetForm}) =>{
-          dispatch(postCreate(valores))
+    onSubmit={(values,{resetForm}) =>{
+        console.log(values)
+          dispatch(postCreate(values))
             resetForm()
-        // setForm(true)
-        // setTimeout(()=> setForm(false),5000)
         navigate('/home')
     }}
    >
@@ -102,7 +105,7 @@ const Forms = () => {
         <label htmlFor="">Image</label>
         <div>
             <Field 
-                    type="url" 
+                    type="text" 
                     name="image" 
                     id="image" 
                     as="textarea"
