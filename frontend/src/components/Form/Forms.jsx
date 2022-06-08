@@ -3,15 +3,14 @@ import {Formik,Field, ErrorMessage,Form} from 'formik'
 import {Link,useNavigate} from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { postCreate } from '../../redux/actions/postProducts';
+import NavBar from "../NavBar/NavBar";
 
 const Forms = () => {
-    let navigate=useNavigate()
-    const dispatch = useDispatch()
-
-    
-    
+    let navigate = useNavigate()
+    const dispatch = useDispatch() 
     const form = useRef();
-     return (
+  
+    return (
     <div>
         
 
@@ -47,6 +46,14 @@ const Forms = () => {
             }
             
             
+            <Formik
+                initialValues={{
+                    name: '',
+                    description: '',
+                    price: '',
+                    image: '',
+                    ranking: '',
+                    colection: ''
 
         return errors;
     }}
@@ -129,8 +136,92 @@ const Forms = () => {
     </Form>)}
     </Formik> 
 
-   
-</div>
+                    return errors;
+                }}
+                onSubmit={(valores, { resetForm }) => {
+                    dispatch(postCreate(valores))
+                    resetForm()
+                    // setForm(true)
+                    // setTimeout(()=> setForm(false),5000)
+                    navigate('/home')
+                }}
+            >
+
+                {({ errors }) => (<Form ref={form} action=""  >
+
+
+
+                    <label htmlFor="">Name</label>
+                    <div>
+                        <Field
+                            type="text"
+                            name="name"
+                            id="name"
+                        />
+                        <ErrorMessage name='name' component={() => (<p>{errors.name}</p>)} />
+                    </div>
+                    <label htmlFor="">Colection</label>
+                    <div>
+                        <Field
+                            type="text"
+                            name="colection"
+                            id="colection"
+                        />
+                        <ErrorMessage name='colection' component={() => (<p>{errors.colection}</p>)} />
+                    </div>
+
+                    <label htmlFor="">Price</label>
+                    <div>
+                        <Field
+                            type="text"
+                            name="price"
+                            id="price"
+                        />
+
+                        <ErrorMessage name='price' component={() => (<p >{errors.price}</p>)} />
+                    </div>
+                    <label htmlFor="">Description</label>
+                    <div>
+                        <Field
+                            type="text"
+                            name="description"
+                            id="description"
+                            as="textarea"
+                        />
+                        <ErrorMessage name='description' component={() => (<p>{errors.description}</p>)} />
+
+                    </div>
+                    <label htmlFor="">Image</label>
+                    <div>
+                        <Field
+                            type="url"
+                            name="image"
+                            id="image"
+                            as="textarea"
+                        />
+                        <ErrorMessage name='image' component={() => (<p>{errors.image}</p>)} />
+
+                    </div>
+                    <label htmlFor="">Ranking</label>
+                    <div>
+                        <Field
+                            type="range"
+                            name="ranking"
+                            id="ranking"
+
+                        />
+                        <ErrorMessage name='ranking' component={() => (<p>{errors.ranking}</p>)} />
+
+                    </div>
+                    <button type="submit">Send Message</button>
+
+                </Form>)}
+            </Formik>
+
+            <br/>
+
+            <Link to="/home">Back</Link>
+        </div>
     )
 }
 

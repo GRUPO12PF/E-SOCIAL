@@ -17,6 +17,7 @@ import Forms from './components/Form/Forms'
 import Details from './components/Details/Details'
 import Settings from "./components/Settings/Settings";
 import About from "./components/About/About";
+import Homeout from "./components/Homeout/Homeout";
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
         <Route path="/update-password" element={<UpdatePassword />} />
         <Route path="/create" element={<Forms/>} />
         <Route path="/details/:id" element={<Details/>} />
-        
+        <Route path="/homeout" element={<Homeout/>} />
         
         <Route path="/create" element={<Forms />} />
         <Route path="/about" element={<About />} />
