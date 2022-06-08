@@ -182,7 +182,7 @@ export function usuarioActual() {
       const json = await clienteAxios.get("/usuarios/actual", config);
 
       return dispatch({
-        type: ACTUAL,
+        type: "ACTUAL",
         payload: json.data,
       });
     } catch (e) {

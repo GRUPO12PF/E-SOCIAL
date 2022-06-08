@@ -1,11 +1,18 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterByCategory } from '../../redux/actions/actionCategories.js'
+import { filterByCategory, getCategories } from '../../redux/actions/actionCategories.js'
 import s from './FilterCategories.module.css'
 
 export default function FilterCategories(props) {
   // const { setCurrentPage } = props
   const categories = useSelector(state => state.categories)
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getCategories())
+    return () => {
+    }
+  }, [dispatch])
 
   const handleCategorySelect = (e) => {
     e.preventDefault()

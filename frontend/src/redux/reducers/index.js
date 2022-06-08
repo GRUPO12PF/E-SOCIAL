@@ -22,7 +22,6 @@ function rootReducer(state = initialState, action) {
         books: action.payload,
         allBooks: action.payload,
       }
-
     case 'GOOGLE_LOGIN':
       return {
         ...state,
@@ -92,7 +91,7 @@ function rootReducer(state = initialState, action) {
     case 'GET_DETAIL':
       return {
         ...state,
-        detail: action.payload[0]
+        detail: action.payload
       }
 
     case 'SEARCH_BY_NAME':
@@ -105,6 +104,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         detail: action.payload,
+      }
+
+    case 'ACTUAL':
+      return {
+        ...state,
+        usuarioActual: action.payload,
       }
 
     case GET_CATEGORIES:
