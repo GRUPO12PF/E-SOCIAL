@@ -18,13 +18,18 @@ const usuarioSchema = mongoose.Schema({
         trim: true,
         unique: true,
     },
-    //image: {
-    //    type: Text,
-    //},
+    image: {
+        public_id: String,
+        url: String,
+    },
     token: {
         type: String,
     },
     confirmado: {
+        type: Boolean,
+        default: false,
+    },
+    moderador: {
         type: Boolean,
         default: false,
     },
@@ -36,21 +41,6 @@ const usuarioSchema = mongoose.Schema({
     books: {
         type: Array,
     },
-    favoritos: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "BooksCreated",
-    }],
-    BooksLikes: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "BooksCreated",
-    }],
-    transacciones: {
-        type: Array,
-    },
-    hasTradeOffers: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Trade",
-    }],
     notificaciones: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Notificacion"

@@ -1,5 +1,7 @@
 
 const initialState = {
+  books:[],
+  allBooks: [],
   usuario: [],
   usuarioActual: [],
   allUsuarios: [],
@@ -7,11 +9,17 @@ const initialState = {
   email: [],
   invalidToken: true,
   loginUser: false,
+  post:[],
 };
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
-
+    case "GET_BOOKS": 
+    return {
+    ...state, 
+    books: action.payload,
+    allBooks: action.payload,
+}
     case "GOOGLE_LOGIN":
       return {
         ...state,
@@ -70,6 +78,12 @@ function rootReducer(state = initialState, action) {
             ...state,
             email: [],
           };
+        
+        case "POST_CREATE":
+            return{
+              ...state,
+                
+            }  
     default:
       return state;
   }
