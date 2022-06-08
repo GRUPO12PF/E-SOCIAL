@@ -1,13 +1,14 @@
 import Book from '../models/Book.js'
 
-const projection = { createdAt: 0, updatedAt: 0, __v: 0 }
+const projection = { createdAt: 0, updatedAt: 0, __v: 0, avaliable: 0 }
 
 const obtenerBooks = async (req, res) => {
   try {
     // booksByQuery
     if (req.query.name) {
       const { name } = req.query
-      const bookQuery = await Book.find({ 'nombre': { $regex: `^.*${name}.*` } }, '-createdAt -updatedAt -__v -avaliable')
+      const bookQuery = await Book.find({ 'nombre': { $regex: `^.${name}.` } }, projection)
+
       if (bookQuery.length) {
         res.json(bookQuery)
       } else {
@@ -55,7 +56,8 @@ const nuevoBook = async (req, res) => {
 const detailBook = async (req, res) => {
   try {
     const { id } = req.params
-    const book = await Book.findById(id, '-createdAt -updatedAt -__v -avaliable')
+    const book = await Book.findById(id, projection)
+
     
 
     if (!book) {
@@ -72,7 +74,8 @@ const detailBook = async (req, res) => {
 const editarBook = async (req, res) => {
   try {
     const { id } = req.params
-    const bookId = await Book.findById(id, '-createdAt -updatedAt -__v -avaliable')
+    const bookId = await Book.findById(id, projection)
+
     if (bookId) {
       const { nombre, descripcion, colection, category, price, rating } = req.body
       await Book.updateOne({ nombre, descripcion, colection, category, price, rating })
@@ -89,7 +92,8 @@ const editarBook = async (req, res) => {
 const eliminarBook = async (req, res) => {
   try {
     const { id } = req.params
-    const bookId = await Book.findById(id, '-createdAt -updatedAt -__v -avaliable')
+
+    const bookId = await Book.findById(id, projection)
     if (bookId) {
       await Book.deleteOne({
         where: { id },
