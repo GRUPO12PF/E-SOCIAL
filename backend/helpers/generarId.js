@@ -5,4 +5,6 @@ const generarId = () => {
 
 };
 
-export default generarId;
+export {
+    generarId
+}
