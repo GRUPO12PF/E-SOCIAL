@@ -160,8 +160,6 @@ export function cambiarImagen(payload) {
       }
       const json = await clienteAxios.put(`/usuarios/imagen`, form, config);
       toast.success(json.data.msg);
-      socket.io;
-      socket.emit("update2");
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.msg);
@@ -177,10 +175,8 @@ export function usuarioActual() {
         Authorization: `Bearer ${id}`,
       },
     };
-
     try {
       const json = await clienteAxios.get("/usuarios/actual", config);
-
       return dispatch({
         type: "ACTUAL",
         payload: json.data,

@@ -32,7 +32,7 @@ export default function Settings() {
             <br></br>
             <span>Extenciones Soportadas: jpg/jpeg/png</span>
             <br></br>
-            <img src={usuarioAct.image.url || profile} alt='No Img' />
+            <img src={usuarioAct.image || profile} alt='No Img' />
           </div>
         <div>
           <Link to="/update-password">
