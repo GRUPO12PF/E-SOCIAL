@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import { useParams } from 'react-router-dom'
 import { detailsBook } from '../../redux/actions/detailsBooks'
 import NavBar from "../NavBar/NavBar";
+import s from './Details.module.css'
 
 const Details = () => {
   const token = localStorage.getItem("token");
@@ -26,28 +27,30 @@ const Details = () => {
       <div>
         <NavBar />
       </div>
-      
-      <h1> Details</h1>
-      {detail.image}
-      
-      <h3>Nombre</h3>
-      {detail.nombre}
-      
-      <h3>Descripción</h3>
-      {detail.descripcion}
-      
-      <h3>Colección</h3>
-      {detail.colection}
-      
-      <h3>Categoría</h3>
-      {detail.category}
-      
-      <h3>Precio</h3>
-      {detail.price}
-      
-      <h3>rating</h3>
-      {detail.rating ? detail.rating : "no tiene rating"}
-
+         <div className={s.background}>
+             {/* <h1> Details</h1> */}
+            <div className={s.name}>
+            
+            <h3 className={s.pName}>{detail.nombre}</h3>
+            <img src={detail.image} alt="not found" className={s.image}/>
+            <h3 className={s.pName}>Precio: {detail.price}</h3>
+            <button>Añadir a Carrito</button>
+              
+            </div>
+            <div className={s.description}>
+              <h5 className={s.h5}>Colección</h5>
+              {detail.colection}
+         
+              <h5 className={s.h5}>Categoría</h5>
+              {detail.category}
+             
+              <h5 className={s.h5}>Ranking</h5>
+              {detail.ranking ? detail.ranking : "no tiene ranking"}
+          
+              <h5 className={s.h5}>Descripción</h5>
+              {detail.descripcion}
+            </div>
+          </div>
     </div>
   )
 }
