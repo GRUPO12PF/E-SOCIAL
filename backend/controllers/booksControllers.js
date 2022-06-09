@@ -29,8 +29,8 @@ const obtenerBooks = async (req, res) => {
 
     } else {
       // getAllBooks      
-      const limit = req.query.limit || 2
-      const page = req.query.page || 1
+      const limit = req.query.limit || 3
+      const page = Math.ceil(req.query.page) || 1
       const books = await Book.paginate({}, { projection, limit, page })
 
       res.json(books)
