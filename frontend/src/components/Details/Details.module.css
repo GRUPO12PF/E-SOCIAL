@@ -1,0 +1,32 @@
+.image{
+    width: 450px;
+    height: 600px;
+}
+
+.name{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pName{
+    margin-top: 30px;   
+    margin-bottom: 15px;
+}
+
+.background{
+    /* background-color:aquamarine; */
+    display: flex;
+    flex-direction: row;
+
+}
+.description{
+    margin-top: 80px;
+    margin-left: 150px;
+}
+
+.h5{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
