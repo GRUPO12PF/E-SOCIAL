@@ -32,12 +32,22 @@ const obtenerBooks = async (req, res) => {
       const limit = req.query.limit || 3
       const page = Math.ceil(req.query.page) || 1
       const books = await Book.paginate({}, { projection, limit, page })
+      const totalBooks = books.docs
 
-      res.json(books)
+      res.json(totalBooks)
     }
   } catch (error) {
     console.log(error)
   }
+}
+
+const obternerTodosLosLibros = async (req, res) =>{
+    const limit = req.query.limit || 3
+    const page = Math.ceil(req.query.page) || 1
+    const books = await Book.paginate({}, { projection, limit, page })
+    const allBooks = books.totalDocs 
+
+    res.json(allBooks)
 }
 
 const nuevoBook = async (req, res) => {
@@ -113,5 +123,6 @@ export {
   nuevoBook,
   editarBook,
   eliminarBook,
+  obternerTodosLosLibros,
   projection
 }

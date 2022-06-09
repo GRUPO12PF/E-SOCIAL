@@ -12,11 +12,17 @@ import FilterCategories from '../FilterCategories/FilterCategories'
 import style from './Home.module.css'
 
 export default function Home() {
-  const token = localStorage.getItem('token')
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const allBooks = useSelector(state => state.books.docs)
-  //const colection = useSelector(state => state.colection)
+
+  const token = localStorage.getItem("token");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const allBooks = useSelector(state => state.books);
+  //const colection = useSelector(state => state.colection);
+  useEffect(() => {
+    dispatch(getBooks())
+    //dispatch(getColection())
+  }, [dispatch])
+
 
   if (!token) {
     navigate('/')
