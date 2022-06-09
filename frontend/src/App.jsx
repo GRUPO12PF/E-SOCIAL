@@ -39,9 +39,10 @@ function App() {
         <Route path="/home" element={<VerificationUser />}>
           <Route index element={<Home />} />
         </Route>
-        <Route path="/home/usuarios/setting" element={<VerificationUser />}>
+        <Route path="/home/usuario/setting" element={<VerificationUser />}>
           <Route index element={<Settings />} />
         </Route>
+        <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
     </Router>
   );

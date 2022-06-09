@@ -5,20 +5,21 @@ import usuarioRoutes from './routes/usuarioRoutes.js';
 import booksRoutes from './routes/booksRoutes.js';
 import proyectoRoutes from './routes/proyectoRoutes.js';
 import categoriesRoutes from './routes/categoriesRoutes.js';
-import fileUpload from "express-fileupload";
 
 import cors from "cors";
+import fileUpload from "express-fileupload";
 
 const app = express();
-app.use(express.json())
-dotenv.config()
+
+dotenv.config();
+conectarDB();
+app.use(express.json());
 app.use(
   fileUpload({
     tempFileDir: "./upload",
     useTempFiles: true,
   })
 );
-conectarDB();
 
 //cors
 app.use(cors());
@@ -39,6 +40,37 @@ app.use("/api/proyectos", proyectoRoutes);
 app.use("/api/categories", categoriesRoutes);
 
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`)
+
+const servidor = app.listen(PORT, () => {
+  console.log(`Server en ${PORT}`);
+});
+
+//socket io
+
+import { Server } from "socket.io";
+
+const io = new Server(servidor, {
+  pingTimeout: 60000,
+  cors: {
+    origin: process.env.FRONTEND_URL,
+  },
+});
+
+io.on("connection", (socket) => {
+  //definir la conexion
+  //on define que es lo que pasa cuando el evento ocurre
+  socket.on("Actualizar", (room) => {
+    socket.join(room);
+  });
+  socket.on("renderHome", () => {
+    socket.to(`${process.env.FRONTEND_URL}/home`).emit("homeUpdate");
+  });
+  socket.on("Portfolio", (room) => {
+    socket.join(room);
+  });
+  socket.on("update", () => {
+    socket
+      .to(`${process.env.FRONTEND_URL}/home/usuario/portfolio`)
+      .emit("bookUser");
+  });
 });
