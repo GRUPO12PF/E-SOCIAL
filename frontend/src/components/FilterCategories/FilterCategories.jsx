@@ -23,7 +23,7 @@ export default function FilterCategories(props) {
   return (
     <div>
       <select onChange={handleCategorySelect}>
-        <option value={''}>All categories</option>
+        <option value={''}>ALL CATEGORIES</option>
         {categories?.map((g, i) => {
           return (
             <option value={g} key={i}>{g}</option>

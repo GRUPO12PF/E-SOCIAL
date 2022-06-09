@@ -11,7 +11,7 @@ import Loading from "../Loading/Loading.jsx";
 import NotFound from "../NotFound/NotFound.jsx";
 import NavBar from "../NavBar/NavBar";
 import FilterCategories from "../FilterCategories/FilterCategories";
-
+import style from "./Home.module.css";
 export default function Home() {
   const token = localStorage.getItem("token");
   const dispatch = useDispatch();
@@ -65,6 +65,7 @@ export default function Home() {
         </Link>
       </div>
       <FilterCategories/>
+      <div className={style.contenedorBooks}>
       {allBooks?.length > 0 && !loading ? (
         allBooks && allBooks?.map((e, i) => {
           console.log(e)
@@ -89,6 +90,7 @@ export default function Home() {
         <NotFound />
       )
       }
+      </div>
       {/* <Pagination
         pageSize={pageSize}
         allBooks={allBooks.length}

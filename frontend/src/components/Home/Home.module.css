@@ -1,0 +1,13 @@
+.contenedorBooks {
+    display: inline;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    align-items: center;
+    max-width: 120rem;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
