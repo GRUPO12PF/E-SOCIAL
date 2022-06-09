@@ -88,6 +88,7 @@ const handleSubmit = (e) => {
       e.preventDefault();
     } else {
       dispatch(resetErrorLoginUser());
+
       navigate("/home");
     }
   } else setErrors(val);

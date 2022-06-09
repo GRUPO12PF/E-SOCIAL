@@ -30,7 +30,7 @@ export function searchByName(name) {
 export function pagination(page) {
     return async function (dispatch) {
         try {
-            var json = await clienteAxios.get(`/books?page=${page}`)
+            var json = await clienteAxios.get(`/books/?page=${page}`)
             return dispatch({
                 type: "PAGINATION_BOOKS",
                 payload: json.data
@@ -43,6 +43,17 @@ export function pagination(page) {
         }
     }
 };
+
+export function getTotalBooks() {
+    return async function (dispatch){
+        const json = await clienteAxios.get(`books/total`);
+        console.log(json)
+        return dispatch({
+            type: "GET_TOTAL",
+            payload: json.data,
+        })
+    }
+}
 
 
 

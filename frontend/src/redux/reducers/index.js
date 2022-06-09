@@ -2,6 +2,7 @@ import { GET_CATEGORIES, FILTER_BY_CATEGORY } from '../utils/constants'
 
 const initialState = {
   books: [],
+  countBooks:[],
   allBooks: [],
   categories: [],
   usuario: [],
@@ -128,6 +129,12 @@ function rootReducer(state = initialState, action) {
           ...state,
           books: action.payload
         }
+        case 'GET_TOTAL':
+      return {
+        ...state,
+        countBooks: action.payload
+      }
+        
 
     default:
       return state

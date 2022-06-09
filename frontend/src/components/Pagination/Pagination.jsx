@@ -1,12 +1,19 @@
+import React, { useEffect, useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
-import { pagination } from '../../redux/actions/actionBooks'
+import { pagination,getTotalBooks } from '../../redux/actions/actionBooks'
 import s from './Pagination.module.css';
+
 
 
 
 export default function Pagination({ }) {
   const dispatch = useDispatch()
-  const allBooks = useSelector(state => state.allBooks.totalDocs);
+  const allBooks = useSelector(state => state.countBooks);
+
+  useEffect(() => {
+    dispatch(getTotalBooks())
+  }, [dispatch])
 
 
   const pageNumber = [];
