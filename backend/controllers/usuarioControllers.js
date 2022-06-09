@@ -3,6 +3,8 @@ import Usuario from "../models/Usuario.js";
 import generarId from "../helpers/generarId.js";
 import generarJWT from "../helpers/generarJWT.js";
 import { emailRegistro, emailOlvidePassword } from "../helpers/emails.js";
+import { uploadImage } from "../libs/cloudinary.js";
+import fs from "fs-extra";
 
 const registrar = async (req, res) => {
     //Evitar registros duplicados
