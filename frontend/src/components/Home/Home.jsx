@@ -63,8 +63,10 @@ export default function Home() {
           <h3 className={style.logout}>Logout</h3>
         </Link>
       </div>
-      <FilterCategories/> 
-      <div className={style.contenedorBooks}>
+      <div className={style.DivFilter}>
+      <FilterCategories/>
+      </div>
+       <div className={style.contenedorBooks}>
       {allBooks?.length > 0 && !loading ? (
         allBooks && allBooks?.map((e, i) => {
           console.log(e)

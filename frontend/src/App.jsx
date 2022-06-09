@@ -18,6 +18,7 @@ import Details from './components/Details/Details'
 import Settings from "./components/Settings/Settings";
 import About from "./components/About/About";
 import Homeout from "./components/Homeout/Homeout";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   return (
@@ -42,7 +43,7 @@ function App() {
         <Route path="/home/usuario/setting" element={<VerificationUser />}>
           <Route index element={<Settings />} />
         </Route>
-        <Route path="*" element={<Navigate replace to="/" />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
