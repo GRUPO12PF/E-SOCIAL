@@ -6,8 +6,8 @@ import booksRoutes from './routes/booksRoutes.js';
 import proyectoRoutes from './routes/proyectoRoutes.js';
 import categoriesRoutes from './routes/categoriesRoutes.js';
 
-import cors from "cors";
-import fileUpload from "express-fileupload";
+import cors from 'cors';
+import fileUpload from 'express-fileupload';
 
 const app = express();
 
@@ -16,7 +16,7 @@ conectarDB();
 app.use(express.json());
 app.use(
   fileUpload({
-    tempFileDir: "./upload",
+    tempFileDir: './upload',
     useTempFiles: true,
   })
 );
@@ -36,20 +36,20 @@ app.use(
 	})
 );
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
   res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
   );
-  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   next();
 });
 
 //Routing
-app.use("/api/usuarios", usuarioRoutes);
-app.use("/api/books", booksRoutes);
-app.use("/api/proyectos", proyectoRoutes);
-app.use("/api/categories", categoriesRoutes);
+app.use('/api/usuarios', usuarioRoutes);
+app.use('/api/books', booksRoutes);
+app.use('/api/proyectos', proyectoRoutes);
+app.use('/api/categories', categoriesRoutes);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
@@ -59,7 +59,7 @@ app.listen(PORT, () => {
 /*
 //socket io
 
-import { Server } from "socket.io";
+import { Server } from 'socket.io';
 
 const io = new Server(servidor, {
   pingTimeout: 60000,
@@ -68,21 +68,21 @@ const io = new Server(servidor, {
   },
 });
 
-io.on("connection", (socket) => {
+io.on('connection', (socket) => {
   //definir la conexion
   //on define que es lo que pasa cuando el evento ocurre
-  socket.on("Actualizar", (room) => {
+  socket.on('Actualizar', (room) => {
     socket.join(room);
   });
-  socket.on("renderHome", () => {
-    socket.to(`${process.env.FRONTEND_URL}/home`).emit("homeUpdate");
+  socket.on('renderHome', () => {
+    socket.to(`${process.env.FRONTEND_URL}/home`).emit('homeUpdate');
   });
-  socket.on("Portfolio", (room) => {
+  socket.on('Portfolio', (room) => {
     socket.join(room);
   });
-  socket.on("update", () => {
+  socket.on('update', () => {
     socket
       .to(`${process.env.FRONTEND_URL}/home/usuario/portfolio`)
-      .emit("bookUser");
+      .emit('bookUser');
   });
 });*/

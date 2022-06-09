@@ -1,8 +1,8 @@
-import Proyecto from "../models/Proyecto.js";
+import Proyecto from '../models/Proyecto.js';
 
 
 const obtenerProyectos = async (req, res) => {
-    const proyectos = await Proyecto.find().where("creador").equals(req.usuario);
+    const proyectos = await Proyecto.find().where('creador').equals(req.usuario);
 
     res.json(proyectos)
 };
@@ -25,12 +25,12 @@ const obtenerProyecto = async (req, res) => {
     const proyecto = await Proyecto.findById(id);
 
     if(!proyecto) {
-        const error = new Error("No Enctontrado el Proyecto");
+        const error = new Error('No Enctontrado el Proyecto');
         return res.status(404).json({msg: error.message});
     }
 
     if (proyecto.creador.toString() !== req.usuario._id.toString() ) {
-        const error = new Error("Accion No Valida");
+        const error = new Error('Accion No Valida');
         return res.status(401).json({msg: error.message});
     }
 
@@ -44,12 +44,12 @@ const editarProyecto = async (req, res) => {
     const proyecto = await Proyecto.findById(id);
 
     if(!proyecto) {
-        const error = new Error("No Enctontrado el Proyecto");
+        const error = new Error('No Enctontrado el Proyecto');
         return res.status(404).json({msg: error.message});
     }
 
     if (proyecto.creador.toString() !== req.usuario._id.toString() ) {
-        const error = new Error("Accion No Valida");
+        const error = new Error('Accion No Valida');
         return res.status(401).json({msg: error.message});
     }
 
@@ -73,12 +73,12 @@ const eliminarProyecto = async (req, res) => {
     const proyecto = await Proyecto.findById(id);
 
     if(!proyecto) {
-        const error = new Error("No Encontrado el Proyecto");
+        const error = new Error('No Encontrado el Proyecto');
         return res.status(404).json({ msg: error.message });
     }
 
     if (proyecto.creador.toString() !== req.usuario._id.toString()) {
-        const error = new Error("Accion No Valida");
+        const error = new Error('Accion No Valida');
         return res.status(401).json({ msg: error.message });
     }
 

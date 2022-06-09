@@ -60,6 +60,6 @@ const booksSchema = mongoose.Schema(
 )
 
 booksSchema.plugin(mongoosePaginate);
-const BooksCreated = mongoose.model("Books", booksSchema);
+const BooksCreated = mongoose.model('Books', booksSchema);
 export default BooksCreated;
 

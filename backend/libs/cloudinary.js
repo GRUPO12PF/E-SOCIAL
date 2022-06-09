@@ -1,5 +1,5 @@
-import { v2 as cloudinary } from "cloudinary";
-import { CLOUD_NAME, API_KEY, API_SECRET } from "../config.js";
+import { v2 as cloudinary } from 'cloudinary';
+import { CLOUD_NAME, API_KEY, API_SECRET } from '../config.js';
 
 cloudinary.config({
   cloud_name: CLOUD_NAME,
@@ -9,6 +9,6 @@ cloudinary.config({
 
 export const uploadImage = async (filePath) => {
   return await cloudinary.uploader.upload(filePath, {
-    folder: "BooksMarket",
+    folder: 'BooksMarket',
   });
 };

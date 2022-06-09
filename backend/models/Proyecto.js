@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const proyectosSchema = mongoose.Schema({
     nombre: {
@@ -22,13 +22,13 @@ const proyectosSchema = mongoose.Schema({
     },
     creador: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Usuario",
+        ref: 'Usuario',
         required: true,
     },
     colaboradores: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Usuario",
+            ref: 'Usuario',
         },
     ],
 }, {

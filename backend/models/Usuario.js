@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import bcrypt from "bcrypt";
+import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 
 const usuarioSchema = mongoose.Schema({
     nombre: {
@@ -43,7 +43,7 @@ const usuarioSchema = mongoose.Schema({
     },
     notificaciones: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Notificacion"
+        ref: 'Notificacion'
     }]
 }, {
     timestamps: true,
@@ -60,5 +60,5 @@ usuarioSchema.methods.comprobarPassword = async function (passwordFormulario) {
     return await bcrypt.compare(passwordFormulario, this.password);
 };
 
-const Usuario = mongoose.model("Usuario", usuarioSchema);
+const Usuario = mongoose.model('Usuario', usuarioSchema);
 export default Usuario;

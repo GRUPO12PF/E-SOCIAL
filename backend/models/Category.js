@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const categoriesSchema = mongoose.Schema(
     {
@@ -13,5 +13,5 @@ const categoriesSchema = mongoose.Schema(
     }
 );
 
-const CategoriesCreated = mongoose.model("Category", categoriesSchema);
+const CategoriesCreated = mongoose.model('Category', categoriesSchema);
 export default CategoriesCreated;

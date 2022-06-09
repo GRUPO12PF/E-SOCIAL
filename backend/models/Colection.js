@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const colectionSchema = mongoose.Schema(
     {
@@ -19,5 +19,5 @@ const colectionSchema = mongoose.Schema(
     }
 );
 
-const Colection = mongoose.model("Coleccion", colectionSchema);
+const Colection = mongoose.model('Coleccion', colectionSchema);
 export default Colection;

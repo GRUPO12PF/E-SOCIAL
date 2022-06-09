@@ -1,10 +1,10 @@
-import Usuario from "../models/Usuario.js";
-import { generarId } from "../helpers/generarId.js";
-import generarJWT from "../helpers/generarJWT.js";
-import { emailRegistro, emailOlvidePassword } from "../helpers/emails.js";
-import { uploadImage } from "../libs/cloudinary.js";
-import fs from "fs-extra";
-import { OAuth2Client } from "google-auth-library";
+import Usuario from '../models/Usuario.js';
+import { generarId } from '../helpers/generarId.js';
+import generarJWT from '../helpers/generarJWT.js';
+import { emailRegistro, emailOlvidePassword } from '../helpers/emails.js';
+import { uploadImage } from '../libs/cloudinary.js';
+import fs from 'fs-extra';
+import { OAuth2Client } from 'google-auth-library';
 
 const registrar = async (req, res) => {
     //Evitar registros duplicados
@@ -19,7 +19,7 @@ const registrar = async (req, res) => {
     try {
         const usuario = new Usuario({
             ...req.body,
-            image: { public_id: "", url: "" },
+            image: { public_id: '', url: '' },
           });
         usuario.token = generarId(); //id hasheado
         await usuario.save()
@@ -32,7 +32,7 @@ const registrar = async (req, res) => {
 
         res
         .status(200)
-        .send("User created, check your email to confirm your account");
+        .send('User created, check your email to confirm your account');
     } catch (error) {
       console.log(error);
     }
@@ -45,13 +45,13 @@ const autenticar = async (req, res) => {
     //Comprobar si el usuario existe
     const usuario = await Usuario.findOne({ email });
     if (!usuario) {
-        const error = new Error("Username does not exist");
+        const error = new Error('Username does not exist');
         return res.status(404).json({ msg: error.message });
     }
 
     //Comprobar si el usuario esta confirmado 
     if (!usuario.confirmado) {
-        const error = new Error("Your account has not been confirmed");
+        const error = new Error('Your account has not been confirmed');
         return res.status(403).json({ msg: error.message });
     }
 
@@ -65,7 +65,7 @@ const autenticar = async (req, res) => {
             token: generarJWT(usuario._id), //mandar el id por JWT
           });
     } else {
-        const error = new Error("The Password is Incorrect");
+        const error = new Error('The Password is Incorrect');
         return res.status(403).json({ msg: error.message });
     }
 };
@@ -74,14 +74,14 @@ const confirmar = async (req, res) => {
     const { token } = req.params
     const usuarioConfirmar = await Usuario.findOne({ token });
     if (!usuarioConfirmar) {
-        const error = new Error("Invalid Token");
+        const error = new Error('Invalid Token');
         return res.status(403).json({ msg: error.message });
     }
     try {
         usuarioConfirmar.confirmado = true;
-        usuarioConfirmar.token = "";
+        usuarioConfirmar.token = '';
         await usuarioConfirmar.save();
-        res.json({ msg: "User Confirmed Successfully" });
+        res.json({ msg: 'User Confirmed Successfully' });
 
     } catch (error) {
         console.log(error)
@@ -92,7 +92,7 @@ const olvidePassword = async (req, res) => {
     const { email } = req.body;
     const usuario = await Usuario.findOne({ email });
     if (!usuario) {
-        const error = new Error("Username does not exist");
+        const error = new Error('Username does not exist');
         return res.status(404).json({ msg: error.message });
     }
     try {
@@ -120,7 +120,7 @@ const comprobarToken = async (req, res) => {
     if (tokenValido) {
         res.json({ msg: 'Valid token and the User exists' })
     } else {
-        const error = new Error("Invalid token");
+        const error = new Error('Invalid token');
         return res.status(404).json({ msg: error.message });
     }
 };
@@ -136,19 +136,19 @@ const nuevoPassword = async (req, res) => {
         usuario.token = '';
         try {
             await usuario.save();
-            res.json({ msg: "Password Modified Successfully" });
+            res.json({ msg: 'Password Modified Successfully' });
         } catch (error) {
             console.log(error)
         }
     } else {
-        const error = new Error("Invalid Token");
+        const error = new Error('Invalid Token');
         return res.status(404).json({ msg: error.message });
     }
 }
 
 const perfil = async (req, res) => {
     const usuario = await Usuario.findOne({ nombre: req.usuario.nombre }).select(
-        "-password -email -confirmado -createdAt -updatedAt -__v"
+        '-password -email -confirmado -createdAt -updatedAt -__v'
     );
     res.json(usuario);
 }
@@ -156,10 +156,10 @@ const perfil = async (req, res) => {
 const usuario = async (req, res) => {
     try {
         const user = await Usuario.findOne({ nombre: req.usuario.nombre })
-            .select(" -moderador -password -confirmado  -createdAt -updatedAt -__v -token");
+            .select(' -moderador -password -confirmado  -createdAt -updatedAt -__v -token');
         return res.send(user);
     } catch (e) {
-        return res.status(400).json({ msg: "Error" });
+        return res.status(400).json({ msg: 'Error' });
     }
 };
 
@@ -180,17 +180,17 @@ const traerUsuarios = async (req, res) => {
 
 const cambiarImage = async (req, res) => {
     const nombre = req.usuario.nombre;
-    const formatos = ["png", "jpg", "webp", "gif"];
+    const formatos = ['png', 'jpg', 'webp', 'gif'];
     if (
         !formatos.includes(
-            req.files.image.name.split(".")[
-            req.files.image.name.split(".").length - 1
+            req.files.image.name.split('.')[
+            req.files.image.name.split('.').length - 1
             ]
         )
     ) {
         return res
             .status(400)
-            .send({ msg: "Invalid image format (jpg, png, webp or gif)" });
+            .send({ msg: 'Invalid image format (jpg, png, webp or gif)' });
     }
     try {
         if (req.files.image) {
@@ -205,10 +205,10 @@ const cambiarImage = async (req, res) => {
 
             user.image = image;
             await user.save();
-            return res.json({ msg: "Image updated" });
+            return res.json({ msg: 'Image updated' });
         }
     } catch (e) {
-        return res.status(400).json({ msg: "Error" });
+        return res.status(400).json({ msg: 'Error' });
     }
 };
 
