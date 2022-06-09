@@ -4,7 +4,7 @@ import { GET_CATEGORIES, FILTER_BY_CATEGORY } from '../utils/constants'
 export function getCategories() {
   return async (dispatch) => {
     try {
-      const categories = await clienteAxios.get(`http://localhost:3001/api/categories`)
+      const categories = await clienteAxios.get(`/categories`)
       return dispatch({
         type: GET_CATEGORIES,
         payload: categories.data
@@ -20,9 +20,9 @@ export function filterByCategory(filter) {
     try {
       let categories
       if (filter) {
-        categories = await clienteAxios.get(`http://localhost:3001/api/books?category=${filter}`)
+        categories = await clienteAxios.get(`/books?category=${filter}`)
       } else {
-        categories = await clienteAxios.get(`http://localhost:3001/api/books`)
+        categories = await clienteAxios.get(`/books`)
       }
       return dispatch({
         type: FILTER_BY_CATEGORY,
