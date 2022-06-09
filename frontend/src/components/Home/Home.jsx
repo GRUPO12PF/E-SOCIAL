@@ -10,7 +10,7 @@ import { userLogout } from "../../redux/actions/actionUser";
 import Loading from "../Loading/Loading.jsx";
 import NotFound from "../NotFound/NotFound.jsx";
 import NavBar from "../NavBar/NavBar";
-
+import FilterCategories from "../FilterCategories/FilterCategories";
 
 export default function Home() {
   const token = localStorage.getItem("token");
@@ -64,6 +64,7 @@ export default function Home() {
           <h3>Logout</h3>
         </Link>
       </div>
+      <FilterCategories/>
       {allBooks?.length > 0 && !loading ? (
         allBooks && allBooks?.map((e, i) => {
           console.log(e)
