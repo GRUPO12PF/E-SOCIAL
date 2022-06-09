@@ -27,6 +27,25 @@ export function searchByName(name) {
     }
 };
 
+export function pagination(page) {
+    return async function (dispatch) {
+        try {
+            var json = await clienteAxios.get(`/books?page=${page}`)
+            return dispatch({
+                type: "PAGINATION_BOOKS",
+                payload: json.data
+            })
+        } catch (error) {
+            dispatch({
+                type: "PAGINATION_BOOKS",
+                payload: [],
+            })
+        }
+    }
+};
+
+
+
 export function cleanData() {
     return function (dispatch) {
         dispatch({

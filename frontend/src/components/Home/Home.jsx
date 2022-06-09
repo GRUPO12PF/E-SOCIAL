@@ -5,8 +5,7 @@ import { getBooks } from "../../redux/actions/actionBooks";
 import { useDispatch, useSelector } from "react-redux";
 import Book from "../Book/Book.jsx";
 import { userLogout } from "../../redux/actions/actionUser";
-
-//import Pagination from "../Pagination/Pagination.jsx";
+import Pagination from "../Pagination/Pagination.jsx";
 import Loading from "../Loading/Loading.jsx";
 import NotFound from "../NotFound/NotFound.jsx";
 import NavBar from "../NavBar/NavBar";
@@ -16,7 +15,7 @@ export default function Home() {
   const token = localStorage.getItem("token");
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const allBooks = useSelector(state => state.books);
+  const allBooks = useSelector(state => state.books.docs);
   //const colection = useSelector(state => state.colection);
   useEffect(() => {
     dispatch(getBooks())
@@ -65,6 +64,7 @@ export default function Home() {
         </Link>
       </div>
       <FilterCategories/>
+      <Pagination/> 
       <div className={style.contenedorBooks}>
       {allBooks?.length > 0 && !loading ? (
         allBooks && allBooks?.map((e, i) => {
@@ -91,13 +91,6 @@ export default function Home() {
       )
       }
       </div>
-      {/* <Pagination
-        pageSize={pageSize}
-        allBooks={allBooks.length}
-        page={page}
-        goToNextPage={goToNextPage}
-        goToPreviousPage={goToPreviousPage}
-      /> */}
     </div>
   );
 }

@@ -123,6 +123,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         books: action.payload
       }
+      case 'PAGINATION_BOOKS':
+        return {
+          ...state,
+          books: action.payload
+        }
 
     default:
       return state

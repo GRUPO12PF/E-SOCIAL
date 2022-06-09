@@ -29,12 +29,11 @@ const obtenerBooks = async (req, res) => {
 
     } else {
       // getAllBooks      
-      const limit = req.query.limit || 8
+      const limit = req.query.limit || 2
       const page = req.query.page || 1
       const books = await Book.paginate({}, { projection, limit, page })
-      const booksAll = await books.docs
 
-      res.json(booksAll)
+      res.json(books)
     }
   } catch (error) {
     console.log(error)
