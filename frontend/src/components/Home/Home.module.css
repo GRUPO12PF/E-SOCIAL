@@ -15,3 +15,16 @@
     font-family: 'Roboto', sans-serif;
     color: black;
 }
+
+@media (max-width: 500px) {
+    .divFiltros {
+        height: auto;
+        width: auto;
+        }
+.nav{
+    display: flex;
+}
+
+}
+
+@media only screen and (min-width:501) and (max-width: 850px) {}
