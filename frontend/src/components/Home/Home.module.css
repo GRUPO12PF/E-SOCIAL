@@ -11,3 +11,7 @@
     flex-wrap: wrap;
     flex-direction: row;
 }
+.logout{
+    font-family: 'Roboto', sans-serif;
+    color: black;
+}

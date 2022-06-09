@@ -8,6 +8,7 @@
     color: #060606;
     font-size: 3rem;
     font-weight:bold;
+    font-family: 'Roboto', sans-serif;
 }
 
 .text {
@@ -15,4 +16,5 @@
     padding: 20px;
     overflow: hidden;
     margin: 20px auto;
+    font-family: 'Roboto', sans-serif;
 }

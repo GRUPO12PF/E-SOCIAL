@@ -61,7 +61,7 @@ export default function Home() {
       </div>
       <div onClick={() => logOut()}>
         <Link to="/">
-          <h3>Logout</h3>
+          <h3 className={style.logout}>Logout</h3>
         </Link>
       </div>
       <FilterCategories/>
