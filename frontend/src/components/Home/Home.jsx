@@ -63,8 +63,7 @@ export default function Home() {
           <h3 className={style.logout}>Logout</h3>
         </Link>
       </div>
-      <FilterCategories/>
-      <Pagination/> 
+      <FilterCategories/> 
       <div className={style.contenedorBooks}>
       {allBooks?.length > 0 && !loading ? (
         allBooks && allBooks?.map((e, i) => {
@@ -91,6 +90,7 @@ export default function Home() {
       )
       }
       </div>
+      <Pagination/>
     </div>
   );
 }
