@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { cambiarImagen, usuarioActual } from "../../redux/actions/actionUser";
-import { useDispatch, useSelector } from "react-redux";
-import profile from "../../assets/images/avatar.png";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { cambiarImagen, usuarioActual } from '../../redux/actions/actionUser';
+import { useDispatch, useSelector } from 'react-redux';
+import profile from '../../assets/images/avatar.png';
 
 export default function Settings() {
   const dispatch = useDispatch();
@@ -24,9 +24,9 @@ export default function Settings() {
             <br></br>
             <input
               onChange={(e) => handleFileImage(e.target.files[0])}
-              type="file"
-              name="imageFile"
-              accept="image/jpeg, image/png"
+              type='file'
+              name='imageFile'
+              accept='image/jpeg, image/png'
               autoComplete='off' />
             <br></br>
             <span>Extenciones Soportadas: jpg, png, webp o gif</span>
@@ -34,7 +34,7 @@ export default function Settings() {
             <img src={usuarioAct.image ? usuarioAct.image : profile} alt='No Img' />
           </div>
         <div>
-          <Link to="/update-password">
+          <Link to='/update-password'>
             <button>Change password</button>
           </Link>
         </div>

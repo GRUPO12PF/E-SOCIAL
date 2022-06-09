@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import s from './NotFound.module.css';
 import image from '../../assets/images/image2.png';
 

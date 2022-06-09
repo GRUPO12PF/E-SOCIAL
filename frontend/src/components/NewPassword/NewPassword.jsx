@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
-import { resetPassword, setStateEmail } from "../../redux/actions/actionUser.js";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
+import { resetPassword, setStateEmail } from '../../redux/actions/actionUser.js';
 
-import validatePassword from "../../middleware/validarPassword";
+import validatePassword from '../../middleware/validarPassword';
 
 export default function NewPassword() {
   const params = useParams();
   const respuesta = useSelector((state) => state.email);
   const { token } = params;
   const [estado, setEstado] = useState({
-    password: "",
-    password2: "",
+    password: '',
+    password2: '',
   });
   const [errores, setErrores] = useState({
-    error: "",
+    error: '',
   });
 
   const dispatch = useDispatch();
@@ -34,12 +34,12 @@ export default function NewPassword() {
     if (validatePassword(e.target.value)) {
       setErrores({
         ...errores,
-        error: "Your password must be at least 8 characters",
+        error: 'Your password must be at least 8 characters',
       });
     } else {
       setErrores({
         ...errores,
-        error: "",
+        error: '',
       });
     }
   };
@@ -47,9 +47,9 @@ export default function NewPassword() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (estado.password !== estado.password2)
-      setErrores({ ...errores, error: "las contraseñas deben ser las mismas" });
+      setErrores({ ...errores, error: 'las contraseñas deben ser las mismas' });
     else {
-      setErrores({ ...errores, error: "" });
+      setErrores({ ...errores, error: '' });
       dispatch(
         resetPassword({
           token: token,
@@ -65,23 +65,23 @@ export default function NewPassword() {
         <div>
           <h3>Resetear Password</h3>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="password">Password</label>
+            <label htmlFor='password'>Password</label>
             <input
-              name="password"
+              name='password'
               value={estado.password}
               onChange={handleChange}
-              id="password"
-              type="password"
-              placeholder="Reset password"
+              id='password'
+              type='password'
+              placeholder='Reset password'
             />
-            <label htmlFor="password">Repetir Password</label>
+            <label htmlFor='password'>Repetir Password</label>
             <input     
-              name="password2"
+              name='password2'
               value={estado.password2}
               onChange={handleChange}
-              id="password"
-              type="password"
-              placeholder="Ingrese password"
+              id='password'
+              type='password'
+              placeholder='Ingrese password'
             />
             {respuesta.error ? (
               <p>{respuesta.error}</p>
@@ -90,14 +90,14 @@ export default function NewPassword() {
             )}
             {errores.error && <p>{errores.error}</p>}
             {respuesta.msg ? (
-              <Link to="home">
-                {" "}
-                <button type="submit" >
+              <Link to='home'>
+                {' '}
+                <button type='submit' >
                   HOME
                 </button>
               </Link>
             ) : (
-              <button type="submit" >
+              <button type='submit' >
                 Reset password
               </button>
             )}

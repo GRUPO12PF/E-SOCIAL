@@ -14,16 +14,9 @@ import { getBooks } from '../../redux/actions/actionBooks.js'
 
 export default function Home() {
 
-  const token = localStorage.getItem("token");
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const allBooks = useSelector(state => state.books);
-  //const colection = useSelector(state => state.colection);
-  useEffect(() => {
-    dispatch(getBooks())
-    //dispatch(getColection())
-  }, [dispatch])
-
+  const token = localStorage.getItem('token')
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   if (!token) {
     navigate('/')

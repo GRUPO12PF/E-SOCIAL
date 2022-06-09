@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
   setToResetPassword,
   setStateEmail,
-} from "../../redux/actions/actionUser";
-import validarEmail from "../../middleware/validarEmail";
+} from '../../redux/actions/actionUser';
+import validarEmail from '../../middleware/validarEmail';
 
 export default function OlvidePassword() {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const [errors, setErrors] = useState({});
   const respuesta = useSelector((state) => state.errorEmail);
 
@@ -25,14 +25,14 @@ export default function OlvidePassword() {
     if (validarEmail(e.target.value)) {
       e.target.value.length > 40
         ? setErrors({
-            email: "invalid length",
+            email: 'invalid length',
           })
         : setErrors({
-            email: "invalid email",
+            email: 'invalid email',
           });
     } else {
       setErrors({
-        email: "",
+        email: '',
       });
     }
   };
@@ -40,13 +40,13 @@ export default function OlvidePassword() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (email === "") {
+    if (email === '') {
       setErrors({
-        email: "this field is required",
+        email: 'this field is required',
       });
     } else {
       dispatch(setToResetPassword(email));
-      setEmail("");
+      setEmail('');
     }
   };
 
@@ -56,31 +56,31 @@ export default function OlvidePassword() {
         <div>
           <h3>Enter your email to change your password</h3>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="email">email</label>
+            <label htmlFor='email'>email</label>
             <input
-              name="email"
+              name='email'
               value={email}
               onChange={handleChange}
-              id="email"
-              type="email"
-              placeholder="Reset email"
+              id='email'
+              type='email'
+              placeholder='Reset email'
             />
 
             {errors.email && (
               <div>
-                <p className="error">{errors.email}</p>
+                <p className='error'>{errors.email}</p>
               </div>
             )}
 
             {respuesta.msg ? (
-              <Link to="/">
-                {" "}
-                <button type="submit" className="buttonMorado">
+              <Link to='/'>
+                {' '}
+                <button type='submit' className='buttonMorado'>
                   Go back home
-                </button>{" "}
+                </button>{' '}
               </Link>
             ) : (
-              <button type="submit" className="buttonPrimary">
+              <button type='submit' className='buttonPrimary'>
                 Reset password
               </button>
             )}

@@ -60,93 +60,93 @@ const Forms = () => {
                 }}
             >
 
-                {({ errors,handleSubmit}) => (<Form action="" onSubmit={handleSubmit} className={s.formik} >
+                {({ errors,handleSubmit}) => (<Form action='' onSubmit={handleSubmit} className={s.formik} >
 
                     <div className={s.form}>
                         
-                    <label htmlFor="" className={s.label} >Name</label>
+                    <label htmlFor='' className={s.label} >Name</label>
                     <div>
                         <Field
                             className={s.input}
-                            type="text"
-                            name="name"
-                            id="name"
+                            type='text'
+                            name='name'
+                            id='name'
                          
                         />
                         <ErrorMessage name='name' component={() => (<p>{errors.name}</p>)} />
                     </div>
-                    <label htmlFor="" className={s.label} >Colection</label>
+                    <label htmlFor='' className={s.label} >Colection</label>
                     <div>
                         <Field
                             className={s.input}
-                            type="text"
-                            name="colection"
-                            id="colection"
+                            type='text'
+                            name='colection'
+                            id='colection'
                            
                         />
                         <ErrorMessage name='colection' component={() => (<p>{errors.colection}</p>)} />
                     </div>
 
-                    <label htmlFor="" className={s.label} >Price</label>
+                    <label htmlFor='' className={s.label} >Price</label>
                     <div>
                         <Field
                             className={s.input}
-                            type="text"
-                            name="price"
-                            id="price"
+                            type='text'
+                            name='price'
+                            id='price'
                          
                         />
 
                         <ErrorMessage name='price' component={() => (<p >{errors.price}</p>)} />
                     </div>
 
-                    <label htmlFor="" className={s.label} >Image</label>
+                    <label htmlFor='' className={s.label} >Image</label>
                     <div>
                         <Field
                             className={s.input}
-                            type="text"
-                            name="image"
-                            id="image"
+                            type='text'
+                            name='image'
+                            id='image'
                             
                         />
                         <ErrorMessage name='image' component={() => (<p>{errors.image}</p>)} />
 
                     </div>
-                    <label htmlFor="" className={s.label} >Description</label>
+                    <label htmlFor='' className={s.label} >Description</label>
                     <div>
                         <Field
                             className={s.textarea}
-                            type="text"
-                            name="description"
-                            id="description"
-                            as="textarea"
+                            type='text'
+                            name='description'
+                            id='description'
+                            as='textarea'
                       
                         />
                         <ErrorMessage name='description' component={() => (<p>{errors.description}</p>)} />
 
                     </div>
                     
-                    <label htmlFor="" className={s.label} >Ranking</label>
+                    <label htmlFor='' className={s.label} >Ranking</label>
                     <div className={s.range}>
                         <Field
                             
-                            type="range"
-                            name="ranking"
-                            id="ranking"
+                            type='range'
+                            name='ranking'
+                            id='ranking'
                             
 
                         />
                         <ErrorMessage name='ranking' component={() => (<p>{errors.ranking}</p>)} />
 
                     </div>
-                    <button type="submit">Send Message</button>
+                    <button type='submit'>Send Message</button>
 
                     </div>
 
                 </Form>)}
             </Formik>
             <br />
-            <Link to="/home">Back</Link>
+            <Link to='/home'>Back</Link>
             </div>
         </div>
     )

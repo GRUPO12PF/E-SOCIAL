@@ -1,18 +1,18 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { registroUsuario } from "../../redux/actions/actionUser";
-import { useNavigate } from "react-router";
-import validarEmail from "../../middleware/validarEmail";
-import validatePassword from "../../middleware/validarPassword";
-import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { registroUsuario } from '../../redux/actions/actionUser';
+import { useNavigate } from 'react-router';
+import validarEmail from '../../middleware/validarEmail';
+import validatePassword from '../../middleware/validarPassword';
+import { Link } from 'react-router-dom';
 
 export default function Register() {
   const navigate = useNavigate();
   const [estado, setEstado] = useState({
-    email: "",
-    nombre: "",
-    password1: "",
-    password2: "",
+    email: '',
+    nombre: '',
+    password1: '',
+    password2: '',
   });
   const [errores, setErrores] = useState([]);
 
@@ -34,82 +34,82 @@ export default function Register() {
       !estado.password1 ||
       !estado.password2
     )
-      setErrores([0, "there are empty fields"]);
+      setErrores([0, 'there are empty fields']);
     else if (estado.nombre.length < 3 || estado.nombre.length > 10)
-      setErrores([1, "username must have between 3 and 10 characters"]);
-    else if (validarEmail(estado.email)) setErrores([2, "invalid email"]);
+      setErrores([1, 'username must have between 3 and 10 characters']);
+    else if (validarEmail(estado.email)) setErrores([2, 'invalid email']);
     else if (validatePassword(estado.password1))
       estado.password1.length < 8
-        ? setErrores([3, "the password must have at least 8 characters"])
-        : setErrores([3, "invalid password"]);
+        ? setErrores([3, 'the password must have at least 8 characters'])
+        : setErrores([3, 'invalid password']);
     else if (validatePassword(estado.password2))
       estado.password2.length < 8
-        ? setErrores([4, "the password must have at least 8 characters"])
-        : setErrores([4, "invalid password"]);
+        ? setErrores([4, 'the password must have at least 8 characters'])
+        : setErrores([4, 'invalid password']);
     else if (estado.password1 !== estado.password2)
-      setErrores([5, "passwords must be the same"]);
+      setErrores([5, 'passwords must be the same']);
     else {
       setErrores([]);
       dispatch(registroUsuario(estado));
-      navigate("/");
+      navigate('/');
     }
   };
 
   return (
-    <div className="contRegister">
-      <Link to="/">
-        <button>Home</button>{" "}
+    <div className='contRegister'>
+      <Link to='/'>
+        <button>Home</button>{' '}
       </Link>
       <div>
         <div>
           <div>
             <h3>Register</h3>
             <p>
-              Ya tienes una cuenta?{" "}
-              <Link to="/login">
-                {" "}
-                <button>LOGIN</button>{" "}
-              </Link>{" "}
+              Ya tienes una cuenta?{' '}
+              <Link to='/login'>
+                {' '}
+                <button>LOGIN</button>{' '}
+              </Link>{' '}
             </p>
             <form onSubmit={handleSubmit}>
-              <label htmlFor="user">Username</label>
+              <label htmlFor='user'>Username</label>
               <input
-                name="nombre"
+                name='nombre'
                 value={estado.username}
                 onChange={handleChange}
-                id="user"
-                type="text"
-                placeholder="Your username"
+                id='user'
+                type='text'
+                placeholder='Your username'
               />
-              <label htmlFor="email">Email</label>
+              <label htmlFor='email'>Email</label>
               <input
-                name="email"
+                name='email'
                 value={estado.email}
                 onChange={handleChange}
-                id="email"
-                type="text"
-                placeholder="Your email"
+                id='email'
+                type='text'
+                placeholder='Your email'
               />
-              <label htmlFor="password">Password</label>
+              <label htmlFor='password'>Password</label>
               <input
-                name="password1"
+                name='password1'
                 value={estado.password1}
                 onChange={handleChange}
-                id="password1"
-                type="password"
-                placeholder="Your password"
+                id='password1'
+                type='password'
+                placeholder='Your password'
               />
-              <label htmlFor="password">Repeat password</label>
+              <label htmlFor='password'>Repeat password</label>
               <input
-                name="password2"
+                name='password2'
                 value={estado.password2}
                 onChange={handleChange}
-                id="password2"
-                type="password"
-                placeholder="enter password again"
+                id='password2'
+                type='password'
+                placeholder='enter password again'
               />
               {errores.length !== 0 && <p>{errores[1]}</p>}
-              <button type="submit">
+              <button type='submit'>
                 Register
               </button>
             </form>

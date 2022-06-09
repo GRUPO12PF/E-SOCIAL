@@ -7,7 +7,7 @@ import clienteAxios from '../../config/clienteAxios.jsx';
       try {
           const json = await clienteAxios.get(`/books/${id}` );
           return dispatch({
-             type:"GET_DETAIL",
+             type:'GET_DETAIL',
              payload: json.data
          })
               

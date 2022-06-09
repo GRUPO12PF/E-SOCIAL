@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { validateUser } from "../../redux/actions/actionUser.js";
+import React, { useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { validateUser } from '../../redux/actions/actionUser.js';
 
 export default function ConfirmarCuenta() {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ export default function ConfirmarCuenta() {
         Welcome to <span>Books</span> Market
       </h2>
       <div>{respuesta.msg}</div>
-      <Link to="/">
+      <Link to='/'>
         <button>Go back home</button>
       </Link>
     </div>

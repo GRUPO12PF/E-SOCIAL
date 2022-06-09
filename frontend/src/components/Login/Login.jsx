@@ -1,52 +1,52 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router";
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import {
   login,
   resetErrorLoginUser,
-} from "../../redux/actions/actionUser";
-import validarEmail from "../../middleware/validarEmail";
-import validatePassword from "../../middleware/validarPassword";
+} from '../../redux/actions/actionUser';
+import validarEmail from '../../middleware/validarEmail';
+import validatePassword from '../../middleware/validarPassword';
 
 
 function validate(email, password) {
   let objeto = {};
-  if (email === "") objeto = { ...objeto, email: "this field is required" };
+  if (email === '') objeto = { ...objeto, email: 'this field is required' };
   else if (validarEmail(email))
     email.length > 40
-      ? (objeto = { ...objeto, email: "invalid length" })
-      : (objeto = { ...objeto, email: "invalid format" });
+      ? (objeto = { ...objeto, email: 'invalid length' })
+      : (objeto = { ...objeto, email: 'invalid format' });
 
-  if (password === "")
-    objeto = { ...objeto, password: "this field is required" };
+  if (password === '')
+    objeto = { ...objeto, password: 'this field is required' };
   else if (validatePassword(password))
     objeto = {
       ...objeto,
-      password: "Your password must be at least 8 characters",
+      password: 'Your password must be at least 8 characters',
     };
 
   return objeto;
 }
 
 export default function Login() {
-  const errorEmail = useSelector((state) => state.errorEmail);
+  const errorEmail = useSelector((state) => state.errorEmail); // ! no existe este estado, hojaldre!
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
 
 const [usuario, setUsuario] = useState({
-  email: "",
-  password: "",
+  email: '',
+  password: '',
 });
 
 const [errors, setErrors] = useState({
-  email: "",
-  password: "",
+  email: '',
+  password: '',
 });
 
 useEffect(() => {
-  token ? navigate("/home") : null;
+  token ? navigate('/home') : null;
   // return () => {
   //   dispatch(resetErrorLoginUser());
   // };
@@ -59,7 +59,7 @@ function handleChangeEmail(e) {
   });
   setErrors({
     ...errors,
-    email: "",
+    email: '',
   });
 }
 
@@ -70,7 +70,7 @@ const handleChangePassword = (e) => {
   });
   setErrors({
     ...errors,
-    password: "",
+    password: '',
   });
 };
 
@@ -81,15 +81,15 @@ const handleSubmit = (e) => {
   if (Object.keys(val).length === 0) {
     dispatch(login(usuario));
     setUsuario({
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     });
     if (errorEmail) {
       e.preventDefault();
     } else {
       dispatch(resetErrorLoginUser());
 
-      navigate("/home");
+      navigate('/home');
     }
   } else setErrors(val);
 };
@@ -101,28 +101,28 @@ const handleSubmit = (e) => {
           <div>
             <h3>Login</h3>
             <form onSubmit={handleSubmit}>
-              <label htmlFor="email">email</label>
+              <label htmlFor='email'>email</label>
               <input
-                id="email"
+                id='email'
                 value={usuario.email}
-                type="text"
-                name="email"
+                type='text'
+                name='email'
                 onChange={handleChangeEmail}
-                placeholder="Your email"
+                placeholder='Your email'
               />
               {errors.email && (
                 <div>
                   <p>{errors.email}</p>
                 </div>
               )}
-              <label htmlFor="password">password</label>
+              <label htmlFor='password'>password</label>
               <input
-                id="password"
-                type="password"
+                id='password'
+                type='password'
                 value={usuario.password}
-                name="password"
+                name='password'
                 onChange={handleChangePassword}
-                placeholder="Your password"
+                placeholder='Your password'
               />
               {errors.password && (
                 <div>
@@ -132,12 +132,12 @@ const handleSubmit = (e) => {
               {errorEmail && !usuario.email && !usuario.password ? (
                 <p>{errorEmail} </p>
               ) : null}
-              <button type="submit">
+              <button type='submit'>
                 LOGIN
               </button>
             </form>
-            <Link to="/olvide-password/" >
-              {" "}
+            <Link to='/olvide-password/' >
+              {' '}
               <h4>forget your password</h4>
             </Link>
           </div>

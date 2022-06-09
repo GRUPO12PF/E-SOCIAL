@@ -20,7 +20,7 @@ import { getBooks } from './redux/actions/actionBooks'
 
 function App() {
   const dispatch = useDispatch()
-  const allBooks = useSelector(state => state.books.docs)
+  const allBooks = useSelector(state => state.books)
 
   useEffect(() => {
     if(!allBooks)

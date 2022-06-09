@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { filterByCategory, getCategories } from '../../redux/actions/actionCategories.js'
 import style from './FilterCategories.module.css'
 

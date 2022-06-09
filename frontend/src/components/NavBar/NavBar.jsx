@@ -16,9 +16,9 @@ export default function NavBar() {
     return (
         <div>
             <nav className={style.nav}>
-                <Link to="/home" className={style.link}>HOME</Link>
-                <Link to="/create" className={style.link}>CREATED</Link>
-                <Link to="/about" className={style.link}>ABOUT</Link>
+                <Link to='/home' className={style.link}>HOME</Link>
+                <Link to='/create' className={style.link}>CREATED</Link>
+                <Link to='/about' className={style.link}>ABOUT</Link>
                 <button className={style.btnR} onClick={e => (handleOnClick(e))}>RELOAD ALL BOOKS</button>
                 <div className={style.busqueda}>
                     <SearchBar

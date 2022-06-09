@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from "react-router";
+import { useNavigate } from 'react-router';
 import { useParams } from 'react-router-dom'
 import { detailsBook } from '../../redux/actions/detailsBooks'
-import NavBar from "../NavBar/NavBar";
+import NavBar from '../NavBar/NavBar';
 import s from './Details.module.css'
 
 const Details = () => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
   const { id } = useParams()
   const dispatch = useDispatch()
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const Details = () => {
   }, [dispatch])
 
   if (!token) {
-    navigate("/");
+    navigate('/');
   }
 
   return (
@@ -32,7 +32,7 @@ const Details = () => {
             <div className={s.name}>
             
             <h3 className={s.pName}>{detail.nombre}</h3>
-            <img src={detail.image} alt="not found" className={s.image}/>
+            <img src={detail.image} alt='not found' className={s.image}/>
             <h3 className={s.pName}>Precio: {detail.price}</h3>
             <button>Añadir a Carrito</button>
               
@@ -45,7 +45,7 @@ const Details = () => {
               {detail.category}
              
               <h5 className={s.h5}>Ranking</h5>
-              {detail.ranking ? detail.ranking : "no tiene ranking"}
+              {detail.ranking ? detail.ranking : 'no tiene ranking'}
           
               <h5 className={s.h5}>Descripción</h5>
               {detail.descripcion}

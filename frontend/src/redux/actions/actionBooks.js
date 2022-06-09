@@ -1,10 +1,10 @@
-import clienteAxios from "../../config/clienteAxios";
+import clienteAxios from '../../config/clienteAxios';
 
 export function getBooks() {
     return async function (dispatch){
         const json = await clienteAxios.get(`/books`);
         return dispatch({
-            type: "GET_BOOKS",
+            type: 'GET_BOOKS',
             payload: json.data,
         })
     }
@@ -15,12 +15,12 @@ export function searchByName(name) {
         try {
             var json = await clienteAxios.get(`/books?name=${name}`)
             return dispatch({
-                type: "SEARCH_BY_NAME",
+                type: 'SEARCH_BY_NAME',
                 payload: json.data
             })
         } catch (error) {
             dispatch({
-                type: "SEARCH_BY_NAME",
+                type: 'SEARCH_BY_NAME',
                 payload: [],
             })
         }
@@ -32,12 +32,12 @@ export function pagination(page) {
         try {
             var json = await clienteAxios.get(`/books/?page=${page}`)
             return dispatch({
-                type: "PAGINATION_BOOKS",
+                type: 'PAGINATION_BOOKS',
                 payload: json.data
             })
         } catch (error) {
             dispatch({
-                type: "PAGINATION_BOOKS",
+                type: 'PAGINATION_BOOKS',
                 payload: [],
             })
         }
@@ -49,7 +49,7 @@ export function getTotalBooks() {
         const json = await clienteAxios.get(`books/total`);
         console.log(json)
         return dispatch({
-            type: "GET_TOTAL",
+            type: 'GET_TOTAL',
             payload: json.data,
         })
     }
@@ -60,7 +60,7 @@ export function getTotalBooks() {
 export function cleanData() {
     return function (dispatch) {
         dispatch({
-            type: "CLEAN_DATA",
+            type: 'CLEAN_DATA',
             payload: {},
         })
     }
