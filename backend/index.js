@@ -22,7 +22,19 @@ app.use(
 );
 
 //cors
-app.use(cors());
+app.use(
+	cors({
+		origin: '*',
+		credentials: true,
+		allowedHeaders: [
+			'Origin',
+			'X-Requested-With',
+			'Content-Type',
+			'Accept',
+			'authorization',
+		],
+	})
+);
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
   res.header(
@@ -40,11 +52,11 @@ app.use("/api/proyectos", proyectoRoutes);
 app.use("/api/categories", categoriesRoutes);
 
 const PORT = process.env.PORT || 3001;
-
-const servidor = app.listen(PORT, () => {
-  console.log(`Server en ${PORT}`);
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`)
 });
 
+/*
 //socket io
 
 import { Server } from "socket.io";
@@ -73,4 +85,4 @@ io.on("connection", (socket) => {
       .to(`${process.env.FRONTEND_URL}/home/usuario/portfolio`)
       .emit("bookUser");
   });
-});
+});*/
