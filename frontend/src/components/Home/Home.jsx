@@ -10,6 +10,7 @@ import NotFound from '../NotFound/NotFound.jsx'
 import NavBar from '../NavBar/NavBar'
 import FilterCategories from '../FilterCategories/FilterCategories'
 import style from './Home.module.css'
+import { getBooks } from '../../redux/actions/actionBooks.js'
 
 export default function Home() {
 
