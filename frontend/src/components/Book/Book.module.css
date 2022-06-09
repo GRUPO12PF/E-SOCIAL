@@ -1,4 +1,22 @@
+.bookItem {
+    display: flex;
+    padding: 20px;
+    margin: 0 auto;
+}
 .book{
     height: 300px;
     width: 250px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.nombre {
+    color: #383535;
+    font-size: 1.5rem;
+    font-weight:bold;
+    text-transform: capitalize;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-family: 'Roboto', sans-serif
 }

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterByCategory, getCategories } from '../../redux/actions/actionCategories.js'
-import s from './FilterCategories.module.css'
+import style from './FilterCategories.module.css'
 
 export default function FilterCategories(props) {
   // const { setCurrentPage } = props
@@ -21,9 +21,10 @@ export default function FilterCategories(props) {
   }
 
   return (
-    <div>
-      <select onChange={handleCategorySelect}>
-        <option value={''}>All categories</option>
+    <div >
+      <select className={style.filter}
+       onChange={handleCategorySelect}>
+        <option value={''}>ALL CATEGORIES</option>
         {categories?.map((g, i) => {
           return (
             <option value={g} key={i}>{g}</option>
