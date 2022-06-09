@@ -40,7 +40,7 @@ export default function Home() {
 
 
 
-  if (allBooks.length > 0 && loading) {
+  if (allBooks?.length > 0 && loading) {
     setLoading(false)
 
   }
@@ -64,7 +64,7 @@ export default function Home() {
           <h3>Logout</h3>
         </Link>
       </div>
-      {allBooks.length > 0 && !loading ? (
+      {allBooks?.length > 0 && !loading ? (
         allBooks && allBooks?.map((e, i) => {
           console.log(e)
           // console.log para revisar qué llega de cada elemento en los libros! 
@@ -82,7 +82,7 @@ export default function Home() {
             </div>
           )
         })
-      ) : !allBooks.length > 0 && loading ? (
+      ) : !allBooks?.length > 0 && loading ? (
         <Loading />
       ) : (
         <NotFound />
