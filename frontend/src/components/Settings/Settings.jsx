@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { cambiarImagen, usuarioActual } from "../../redux/actions/actionUser";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,10 +8,9 @@ export default function Settings() {
   const dispatch = useDispatch();
   const usuarioAct = useSelector((state) => state.usuarioActual);
 
-  useEffect(() => {
+  useDispatch(() => {
     dispatch(usuarioActual());
-  }),
-    [];
+  }),[dispatch];
 
   function handleFileImage(image) {
     dispatch(cambiarImagen(image));
@@ -30,9 +29,9 @@ export default function Settings() {
               accept="image/jpeg, image/png"
               autoComplete='off' />
             <br></br>
-            <span>Extenciones Soportadas: jpg/jpeg/png</span>
+            <span>Extenciones Soportadas: jpg, png, webp o gif</span>
             <br></br>
-            <img src={usuarioAct.image ? usuarioAct.image.url : profile} alt='No Img' />
+            <img src={usuarioAct.image ? usuarioAct.image : profile} alt='No Img' />
           </div>
         <div>
           <Link to="/update-password">
