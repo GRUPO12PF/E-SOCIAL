@@ -8,7 +8,7 @@ cloudinary.config({
 });
 
 export const uploadImage = async (filePath) => {
-  return await cloudinary.uploader.upload(filePath, {
+  return await cloudinary.v2.uploader.upload(filePath, {
     folder: "BooksMarket",
   });
 };

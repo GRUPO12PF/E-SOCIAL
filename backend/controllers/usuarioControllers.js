@@ -1,6 +1,5 @@
-
 import Usuario from "../models/Usuario.js";
-import generarId from "../helpers/generarId.js";
+import { generarId } from "../helpers/generarId.js";
 import generarJWT from "../helpers/generarJWT.js";
 import { emailRegistro, emailOlvidePassword } from "../helpers/emails.js";
 import { uploadImage } from "../libs/cloudinary.js";
@@ -17,9 +16,12 @@ const registrar = async (req, res) => {
     }
 
     try {
-        const usuario = new Usuario(req.body);
-        usuario.token = generarId();
-        const usuarioAlmacenado = await usuario.save()
+        const usuario = new Usuario({
+            ...req.body,
+            image: { public_id: "", url: "" },
+          });
+        usuario.token = generarId(); //id hasheado
+        await usuario.save()
 
         emailRegistro({
             email: usuario.email,
@@ -27,11 +29,13 @@ const registrar = async (req, res) => {
             token: usuario.token,
         });
 
-        res.json(usuarioAlmacenado);
+        res
+        .status(200)
+        .send("User created, check your email to confirm your account");
     } catch (error) {
-        console.log(error);
+      console.log(error);
     }
-};
+  };
 
 const autenticar = async (req, res) => {
 
@@ -56,8 +60,9 @@ const autenticar = async (req, res) => {
             _id: usuario._id,
             nombre: usuario.nombre,
             email: usuario.email,
-            token: generarJWT(usuario._id),
-        })
+            image: usuario.image,
+            token: generarJWT(usuario._id), //mandar el id por JWT
+          });
     } else {
         const error = new Error("El Password es Incorrecto");
         return res.status(403).json({ msg: error.message });
