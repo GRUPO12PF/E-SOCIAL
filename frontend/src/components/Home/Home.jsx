@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
-import { getBooks } from "../../redux/actions/actionBooks";
-import { useDispatch, useSelector } from "react-redux";
-import Book from "../Book/Book.jsx";
-import { userLogout } from "../../redux/actions/actionUser";
-import Pagination from "../Pagination/Pagination.jsx";
-import Loading from "../Loading/Loading.jsx";
-import NotFound from "../NotFound/NotFound.jsx";
-import NavBar from "../NavBar/NavBar";
-import FilterCategories from "../FilterCategories/FilterCategories";
-import style from "./Home.module.css";
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import Book from '../Book/Book.jsx'
+import { userLogout } from '../../redux/actions/actionUser'
+import Pagination from '../Pagination/Pagination.jsx'
+import Loading from '../Loading/Loading.jsx'
+import NotFound from '../NotFound/NotFound.jsx'
+import NavBar from '../NavBar/NavBar'
+import FilterCategories from '../FilterCategories/FilterCategories'
+import style from './Home.module.css'
+
 export default function Home() {
+
   const token = localStorage.getItem("token");
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -22,22 +23,22 @@ export default function Home() {
     //dispatch(getColection())
   }, [dispatch])
 
+
   if (!token) {
-    navigate("/");
+    navigate('/')
   }
+  
   function logOut() {
-    dispatch(userLogout);
+    dispatch(userLogout)
   }
   // eslint-disable-next-line
-  //const [order, setOrder] = useState('');
-  // const [pageCurrent, setPageCurrent] = useState(1);
-  // const pageSize = 8;
-  // const indexOfLastBooks = pageCurrent * pageSize;
-  // const indexOfFirstBooks = indexOfLastBooks - pageSize;
+  //const [order, setOrder] = useState('')
+  // const [pageCurrent, setPageCurrent] = useState(1)
+  // const pageSize = 8
+  // const indexOfLastBooks = pageCurrent * pageSize
+  // const indexOfFirstBooks = indexOfLastBooks - pageSize
   // const currentBooks = allBooks?.slice(indexOfFirstBooks, indexOfLastBooks)
-  const [loading, setLoading] = useState(true);
-
-
+  const [loading, setLoading] = useState(true)
 
   if (allBooks?.length > 0 && loading) {
     setLoading(false)
@@ -45,9 +46,9 @@ export default function Home() {
   }
   // const page = (pageNumber) => {
   //   setPageCurrent(pageNumber)
-  // };
+  // }
 
-  // const goToNextPage = () => setPageCurrent(pageCurrent + 1);
+  // const goToNextPage = () => setPageCurrent(pageCurrent + 1)
   // const goToPreviousPage = () => {
   //   if (pageCurrent > 1) setPageCurrent(pageCurrent - 1)
   // }
@@ -59,38 +60,40 @@ export default function Home() {
         <NavBar />
       </div>
       <div onClick={() => logOut()}>
-        <Link to="/">
+        <Link to='/'>
           <h3 className={style.logout}>Logout</h3>
         </Link>
       </div>
-      <FilterCategories/> 
-      <div className={style.contenedorBooks}>
-      {allBooks?.length > 0 && !loading ? (
-        allBooks && allBooks?.map((e, i) => {
-          console.log(e)
-          // console.log para revisar qué llega de cada elemento en los libros! 
-
-          return (
-            <div key={i}>
-              {e.error ? <h1>ERROR!</h1> :
-                <Link to={"/details/" + e._id}>
-                  <Book
-                    id={e._id}
-                    nombre={e.nombre}
-                    image={e.image}
-                  />
-                </Link>}
-            </div>
-          )
-        })
-      ) : !allBooks?.length > 0 && loading ? (
-        <Loading />
-      ) : (
-        <NotFound />
-      )
-      }
+      <div className={style.DivFilter}>
+        <FilterCategories />
       </div>
-      <Pagination/>
+      <div className={style.contenedorBooks}>
+        {allBooks?.length > 0 && !loading ? (
+          allBooks && allBooks?.map((e, i) => {
+            // console.log(e)
+            // console.log para revisar qué llega de cada elemento en los libros! 
+
+            return (
+              <div key={i}>
+                {e.error ? <h1>ERROR!</h1> :
+                  <Link to={'/details/' + e._id}>
+                    <Book
+                      id={e._id}
+                      nombre={e.nombre}
+                      image={e.image}
+                    />
+                  </Link>}
+              </div>
+            )
+          })
+        ) : !allBooks?.length > 0 && loading ? (
+          <Loading />
+        ) : (
+          <NotFound />
+        )
+        }
+      </div>
+      <Pagination />
     </div>
-  );
+  )
 }

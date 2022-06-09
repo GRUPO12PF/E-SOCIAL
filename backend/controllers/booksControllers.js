@@ -7,7 +7,7 @@ const obtenerBooks = async (req, res) => {
     // booksByQuery
     if (req.query.name) {
       const { name } = req.query
-      const bookQuery = await Book.find({ 'nombre': { $regex: `^.*${name}.*` } }, projection)
+      const bookQuery = await Book.find({ 'nombre': { $regex: `^.*${name}.*`, $options: 'i' } }, projection)
       
       if (bookQuery.length) {
         res.json(bookQuery)

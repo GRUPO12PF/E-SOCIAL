@@ -19,9 +19,9 @@ export const emailRegistro = async (datos) => {
     subject: "Books Market - Confirm your account",
     text: "Confirm your Books Market Account",
     html: `
-        <h3>Hola ${nombre} por favor siga el enlace de abajo para confirmar su cuenta</h3>
-        <a href="${process.env.FRONTEND_URL}/confirmar/${token}"><h4>Confirmar Cuenta</h4></a>
-        <p>Si no fuiste vos quien creó la cuenta podes ignorar este email</p>
+        <h3>Hi ${nombre} please follow the link below to confirm your account</h3>
+        <a href="${process.env.FRONTEND_URL}/confirmar/${token}"><h4>Confirm Account</h4></a>
+        <p>If you were not the one who created the account you can ignore this email</p>
             `,
   });
 }
@@ -43,11 +43,11 @@ export const emailOlvidePassword = async (datos) => {
     from: '"Books Market" <cuentas@booksmarket.com>',
     to: email,
     subject: "Books Market - Reset your password",
-    text: "Restablece la contraseña de tu cuenta en Books Market",
+    text: "Reset your account password on Books Market",
     html: `
-        <p>Hola: ${nombre} haz click en el enlace para ingresar una nueva contraseña</p>
-        <a href="${process.env.FRONTEND_URL}/olvide-password/${token}"> CAMBIAR PASSWORD </a>
-        <p>Si no fuiste vos quien creó la cuenta podes ignorar este email</p>
+        <p>Hi ${nombre} click on the link to enter a new password</p>
+        <a href="${process.env.FRONTEND_URL}/olvide-password/${token}"> CHANGE PASSWORD </a>
+        <p>If you were not the one who created the account you can ignore this email</p>
             `,
   });
 };
