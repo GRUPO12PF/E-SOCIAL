@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import { Link } from 'react-router-dom';
-import s from './NavBar.module.css';
+import style from './NavBar.module.css';
 
 
 function handleOnClick(e) {
@@ -15,12 +15,12 @@ export default function NavBar() {
    
     return (
         <div>
-            <nav className={s.nav}>
-                <Link to="/home" className={s.link}>HOME</Link>
-                <Link to="/create" className={s.link}>CREATED</Link>
-                <Link to="/about" className={s.link}>ABOUT</Link>
-                <button className={s.btnR} onClick={e => (handleOnClick(e))}>Reload all Books</button>
-                <div className={s.busqueda}>
+            <nav className={style.nav}>
+                <Link to="/home" className={style.link}>HOME</Link>
+                <Link to="/create" className={style.link}>CREATED</Link>
+                <Link to="/about" className={style.link}>ABOUT</Link>
+                <button className={style.btnR} onClick={e => (handleOnClick(e))}>RELOAD ALL BOOKS</button>
+                <div className={style.busqueda}>
                     <SearchBar
                     />
                 </div>

@@ -5,4 +5,27 @@
     padding: 0.5rem 1rem;
     background-color: #fff;
     border-bottom: 1px solid #e5e5e5;
+    color: black;
+}
+.link{
+    color: black;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    font-family: 'Roboto', sans-serif;
+}
+.btnR{
+    font-family: 'Roboto', sans-serif;
+}
+.btnR:hover{
+    background-color: #1b1b1b;
+    color: rgb(247, 243, 243);
+}
+.busqueda{
+    font-family: 'Roboto', sans-serif;
+}
+.busqueda:hover{
+    background-color: #1b1b1b;
+    color: rgb(247, 243, 243);
 }
