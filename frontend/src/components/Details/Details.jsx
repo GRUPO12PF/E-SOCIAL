@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 import { detailsBook } from '../../redux/actions/detailsBooks'
 import NavBar from "../NavBar/NavBar";
 import s from './Details.module.css';
-import {deleteBook} from '../../redux/actions/actionBooks'
+import {deleteBook, cleanData} from '../../redux/actions/actionBooks'
 
 const Details = () => {
   const token = localStorage.getItem("token");
@@ -17,6 +17,9 @@ const Details = () => {
 
   useEffect(() => {
     dispatch(detailsBook(id))
+    return() => {
+      dispatch(cleanData())
+    }
   }, [dispatch])
 
   if (!token) {
@@ -27,6 +30,7 @@ const Details = () => {
     dispatch(deleteBook(id))
       navigate('/home')
   }
+  console.log(id)
   return (
     <div>
       <div>

@@ -35,7 +35,10 @@ export default function Home() {
   const [loading, setLoading] = useState(true)
 
   if (allBooks?.length > 0 && loading) {
-    setLoading(false)
+
+    setTimeout(() => {
+      setLoading(false)
+    },0);
 
   }
   // const page = (pageNumber) => {
@@ -82,10 +85,10 @@ export default function Home() {
             )
           })
         ) : !allBooks?.length > 0 && loading ? (
-          <Loading />
-        ) : (
           <NotFound />
-        )
+          ) : (
+            <Loading />
+            )
         }
       </div>
       <Pagination />

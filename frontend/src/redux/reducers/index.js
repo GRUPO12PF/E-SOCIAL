@@ -13,7 +13,7 @@ const initialState = {
   invalidToken: true,
   loginUser: false,
   detail: [],
-  delate: [],
+  delete: [],
 }
 
 function rootReducer(state = initialState, action) {
@@ -110,7 +110,7 @@ function rootReducer(state = initialState, action) {
     case 'CLEAN_DATA':
       return {
         ...state,
-        detail: action.payload,
+        detail: [],
       }
 
     case 'ACTUAL':
@@ -142,6 +142,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         countBooks: action.payload
       }
+      
       case 'DELETE_BOOK': 
       console.log(action.payload)
       return {
