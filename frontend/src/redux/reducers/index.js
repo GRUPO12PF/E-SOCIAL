@@ -14,6 +14,7 @@ const initialState = {
   loginUser: false,
   detail: [],
   delete: [],
+  put: [],
 }
 
 function rootReducer(state = initialState, action) {
@@ -153,7 +154,7 @@ function rootReducer(state = initialState, action) {
       console.log(action.payload)
       return {
         ...state,
-        put: state.allBooks.map((e)=> e.id === action.payload.id ? e.id : action.payload)
+        put: state.allBooks.map((e)=> e.id === action.payload.id ? action.payload : e.id)
       }
 
     default:

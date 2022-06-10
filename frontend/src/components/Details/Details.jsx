@@ -1,13 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from "react-router";
 import { useParams } from 'react-router-dom'
 import { detailsBook } from '../../redux/actions/detailsBooks'
 import NavBar from "../NavBar/NavBar";
 import s from './Details.module.css';
-import {deleteBook, cleanData, putBook} from '../../redux/actions/actionBooks'
+import {deleteBook} from '../../redux/actions/actionBooks'
+import NotFoundGral from '../NotFound/NotFoundGral'
+import Loading from '../Loading/Loading';
+import UpdateBook from '../UpdateBook/UpdateBook';
 
 const Details = () => {
+  const [loading, setLoading] = useState(true);
   const token = localStorage.getItem("token");
   const { id } = useParams()
   const dispatch = useDispatch()
@@ -15,13 +19,14 @@ const Details = () => {
   const detail = useSelector((state) => state.detail)
   console.log(detail)
 
+  if(Object.keys(detail).length > 0 && loading){
+    setLoading(false);
+}
+
   useEffect(() => {
     
     dispatch(detailsBook(id))
-    return() => {
-      dispatch(cleanData())
-    }
-    
+        
   }, [dispatch])
 
   if (!token) {
@@ -32,10 +37,9 @@ const Details = () => {
     dispatch(deleteBook(id))
       navigate('/home')
   }
-  function handleSubmit(e) {
+  function handleUpdateBook(e) {
     e.preventDefault()
-    dispatch(putBook(id))
-      navigate('/home')
+     navigate(`/details/${id}/update`)
   }
   console.log(id)
   return (
@@ -43,8 +47,13 @@ const Details = () => {
       <div>
         <NavBar />
       </div>
+                    
+     { 
+        Object.keys(detail).length > 0 && !loading ?  (
+            <div>
       <button onClick={(e) => handleDeleteBook(e)}>DELETE</button>
-      <button onSubmit={(e) => handleSubmit (e)}>UPDATE</button>
+      <button onClick={(e) => handleUpdateBook(e)}>UPDATE</button>
+      
           <div className={s.background}>
             <div className={s.name}>
             
@@ -68,7 +77,14 @@ const Details = () => {
               <h5 className={s.h5}>Descripción</h5>
               {detail.descripcion}
             </div>
+            </div> 
           </div>
+        )  :  !Object.keys(detail).length > 0 && loading ? (
+            <Loading/>
+        ): detail.length === 0 && (
+            <NotFoundGral/>
+         )
+        }
           
     </div>
   )
