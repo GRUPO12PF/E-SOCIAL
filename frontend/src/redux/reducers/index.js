@@ -2,7 +2,7 @@ import { GET_CATEGORIES, FILTER_BY_CATEGORY } from '../utils/constants'
 
 const initialState = {
   books: [],
-  countBooks:[],
+  countBooks: [],
   allBooks: [],
   categories: [],
   usuario: [],
@@ -17,12 +17,15 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
+
     case 'GET_BOOKS':
+
       return {
         ...state,
         books: action.payload,
         allBooks: action.payload,
       }
+
     case 'GOOGLE_LOGIN':
       return {
         ...state,
@@ -39,6 +42,7 @@ function rootReducer(state = initialState, action) {
 
     case 'LOGOUT_USER':
       return {
+        ...state,
         usuario: [],
         usuarioActual: [],
         allUsuarios: [],
@@ -59,6 +63,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         email: action.payload,
       }
+
     case 'VALIDATE_USER':
       return {
         ...state,
@@ -124,17 +129,19 @@ function rootReducer(state = initialState, action) {
         ...state,
         books: action.payload
       }
-      case 'PAGINATION_BOOKS':
-        return {
-          ...state,
-          books: action.payload
-        }
-        case 'GET_TOTAL':
+
+    case 'PAGINATION_BOOKS':
+      return {
+        ...state,
+        books: action.payload
+      }
+
+    case 'GET_TOTAL':
       return {
         ...state,
         countBooks: action.payload
       }
-        
+
 
     default:
       return state

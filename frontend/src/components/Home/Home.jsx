@@ -10,25 +10,18 @@ import NotFound from '../NotFound/NotFound.jsx'
 import NavBar from '../NavBar/NavBar'
 import FilterCategories from '../FilterCategories/FilterCategories'
 import style from './Home.module.css'
-import { getBooks } from '../../redux/actions/actionBooks.js'
 
 export default function Home() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
-  const token = localStorage.getItem("token");
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const allBooks = useSelector(state => state.books);
-  //const colection = useSelector(state => state.colection);
-  useEffect(() => {
-    dispatch(getBooks())
-    //dispatch(getColection())
-  }, [dispatch])
-
+  const allBooks = useSelector(state => state.books)
+  const token = localStorage.getItem("token")
 
   if (!token) {
     navigate('/')
   }
-  
+
   function logOut() {
     dispatch(userLogout)
   }
