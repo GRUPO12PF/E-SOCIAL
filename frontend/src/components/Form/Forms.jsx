@@ -20,8 +20,8 @@ const Forms = () => {
             </div>
             <Formik 
                 initialValues={{
-                    name: '',
-                    description: '',
+                    nombre: '',
+                    descripcion: '',
                     price: '',
                     image: '',
                     ranking: '',
@@ -31,13 +31,13 @@ const Forms = () => {
                 validate={(values) => {
                     let errors = {}
 
-                    if (!values.name) {
-                        errors.name = 'required field'
-                    } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.name)) {
-                        errors.name = 'name only'
+                    if (!values.nombre) {
+                        errors.nombre = 'required field'
+                    } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.nombre)) {
+                        errors.nombre = 'name only'
                     }
-                    if (!values.description) {
-                        errors.description = 'required field'
+                    if (!values.descripcion) {
+                        errors.descripcion = 'required field'
                     } else if (!values.price) {
                         errors.price = 'required'
                     } else if (!values.image) {
@@ -69,11 +69,11 @@ const Forms = () => {
                         <Field
                             className={s.input}
                             type="text"
-                            name="name"
-                            id="name"
+                            name="nombre"
+                            id="nombre"
                          
                         />
-                        <ErrorMessage name='name' component={() => (<p>{errors.name}</p>)} />
+                        <ErrorMessage name='nombre' component={() => (<p>{errors.nombre}</p>)} />
                     </div>
                     <label htmlFor="" className={s.label} >Colection</label>
                     <div>
@@ -112,17 +112,17 @@ const Forms = () => {
                         <ErrorMessage name='image' component={() => (<p>{errors.image}</p>)} />
 
                     </div>
-                    <label htmlFor="" className={s.label} >Description</label>
+                    <label htmlFor="" className={s.label} >Descripción</label>
                     <div>
                         <Field
                             className={s.textarea}
                             type="text"
-                            name="description"
-                            id="description"
+                            name="descripcion"
+                            id="descripcion"
                             as="textarea"
                       
                         />
-                        <ErrorMessage name='description' component={() => (<p>{errors.description}</p>)} />
+                        <ErrorMessage name='descripcion' component={() => (<p>{errors.descripcion}</p>)} />
 
                     </div>
                     
