@@ -7,14 +7,12 @@ const obtenerBooks = async (req, res) => {
     // booksByQuery
     if (req.query.name) {
       const { name } = req.query
-      const bookQuery = await Book.find({ 'nombre': { $regex: `^.*${name}.*`, $options: 'i' } }, projection)
+      const limit = req.query.limit || 3
+      const page = req.query.page || 1
+      const bookQuery = await Book.paginate({ 'nombre': { $regex: `^.*${name}.*`, $options: 'i' } }, { projection, limit, page })
+      const bookQueryTotal = bookQuery.docs
 
-      if (bookQuery.length) {
-        res.json(bookQuery)
-      } else {
-        const error = new Error('No se encontró el libro.')
-        res.status(404).json({ msg: error.message })
-      }
+        res.json(bookQueryTotal)
 
       // booksByCategory
     } else {
@@ -48,13 +46,18 @@ const obtenerBooks = async (req, res) => {
 
 const obternerTodosLosLibros = async (req, res) => {
   const { category } = req.query
+  const {name} = req.query
   const limit = req.query.limit || 3
   const page = req.query.page || 1
   if (category) {
     const categoryResponse = await Book.paginate({ category: { $in: [`${category}`] } }, { projection, limit, page })
-    let response = categoryResponse.totalDocs
-    res.json(response)
-  } else {
+    let responseCategory = categoryResponse.totalDocs
+    res.json(responseCategory)
+  } else if(name){
+    const booksName = await Book.paginate({ 'nombre': { $regex: `^.*${name}.*`, $options: 'i' } }, { projection, limit, page })
+    const allBooksName = booksName.totalDocs
+    res.json(allBooksName)
+  } else{
     const books = await Book.paginate({}, { projection, limit, page })
     const allBooks = books.totalDocs
     res.json(allBooks)
