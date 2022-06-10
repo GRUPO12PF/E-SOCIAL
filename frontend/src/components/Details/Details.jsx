@@ -4,7 +4,8 @@ import { useNavigate } from "react-router";
 import { useParams } from 'react-router-dom'
 import { detailsBook } from '../../redux/actions/detailsBooks'
 import NavBar from "../NavBar/NavBar";
-import s from './Details.module.css'
+import s from './Details.module.css';
+import {deleteBook} from '../../redux/actions/actionBooks'
 
 const Details = () => {
   const token = localStorage.getItem("token");
@@ -21,14 +22,18 @@ const Details = () => {
   if (!token) {
     navigate("/");
   }
-
+  function handleDeleteBook(e) {
+    e.preventDefault()
+    dispatch(deleteBook(id))
+      navigate('/home')
+  }
   return (
     <div>
       <div>
         <NavBar />
       </div>
-         <div className={s.background}>
-             {/* <h1> Details</h1> */}
+      <button onClick={(e) => handleDeleteBook(e)}>Delete</button>
+          <div className={s.background}>
             <div className={s.name}>
             
             <h3 className={s.pName}>{detail.nombre}</h3>
@@ -51,6 +56,7 @@ const Details = () => {
               {detail.descripcion}
             </div>
           </div>
+          
     </div>
   )
 }

@@ -13,6 +13,7 @@ const initialState = {
   invalidToken: true,
   loginUser: false,
   detail: [],
+  delate: [],
 }
 
 function rootReducer(state = initialState, action) {
@@ -141,7 +142,12 @@ function rootReducer(state = initialState, action) {
         ...state,
         countBooks: action.payload
       }
-
+      case 'DELETE_BOOK': 
+      console.log(action.payload)
+      return {
+        ...state,
+        delete: action.payload
+      }
 
     default:
       return state
