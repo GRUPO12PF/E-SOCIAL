@@ -17,6 +17,7 @@ import NotFound from './components/NotFound/NotFound'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getBooks } from './redux/actions/actionBooks'
+import UpdateBook from './components/UpdateBook/UpdateBook'
 
 function App() {
   const dispatch = useDispatch()
@@ -40,11 +41,12 @@ function App() {
         <Route path='/create' element={<Forms />} />
         <Route path='/details/:id' element={<Details />} />
         <Route path='/homeout' element={<Homeout />} />
-
+        <Route path='/details/:id/update' element={<UpdateBook/>} />
         <Route path='/create' element={<Forms />} />
         <Route path='/about' element={<About />} />
         <Route path='/home' element={<VerificationUser />}>
           <Route index element={<Home />} />
+          
         </Route>
         <Route path='/home/usuario/setting' element={<VerificationUser />}>
           <Route index element={<Settings />} />

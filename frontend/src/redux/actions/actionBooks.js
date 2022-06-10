@@ -1,7 +1,7 @@
 import clienteAxios from "../../config/clienteAxios";
 
 export function getBooks() {
-    return async function (dispatch){
+    return async function (dispatch) {
         const json = await clienteAxios.get(`/books`);
         return dispatch({
             type: "GET_BOOKS",
@@ -45,7 +45,7 @@ export function pagination(page) {
 };
 
 export function getTotalBooks() {
-    return async function (dispatch){
+    return async function (dispatch) {
         const json = await clienteAxios.get(`books/total`);
         console.log(json)
         return dispatch({
@@ -98,11 +98,12 @@ export const putBook = (payload) => {
         console.log(payload)
         try {
             const json = await clienteAxios.put(`/books/${payload}`, config);
-            console.log(json)
             dispatch({
                 type: "PUT_BOOK",
                 payload: json.data,
-            })
+            });
+            console.log(json.data)
+            //return json;
         } catch (error) {
             throw error
         }

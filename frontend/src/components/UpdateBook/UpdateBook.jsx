@@ -1,16 +1,30 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { Formik, Field, ErrorMessage, Form } from 'formik'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
-import { postCreate } from '../../redux/actions/postProducts';
+import { putBook } from '../../redux/actions/actionBooks';
 import NavBar from '../NavBar/NavBar';
-import s from '../Form/Form.module.css'
+import s from '../UpdateBook/UpdateBook.module.css'
+import { detailsBook } from '../../redux/actions/detailsBooks';
 
-const Forms = () => {
+const UpdateBook = () => {
+    const { id } = useParams()
+    // const [id, setId] = useState(null)
     let navigate = useNavigate()
     const dispatch = useDispatch()
+    
 
-
+    useEffect(() => {
+    
+        dispatch(detailsBook(id))
+            
+      }, [dispatch])
+      console.log(id)
+// useEffect(() => {
+//     if(params.id){
+//         setId(books.id)
+//     }
+// }, [params])
 
     return (
         <div className={s.formFondo}>
@@ -20,6 +34,7 @@ const Forms = () => {
                 </div>
                 <Formik
                     initialValues={{
+                        id: id,
                         nombre: '',
                         descripcion: '',
                         price: '',
@@ -40,6 +55,7 @@ const Forms = () => {
                             errors.descripcion = 'required field'
                         } else if (!values.price) {
                             errors.price = 'required'
+
                         } else if (!values.ranking) {
                             errors.ranking = 'required field'
                         } else if (!values.colection) {
@@ -52,7 +68,7 @@ const Forms = () => {
                     }}
                     onSubmit={(values, { resetForm }) => {
                         console.log(values)
-                        dispatch(postCreate(values))
+                        dispatch(putBook(values))
                         resetForm()
                         navigate('/home')
                     }}
@@ -150,4 +166,4 @@ const Forms = () => {
     )
 }
 
-export default Forms
+export default UpdateBook;
