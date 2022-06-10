@@ -61,6 +61,7 @@ export default function Home() {
       <div className={style.DivFilter}>
         <FilterCategories />
       </div>
+      
       <div className={style.contenedorBooks}>
         {allBooks?.length > 0 && !loading ? (
           allBooks && allBooks?.map((e, i) => {
