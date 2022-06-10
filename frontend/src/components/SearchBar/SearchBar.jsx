@@ -3,7 +3,7 @@ import { useState  } from 'react';
 import { useDispatch  } from 'react-redux';
 import { cleanData, searchByName } from '../../redux/actions/actionBooks';
 import s from './SearchBar.module.css';
-
+import FilterCategories from '../FilterCategories/FilterCategories';
 export default function SearchBar() {
     const dispatch = useDispatch();
     const [name, setName] = useState('');
@@ -11,7 +11,6 @@ export default function SearchBar() {
     function handleInputChange (e){
     e.preventDefault();
     setName(e.target.value);
-  
     } 
 
     function handleSubmit(e){
@@ -20,10 +19,20 @@ export default function SearchBar() {
         dispatch(cleanData());
     }
 
+    function handleOnClick(e) {
+        window.location.reload();
+        //dispatch(getAll())
+        //e.preventDefault();
+    }
+
     return (
         <div>
             <input className={s.searchBar} type = "text" placeholder = "Search by Name" onChange = {(e)=> handleInputChange(e)}/>
             <button className={s.btnS}onClick ={(e)=> handleSubmit(e)}>Search</button>
+            <button className={s.btnR} onClick={e => (handleOnClick(e))}>RELOAD ALL BOOKS</button>
+            <div className={s.DivFilter}>
+                    <FilterCategories />
+                </div>
         </div>
     )
 }

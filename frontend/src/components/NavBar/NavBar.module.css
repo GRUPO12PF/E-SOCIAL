@@ -24,13 +24,7 @@ body::-webkit-scrollbar-thumb{
     padding: 0.5rem 1rem;
     font-family: 'Roboto', sans-serif;
 }
-.btnR{
-    font-family: 'Roboto', sans-serif;
-}
-.btnR:hover{
-    background-color: #1b1b1b;
-    color: rgb(247, 243, 243);
-}
+
 .busqueda{
     font-family: 'Roboto', sans-serif;
 }

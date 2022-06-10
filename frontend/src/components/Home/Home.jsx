@@ -8,8 +8,8 @@ import Pagination from '../Pagination/Pagination.jsx'
 import Loading from '../Loading/Loading.jsx'
 import NotFound from '../NotFound/NotFound.jsx'
 import NavBar from '../NavBar/NavBar'
-import FilterCategories from '../FilterCategories/FilterCategories'
 import style from './Home.module.css'
+import SearchBar from '../SearchBar/SearchBar.jsx'
 
 export default function Home() {
   const dispatch = useDispatch()
@@ -38,7 +38,7 @@ export default function Home() {
 
     setTimeout(() => {
       setLoading(false)
-    },0);
+    },2000);
 
   }
   // const page = (pageNumber) => {
@@ -53,21 +53,19 @@ export default function Home() {
   return (
     <div>
 
-      <div>
-        <NavBar />
-      </div>
+
+      <div> <NavBar /> </div>
+      <div className={style.busqueda}> <SearchBar/> </div>
       <div onClick={() => logOut()}>
         <Link to='/'>
           <h3 className={style.logout}>Logout</h3>
         </Link>
       </div>
-      <div className={style.DivFilter}>
-        <FilterCategories />
-      </div>
+      
       
       <div className={style.contenedorBooks}>
-        {allBooks?.length > 0 && !loading ? (
-          allBooks && allBooks?.map((e, i) => {
+        {allBooks.length > 0 && !loading ? (
+          allBooks && allBooks.map((e, i) => {
             // console.log(e)
             // console.log para revisar qué llega de cada elemento en los libros! 
 
@@ -84,11 +82,7 @@ export default function Home() {
               </div>
             )
           })
-        ) : !allBooks?.length > 0 && loading ? (
-          <NotFound />
-          ) : (
-            <Loading />
-            )
+        ) : <Loading />
         }
       </div>
       <Pagination />
