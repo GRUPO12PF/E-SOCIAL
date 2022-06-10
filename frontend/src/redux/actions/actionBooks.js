@@ -66,17 +66,18 @@ export function cleanData() {
     }
 }
 
-export const deleteBook = (_id) => {
+export const deleteBook = (payload) => {
     return async function (dispatch) {
         const id = localStorage.getItem("token");
         const config = {
             headers: {
                 "Content-Type": "multipart/form-data",
-                Authorization: `Bearer ${_id}`,
+                Authorization: `Bearer ${id}`,
             },
         };
+        console.log(payload)
         try {
-            const json = await clienteAxios.delete(`/books/${_id}`, config);
+            const json = await clienteAxios.delete(`/books/${payload}`, config);
             console.log(json)
             return json;
         } catch (error) {

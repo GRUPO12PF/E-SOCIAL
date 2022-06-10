@@ -117,18 +117,9 @@ const editarBook = async (req, res) => {
 
 const eliminarBook = async (req, res) => {
   try {
-    const { id } = req.params
-
-    const bookId = await Book.findById(id, projection)
-    if (bookId) {
-      await Book.deleteOne({
-        where: { id },
-      })
-      res.json({ success_msg: 'Libro eliminado correctamente' })
-    } else {
-      const error = new Error('No se encontró el libro.')
-      res.status(404).json({ msg: error.message })
-    }
+    const id  = req.params.id
+     const bookId = await Book.findOneAndDelete({_id: id })
+      res.json({ bookId })
   } catch (error) {
     console.log(error)
   }
