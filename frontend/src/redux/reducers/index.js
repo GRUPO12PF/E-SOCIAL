@@ -149,6 +149,12 @@ function rootReducer(state = initialState, action) {
         ...state,
         delete: action.payload
       }
+      case 'PUT_BOOK': 
+      console.log(action.payload)
+      return {
+        ...state,
+        put: state.allBooks.map((e)=> e.id === action.payload.id ? e.id : action.payload)
+      }
 
     default:
       return state
