@@ -6,7 +6,7 @@ import Book from '../Book/Book.jsx'
 import { userLogout } from '../../redux/actions/actionUser'
 import Pagination from '../Pagination/Pagination.jsx'
 import Loading from '../Loading/Loading.jsx'
-import NotFound from '../NotFound/NotFound.jsx'
+
 import NavBar from '../NavBar/NavBar'
 import style from './Home.module.css'
 import SearchBar from '../SearchBar/SearchBar.jsx'
