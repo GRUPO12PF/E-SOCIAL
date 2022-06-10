@@ -98,22 +98,33 @@ const detailBook = async (req, res) => {
 }
 
 const editarBook = async (req, res) => {
-  try {
-    const { id } = req.params
-    const bookId = await Book.findById(id, projection)
+      const { id } = req.params
+      const bookId = await Book.findById(id, projection)
 
-    if (bookId) {
-      const { nombre, descripcion, colection, category, price, rating } = req.body
-      await Book.updateOne({ nombre, descripcion, colection, category, price, rating })
-    } else {
-      const error = new Error('No se encontró el libro.')
-      res.status(404).json({ msg: error.message })
+    if(!bookId) {
+        const error = new Error("No Enctontrado el libro");
+        return res.status(404).json({msg: error.message});
     }
-    res.json({ success_msg: 'Libro modificado correctamente' })
-  } catch (error) {
-    console.log(error)
+
+    if (bookId.creador.toString() !== req.usuario._id.toString() ) {
+        const error = new Error("Accion No Valida");
+        return res.status(401).json({msg: error.message});
+    }
+
+    bookId.nombre = req.body.nombre || proyecto.nombre;
+    bookId.descripcion = req.body.descripcion || proyecto.descripcion;
+    bookId.colection = req.body.colection || proyecto.colection;
+    bookId.category = req.body.category || proyecto.category;
+    bookId.price = req.body.price || proyecto.price;
+    bookId.rating = req.body.rating || proyecto.rating;
+
+    try {
+        const libroEditado = await Book.save()
+        res.json(libroEditado)
+    } catch (error) {
+        console.log(error)
+    }
   }
-}
 
 const eliminarBook = async (req, res) => {
   try {
