@@ -17,7 +17,8 @@
     background-color: rgba(0, 0, 0, 0.699);
     margin-top: 3rem;
     border-radius: 20px;
-     padding: 40px 200px; 
+     padding: 40px 200px;
+     font-family: 'Roboto', sans-serif; 
 }
 
 .input{
@@ -28,6 +29,7 @@
     /* border-radius: 16px; */
     padding: 3px 60px;
     color: white;
+    font-family: 'Roboto', sans-serif;
 }
 .textarea{
     outline: none;
@@ -45,6 +47,7 @@
     text-align: center;
     color: white;
     font-family: monospace;
+    font-family: 'Roboto', sans-serif;
 }
 
 .range{
