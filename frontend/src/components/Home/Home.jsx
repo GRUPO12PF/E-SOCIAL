@@ -12,6 +12,7 @@ import Loading from '../Loading/Loading.jsx'
 import NavBar from '../NavBar/NavBar'
 import style from './Home.module.css'
 import SearchBar from '../SearchBar/SearchBar.jsx'
+import NotFound from '../NotFound/NotFound.jsx'
 
 export default function Home() {
   const navigate = useNavigate()
@@ -57,7 +58,10 @@ export default function Home() {
 
       <div className={style.contenedorBooks}>
         {
-          allBooks?.length > 0 && !loading ? (
+          loading
+          ? <Loading />
+          : allBooks?.length > 0 && !loading
+          ? (
             allBooks && allBooks?.map((e, i) => {
               // console.log(e)
               // console.log para revisar qué llega de cada elemento en los libros! 
@@ -75,7 +79,7 @@ export default function Home() {
                 </div>
               )
             })
-          ) : <Loading />
+          ) : <NotFound />
         }
       </div>
       <Pagination />
