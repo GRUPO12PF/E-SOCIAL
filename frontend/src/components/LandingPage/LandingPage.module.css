@@ -9,3 +9,68 @@
     align-content: center;
     border-radius: 10px;
 }
+
+.title {
+    color: rgb(245, 245, 245);
+    text-shadow: #070606 15px 12px 12px;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding-top: 15%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    font-size: 120px;
+    color: #ebf7ee
+}
+
+
+.btn {
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+    color: rgba(27, 27, 27, 0.8);
+    padding: 10px 30px;
+    border: 1px solid;
+    border-radius: 100px;
+    display: inline-block;
+    transition: all .2s;
+    position: relative;
+    font-size: 25px;
+    margin-left: 35%;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
+}
+
+.btn:active {
+    transform: translateY(-3px);
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    transition: all .3s;
+}
+
+.btn:hover::after {
+    background-color: rgb(255, 255, 255);
+    transform: scaleX(1.4) scaleY(1.5);
+    opacity: 0;
+}
+
+@media (max-width: 500px) {
+    .btn {
+        padding: 10px;
+    }
+    
+}
+
+@media only screen and (min-width:501) and (max-width: 850px) {}

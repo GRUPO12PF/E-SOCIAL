@@ -1,34 +1,45 @@
-.nav{
+.nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    background-color: #fff;
-    border-bottom: 1px solid #e5e5e5;
+    padding-top: 6px;
+    padding: 10px;
+    border-radius: 5px;
+    background: #e0e0e0;
+    box-shadow: 15px 15px 30px #bebebe,
+        -15px -15px 30px #ffffff;
 }
 
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
     width: 7px;
 }
 
-body::-webkit-scrollbar-thumb{
+body::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.712);
     border-radius: 18px;
     color: black;
 }
-.link{
+
+.link {
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
     color: black;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 20px;
     font-weight: bold;
     padding: 0.5rem 1rem;
-    font-family: 'Roboto', sans-serif;
+    text-shadow: #b3b2b2 5px 5px 5px;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.busqueda{
-    font-family: 'Roboto', sans-serif;
-}
-.busqueda:hover{
-    background-color: #1b1b1b;
-    color: rgb(247, 243, 243);
+.logout {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    text-shadow: #bebebe;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-left: 15px;
+    text-shadow: #b3b2b2 5px 5px 5px;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

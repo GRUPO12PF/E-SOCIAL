@@ -1,7 +1,18 @@
 .bookItem {
+    border-radius: 10px;
+    transition: all .3s;
+    margin: 15px;
+    box-shadow: 4px 6px 14px #262525;
+    padding: 6px;
+    background-color: rgba(193, 189, 186, 0.5);
     display: flex;
     padding: 20px;
     margin: 0 auto;
+}
+
+.bookItem:hover {
+    transform: scale(1.10);
+    box-shadow: rgba(73, 63, 70, 0.05) 25px 25px;
 }
 .book{
     height: 300px;

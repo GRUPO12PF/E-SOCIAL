@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import Book from '../Book/Book.jsx'
-import { userLogout } from '../../redux/actions/actionUser'
+import image from '../../assets/images/home.png'
+import s from './Home.module.css'
+
 import Pagination from '../Pagination/Pagination.jsx'
 import Loading from '../Loading/Loading.jsx'
 
@@ -22,11 +24,8 @@ export default function Home() {
     navigate('/')
   }
 
-  function logOut(){
-    window.localStorage.clear()
-}
 
- 
+
 
   // eslint-disable-next-line
   //const [order, setOrder] = useState('')
@@ -41,7 +40,7 @@ export default function Home() {
 
     setTimeout(() => {
       setLoading(false)
-    },2000);
+    }, 2000);
 
   }
   // const page = (pageNumber) => {
@@ -55,17 +54,11 @@ export default function Home() {
 
   return (
     <div>
-
+<img className={s.image} src={image} alt='' />
 
       <div> <NavBar /> </div>
-      <div className={style.busqueda}> <SearchBar/> </div>
-      <div onClick={() => logOut()}>
-        <Link to='/'>
-          <h3 className={style.logout}>Logout</h3>
-        </Link>
-      </div>
-      
-      
+      <div className={style.busqueda}> <SearchBar /> </div>
+
       <div className={style.contenedorBooks}>
         {allBooks.length > 0 && !loading ? (
           allBooks && allBooks.map((e, i) => {

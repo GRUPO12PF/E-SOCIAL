@@ -1,7 +1,37 @@
-.btnR{
-    font-family: 'Roboto', sans-serif;
-}
-.btnR:hover{
-    background-color: #1b1b1b;
+.searchBar {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 70px;
+    margin-bottom: 1%;
+    border-radius: 8px;
+    font-size: large;
+    font-weight: bold;
+    align-content: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: rgb(247, 243, 243);
+    border-radius: 5px;
+    background: #e0e0e0;
+    
+}
+
+.btnS {
+    font-family: 'Roboto', sans-serif;
+    justify-content: space-between;
+}
+.btnS:hover:hover {
+    background-color: #cecccc;
+    color: rgb(247, 243, 243);
+    color: rgb(47, 47, 47);
+}
+
+.btnR {
+    font-family: 'Roboto', sans-serif;
+    justify-content: space-between;
+
+}
+
+.btnR:hover {
+    background-color: #cecccc;
+    color: rgb(247, 243, 243);
+    color: rgb(47, 47, 47);
 }
