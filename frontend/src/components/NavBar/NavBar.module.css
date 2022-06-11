@@ -3,10 +3,8 @@
     justify-content: space-between;
     padding-top: 6px;
     padding: 10px;
-    border-radius: 5px;
-    background: #e0e0e0;
-    box-shadow: 15px 15px 30px #bebebe,
-        -15px -15px 30px #ffffff;
+    background: #DEA057;
+   
 }
 
 body::-webkit-scrollbar {
@@ -28,7 +26,6 @@ body::-webkit-scrollbar-thumb {
     font-size: 20px;
     font-weight: bold;
     padding: 0.5rem 1rem;
-    text-shadow: #b3b2b2 5px 5px 5px;
     font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -40,6 +37,5 @@ body::-webkit-scrollbar-thumb {
     font-weight: bold;
     margin-top: 5px;
     margin-left: 15px;
-    text-shadow: #b3b2b2 5px 5px 5px;
     font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

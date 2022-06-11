@@ -2,10 +2,7 @@
     border-radius: 10px;
     transition: all .3s;
     margin: 15px;
-    box-shadow: 4px 6px 14px #262525;
-    padding: 6px;
-    background-color: rgba(248, 246, 244, 0.5);
-    display: flex;
+    box-shadow: 2px 3px 8px black;
     padding: 20px;
     margin: 0 auto;
 }
@@ -22,7 +19,7 @@
     align-items: center;
 }
 .nombre {
-    color: #383535;
+    color: black;
     font-size: 1.5rem;
     font-weight:bold;
     text-transform: capitalize;
