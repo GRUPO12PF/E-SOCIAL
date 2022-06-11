@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import Book from '../Book/Book.jsx'
-import image from '../../assets/images/home.png'
-import s from './Home.module.css'
+import { getBooks } from '../../redux/actions/actionBooks'
+//import image from '../../assets/images/home.png'
+//import s from './Home.module.css'
 
 import Pagination from '../Pagination/Pagination.jsx'
 import Loading from '../Loading/Loading.jsx'
@@ -23,7 +24,9 @@ export default function Home() {
   if (!token) {
     navigate('/')
   }
-
+useEffect(() => {
+dispatch(getBooks())
+},[dispatch])
 
 
 
@@ -53,8 +56,8 @@ export default function Home() {
   // }
 
   return (
-    <div>
-<img className={s.image} src={image} alt='' />
+    <div className={style.contenedorGral}>
+{/* <img className={s.image} src={image} alt='' /> */}
 
       <div> <NavBar /> </div>
       <div className={style.busqueda}> <SearchBar /> </div>

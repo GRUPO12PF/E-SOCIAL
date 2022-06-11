@@ -1,3 +1,8 @@
+.contenedorGral{
+    background-color: rgb(255, 255, 255);
+    height: 100vh;
+    width: 100%;
+}
 .image {
       position: fixed;
     object-fit: cover;
@@ -11,6 +16,8 @@
 
 }
 .contenedorBooks {
+    background-color: darkgrey;
+    height: 100vh;
     display: inline;
     width: 100%;
     display: flex;
