@@ -16,12 +16,12 @@ export default function FilterCategories(props) {
 
   const handleCategorySelect = (e) => {
     e.preventDefault()
-    // setCurrentPage(1)
+    console.log(e.target.value)
     dispatch(filterByCategory(e.target.value))
   }
 
   return (
-    <div >
+    <div>
       <select className={style.filter}
        onChange={handleCategorySelect}>
         <option value={''}>ALL CATEGORIES</option>

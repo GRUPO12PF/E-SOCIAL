@@ -127,9 +127,12 @@ function rootReducer(state = initialState, action) {
       }
 
     case FILTER_BY_CATEGORY:
+      let response = action.payload.length > 0
+        ? action.payload
+        : [{ error_msg: 'The filter did not find any games!' }]
       return {
         ...state,
-        books: action.payload
+        books: response
       }
 
     case 'PAGINATION_BOOKS':
@@ -143,14 +146,14 @@ function rootReducer(state = initialState, action) {
         ...state,
         countBooks: action.payload
       }
-      
-      case 'DELETE_BOOK': 
+
+    case 'DELETE_BOOK':
       console.log(action.payload)
       return {
         ...state,
         delete: action.payload
       }
-      case 'PUT_BOOK': 
+    case 'PUT_BOOK':
       console.log(action.payload)
       return {
         ...state,

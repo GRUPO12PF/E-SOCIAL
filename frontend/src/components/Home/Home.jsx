@@ -24,11 +24,6 @@ export default function Home() {
   if (!token) {
     navigate('/')
   }
-useEffect(() => {
-dispatch(getBooks())
-},[dispatch])
-
-
 
   // eslint-disable-next-line
   //const [order, setOrder] = useState('')

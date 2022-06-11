@@ -21,12 +21,10 @@ import UpdateBook from './components/UpdateBook/UpdateBook'
 
 function App() {
   const dispatch = useDispatch()
-  const allBooks = useSelector(state => state.books)
   
   useEffect(() => {
-    if(!allBooks.length)
     dispatch(getBooks())
-  }, [dispatch, allBooks])
+  }, [dispatch])
 
   return (
     <Router>
