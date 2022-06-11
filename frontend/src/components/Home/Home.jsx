@@ -22,9 +22,12 @@ export default function Home() {
     navigate('/')
   }
 
-  function logOut() {
-    dispatch(userLogout)
-  }
+  function logOut(){
+    window.localStorage.clear()
+}
+
+ 
+
   // eslint-disable-next-line
   //const [order, setOrder] = useState('')
   // const [pageCurrent, setPageCurrent] = useState(1)
