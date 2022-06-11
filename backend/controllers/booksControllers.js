@@ -27,12 +27,7 @@ const obtenerBooks = async (req, res) => {
         response = books.docs
       }
     }
-    if (response.length) {
-      res.json(response)
-    }
-    // else { // TODO Cambiar en el front para que llegue este error
-    //   res.status(404).json({ error_msg: 'Libro no encontrado!' })
-    // }
+    res.json(response)
   } catch (error) {
     console.log(error)
   }

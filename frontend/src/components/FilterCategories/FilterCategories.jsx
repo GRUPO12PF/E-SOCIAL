@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { filterByCategory, getCategories } from '../../redux/actions/actionCategories.js'
 import style from './FilterCategories.module.css'
 
-export default function FilterCategories(props) {
-  // const { setCurrentPage } = props
+export default function FilterCategories() {
   const categories = useSelector(state => state.categories)
   const dispatch = useDispatch()
 
@@ -16,7 +15,6 @@ export default function FilterCategories(props) {
 
   const handleCategorySelect = (e) => {
     e.preventDefault()
-    console.log(e.target.value)
     dispatch(filterByCategory(e.target.value))
   }
 
