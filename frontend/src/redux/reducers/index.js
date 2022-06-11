@@ -154,7 +154,7 @@ function rootReducer(state = initialState, action) {
       console.log(action.payload)
       return {
         ...state,
-        put: state.allBooks.map((e)=> e.id === action.payload.id ? action.payload : e.id)
+        put: action.payload,
       }
 
     default:
