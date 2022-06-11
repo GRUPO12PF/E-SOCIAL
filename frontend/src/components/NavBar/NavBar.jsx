@@ -5,7 +5,7 @@ import style from './NavBar.module.css';
 
 export default function NavBar() {
     function logOut() {
-        window.localStorage.clear()
+        window.localStorage.removeItem("token");
     }
     return (
         <div>
@@ -13,6 +13,7 @@ export default function NavBar() {
                 <Link to="/home" className={style.link}>HOME</Link>
                 <Link to="/create" className={style.link}>CREATED</Link>
                 <Link to="/about" className={style.link}>ABOUT</Link>
+                <Link to="/home/usuario/setting" className={style.link}>SETTINGS</Link>
                 <div onClick={() => logOut()}>
                     <Link to='/'>
                         <h3 className={style.logout}>LOGOUT</h3>

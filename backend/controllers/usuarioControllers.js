@@ -156,7 +156,7 @@ const perfil = async (req, res) => {
 const usuario = async (req, res) => {
     try {
         const user = await Usuario.findOne({ nombre: req.usuario.nombre })
-            .select(" -moderador -password -confirmado  -createdAt -updatedAt -__v -token");
+            .select(" -moderador -password -confirmado  -createdAt -updatedAt -__v ");
         return res.send(user);
     } catch (e) {
         return res.status(400).json({ msg: "Error" });
