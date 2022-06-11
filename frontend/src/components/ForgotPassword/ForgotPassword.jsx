@@ -67,7 +67,7 @@ export default function ForgotPassword() {
               </div>
             )}
             {respuesta.msg ? (
-              <Link to="/">
+              <Link to="/home">
                 {" "}
                 <button type="submit">Go back</button>{" "}
               </Link>

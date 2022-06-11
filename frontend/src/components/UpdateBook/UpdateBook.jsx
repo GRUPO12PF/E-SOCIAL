@@ -15,9 +15,7 @@ const UpdateBook = () => {
     
 
     useEffect(() => {
-    
         dispatch(detailsBook(id))
-            
       }, [dispatch])
       console.log(id)
 // useEffect(() => {
