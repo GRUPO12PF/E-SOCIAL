@@ -8,6 +8,12 @@
     width: 100%;
     align-content: center;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
 }
 
 .title {
@@ -22,6 +28,12 @@
     font-size: 120px;
     color: #ebf7ee;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+
 }
 
 
@@ -37,6 +49,7 @@
     position: relative;
     font-size: 25px;
     margin-left: 35%;
+    
 }
 
 .btn:hover {
