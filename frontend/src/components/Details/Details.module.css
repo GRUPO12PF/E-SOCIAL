@@ -8,6 +8,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 .pName{
@@ -24,9 +25,14 @@
 .description{
     margin-top: 80px;
     margin-left: 150px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .h5{
     font-size: 30px;
     margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+.btn{
+    font-family: 'Roboto', sans-serif;
 }
