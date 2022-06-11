@@ -8,7 +8,7 @@ function LandingPage() {
       <div className={s.container} >
         <img className={s.image} src={image} alt='' />
           <div className={s.inicio}>
-              <h1>Welcome</h1>
+              <h1 className={s.title}>Welcome</h1>
               <div className={s.link}>
                   <Link to='/homeout'>
                       <button className={s.btn}>📚 📖 Click here to get started 📖 📚 </button>

@@ -1,12 +1,13 @@
 import React from "react";
 import NavBar from "../NavBar/NavBar";
 import style from './About.module.css';
-
+import image from '../../assets/images/about.jpeg';
 
 export default function About() {
 
     return (
         <div>
+            <img className={style.image} src={image} alt='' />
             <div>
                 <NavBar />
             </div>

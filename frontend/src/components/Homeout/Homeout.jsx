@@ -31,14 +31,14 @@ console.log("prueba")
   return (
     <div>
       <img className={s.image} src={image} alt='' />
-      <div>
+      <div className={s.btncontainer}>
         <Link to="/login">
-          <button>LOGIN</button>
+          <button className={s.btn}>LOGIN</button>
         </Link>
         <Link to="/registrar">
-          <button>REGISTER</button>
+          <button className={s.btn}>REGISTER</button>
         </Link>
       </div>
-    </div>
+     </div>
   );
 }

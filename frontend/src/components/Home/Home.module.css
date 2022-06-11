@@ -1,3 +1,15 @@
+.image {
+      position: fixed;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100vh;
+    width: 100%;
+    align-content: center;
+    border-radius: 10px;
+
+}
 .contenedorBooks {
     display: inline;
     width: 100%;
@@ -12,7 +24,7 @@
     flex-direction: row;
 }
 .logout{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: black;
 }
 
