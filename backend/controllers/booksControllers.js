@@ -98,29 +98,33 @@ const detailBook = async (req, res) => {
 }
 
 const editarBook = async (req, res) => {
-      const { id } = req.params
-      const bookId = await Book.findById(id, projection)
-
-    if(!bookId) {
-        const error = new Error("No Enctontrado el libro");
-        return res.status(404).json({msg: error.message});
-    }
-
-    if (bookId.creador.toString() !== req.usuario._id.toString() ) {
-        const error = new Error("Accion No Valida");
-        return res.status(401).json({msg: error.message});
-    }
-
-    bookId.nombre = req.body.nombre || proyecto.nombre;
-    bookId.descripcion = req.body.descripcion || proyecto.descripcion;
-    bookId.colection = req.body.colection || proyecto.colection;
-    bookId.category = req.body.category || proyecto.category;
-    bookId.price = req.body.price || proyecto.price;
-    bookId.rating = req.body.rating || proyecto.rating;
+      const id = req.params.id
+    console.log(req.params, "params")
+    console.log(id, "id")
 
     try {
-        const libroEditado = await Book.save()
-        res.json(libroEditado)
+        // const libroEditado = await Book.save()
+        // res.json(libroEditado)
+        const bookId = await Book.findOneAndUpdate({_id: id}, {
+          nombre : req.body.nombre,
+          descripcion : req.body.descripcion,
+          colection : req.body.colection,
+          category : req.body.category,
+          price : req.body.price,
+          rating : req.body.rating,
+        })
+
+        if(!bookId) {
+            const error = new Error("No Enctontrado el libro");
+            return res.status(404).json({msg: error.message});
+        }
+    
+        // if (bookId.creador.toString() !== req.usuario._id.toString() ) {
+        //     const error = new Error("Accion No Valida");
+        //     return res.status(401).json({msg: error.message});
+        // }
+        res.json("se actualizó el libro").status(201)
+        
     } catch (error) {
         console.log(error)
     }

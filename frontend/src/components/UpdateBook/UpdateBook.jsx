@@ -7,7 +7,7 @@ import NavBar from '../NavBar/NavBar';
 import s from '../UpdateBook/UpdateBook.module.css'
 import { detailsBook } from '../../redux/actions/detailsBooks';
 
-const UpdateBook = () => {
+const UpdateBook = (_id) => {
     const { id } = useParams()
     // const [id, setId] = useState(null)
     let navigate = useNavigate()
@@ -15,15 +15,15 @@ const UpdateBook = () => {
     
 
     useEffect(() => {
-        dispatch(detailsBook(id))
-      }, [dispatch])
+        dispatch(putBook(id))
+      }, [dispatch, id])
       console.log(id)
 // useEffect(() => {
 //     if(params.id){
 //         setId(books.id)
 //     }
 // }, [params])
-
+      
     return (
         <div className={s.formFondo}>
             <div>
@@ -32,7 +32,7 @@ const UpdateBook = () => {
                 </div>
                 <Formik
                     initialValues={{
-                        id: id,
+                        _id: id,
                         nombre: '',
                         descripcion: '',
                         price: '',
