@@ -36,6 +36,8 @@ const Details = () => {
     e.preventDefault()
     dispatch(deleteBook(id))
       navigate('/home')
+      window.location.reload();
+
   }
   function handleUpdateBook(e) {
     e.preventDefault()
