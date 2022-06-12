@@ -1,5 +1,6 @@
 import express from "express";
 import {
+    googleLogin,
     registrar,
     autenticar,
     confirmar,
@@ -17,6 +18,7 @@ import checkAuth from "../middleware/checkAuth.js";
 const router = express.Router();
 
 //Autenticacion, Registro y Confirmacion de Usuarios
+router.post('/google', googleLogin);
 router.post('/', registrar); //registrar usuarios
 router.post('/login', autenticar); //login de usuarios
 router.get('/confirmar/:token', confirmar); //comfirmar usuario por token
