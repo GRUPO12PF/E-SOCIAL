@@ -67,7 +67,7 @@ const Forms = () => {
                     }}
                 >
 
-                    {({ errors, handleSubmit }) => (<Form action="" onSubmit={handleSubmit} className={s.formik} >
+                    {({ errors, handleSubmit,handleChange }) => (<Form action="" onSubmit={handleSubmit} className={s.formik} >
 
                         <div className={s.form}>
 
@@ -150,12 +150,12 @@ const Forms = () => {
                             
                             <label htmlFor="" className={s.label} >category</label>
                              <div>
-                            <Field  as="select"  className={s.input}>
-                                 <option value="">Category</option>
+                            <Field name="category" id="category"  as="select"  className={s.input}>
+                                 <option >Category</option>
                                 {
                                     categorie?.map((e,i)=>{
                                         return(
-                                            <option className={s.select} value={e} key={i}>{e}</option>
+                                            <option className={s.select}  value={e.category} key={i}>{e}</option>
                                         )
                                     })
                                 }
