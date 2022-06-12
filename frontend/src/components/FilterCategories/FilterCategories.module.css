@@ -1,4 +1,6 @@
 .filter{
     display: flex;
-    font-family: 'Roboto', sans-serif
+    font-family: 'Roboto', sans-serif;
+    background-color: rgba(229, 234, 237, 0.978);
+    
 }
