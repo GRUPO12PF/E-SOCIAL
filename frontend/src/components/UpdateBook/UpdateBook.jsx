@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react'
 import { Formik, Field, ErrorMessage, Form } from 'formik'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
-import { putBook, putBookBody  } from '../../redux/actions/actionBooks';
+import { getBooks, putBook, putBookBody  } from '../../redux/actions/actionBooks';
 import NavBar from '../NavBar/NavBar';
 import s from '../UpdateBook/UpdateBook.module.css'
 import { detailsBook } from '../../redux/actions/detailsBooks';
@@ -72,9 +72,10 @@ const UpdateBook = (_id) => {
                         dispatch(putBook({_id:id}))
                         dispatch(putBookBody(values))
                         console.log(values)
-                        // console.log('id ' + idBook)
                         resetForm()
                         navigate('/home')
+                        dispatch(getBooks())
+
                     }}
                 >
 
