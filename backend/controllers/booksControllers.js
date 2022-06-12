@@ -99,11 +99,12 @@ const editarBook = async (req, res) => {
     try {
         // const libroEditado = await Book.save()
         // res.json(libroEditado)
-        const bookId = await Book.findOneAndUpdate({_id: id}, {
+        const bookId = await Book.findByIdAndUpdate({_id: id}, {
           nombre : req.body.nombre,
           descripcion : req.body.descripcion,
           colection : req.body.colection,
           category : req.body.category,
+          image: req.body.image,
           price : req.body.price,
           rating : req.body.rating,
         })
