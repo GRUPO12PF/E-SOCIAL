@@ -1,0 +1,13 @@
+.contRegister{
+    display: flex;flex-direction: column;
+    text-align: center;
+    flex-direction: column;
+    
+}
+
+.backg{
+    background: rgb(42, 51, 172);
+    width: 60%;
+    margin: 2rem auto;
+    padding: 20px 20px;
+}
