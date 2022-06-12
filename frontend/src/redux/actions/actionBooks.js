@@ -47,7 +47,7 @@ export function pagination(page) {
 export function getTotalBooks() {
     return async function (dispatch) {
         const json = await clienteAxios.get(`books/total`);
-        console.log(json)
+        // console.log(json)
         return dispatch({
             type: "GET_TOTAL",
             payload: json.data,
@@ -96,13 +96,13 @@ export const putBook = (payload) => {
             },
         };
         try {
-            const json = await clienteAxios.put(`/books/${payload}`, config);
+            const json = await clienteAxios.put(`/books/${payload._id}`, config);
             dispatch({
                 type: "PUT_BOOK",
                 payload: json.data,
             });
             console.log(json.data)
-            //return json;
+            return JSON.stringify(json.data);
         } catch (error) {
             throw error
         }
@@ -111,6 +111,7 @@ export const putBook = (payload) => {
 
 export const putBookBody = (payload) => {
     return async function (dispatch) {
+        console.log("a veeeeeer", payload)
         const id = localStorage.getItem("token");
         const config = {
             headers: {
@@ -119,11 +120,12 @@ export const putBookBody = (payload) => {
             },
         };
         try {
-            const json = await clienteAxios.put(`/books`,  payload, config);
-           
-            console.log(json)
-            return json;
-
+            const json = await clienteAxios.put(`/books/${payload._id}`, payload, config);
+            dispatch({
+                type: "PUT_BOOK_BODY",
+                payload: json.data,
+            });
+            return json.data;
         } catch (error) {
             throw error
         }

@@ -17,7 +17,7 @@ const Details = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate();
   const detail = useSelector((state) => state.detail)
-  console.log(detail)
+  // console.log(detail)
 
   if(Object.keys(detail).length > 0 && loading){
     setLoading(false);
@@ -41,7 +41,7 @@ const Details = () => {
     e.preventDefault()
      navigate(`/details/update/${id}`)
   }
-  console.log(id)
+  // console.log(id)
   return (
     <div>
       <div>
