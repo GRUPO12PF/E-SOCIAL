@@ -123,8 +123,7 @@ const editarBook = async (req, res) => {
     } catch (error) {
         console.log(error)
     }
-  }
-}
+ }
 
 const eliminarBook = async (req, res) => {
   try {
