@@ -2,33 +2,18 @@ import React, { useRef, useState, useEffect } from 'react'
 import { Formik, Field, ErrorMessage, Form } from 'formik'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
-import { getBooks, putBook, putBookBody  } from '../../redux/actions/actionBooks';
+import { getBooks, putBookBody  } from '../../redux/actions/actionBooks';
 import NavBar from '../NavBar/NavBar';
 import s from '../UpdateBook/UpdateBook.module.css'
-import { detailsBook } from '../../redux/actions/detailsBooks';
+
 
 const UpdateBook = (_id) => {
     const { id } = useParams()
-    // const [id, setId] = useState(null)
-
-    // const detail = useSelector((state) => state.detail)
-    // const idBook = detail._id
     
-    // console.log(idBook)
     let navigate = useNavigate()
     const dispatch = useDispatch()
     
-    /*function onSubt(e){
-        e.preventDefault();
-        dispatch(putBook(idBook))
-        console.log(idBook)
-    }*/
-
-// useEffect(() => {
-//     dispatch(putBook(id))
-//     console.log(id)
-// }, [dispatch])
-
+ 
     return (
         <div className={s.formFondo}>
             <div>
@@ -69,8 +54,7 @@ const UpdateBook = (_id) => {
                         return errors;
                     }}
                     onSubmit={(values, { resetForm }) => {
-                        dispatch(putBook({_id:id}))
-                        dispatch(putBookBody(values))
+                       dispatch(putBookBody(values))
                         console.log(values)
                         resetForm()
                         navigate('/home')
@@ -158,7 +142,7 @@ const UpdateBook = (_id) => {
                                 <ErrorMessage name='ranking' component={() => (<p>{errors.ranking}</p>)} />
 
                             </div>
-                            <button type="submit">Send Message</button>
+                            <button type="submit">Send</button>
 
                         </div>
 

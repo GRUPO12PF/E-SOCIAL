@@ -150,12 +150,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         delete: action.payload
       }
-    case 'PUT_BOOK':
-      console.log(action.payload)
-      return {
-        ...state,
-        put: action.payload
-      }
+    
     case 'PUT_BOOK_BODY':
       return {
           ...state,

@@ -86,28 +86,6 @@ export const deleteBook = (payload) => {
     };
 };
 
-export const putBook = (payload) => {
-    return async function (dispatch) {
-        const id = localStorage.getItem("token");
-        const config = {
-            headers: {
-                "Content-Type": "multipart/form-data",
-                Authorization: `Bearer ${id}`,
-            },
-        };
-        try {
-            const json = await clienteAxios.put(`/books/${payload._id}`, config);
-            dispatch({
-                type: "PUT_BOOK",
-                payload: json.data,
-            });
-            console.log(json.data)
-            return JSON.stringify(json.data);
-        } catch (error) {
-            throw error
-        }
-    };
-};
 
 export const putBookBody = (payload) => {
     return async function (dispatch) {

@@ -141,6 +141,7 @@ export default function Login() {
               {errorEmail && !usuario.email && !usuario.password ? (
                 <p>{errorEmail} </p>
               ) : null}
+              <br/>
               <button className={s.login} type="submit">
                 LOGIN
               </button>

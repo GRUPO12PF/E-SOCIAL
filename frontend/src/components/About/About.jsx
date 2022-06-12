@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "../NavBar/NavBar";
 import style from './About.module.css';
-import image from '../../assets/images/about.jpeg';
+import image from '../../assets/images/about.jpg';
 
 export default function About() {
 

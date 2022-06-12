@@ -8,7 +8,7 @@ import s from './Details.module.css';
 import {deleteBook} from '../../redux/actions/actionBooks'
 import NotFoundGral from '../NotFound/NotFoundGral'
 import Loading from '../Loading/Loading';
-import UpdateBook from '../UpdateBook/UpdateBook';
+
 
 const Details = () => {
   const [loading, setLoading] = useState(true);
@@ -36,6 +36,7 @@ const Details = () => {
     e.preventDefault()
     dispatch(deleteBook(id))
       navigate('/home')
+      window.location.reload();
   }
   function handleUpdateBook(e) {
     e.preventDefault()
