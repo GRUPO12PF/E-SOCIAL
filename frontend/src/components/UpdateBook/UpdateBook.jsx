@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { Formik, Field, ErrorMessage, Form } from 'formik'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { useDispatch,useSelector } from 'react-redux';
-import { putBook, putBookBody } from '../../redux/actions/actionBooks';
+import { useDispatch } from 'react-redux';
+import { putBook, putBookBody  } from '../../redux/actions/actionBooks';
 import NavBar from '../NavBar/NavBar';
 import s from '../UpdateBook/UpdateBook.module.css'
 import { detailsBook } from '../../redux/actions/detailsBooks';
@@ -10,9 +10,11 @@ import { detailsBook } from '../../redux/actions/detailsBooks';
 const UpdateBook = (_id) => {
     const { id } = useParams()
     // const [id, setId] = useState(null)
-    const detail = useSelector((state) => state.detail)
-    const idBook = detail._id
 
+    // const detail = useSelector((state) => state.detail)
+    // const idBook = detail._id
+    
+    // console.log(idBook)
     let navigate = useNavigate()
     const dispatch = useDispatch()
     
@@ -22,10 +24,11 @@ const UpdateBook = (_id) => {
         console.log(idBook)
     }*/
 
-useEffect(() => {
-      dispatch(detailsBook(id))
- }, [dispatch])
-      
+// useEffect(() => {
+//     dispatch(putBook(id))
+//     console.log(id)
+// }, [dispatch])
+
     return (
         <div className={s.formFondo}>
             <div>
@@ -41,7 +44,6 @@ useEffect(() => {
                         image: '',
                         ranking: '',
                         colection: ''
-
                     }}
                     validate={(values) => {
                         let errors = {}
@@ -67,10 +69,10 @@ useEffect(() => {
                         return errors;
                     }}
                     onSubmit={(values, { resetForm }) => {
-                        console.log(values)
+                        dispatch(putBook({_id:id}))
                         dispatch(putBookBody(values))
-                        dispatch(putBook(idBook))
-                        console.log('id' + idBook)
+                        console.log(values)
+                        // console.log('id ' + idBook)
                         resetForm()
                         navigate('/home')
                     }}
@@ -120,7 +122,7 @@ useEffect(() => {
                             <div>
                                 <Field
                                     className={s.input}
-                                    type="number"
+                                    type="text"
                                     name="image"
                                     id="image"
 

@@ -156,9 +156,10 @@ function rootReducer(state = initialState, action) {
         ...state,
         put: action.payload
       }
-      case 'PUT_BOOK_BODY':
-        return {
+    case 'PUT_BOOK_BODY':
+      return {
           ...state,
+          put: action.payload
         }
   
     default:
