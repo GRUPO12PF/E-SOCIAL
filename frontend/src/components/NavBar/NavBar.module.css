@@ -24,8 +24,12 @@ body::-webkit-scrollbar-thumb {
     text-decoration: none;
     font-size: 25px;
     font-weight: bold;
-   margin-top: 25px;
+    margin-top: 25px;
     font-family:  'Roboto', sans-serif;
+}
+
+.link:hover{
+    color:#f7ede2;
 }
 
 .logout {
@@ -38,4 +42,7 @@ body::-webkit-scrollbar-thumb {
     margin-top: 25px;
     margin-left: 15px;
     font-family:  'Roboto', sans-serif;
+}
+.logout:hover{
+    color:#f7ede2;
 }
