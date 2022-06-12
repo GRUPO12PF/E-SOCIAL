@@ -11,17 +11,47 @@ const client = new OAuth2Client(process.env.CLIENT_ID);
 const googleLogin = async (req, res) => {
     const { idToken } = req.body;
     try {
-        client
-            .verifyIdToken({
-                idToken,
-                audience: process.env.CLIENT_ID,
-            })
-            .then((response) => {
-                const { email_verified, picture, given_name, email } = response.payload;
-                if (email_verified) {
-
+      client
+        .verifyIdToken({
+          idToken,
+          audience: process.env.CLIENT_ID,
+        })
+        .then((response) => {
+          const { email_verified, picture, given_name, email } = response.payload;
+          if (email_verified) {
+            Usuario.findOne({ email }).exec((err, user) => {
+              if (err) {
+                return res.status(400).json({ error: "Something went wrong " });
+              } else {
+                if (user) {
+                  const token = generarJWT(user._id);
+                  const { _id, nombre, email } = user;
+                  res.json({
+                    _id: _id,
+                    nombre: nombre,
+                    email: email,
+                    token: token,
+                  });
+                } else {
+                  let nuevoUsuario = new Usuario({
+                    nombre: given_name,
+                    email,
+                    image: { public_id: "", url: picture },
+                  });
+                  nuevoUsuario.confirmado = true;
+                  nuevoUsuario.save();
+                  const token = generarJWT(nuevoUsuario._id);
+                  res.json({
+                    _id: nuevoUsuario._id,
+                    nombre: nuevoUsuario.given_name,
+                    email: nuevoUsuario.email,
+                    token: token,
+                  });
                 }
+              }
             });
+          }
+        });
     } catch (error) {
         console.log(error);
     }
@@ -245,4 +275,5 @@ export {
     usuario,
     traerUsuarios,
     cambiarImage,
+    googleLogin,
 };
