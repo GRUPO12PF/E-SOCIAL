@@ -1,11 +1,8 @@
 .formFondo{
-    background-image: url(../../assets/images/book-gb456ffa20_1920.jpg);
+    background-color: #f7ede2;
     width: 100%;
-     height: 110vh;
+    height: 110vh;
     background-repeat: no-repeat;
-   
-   
-    
     background-size: cover;
 }
 
@@ -18,11 +15,11 @@
 }
 
 .form{
-    background-color: rgba(20, 25, 32, 0.699);
+    background-color: rgba(20, 25, 32, 0.351);
     margin-top: 1rem;
     border-radius: 20px;
-     padding: 40px 200px;
-     font-family: 'Roboto', sans-serif; 
+    padding: 40px 200px;
+    font-family: 'Roboto', sans-serif; 
 }
 
 .input{
@@ -31,19 +28,20 @@
     border: none;
     padding: 3px 60px;
     color: rgb(0, 0, 0);
+    border-radius: 5px;
 }
 .textarea{
     outline: none;
     background: white;
     padding: 3px 70px;
     color: rgb(0, 0, 0);
+    border-radius: 5px;
 }
 .label{
     display: flex;
     justify-content: center;
     text-align: center;
     color: black;
-    font-family: monospace;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -51,8 +49,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: black;
 }
 
 select{
-    background: black;
+    background: rgba(0, 0, 0, 0.484);
+}
+.back{
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.back:hover{
+    color:red
+}
+.sendMsg{
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 5px;
 }
