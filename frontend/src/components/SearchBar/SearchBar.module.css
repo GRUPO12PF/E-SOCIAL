@@ -1,7 +1,8 @@
 .searchBar {
     display: flex;
+    
     flex-wrap: wrap;
-    padding: 5px 70px;
+    padding: 5px;
     margin-bottom: 1%;
     font-size: large;
     font-weight: bold;
@@ -23,8 +24,10 @@
 }
 
 .btnR {
+
     font-family: 'Roboto', sans-serif;
     justify-content: space-between;
+    margin-left: 20px;
 
 }
 
@@ -32,4 +35,8 @@
     background-color: #cecccc;
     color: rgb(247, 243, 243);
     color: rgb(47, 47, 47);
+}
+
+.divFilter{
+    margin-left: 25px;
 }

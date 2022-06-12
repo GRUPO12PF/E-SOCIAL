@@ -30,7 +30,7 @@ export default function SearchBar() {
             <input className={s.input} type = "text" placeholder = "Search by Name" onChange = {(e)=> handleInputChange(e)}/>
             <button className={s.btnS}onClick ={(e)=> handleSubmit(e)}>Search</button>
             <button className={s.btnR} onClick={e => (handleOnClick(e))}>RELOAD ALL BOOKS</button>
-            <div className={s.DivFilter}>
+            <div className={s.divFilter}>
                     <FilterCategories />
                 </div>
         </div>
