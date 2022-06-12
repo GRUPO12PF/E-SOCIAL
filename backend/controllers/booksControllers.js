@@ -94,8 +94,7 @@ const detailBook = async (req, res) => {
 
 const editarBook = async (req, res) => {
       const id = req.params.id
-    console.log(req.params, "params")
-    console.log(id, "id")
+
 
     try {
         // const libroEditado = await Book.save()
@@ -113,17 +112,19 @@ const editarBook = async (req, res) => {
             const error = new Error("No Enctontrado el libro");
             return res.status(404).json({msg: error.message});
         }
+        console.log("yes")
     
         // if (bookId.creador.toString() !== req.usuario._id.toString() ) {
         //     const error = new Error("Accion No Valida");
         //     return res.status(401).json({msg: error.message});
         // }
-        res.json("se actualizó el libro").status(201)
+        res.send(bookId).status(201)
         
     } catch (error) {
         console.log(error)
     }
- }
+  }
+
 
 const eliminarBook = async (req, res) => {
   try {

@@ -95,7 +95,6 @@ export const putBook = (payload) => {
                 Authorization: `Bearer ${id}`,
             },
         };
-        console.log(payload)
         try {
             const json = await clienteAxios.put(`/books/${payload}`, config);
             dispatch({
@@ -104,6 +103,27 @@ export const putBook = (payload) => {
             });
             console.log(json.data)
             //return json;
+        } catch (error) {
+            throw error
+        }
+    };
+};
+
+export const putBookBody = (payload) => {
+    return async function (dispatch) {
+        const id = localStorage.getItem("token");
+        const config = {
+            headers: {
+                "Content-Type": "multipart/form-data",
+                Authorization: `Bearer ${id}`,
+            },
+        };
+        try {
+            const json = await clienteAxios.put(`/books`,  payload, config);
+           
+            console.log(json)
+            return json;
+
         } catch (error) {
             throw error
         }
