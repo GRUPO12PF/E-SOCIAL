@@ -1,16 +1,21 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { Formik, Field, ErrorMessage, Form } from 'formik'
 import { Link, useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { postCreate } from '../../redux/actions/postProducts';
 import NavBar from '../NavBar/NavBar';
 import s from '../Form/Form.module.css'
+import { getCategories } from '../../redux/actions/actionCategories.js';
 
 const Forms = () => {
     let navigate = useNavigate()
     const dispatch = useDispatch()
-
-
+    const categorie = useSelector(state => state.categories)
+    console.log(categorie)
+    useEffect(() => {
+        dispatch(getCategories())
+       
+      }, [dispatch])
 
     return (
         <div className={s.formFondo}>
@@ -25,7 +30,8 @@ const Forms = () => {
                         price: '',
                         image: '',
                         ranking: '',
-                        colection: ''
+                        colection: '',
+                        category:[]
 
                     }}
                     validate={(values) => {
@@ -44,7 +50,10 @@ const Forms = () => {
                             errors.ranking = 'required field'
                         } else if (!values.colection) {
                             errors.colection = 'required field'
+                        }else if(!values.category){
+                            errors.category= 'required field'
                         }
+
 
 
 
@@ -69,6 +78,7 @@ const Forms = () => {
                                     type="text"
                                     name="nombre"
                                     id="nombre"
+                                    placeholder="name"
 
                                 />
                                 <ErrorMessage name='nombre' component={() => (<p>{errors.nombre}</p>)} />
@@ -137,6 +147,22 @@ const Forms = () => {
                                 <ErrorMessage name='ranking' component={() => (<p>{errors.ranking}</p>)} />
 
                             </div>
+                            
+                            <label htmlFor="" className={s.label} >category</label>
+                             <div>
+                            <Field  as="select"  className={s.input}>
+                                 <option value="">Category</option>
+                                {
+                                    categorie?.map((e,i)=>{
+                                        return(
+                                            <option className={s.select} value={e} key={i}>{e}</option>
+                                        )
+                                    })
+                                }
+                            </Field>
+                            <ErrorMessage name='category' component={() => (<p>{errors.category}</p>)} />
+                            </div> 
+
                             <button type="submit">Send Message</button>
 
                         </div>

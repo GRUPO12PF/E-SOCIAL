@@ -1,7 +1,7 @@
 .formFondo{
     background-image: url(../../assets/images/book-gb456ffa20_1920.jpg);
     width: 100%;
-     height: 100vh;
+     height: 110vh;
     background-repeat: no-repeat;
    
    
@@ -18,8 +18,8 @@
 }
 
 .form{
-    background-color: rgba(253, 250, 250, 0.429);
-    margin-top: 3rem;
+    background-color: rgba(20, 25, 32, 0.699);
+    margin-top: 1rem;
     border-radius: 20px;
      padding: 40px 200px;
      font-family: 'Roboto', sans-serif; 
@@ -27,23 +27,16 @@
 
 .input{
     outline: none;
-    background: transparent;
-    border-bottom: black solid 2px;
-    /* border:solid white; */
-    /* border-radius: 16px; */
+    background: white;
+    border: none;
     padding: 3px 60px;
-    color: black;
-    font-family: 'Roboto', sans-serif;
+    color: rgb(0, 0, 0);
 }
 .textarea{
     outline: none;
-    background: transparent;
-    border-bottom: black solid 2px;
-    /* border:solid white; */
-    /* border-radius: 16px; */
+    background: white;
     padding: 3px 70px;
-    
-    color: black;
+    color: rgb(0, 0, 0);
 }
 .label{
     display: flex;
@@ -58,4 +51,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+select{
+    background: black;
 }

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import validarEmail from "../../middleware/validarEmail";
 import validatePassword from "../../middleware/validarPassword";
 import { Link } from "react-router-dom";
+import s from '../Register/Register.module.css'
 
 export default function Register() {
   const navigate = useNavigate();
@@ -56,13 +57,13 @@ export default function Register() {
   };
 
   return (
-    <div className="contRegister">
+    <div className={s.contRegister}>
       <Link to="/">
         <button>Home</button>{" "}
       </Link>
       <div>
         <div>
-          <div>
+          <div className={s.backg}>
             <h3>Register</h3>
             <p>
               Ya tienes una cuenta?{" "}
@@ -71,8 +72,9 @@ export default function Register() {
                 <button>LOGIN</button>{" "}
               </Link>{" "}
             </p>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className={s.form}>
               <label htmlFor="user">Username</label>
+              <div>
               <input
                 name="nombre"
                 value={estado.username}
@@ -81,7 +83,9 @@ export default function Register() {
                 type="text"
                 placeholder="Your username"
               />
+              </div>
               <label htmlFor="email">Email</label>
+              <div>
               <input
                 name="email"
                 value={estado.email}
@@ -90,8 +94,10 @@ export default function Register() {
                 type="text"
                 placeholder="Your email"
               />
+              </div>
               <label htmlFor="password">Password</label>
-              <input
+             <div>
+             <input
                 name="password1"
                 value={estado.password1}
                 onChange={handleChange}
@@ -99,7 +105,9 @@ export default function Register() {
                 type="password"
                 placeholder="Your password"
               />
+             </div>
               <label htmlFor="password">Repeat password</label>
+              <div>
               <input
                 name="password2"
                 value={estado.password2}
@@ -108,6 +116,7 @@ export default function Register() {
                 type="password"
                 placeholder="enter password again"
               />
+              </div>
               {errores.length !== 0 && <p>{errores[1]}</p>}
               <button type="submit">
                 Register
