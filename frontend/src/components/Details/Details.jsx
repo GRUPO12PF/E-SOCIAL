@@ -39,7 +39,7 @@ const Details = () => {
   }
   function handleUpdateBook(e) {
     e.preventDefault()
-     navigate(`/details/${id}/update`)
+     navigate(`/details/update/${id}`)
   }
   console.log(id)
   return (

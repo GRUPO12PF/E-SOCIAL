@@ -21,12 +21,10 @@ import UpdateBook from './components/UpdateBook/UpdateBook'
 
 function App() {
   const dispatch = useDispatch()
-  const allBooks = useSelector(state => state.books)
   
   useEffect(() => {
-    if(!allBooks.length)
     dispatch(getBooks())
-  }, [dispatch, allBooks])
+  }, [dispatch])
 
   return (
     <Router>
@@ -41,7 +39,7 @@ function App() {
         <Route path='/create' element={<Forms />} />
         <Route path='/details/:id' element={<Details />} />
         <Route path='/homeout' element={<Homeout />} />
-        <Route path='/details/:id/update' element={<UpdateBook/>} />
+        <Route path='/details/update/:id' element={<UpdateBook/>} />
         <Route path='/create' element={<Forms />} />
         <Route path='/about' element={<About />} />
         <Route path='/home' element={<VerificationUser />}>

@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import Book from '../Book/Book.jsx'
-import { getBooks } from '../../redux/actions/actionBooks'
 //import image from '../../assets/images/home.png'
 //import s from './Home.module.css'
 
@@ -13,9 +12,9 @@ import Loading from '../Loading/Loading.jsx'
 import NavBar from '../NavBar/NavBar'
 import style from './Home.module.css'
 import SearchBar from '../SearchBar/SearchBar.jsx'
+import NotFound from '../NotFound/NotFound.jsx'
 
 export default function Home() {
-  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const allBooks = useSelector(state => state.books)
@@ -24,11 +23,6 @@ export default function Home() {
   if (!token) {
     navigate('/')
   }
-useEffect(() => {
-dispatch(getBooks())
-},[dispatch])
-
-
 
   // eslint-disable-next-line
   //const [order, setOrder] = useState('')
@@ -57,31 +51,35 @@ dispatch(getBooks())
 
   return (
     <div className={style.contenedorGral}>
-{/* <img className={s.image} src={image} alt='' /> */}
+      {/* <img className={s.image} src={image} alt='' /> */}
 
       <div> <NavBar /> </div>
       <div className={style.busqueda}> <SearchBar /> </div>
 
       <div className={style.contenedorBooks}>
-        {allBooks.length > 0 && !loading ? (
-          allBooks && allBooks.map((e, i) => {
-            // console.log(e)
-            // console.log para revisar qué llega de cada elemento en los libros! 
+        {
+          loading
+          ? <Loading />
+          : allBooks?.length > 0 && !loading
+          ? (
+            allBooks && allBooks?.map((e, i) => {
+              // console.log(e)
+              // console.log para revisar qué llega de cada elemento en los libros! 
 
-            return (
-              <div key={i}>
-                {e.error ? <h1>ERROR!</h1> :
-                  <Link to={'/details/' + e._id}>
-                    <Book
-                      id={e._id}
-                      nombre={e.nombre}
-                      image={e.image}
-                    />
-                  </Link>}
-              </div>
-            )
-          })
-        ) : <Loading />
+              return (
+                <div key={i}>
+                  {e.error ? <h1>ERROR!</h1> :
+                    <Link to={'/details/' + e._id}>
+                      <Book
+                        id={e._id}
+                        nombre={e.nombre}
+                        image={e.image}
+                      />
+                    </Link>}
+                </div>
+              )
+            })
+          ) : <NotFound />
         }
       </div>
       <Pagination />

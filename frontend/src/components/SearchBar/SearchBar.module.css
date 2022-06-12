@@ -3,14 +3,12 @@
     flex-wrap: wrap;
     padding: 5px 70px;
     margin-bottom: 1%;
-    border-radius: 8px;
     font-size: large;
     font-weight: bold;
     align-content: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: rgb(247, 243, 243);
-    border-radius: 5px;
-    background: #e0e0e0;
+    color: #FCFFE7;
+    background: #DEA057;
     
 }
 

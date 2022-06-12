@@ -126,7 +126,7 @@ function rootReducer(state = initialState, action) {
         categories: action.payload
       }
 
-    case FILTER_BY_CATEGORY:
+    case FILTER_BY_CATEGORY:      
       return {
         ...state,
         books: action.payload
@@ -143,18 +143,18 @@ function rootReducer(state = initialState, action) {
         ...state,
         countBooks: action.payload
       }
-      
-      case 'DELETE_BOOK': 
+
+    case 'DELETE_BOOK':
       console.log(action.payload)
       return {
         ...state,
         delete: action.payload
       }
-      case 'PUT_BOOK': 
+    case 'PUT_BOOK':
       console.log(action.payload)
       return {
         ...state,
-        put: state.allBooks.map((e)=> e.id === action.payload.id ? action.payload : e.id)
+        put: action.payload,
       }
 
     default:
