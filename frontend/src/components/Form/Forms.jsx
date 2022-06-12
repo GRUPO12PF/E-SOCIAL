@@ -122,7 +122,7 @@ const Forms = () => {
                             </div>
                             <label htmlFor="" className={s.label} >Descripción</label>
                             <div>
-                                <Field
+                                <Field 
                                     className={s.textarea}
                                     type="text"
                                     name="descripcion"
@@ -148,7 +148,7 @@ const Forms = () => {
 
                             </div>
                             
-                            <label htmlFor="" className={s.label} >category</label>
+                            <label htmlFor="" className={s.label} >Category</label>
                              <div>
                             <Field name="category" id="category"  as="select"  className={s.input}>
                                  <option >Category</option>
@@ -163,14 +163,14 @@ const Forms = () => {
                             <ErrorMessage name='category' component={() => (<p>{errors.category}</p>)} />
                             </div> 
 
-                            <button type="submit">Send Message</button>
+                            <button className={s.sendMsg} type="submit">Send Message</button>
 
                         </div>
 
                     </Form>)}
                 </Formik>
                 <br />
-                <Link to="/home">Back</Link>
+                <Link className={s.back} to="/home">BACK</Link>
             </div>
         </div>
     )

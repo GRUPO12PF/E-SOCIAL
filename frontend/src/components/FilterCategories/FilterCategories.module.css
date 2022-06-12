@@ -1,6 +1,8 @@
 .filter{
     display: flex;
     font-family: 'Roboto', sans-serif;
-    background-color: rgba(229, 234, 237, 0.978);
-    
+    background-color: #f7ede2;
+    border-radius: 5px;
+    padding-top: 3px;
+    height: 28px;
 }
