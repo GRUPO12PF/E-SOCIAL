@@ -4,26 +4,27 @@
     align-items: center;
     padding: 70px;
     text-align: center;
-    display: inline-flex;
+   
 }
-
-.number {
-    width: 15px;
-    height: 30px;
+.num {
+    width: 85px;
+    height: 45px;
     margin: 3px;
     border-radius: 10px;
+    font-size: 20px;
     text-align: center;
     cursor: pointer;
-    background-image: linear-gradient(to top, #b2b4b5 0%, #fff 80%, #FDFDFD 100%);
+    padding: 4px 13px;
+    
     }
 
-.number:hover {
-    box-shadow: inset 0 0 20px rgba(124, 124, 124, 0.851), 0 0 20px rgba(95, 95, 95, 0.732);
+.num:hover {
+   
     outline-offset: 80px;
     text-shadow: 1px 1px 6px #fff;
 }
 
-.pagination {
+.pag {
     width: 100vw;
     justify-content: center;
     border-radius: 30px;
@@ -33,20 +34,29 @@
     margin-top: 0px;
 }
 
-.pagination ul {
-    display: inline-flex;
-    align-items: center;
-   padding: 0.2%;
+.pag ul {
+        align-items: center;
+   padding-left: 0px;
    list-style-type: none;
 
 }
+.pag li{
+    margin-bottom: 2%;
+    display: inline-flex;
+    justify-content: space-between;
+    height: 1em;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
 
 .btn {
     align-items: center;
-    justify-content: center; 
+    /* justify-content: space-between;  */
     cursor: pointer;
     width: 45px;
     height: 25px;
+    
     background-image: linear-gradient(to top, #b2b4b5 0%, #fff 80%, #FDFDFD 100%);
     border-radius: 10px;
     border: 1px solid #8F9092;

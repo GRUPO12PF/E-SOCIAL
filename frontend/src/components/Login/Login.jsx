@@ -9,7 +9,7 @@ import {
 import validarEmail from "../../middleware/validarEmail";
 import validatePassword from "../../middleware/validarPassword";
 import s from './Login.module.css';
-import image from '../../assets/images/image2.png';
+import image from '../../assets/images/login.jpg';
 
 
 function validate(email, password) {
