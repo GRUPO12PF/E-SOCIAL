@@ -6,6 +6,27 @@ import { uploadImage } from "../libs/cloudinary.js";
 import fs from "fs-extra";
 import { OAuth2Client } from "google-auth-library";
 
+const client = new OAuth2Client(process.env.CLIENT_ID);
+
+const googleLogin = async (req, res) => {
+    const { idToken } = req.body;
+    try {
+        client
+            .verifyIdToken({
+                idToken,
+                audience: process.env.CLIENT_ID,
+            })
+            .then((response) => {
+                const { email_verified, picture, given_name, email } = response.payload;
+                if (email_verified) {
+
+                }
+            });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 const registrar = async (req, res) => {
     //Evitar registros duplicados
     const { email } = req.body;
@@ -20,7 +41,7 @@ const registrar = async (req, res) => {
         const usuario = new Usuario({
             ...req.body,
             image: { public_id: "", url: "" },
-          });
+        });
         usuario.token = generarId(); //id hasheado
         await usuario.save()
 
@@ -31,12 +52,12 @@ const registrar = async (req, res) => {
         });
 
         res
-        .status(200)
-        .send("User created, check your email to confirm your account");
+            .status(200)
+            .send("User created, check your email to confirm your account");
     } catch (error) {
-      console.log(error);
+        console.log(error);
     }
-  };
+};
 
 const autenticar = async (req, res) => {
 
@@ -63,7 +84,7 @@ const autenticar = async (req, res) => {
             email: usuario.email,
             image: usuario.image,
             token: generarJWT(usuario._id), //mandar el id por JWT
-          });
+        });
     } else {
         const error = new Error("The Password is Incorrect");
         return res.status(403).json({ msg: error.message });
