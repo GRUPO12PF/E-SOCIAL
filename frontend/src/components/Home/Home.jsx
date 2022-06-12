@@ -81,8 +81,9 @@ export default function Home() {
             })
           ) : <NotFound />
         }
+        <Pagination />
       </div>
-      <Pagination />
+      
     </div>
   )
 }

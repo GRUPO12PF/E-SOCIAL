@@ -1,23 +1,26 @@
-.contenedorGral{
-    background-color: white;
+.contenedorGral {
+
     height: 100vh;
     width: 100%;
-}
-.image {
-    position: fixed;
-    object-fit: cover;
-    top: 0;
+    background-color: #f7ede2;
+    background-size: cover;
+    overflow: auto;
+     top: 0;
     left: 0;
     z-index: -1;
     height: 100vh;
     width: 100%;
     align-content: center;
-    border-radius: 10px;
 
 }
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .contenedorBooks {
-    background-color: rgba(251, 236, 197, 0.559);
-    border-radius: 10px;
+
     height: 100vh;
     display: inline;
     width: 100%;
@@ -31,7 +34,8 @@
     flex-wrap: wrap;
     flex-direction: row;
 }
-.logout{
+
+.logout {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: black;
 }
@@ -40,10 +44,11 @@
     .divFiltros {
         height: auto;
         width: auto;
-        }
-.nav{
-    display: flex;
-}
+    }
+
+    .nav {
+        display: flex;
+    }
 
 }
 
