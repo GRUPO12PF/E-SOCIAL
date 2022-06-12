@@ -21,6 +21,9 @@
     display: flex;
     align-items: center;
 }
+.jkj{
+    color: black;
+}
 .nombre {
     color: black;
     text-transform: uppercase;
