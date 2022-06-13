@@ -63,14 +63,14 @@ const UpdateBook = (_id) => {
                     }}
                 >
 
-                    {({ errors, handleSubmit }) => (<Form action="" onSubmit={handleSubmit} className={s.formik} >
+                    {({ errors, handleSubmit }) => (<Form action="" onSubmit={handleSubmit} className={s.formikk} >
 
-                        <div className={s.form}>
+                        <div className={s.formm}>
 
                             <label htmlFor="" className={s.label} >Name</label>
                             <div>
                                 <Field
-                                    className={s.input}
+                                    className={s.inputt}
                                     type="text"
                                     name="nombre"
                                     id="nombre"
@@ -81,7 +81,7 @@ const UpdateBook = (_id) => {
                             <label htmlFor="" className={s.label} >Colection</label>
                             <div>
                                 <Field
-                                    className={s.input}
+                                    className={s.inputt}
                                     type="text"
                                     name="colection"
                                     id="colection"
@@ -93,7 +93,7 @@ const UpdateBook = (_id) => {
                             <label htmlFor="" className={s.label} >Price</label>
                             <div>
                                 <Field
-                                    className={s.input}
+                                    className={s.inputt}
                                     type="text"
                                     name="price"
                                     id="price"
@@ -106,7 +106,7 @@ const UpdateBook = (_id) => {
                             <label htmlFor="" className={s.label} >Image</label>
                             <div>
                                 <Field
-                                    className={s.input}
+                                    className={s.inputt}
                                     type="text"
                                     name="image"
                                     id="image"
@@ -142,14 +142,16 @@ const UpdateBook = (_id) => {
                                 <ErrorMessage name='ranking' component={() => (<p>{errors.ranking}</p>)} />
 
                             </div>
-                            <button type="submit">Send</button>
+                            <button type="submit" className={s.botonS}>Send</button>
 
                         </div>
 
                     </Form>)}
                 </Formik>
                 <br />
-                <Link to="/home">Back</Link>
+                <Link to="/home">
+                    <button className={s.botonB}>Back</button>
+                </Link>
             </div>
         </div>
     )

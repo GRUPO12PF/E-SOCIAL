@@ -58,22 +58,22 @@ export default function Register() {
 
   return (
     <div className={s.contRegister}>
-      <Link to="/">
-        <button>Home</button>{" "}
+      <Link to="/" className={s.link}>
+        <button className={s.btn}>Home</button>
       </Link>
       <div>
         <div>
           <div className={s.backg}>
-            <h3>Register</h3>
-            <p>
-              Ya tienes una cuenta?{" "}
-              <Link to="/login">
-                {" "}
-                <button>LOGIN</button>{" "}
-              </Link>{" "}
+            <h3 className={s.register}>Register</h3>
+            <p className={s.parrafo}>
+            Do you already have an account?
+              
             </p>
+            <Link to="/login">
+                <button className={s.login}>Login</button>
+              </Link>
             <form onSubmit={handleSubmit} className={s.form}>
-              <label htmlFor="user">Username</label>
+              
               <div>
               <input
                 name="nombre"
@@ -82,9 +82,10 @@ export default function Register() {
                 id="user"
                 type="text"
                 placeholder="Your username"
+                className={s.inp}
               />
               </div>
-              <label htmlFor="email">Email</label>
+              
               <div>
               <input
                 name="email"
@@ -93,9 +94,10 @@ export default function Register() {
                 id="email"
                 type="text"
                 placeholder="Your email"
+                className={s.inp}
               />
               </div>
-              <label htmlFor="password">Password</label>
+              
              <div>
              <input
                 name="password1"
@@ -104,9 +106,10 @@ export default function Register() {
                 id="password1"
                 type="password"
                 placeholder="Your password"
+                className={s.inp}
               />
              </div>
-              <label htmlFor="password">Repeat password</label>
+              
               <div>
               <input
                 name="password2"
@@ -115,10 +118,11 @@ export default function Register() {
                 id="password2"
                 type="password"
                 placeholder="enter password again"
+                className={s.inp}
               />
               </div>
               {errores.length !== 0 && <p>{errores[1]}</p>}
-              <button type="submit">
+              <button type="submit" className={s.btnRes}>
                 Register
               </button>
             </form>
