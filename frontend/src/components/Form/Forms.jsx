@@ -66,7 +66,7 @@ const Forms = () => {
                         resetForm()
                         navigate('/home')
                         dispatch(getBooks())
-                        window.location.reload();
+                        // window.location.reload();
                     }}
                 >
 
