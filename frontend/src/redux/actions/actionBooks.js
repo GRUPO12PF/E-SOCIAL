@@ -1,7 +1,7 @@
 import clienteAxios from "../../config/clienteAxios";
 
 export function getBooks() {
-    return async function (dispatch){
+    return async function (dispatch) {
         const json = await clienteAxios.get(`/books`);
         return dispatch({
             type: "GET_BOOKS",
@@ -45,9 +45,9 @@ export function pagination(page) {
 };
 
 export function getTotalBooks() {
-    return async function (dispatch){
+    return async function (dispatch) {
         const json = await clienteAxios.get(`books/total`);
-        console.log(json)
+        // console.log(json)
         return dispatch({
             type: "GET_TOTAL",
             payload: json.data,
@@ -65,3 +65,47 @@ export function cleanData() {
         })
     }
 }
+
+export const deleteBook = (payload) => {
+    return async function (dispatch) {
+        const id = localStorage.getItem("token");
+        const config = {
+            headers: {
+                "Content-Type": "multipart/form-data",
+                Authorization: `Bearer ${id}`,
+            },
+        };
+        console.log(payload)
+        try {
+            const json = await clienteAxios.delete(`/books/${payload}`, config);
+            console.log(json)
+            return json;
+        } catch (error) {
+            throw error
+        }
+    };
+};
+
+
+export const putBookBody = (payload) => {
+    return async function (dispatch) {
+        console.log("a veeeeeer", payload)
+        const id = localStorage.getItem("token");
+        const config = {
+            headers: {
+                "Content-Type": "multipart/form-data",
+                Authorization: `Bearer ${id}`,
+            },
+        };
+        try {
+            const json = await clienteAxios.put(`/books/${payload._id}`, payload, config);
+            dispatch({
+                type: "PUT_BOOK_BODY",
+                payload: json.data,
+            });
+            return json.data;
+        } catch (error) {
+            throw error
+        }
+    };
+};

@@ -14,18 +14,15 @@ import Settings from './components/Settings/Settings'
 import About from './components/About/About'
 import Homeout from './components/Homeout/Homeout'
 import NotFound from './components/NotFound/NotFound'
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getBooks } from './redux/actions/actionBooks'
+// import { useEffect } from 'react'
+// import { useDispatch, useSelector } from 'react-redux'
+// import { getBooks } from './redux/actions/actionBooks'
+import UpdateBook from './components/UpdateBook/UpdateBook'
 
 function App() {
-  const dispatch = useDispatch()
-  const allBooks = useSelector(state => state.books)
+  // const dispatch = useDispatch()
   
-  useEffect(() => {
-    if(!allBooks.length)
-    dispatch(getBooks())
-  }, [dispatch, allBooks])
+ 
 
   return (
     <Router>
@@ -40,11 +37,12 @@ function App() {
         <Route path='/create' element={<Forms />} />
         <Route path='/details/:id' element={<Details />} />
         <Route path='/homeout' element={<Homeout />} />
-
+        <Route path='/details/update/:id' element={<UpdateBook/>} />
         <Route path='/create' element={<Forms />} />
         <Route path='/about' element={<About />} />
         <Route path='/home' element={<VerificationUser />}>
           <Route index element={<Home />} />
+          
         </Route>
         <Route path='/home/usuario/setting' element={<VerificationUser />}>
           <Route index element={<Settings />} />

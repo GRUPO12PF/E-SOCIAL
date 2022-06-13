@@ -3,7 +3,7 @@ import { projection } from './booksControllers.js'
 
 const getCategory = async (req, res) => {
     const categories = await Category.find(null, projection)
-    const mappedCategories = categories.map(e => e.nombre)
+    const mappedCategories = categories.map(e => e.nombre).sort((a, b)  => a.localeCompare(b))
     res.json(mappedCategories)
 }
 

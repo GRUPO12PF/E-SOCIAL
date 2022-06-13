@@ -1,10 +1,4 @@
-import React, { useEffect, useState } from "react";
-
-import { useDispatch, useSelector } from "react-redux";
-import { pagination,getTotalBooks } from '../../redux/actions/actionBooks'
 import s from './Pagination.module.css';
-
-
 
 
 export default function Pagination({ }) {
@@ -49,3 +43,4 @@ export default function Pagination({ }) {
         </nav>
   )
 }
+

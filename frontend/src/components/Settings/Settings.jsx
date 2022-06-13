@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { cambiarImagen, usuarioActual } from "../../redux/actions/actionUser";
 import { useDispatch, useSelector } from "react-redux";
 import profile from "../../assets/images/avatar.png";
+import NavBar from "../NavBar/NavBar";
 
 export default function Settings() {
   const dispatch = useDispatch();
-  const usuarioAct = useSelector((state) => state.usuarioActual);
+  const usuarioAct = useSelector((state) => state.usuario);
 
-  useDispatch(() => {
+  useEffect(() => {
     dispatch(usuarioActual());
-  }),[dispatch];
+  }),
+    [dispatch];
 
   function handleFileImage(image) {
     dispatch(cambiarImagen(image));
@@ -18,25 +20,33 @@ export default function Settings() {
 
   return (
     <div>
-      <div>
-      <div>
-            <label>Imagen</label>
-            <br></br>
-            <input
-              onChange={(e) => handleFileImage(e.target.files[0])}
-              type="file"
-              name="imageFile"
-              accept="image/jpeg, image/png"
-              autoComplete='off' />
-            <br></br>
-            <span>Extenciones Soportadas: jpg, png, webp o gif</span>
-            <br></br>
-            <img src={usuarioAct.image ? usuarioAct.image : profile} alt='No Img' />
+      <NavBar />
+      <div className="contSettings">
+        <div className="contSettings-info">
+          <div className="contProfile">
+            <img src={usuarioAct.image.url || profile} alt="No Img" />
+            <span>Extenciones Soportadas: jpg/png</span>
+            <div className="contFile">
+              <label className="labelmiinput" htmlFor="mifile">
+                Change image
+              </label>
+              <input
+                type="file"
+                name="image"
+                className="file"
+                id="mifile"
+                onChange={(e) => handleFileImage(e.target.files[0])}
+              />
+            </div>
           </div>
-        <div>
-          <Link to="/update-password">
-            <button>Change password</button>
-          </Link>
+          <div className="enlace">
+            <Link to="/home/">
+              <button>HOME</button>
+            </Link>
+            <Link to="/olvide-password/">
+              <button>Change password</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

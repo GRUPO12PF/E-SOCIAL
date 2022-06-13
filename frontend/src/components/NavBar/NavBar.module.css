@@ -1,40 +1,46 @@
-.nav{
+.nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    background-color: #fff;
-    border-bottom: 1px solid #e5e5e5;
-}
+    justify-content: space-evenly;
+    padding-top: 3px;
+    background: rgba(31, 124, 185, 0.978);
+   }
 
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
     width: 7px;
 }
 
-body::-webkit-scrollbar-thumb{
+body::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.712);
     border-radius: 18px;
     color: black;
 }
-.link{
+
+.link {
+    align-items: center;
+    justify-content: space-evenly;
     color: black;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 25px;
     font-weight: bold;
-    padding: 0.5rem 1rem;
-    font-family: 'Roboto', sans-serif;
+    margin-top: 25px;
+    font-family:  'Roboto', sans-serif;
 }
-.btnR{
-    font-family: 'Roboto', sans-serif;
+
+.link:hover{
+    color:#f7ede2;
 }
-.btnR:hover{
-    background-color: #1b1b1b;
-    color: rgb(247, 243, 243);
+
+.logout {
+    justify-content: space-evenly;
+    color: black;
+    text-decoration: none;
+    font-size: 25px;
+    text-shadow: #bebebe;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-left: 15px;
+    font-family:  'Roboto', sans-serif;
 }
-.busqueda{
-    font-family: 'Roboto', sans-serif;
-}
-.busqueda:hover{
-    background-color: #1b1b1b;
-    color: rgb(247, 243, 243);
+.logout:hover{
+    color:#f7ede2;
 }

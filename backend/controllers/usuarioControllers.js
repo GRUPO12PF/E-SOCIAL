@@ -6,6 +6,57 @@ import { uploadImage } from "../libs/cloudinary.js";
 import fs from "fs-extra";
 import { OAuth2Client } from "google-auth-library";
 
+const client = new OAuth2Client(process.env.CLIENT_ID);
+
+const googleLogin = async (req, res) => {
+    const { idToken } = req.body;
+    try {
+      client
+        .verifyIdToken({
+          idToken,
+          audience: process.env.CLIENT_ID,
+        })
+        .then((response) => {
+          const { email_verified, picture, given_name, email } = response.payload;
+          if (email_verified) {
+            Usuario.findOne({ email }).exec((err, user) => {
+              if (err) {
+                return res.status(400).json({ error: "Something went wrong " });
+              } else {
+                if (user) {
+                  const token = generarJWT(user._id);
+                  const { _id, nombre, email } = user;
+                  res.json({
+                    _id: _id,
+                    nombre: nombre,
+                    email: email,
+                    token: token,
+                  });
+                } else {
+                  let nuevoUsuario = new Usuario({
+                    nombre: given_name,
+                    email,
+                    image: { public_id: "", url: picture },
+                  });
+                  nuevoUsuario.confirmado = true;
+                  nuevoUsuario.save();
+                  const token = generarJWT(nuevoUsuario._id);
+                  res.json({
+                    _id: nuevoUsuario._id,
+                    nombre: nuevoUsuario.given_name,
+                    email: nuevoUsuario.email,
+                    token: token,
+                  });
+                }
+              }
+            });
+          }
+        });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 const registrar = async (req, res) => {
     //Evitar registros duplicados
     const { email } = req.body;
@@ -20,7 +71,7 @@ const registrar = async (req, res) => {
         const usuario = new Usuario({
             ...req.body,
             image: { public_id: "", url: "" },
-          });
+        });
         usuario.token = generarId(); //id hasheado
         await usuario.save()
 
@@ -31,12 +82,12 @@ const registrar = async (req, res) => {
         });
 
         res
-        .status(200)
-        .send("User created, check your email to confirm your account");
+            .status(200)
+            .send("User created, check your email to confirm your account");
     } catch (error) {
-      console.log(error);
+        console.log(error);
     }
-  };
+};
 
 const autenticar = async (req, res) => {
 
@@ -63,7 +114,7 @@ const autenticar = async (req, res) => {
             email: usuario.email,
             image: usuario.image,
             token: generarJWT(usuario._id), //mandar el id por JWT
-          });
+        });
     } else {
         const error = new Error("The Password is Incorrect");
         return res.status(403).json({ msg: error.message });
@@ -156,7 +207,7 @@ const perfil = async (req, res) => {
 const usuario = async (req, res) => {
     try {
         const user = await Usuario.findOne({ nombre: req.usuario.nombre })
-            .select(" -moderador -password -confirmado  -createdAt -updatedAt -__v -token");
+            .select(" -moderador -password -confirmado  -createdAt -updatedAt -__v ");
         return res.send(user);
     } catch (e) {
         return res.status(400).json({ msg: "Error" });
@@ -224,4 +275,5 @@ export {
     usuario,
     traerUsuarios,
     cambiarImage,
+    googleLogin,
 };

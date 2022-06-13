@@ -376,34 +376,3 @@ img {
   height: auto;
   display: block;
 }
-
-.main {
-  width: 90%;
-  margin: 5rem auto;
-}
-
-.h1 {
-  color: red;
-}
-
-.contRegister {
-  margin: 10rem auto;
-  padding: 3rem;
-}
-
-@media (min-width: 320px) {
-  .flex {
-    width: 95%;
-    margin: 0 auto;
-  }
-}
-@media (min-width: 768px) {
-  .contLogin {
-    width: 600px;
-    max-height: 700px;
-    padding: 2rem;
-  }
-  .contLogin .contLogin-content {
-    width: 70%;
-  }
-}

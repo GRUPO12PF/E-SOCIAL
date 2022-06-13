@@ -6,6 +6,7 @@ export default function NotFound() {
     
     return (
         <div>
+           
         <img className={s.notFound} src={image}alt=''/>
     </div>
     )

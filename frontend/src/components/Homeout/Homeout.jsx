@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import Modal from "react-modal";
 import { autenticarUser } from "../../redux/actions/actionUser";
 import s from './Homeout.module.css';
-import image from '../../assets/images/Homeout.png';
+import image from '../../assets/images/homeout.jpeg';
 
 Modal.setAppElement("#root");
 
@@ -31,14 +31,17 @@ console.log("prueba")
   return (
     <div>
       <img className={s.image} src={image} alt='' />
-      <div>
+      <div className={s.btncontainer}>
         <Link to="/login">
-          <button>LOGIN</button>
+          <button className={s.btn}>LOGIN</button>
         </Link>
         <Link to="/registrar">
-          <button>REGISTER</button>
+          <button className={s.btn}>REGISTER</button>
         </Link>
       </div>
-    </div>
+      <Link to="/">
+        <button className={s.btnHome}>HOME</button>
+          </Link>
+     </div>
   );
 }

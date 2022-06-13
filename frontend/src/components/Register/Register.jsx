@@ -5,6 +5,8 @@ import { useNavigate } from "react-router";
 import validarEmail from "../../middleware/validarEmail";
 import validatePassword from "../../middleware/validarPassword";
 import { Link } from "react-router-dom";
+import s from '../Register/Register.module.css'
+import { FaRegEye,FaRegEyeSlash} from 'react-icons/fa';
 
 export default function Register() {
   const navigate = useNavigate();
@@ -15,6 +17,15 @@ export default function Register() {
     password2: "",
   });
   const [errores, setErrores] = useState([]);
+  const [state,setEstate]= useState(false)
+  const [statee,setEstatee]= useState(false)
+
+  const handleToggle = ()=>{
+    setEstate(prevState => !prevState)
+  }
+  const handleTogglee = ()=>{
+    setEstatee(prevState => !prevState)
+  }
 
   const dispatch = useDispatch();
 
@@ -56,23 +67,24 @@ export default function Register() {
   };
 
   return (
-    <div className="contRegister">
-      <Link to="/">
-        <button>Home</button>{" "}
+    <div className={s.contRegister}>
+      <Link to="/" className={s.link}>
+        <button className={s.btn}>Home</button>
       </Link>
       <div>
         <div>
-          <div>
-            <h3>Register</h3>
-            <p>
-              Ya tienes una cuenta?{" "}
-              <Link to="/login">
-                {" "}
-                <button>LOGIN</button>{" "}
-              </Link>{" "}
+          <div className={s.backg}>
+            <h3 className={s.register}>Register</h3>
+            <p className={s.parrafo}>
+            Do you already have an account?
+              
             </p>
-            <form onSubmit={handleSubmit}>
-              <label htmlFor="user">Username</label>
+            <Link to="/login">
+                <button className={s.login}>Login</button>
+              </Link>
+            <form onSubmit={handleSubmit} className={s.form}>
+              
+              <div>
               <input
                 name="nombre"
                 value={estado.username}
@@ -80,8 +92,11 @@ export default function Register() {
                 id="user"
                 type="text"
                 placeholder="Your username"
+                className={s.inp}
               />
-              <label htmlFor="email">Email</label>
+              </div>
+              
+              <div>
               <input
                 name="email"
                 value={estado.email}
@@ -89,27 +104,37 @@ export default function Register() {
                 id="email"
                 type="text"
                 placeholder="Your email"
+                className={s.inp}
               />
-              <label htmlFor="password">Password</label>
-              <input
+              </div>
+              
+             <div>
+             <input
                 name="password1"
                 value={estado.password1}
                 onChange={handleChange}
                 id="password1"
-                type="password"
+                type={state ? "text" : "password"}
                 placeholder="Your password"
+                className={s.inp}
               />
-              <label htmlFor="password">Repeat password</label>
+              <button onClick={handleToggle}>{state ? <FaRegEye/> : <FaRegEyeSlash/> }</button>
+             </div>
+              
+              <div>
               <input
                 name="password2"
                 value={estado.password2}
                 onChange={handleChange}
                 id="password2"
-                type="password"
+                type={statee ? "text" : "password"}
                 placeholder="enter password again"
+                className={s.inp}
               />
+                 <button onClick={handleTogglee}>{statee ? <FaRegEye/> : <FaRegEyeSlash/>  }</button>
+              </div>
               {errores.length !== 0 && <p>{errores[1]}</p>}
-              <button type="submit">
+              <button type="submit" className={s.btnRes}>
                 Register
               </button>
             </form>

@@ -55,34 +55,3 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en el puerto ${PORT}`)
 });
-
-/*
-//socket io
-
-import { Server } from "socket.io";
-
-const io = new Server(servidor, {
-  pingTimeout: 60000,
-  cors: {
-    origin: process.env.FRONTEND_URL,
-  },
-});
-
-io.on("connection", (socket) => {
-  //definir la conexion
-  //on define que es lo que pasa cuando el evento ocurre
-  socket.on("Actualizar", (room) => {
-    socket.join(room);
-  });
-  socket.on("renderHome", () => {
-    socket.to(`${process.env.FRONTEND_URL}/home`).emit("homeUpdate");
-  });
-  socket.on("Portfolio", (room) => {
-    socket.join(room);
-  });
-  socket.on("update", () => {
-    socket
-      .to(`${process.env.FRONTEND_URL}/home/usuario/portfolio`)
-      .emit("bookUser");
-  });
-});*/

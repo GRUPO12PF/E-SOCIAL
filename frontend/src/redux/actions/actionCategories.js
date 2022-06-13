@@ -18,12 +18,7 @@ export function getCategories() {
 export function filterByCategory(filter) {
   return async (dispatch) => {
     try {
-      let categories
-      if (filter) {
-        categories = await clienteAxios.get(`/books?category=${filter}`)
-      } else {
-        categories = await clienteAxios.get(`/books`)
-      }
+      let categories = await clienteAxios.get(`/books?category=${filter}`)
       return dispatch({
         type: FILTER_BY_CATEGORY,
         payload: categories.data

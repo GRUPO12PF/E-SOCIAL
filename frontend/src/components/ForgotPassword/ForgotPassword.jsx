@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setToResetPassword, setStateEmail } from "../../redux/actions/actionUser";
 import validarEmail from "../../middleware/validarEmail";
+import s from "./ForgotPassword.module.css";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -22,11 +23,11 @@ export default function ForgotPassword() {
     if (validarEmail(e.target.value)) {
       e.target.value.length > 40
         ? setErrors({
-            email: "Largo invalido",
-          })
+          email: "Largo invalido",
+        })
         : setErrors({
-            email: "Email invalido",
-          });
+          email: "Email invalido",
+        });
     } else {
       setErrors({
         email: "",
@@ -47,13 +48,14 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div>
+    <div className={s.contForgotPass}>
       <div>
         <div>
-          <h3>Ingrese su correo electrónico para recuperar su contraseña</h3>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="email">email</label>
-            <input
+          <h3 className={s.title}>Ingrese su correo electrónico para recuperar su contraseña</h3>
+
+          <form className={s.form} onSubmit={handleSubmit}>
+            <label className={s.label} htmlFor="email">email</label>
+            <input className={s.input}
               name="email"
               value={email}
               onChange={handleChange}
@@ -67,12 +69,12 @@ export default function ForgotPassword() {
               </div>
             )}
             {respuesta.msg ? (
-              <Link to="/">
+              <Link to="/home">
                 {" "}
-                <button type="submit">Go back</button>{" "}
+                <button  type="submit">Go back</button>{" "}
               </Link>
             ) : (
-              <button type="submit">Reset password</button>
+              <button  className={s.btn} type="submit">Reset password</button>
             )}
           </form>
         </div>
