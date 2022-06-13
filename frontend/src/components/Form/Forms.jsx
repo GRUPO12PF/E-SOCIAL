@@ -166,7 +166,7 @@ const Forms = () => {
                             <ErrorMessage name='category' component={() => (<p>{errors.category}</p>)} />
                             </div> 
 
-                            <button className={s.sendMsg} type="submit">Send Message</button>
+                            <button className={s.sendMsg} type="submit">Send</button>
 
                         </div>
 
