@@ -27,8 +27,8 @@ router
     .route('/:id')
     // .get(checkAuth, detailBook)
     .get(detailBook)
-    .put(editarBook)
-    .delete(eliminarBook);
+    .put(checkAuth, editarBook)
+    .delete(checkAuth, eliminarBook);
 
 
 export default router;
