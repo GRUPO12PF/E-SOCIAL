@@ -12,7 +12,7 @@ const Forms = () => {
     let navigate = useNavigate()
     const dispatch = useDispatch()
     const categorie = useSelector(state => state.categories)
-    // console.log(categorie)
+   
     useEffect(() => {
         dispatch(getCategories())
         
@@ -70,7 +70,7 @@ const Forms = () => {
                     }}
                 >
 
-                    {({ errors, handleSubmit}) => (<Form action="" onSubmit={handleSubmit} className={s.formik} >
+                    {({ errors, handleSubmit }) => (<Form action="" onSubmit={handleSubmit} className={s.formik} >
 
                         <div className={s.form}>
 
