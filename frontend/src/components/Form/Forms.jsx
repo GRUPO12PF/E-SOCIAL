@@ -14,8 +14,7 @@ const Forms = () => {
     const categorie = useSelector(state => state.categories)
    
     useEffect(() => {
-        dispatch(getCategories())
-        
+        dispatch(getCategories()) 
       }, [dispatch])
 
     return (
@@ -54,9 +53,6 @@ const Forms = () => {
                         }else if(!values.category){
                             errors.category= 'required field'
                         }
-
-
-
 
                         return errors;
                     }}

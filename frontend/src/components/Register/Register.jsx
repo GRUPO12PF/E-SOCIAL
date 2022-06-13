@@ -6,6 +6,7 @@ import validarEmail from "../../middleware/validarEmail";
 import validatePassword from "../../middleware/validarPassword";
 import { Link } from "react-router-dom";
 import s from '../Register/Register.module.css'
+import { FaRegEye,FaRegEyeSlash} from 'react-icons/fa';
 
 export default function Register() {
   const navigate = useNavigate();
@@ -16,6 +17,15 @@ export default function Register() {
     password2: "",
   });
   const [errores, setErrores] = useState([]);
+  const [state,setEstate]= useState(false)
+  const [statee,setEstatee]= useState(false)
+
+  const handleToggle = ()=>{
+    setEstate(prevState => !prevState)
+  }
+  const handleTogglee = ()=>{
+    setEstatee(prevState => !prevState)
+  }
 
   const dispatch = useDispatch();
 
@@ -104,10 +114,11 @@ export default function Register() {
                 value={estado.password1}
                 onChange={handleChange}
                 id="password1"
-                type="password"
+                type={state ? "text" : "password"}
                 placeholder="Your password"
                 className={s.inp}
               />
+              <button onClick={handleToggle}>{state ? <FaRegEye/> : <FaRegEyeSlash/> }</button>
              </div>
               
               <div>
@@ -116,10 +127,11 @@ export default function Register() {
                 value={estado.password2}
                 onChange={handleChange}
                 id="password2"
-                type="password"
+                type={statee ? "text" : "password"}
                 placeholder="enter password again"
                 className={s.inp}
               />
+                 <button onClick={handleTogglee}>{statee ? <FaRegEye/> : <FaRegEyeSlash/>  }</button>
               </div>
               {errores.length !== 0 && <p>{errores[1]}</p>}
               <button type="submit" className={s.btnRes}>

@@ -10,6 +10,7 @@ import validarEmail from "../../middleware/validarEmail";
 import validatePassword from "../../middleware/validarPassword";
 import s from './Login.module.css';
 import image from '../../assets/images/login.jpg';
+import { FaRegEye,FaRegEyeSlash} from 'react-icons/fa';
 
 
 function validate(email, password) {
@@ -37,6 +38,7 @@ export default function Login() {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
+  const [state,setEstate]= useState(false)
   const [usuario, setUsuario] = useState({
     email: "",
     password: "",
@@ -53,6 +55,11 @@ export default function Login() {
     //   dispatch(resetErrorLoginUser());
     // };
   }, [token]);
+
+
+  const handleToggle = ()=>{
+    setEstate(prevState => !prevState)
+  }
 
   function handleChangeEmail(e) {
     setUsuario({
@@ -128,12 +135,13 @@ export default function Login() {
               <div>
                 <input className={s.input}
                   id="password"
-                  type="password"
+                  type={state ? "text" : "password"}
                   value={usuario.password}
                   name="password"
                   onChange={handleChangePassword}
                   placeholder="Your password"
                 />
+                <button onClick={handleToggle}>{state ? <FaRegEye/> : <FaRegEyeSlash/> }</button>
                 {errors.password && (
                   <div>
                     <p>{errors.password}</p>
