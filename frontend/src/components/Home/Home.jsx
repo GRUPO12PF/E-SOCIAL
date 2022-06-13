@@ -10,7 +10,7 @@ import Loading from '../Loading/Loading.jsx'
 import NavBar from '../NavBar/NavBar'
 import style from './Home.module.css'
 import SearchBar from '../SearchBar/SearchBar.jsx'
-import NotFound from '../NotFound/NotFound.jsx'
+import NotFound from '../NotFound/NotFoundGral'
 import { getBooks } from '../../redux/actions/actionBooks.js'
 
 
