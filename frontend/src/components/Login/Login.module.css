@@ -34,7 +34,13 @@
     padding: 5px;
    
 }
+.btn{
+    border: none;
+    padding: 4px 14px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
 
+}
 .label {
     font-size: medium;
     font-weight: bold;

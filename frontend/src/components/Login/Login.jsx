@@ -101,6 +101,9 @@ export default function Login() {
       <div>
         <img className={s.image} src={image} alt='' />
         <div>
+          <Link to="/">
+        <button className={s.btn}>Home</button>
+          </Link>
           <div className={s.container}>
             <h3 className={s.title}>Login</h3>
             <form className={s.formGral} onSubmit={handleSubmit}>
