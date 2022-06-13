@@ -2,14 +2,15 @@ import { useDispatch } from 'react-redux'
 import { ASCENDENT, DESCENDENT } from '../../redux/utils/constants.js'
 import { sortByName } from '../../redux/actions/actionSorters.js'
 import s from './SorterByName.css'
+import { useState} from 'react'
 
 export default function Sort() {
   const dispatch = useDispatch()
-
+  const [/*sort*/, setSort] = useState()
   function onSelectChange(e) {
     e.preventDefault()
     dispatch(sortByName(e.target.value))
-    // dispatch(resetSorts('price'))
+    setSort(e.target.value);
   }
   return (
     <div>
