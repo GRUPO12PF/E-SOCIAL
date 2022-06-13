@@ -32,7 +32,8 @@
     transition: all .3s;
     box-shadow: 6px 6px 12px #888686,
         -6px -6px 12px #f7f5f5;
-        font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 45%;       
 }
 
 .btn:hover {
@@ -44,6 +45,21 @@
     box-shadow: 4px 4px 12px #929090,
         -4px -4px 12px #ffffff;
 }
+
+.btnHome{
+        font-family: 'Roboto', sans-serif;
+        text-decoration: none;
+        color: rgba(27, 27, 27, 0.8);
+        padding: 10px 30px;
+        border: 1px solid;
+        border-radius: 100px;
+        display: inline-block;
+        transition: all .2s;
+        position: relative;
+        font-size: 25px;
+        margin-left: 47%;
+        background-color: rgba(245, 245, 220, 0.684);
+    }
 
 @media (max-width: 500px) {
     .btncontainer{

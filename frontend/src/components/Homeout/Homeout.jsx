@@ -39,6 +39,9 @@ console.log("prueba")
           <button className={s.btn}>REGISTER</button>
         </Link>
       </div>
+      <Link to="/">
+        <button className={s.btnHome}>HOME</button>
+          </Link>
      </div>
   );
 }
