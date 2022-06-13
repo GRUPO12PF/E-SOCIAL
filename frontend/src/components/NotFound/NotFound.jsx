@@ -6,8 +6,8 @@ export default function NotFound() {
     
     return (
         <div>
-            <h1>NO ENCONTRADOOOO</h1>
-        {/* <img className={s.notFound} src={image}alt=''/> */}
+           
+        <img className={s.notFound} src={image}alt=''/>
     </div>
     )
 }
