@@ -32,12 +32,12 @@ export default function Home() {
   }
 
   // eslint-disable-next-line
-  //const [order, setOrder] = useState('')
-  // const [pageCurrent, setPageCurrent] = useState(1)
-  // const pageSize = 8
-  // const indexOfLastBooks = pageCurrent * pageSize
-  // const indexOfFirstBooks = indexOfLastBooks - pageSize
-  // const currentBooks = allBooks?.slice(indexOfFirstBooks, indexOfLastBooks)
+  const [order, setOrder] = useState('')
+  const [pageCurrent, setPageCurrent] = useState(1)
+  const pageSize = 3
+  const indexOfLastBooks = pageCurrent * pageSize
+  const indexOfFirstBooks = indexOfLastBooks - pageSize
+  const currentBooks = allBooks?.slice(indexOfFirstBooks, indexOfLastBooks)
   const [loading, setLoading] = useState(true)
 
   if (allBooks?.length > 0 && loading) {
@@ -47,14 +47,14 @@ export default function Home() {
     }, 2000);
 
   }
-  // const page = (pageNumber) => {
-  //   setPageCurrent(pageNumber)
-  // }
+  const page = (pageNumber) => {
+     setPageCurrent(pageNumber)
+   }
 
-  // const goToNextPage = () => setPageCurrent(pageCurrent + 1)
-  // const goToPreviousPage = () => {
-  //   if (pageCurrent > 1) setPageCurrent(pageCurrent - 1)
-  // }
+const goToNextPage = () => setPageCurrent(pageCurrent + 1)
+ const goToPreviousPage = () => {
+   if (pageCurrent > 1) setPageCurrent(pageCurrent - 1)
+}
 
   return (
     <div className={style.contenedorGral}>
@@ -67,9 +67,9 @@ export default function Home() {
         {
           loading
           ? <Loading />
-          : allBooks?.length > 0 && !loading
+          : currentBooks?.length > 0 && !loading
           ? (
-            allBooks && allBooks?.map((e, i) => {
+            currentBooks && currentBooks?.map((e, i) => {
               // console.log(e)
               // console.log para revisar qué llega de cada elemento en los libros! 
 
@@ -89,7 +89,13 @@ export default function Home() {
             })
           ) : <NotFound />
         }
-        <Pagination />
+        <Pagination
+        pageSize={pageSize}
+        allBooks={allBooks.length}
+        page={page}
+        goToNextPage={goToNextPage}
+        goToPreviousPage={goToPreviousPage}
+      />
       </div>
       
     </div>
