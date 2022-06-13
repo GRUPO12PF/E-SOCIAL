@@ -1,26 +1,18 @@
 import s from './Pagination.module.css';
+import React from "react";
 
 
-export default function Pagination({ }) {
-  const dispatch = useDispatch()
-  const allBooks = useSelector(state => state.countBooks);
-
-  useEffect(() => {
-    dispatch(getTotalBooks())
-  }, [dispatch])
 
 
-  const pageNumber = [];
+export default function Pagination({ pageSize, allBooks, page, goToNextPage, goToPreviousPage}) {
+
+  const pageNumbers = [];
 
 
-  for (let i = 0; i < Math.ceil(allBooks / 3); i++) {
-    pageNumber.push(i + 1)
+  for (let i = 0; i < Math.ceil(allBooks / pageSize); i++) {
+    pageNumbers.push(i + 1)
   };
   
-
-  const handlePaginated = (number) => {
-    dispatch(pagination(number))
-  }
 
 
 
