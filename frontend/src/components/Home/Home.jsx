@@ -74,6 +74,7 @@ export default function Home() {
                         id={e._id}
                         nombre={e.nombre}
                         image={e.image}
+                        price={'$'+e.price+'.00'}
                       />
                     </Link>}
                 </div>
