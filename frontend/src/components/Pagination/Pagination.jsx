@@ -32,15 +32,17 @@ export default function Pagination({ }) {
 
 
   return (
-    <div className={s.pagination}>
-            <ul>
+     <nav className={s.pagination}>
+            <div className={s.pag}>
+              <ul>
                 {pageNumber.length > 1 &&
                     pageNumber.map(number => (
-                        <li className={s.number} key={number}>
-                            <button key={number} onClick={() => handlePaginated(number)}>{number}</button>
+                        <li className={s.num} key={number}>
+                            <button className={s.btn} key={number} onClick={() => handlePaginated(number)}>{number}</button>
                         </li>
                     ))}
-            </ul>
-    </div>
+                    </ul>
+            </div>
+    </nav>
   )
 }
