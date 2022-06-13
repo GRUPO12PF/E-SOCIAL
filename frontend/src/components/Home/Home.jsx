@@ -1,24 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import Book from '../Book/Book.jsx'
 //import image from '../../assets/images/home.png'
 //import s from './Home.module.css'
-
 import Pagination from '../Pagination/Pagination.jsx'
 import Loading from '../Loading/Loading.jsx'
-
 import NavBar from '../NavBar/NavBar'
 import style from './Home.module.css'
 import SearchBar from '../SearchBar/SearchBar.jsx'
 import NotFound from '../NotFound/NotFound.jsx'
+import { getBooks } from '../../redux/actions/actionBooks.js'
+
+
 
 export default function Home() {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getBooks())
+  }, [dispatch])
 
   const allBooks = useSelector(state => state.books)
   const token = localStorage.getItem("token")
+
 
   if (!token) {
     navigate('/')
