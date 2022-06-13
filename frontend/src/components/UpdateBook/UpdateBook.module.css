@@ -1,0 +1,43 @@
+.formm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.formikk{
+    background:  rgba(20, 25, 32, 0.351);
+    width: 30%;
+    margin: 3rem auto;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.inputt{
+    border: none;
+    outline: none;
+    border-radius: 18px;
+    padding: 3px 28px;
+}
+
+.textarea{
+    border-radius: 18px;
+    padding: 5px 30px;
+}
+.botonS{
+    width: fit-content;
+    padding: 3px 30px;
+    cursor: pointer;
+    border: none;
+    background-color: aliceblue;
+}
+
+.botonB{
+    border: none;
+    background-color: rgba(20, 25, 32, 0.351);
+    padding: 3px 30px;
+    margin: 3rem;
+    cursor: pointer;
+    
+}
+
