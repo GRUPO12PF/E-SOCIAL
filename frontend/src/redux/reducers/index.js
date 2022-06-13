@@ -1,4 +1,4 @@
-import { GET_CATEGORIES, FILTER_BY_CATEGORY, SORT_BY_NAME, SORT_BY_PRICE, ASCENDENT } from '../utils/constants'
+import { GET_CATEGORIES, FILTER_BY_CATEGORY, SORT_BY_NAME, SORT_BY_PRICE, ASCENDENT, RESET_SORTS } from '../utils/constants'
 
 const initialState = {
   books: [],
@@ -159,6 +159,13 @@ function rootReducer(state = initialState, action) {
         ...state,
         books: priceSorting
       }
+
+    // case RESET_SORTS:
+    //   action.payload
+    //   return {
+    //     ...state,
+    //     books: action.payload
+    //   }
 
     case 'PAGINATION_BOOKS':
       return {

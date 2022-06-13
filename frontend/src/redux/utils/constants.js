@@ -6,3 +6,4 @@ export const SORT_BY_PRICE = 'SORT_BY_PRICE'
 
 export const ASCENDENT = 'ASCENDENT'
 export const DESCENDENT = 'DESCENDENT'
+export const RESET_SORTS = 'RESET_SORTS'

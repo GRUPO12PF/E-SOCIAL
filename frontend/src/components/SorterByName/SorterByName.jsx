@@ -9,6 +9,7 @@ export default function Sort() {
   function onSelectChange(e) {
     e.preventDefault()
     dispatch(sortByName(e.target.value))
+    // dispatch(resetSorts('price'))
   }
   return (
     <div>

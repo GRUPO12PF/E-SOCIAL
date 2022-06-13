@@ -1,4 +1,4 @@
-import { SORT_BY_NAME, SORT_BY_PRICE } from "../utils/constants"
+import { RESET_SORTS, SORT_BY_NAME, SORT_BY_PRICE } from "../utils/constants"
 
 export function sortByName(payload) {
   return {
@@ -13,3 +13,10 @@ export function sortByPrice(payload) {
     payload
   }
 }
+
+// export function resetSorts(...args) {
+//   return {
+//     type: RESET_SORTS,
+//     payload: [...args]
+//   }
+// }
