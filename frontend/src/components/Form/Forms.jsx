@@ -12,7 +12,7 @@ const Forms = () => {
     let navigate = useNavigate()
     const dispatch = useDispatch()
     const categorie = useSelector(state => state.categories)
-    console.log(categorie)
+    // console.log(categorie)
     useEffect(() => {
         dispatch(getCategories())
         
@@ -32,7 +32,7 @@ const Forms = () => {
                         image: '',
                         ranking: '',
                         colection: '',
-                        category:[]
+                        category:''
 
                     }}
                     validate={(values) => {
@@ -70,7 +70,7 @@ const Forms = () => {
                     }}
                 >
 
-                    {({ errors, handleSubmit,handleChange }) => (<Form action="" onSubmit={handleSubmit} className={s.formik} >
+                    {({ errors, handleSubmit}) => (<Form action="" onSubmit={handleSubmit} className={s.formik} >
 
                         <div className={s.form}>
 
@@ -102,7 +102,7 @@ const Forms = () => {
                             <div>
                                 <Field
                                     className={s.input}
-                                    type="text"
+                                    type="number"
                                     name="price"
                                     id="price"
 
@@ -153,12 +153,12 @@ const Forms = () => {
                             
                             <label htmlFor="" className={s.label} >Category</label>
                              <div>
-                            <Field name="category" id="category"  as="select"  className={s.input}>
+                            <Field name="category" id="category"    as="select"  className={s.input}>
                                  <option >Category</option>
                                 {
                                     categorie?.map((e,i)=>{
                                         return(
-                                            <option className={s.select}  value={e.category} key={i}>{e}</option>
+                                            <option className={s.select} value={e.category} key={i}>{e}</option>
                                         )
                                     })
                                 }
