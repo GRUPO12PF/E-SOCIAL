@@ -6,6 +6,7 @@ import { postCreate } from '../../redux/actions/postProducts';
 import NavBar from '../NavBar/NavBar';
 import s from '../Form/Form.module.css'
 import { getCategories } from '../../redux/actions/actionCategories.js';
+import { getBooks } from '../../redux/actions/actionBooks';
 
 const Forms = () => {
     let navigate = useNavigate()
@@ -14,7 +15,7 @@ const Forms = () => {
     console.log(categorie)
     useEffect(() => {
         dispatch(getCategories())
-       
+        
       }, [dispatch])
 
     return (
@@ -64,6 +65,8 @@ const Forms = () => {
                         dispatch(postCreate(values))
                         resetForm()
                         navigate('/home')
+                        dispatch(getBooks())
+                        window.location.reload();
                     }}
                 >
 
@@ -163,7 +166,7 @@ const Forms = () => {
                             <ErrorMessage name='category' component={() => (<p>{errors.category}</p>)} />
                             </div> 
 
-                            <button className={s.sendMsg} type="submit">Send Message</button>
+                            <button className={s.sendMsg} type="submit">Send</button>
 
                         </div>
 
