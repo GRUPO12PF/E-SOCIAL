@@ -65,7 +65,7 @@ select{
     flex-direction: column;
 }
 .back:hover{
-    color:red
+    color:rgb(218, 8, 8)
 }
 .sendMsg{
     border-radius: 5px;
