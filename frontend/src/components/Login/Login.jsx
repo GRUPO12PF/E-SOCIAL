@@ -10,7 +10,6 @@ import validarEmail from "../../middleware/validarEmail";
 import validatePassword from "../../middleware/validarPassword";
 import s from './Login.module.css';
 import image from '../../assets/images/login.jpg';
-// import { IoEyeSharp} from 'react-icons/io';
 import { FaRegEye,FaRegEyeSlash} from 'react-icons/fa';
 
 
@@ -142,7 +141,7 @@ export default function Login() {
                   onChange={handleChangePassword}
                   placeholder="Your password"
                 />
-                <button onClick={handleToggle}>{state ? <FaRegEyeSlash/> : <FaRegEye/> }</button>
+                <button onClick={handleToggle}>{state ? <FaRegEye/> : <FaRegEyeSlash/> }</button>
                 {errors.password && (
                   <div>
                     <p>{errors.password}</p>
