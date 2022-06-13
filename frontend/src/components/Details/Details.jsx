@@ -64,7 +64,7 @@ const Details = () => {
             <h3 className={s.pName}>{detail.nombre}</h3>
             <img  src={detail.image} alt="not found" className={s.image}
             onError={(e)=>e.target.setAttribute('src','https://pbs.twimg.com/profile_images/1611903252/Books-Icon120x120_400x400.jpg')} />
-            <h3 className={s.pName}>Precio: ${detail.price}</h3>
+            <h3 className={s.pName}>Precio:{'$'+detail.price+'.00'}</h3>
             <button className={s.btnn}>Añadir a Carrito</button>
               
             </div>

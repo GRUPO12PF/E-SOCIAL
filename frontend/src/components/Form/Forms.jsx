@@ -153,7 +153,7 @@ const Forms = () => {
                             
                             <label htmlFor="" className={s.label} >Category</label>
                              <div>
-                            <Field name="category" id="category"    as="select"  className={s.input}>
+                            <Field name="category" id="category"  as="select"  className={s.input}>
                                  <option >Category</option>
                                 {
                                     categorie?.map((e,i)=>{
@@ -170,8 +170,11 @@ const Forms = () => {
 
                         </div>
 
+                    
                     </Form>)}
+                   
                 </Formik>
+            
                 <br />
                 <Link className={s.back} to="/home">BACK</Link>
             </div>
