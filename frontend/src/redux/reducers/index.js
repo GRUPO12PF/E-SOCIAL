@@ -1,4 +1,4 @@
-import { GET_CATEGORIES, FILTER_BY_CATEGORY } from '../utils/constants'
+import { GET_CATEGORIES, FILTER_BY_CATEGORY, SORT_BY_NAME, SORT_BY_PRICE, ASCENDENT } from '../utils/constants'
 
 const initialState = {
   books: [],
@@ -126,10 +126,38 @@ function rootReducer(state = initialState, action) {
         categories: action.payload
       }
 
-    case FILTER_BY_CATEGORY:      
+    // FILTERS
+    case FILTER_BY_CATEGORY:
       return {
         ...state,
         books: action.payload
+      }
+
+    // SORTERS
+    case SORT_BY_NAME:
+      let nameSorting = [...state.books]
+      action.payload === ASCENDENT
+        ? nameSorting.sort((a, b) => a.nombre.localeCompare(b.nombre))
+        : nameSorting.sort((a, b) => b.nombre.localeCompare(a.nombre))
+      return {
+        ...state,
+        books: nameSorting
+      }
+
+    case SORT_BY_PRICE:
+      let priceSorting = [...state.books]
+      priceSorting.sort((a, b) => {
+        if (a.price !== b.price) return action.payload === ASCENDENT
+          ? a.price - b.price
+          : b.price - a.price
+
+        else return action.payload === ASCENDENT
+          ? a.nombre.localeCompare(b.nombre)
+          : b.nombre.localeCompare(a.nombre)
+      })
+      return {
+        ...state,
+        books: priceSorting
       }
 
     case 'PAGINATION_BOOKS':
@@ -150,13 +178,13 @@ function rootReducer(state = initialState, action) {
         ...state,
         delete: action.payload
       }
-    
+
     case 'PUT_BOOK_BODY':
       return {
-          ...state,
-          put: action.payload
-        }
-  
+        ...state,
+        put: action.payload
+      }
+
     default:
       return state
   }
