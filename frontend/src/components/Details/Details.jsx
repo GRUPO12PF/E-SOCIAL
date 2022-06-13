@@ -52,17 +52,20 @@ const Details = () => {
       { 
         Object.keys(detail).length > 0 && !loading ?  (
             <div>
-      <button className={s.btn} onClick={(e) => handleDeleteBook(e)}>DELETE</button>
-      <button className={s.btn} onClick={(e) => handleUpdateBook(e)}>UPDATE</button>
-      
+          <div className={s.botoness}>
+          <button className={s.btn} onClick={(e) => handleDeleteBook(e)}>DELETE</button>
+          <button className={s.btn} onClick={(e) => handleUpdateBook(e)}>UPDATE</button>
+          </div>
           <div className={s.background}>
+          
+          
             <div className={s.name}>
             
             <h3 className={s.pName}>{detail.nombre}</h3>
-            <img src={detail.image} alt="not found" className={s.image}
+            <img  src={detail.image} alt="not found" className={s.image}
             onError={(e)=>e.target.setAttribute('src','https://pbs.twimg.com/profile_images/1611903252/Books-Icon120x120_400x400.jpg')} />
-            <h3 className={s.pName}>Precio: {detail.price}</h3>
-            <button className={s.btn}>Añadir a Carrito</button>
+            <h3 className={s.pName}>Precio: ${detail.price}</h3>
+            <button className={s.btnn}>Añadir a Carrito</button>
               
             </div>
             <div className={s.description}>
