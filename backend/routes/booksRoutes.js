@@ -15,10 +15,6 @@ router
     .get(obtenerBooks)
     .post(checkAuth, nuevoBook);
 
-    
-router
-.route('/total')
-
 
 router
     .route('/:id')
