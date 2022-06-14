@@ -8,7 +8,7 @@ import s from './Details.module.css';
 import {deleteBook} from '../../redux/actions/actionBooks'
 import NotFoundGral from '../NotFound/NotFoundGral'
 import Loading from '../Loading/Loading';
-
+import Buy from '../Buy/Buy'
 
 
 const Details = () => {
@@ -53,6 +53,7 @@ const Details = () => {
       { 
         Object.keys(detail).length > 0 && !loading ?  (
             <div>
+              <Buy/>
           <div className={s.botoness}>
           <button className={s.btn} onClick={(e) => handleDeleteBook(e)}>DELETE</button>
           <button className={s.btn} onClick={(e) => handleUpdateBook(e)}>UPDATE</button>
