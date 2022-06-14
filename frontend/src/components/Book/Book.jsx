@@ -1,10 +1,12 @@
 import React from 'react'
 import style from './Book.module.css'
+import Buy from '../Buy/Buy'
 
 function Book({nombre,image, price}) {
     
     return (
         <div className={style.bookItem}>
+            <Buy/>
             <div>
                 <h1 className= {style.nombre}>{nombre}</h1>
                 <img
