@@ -10,6 +10,7 @@ import NotFoundGral from '../NotFound/NotFoundGral'
 import Loading from '../Loading/Loading';
 
 
+
 const Details = () => {
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem("token");
@@ -82,6 +83,7 @@ const Details = () => {
               {detail.descripcion}
             </div>
             </div> 
+
           </div>
         )  :  !Object.keys(detail).length > 0 && loading ? (
             <Loading/>

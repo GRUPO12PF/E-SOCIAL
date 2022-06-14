@@ -1,0 +1,8 @@
+.flex{
+    display:flex;
+    text-align: center;
+}
+
+.inpu[type="radio"]{
+    display: none;
+}
