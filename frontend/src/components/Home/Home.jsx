@@ -34,7 +34,7 @@ export default function Home() {
   // eslint-disable-next-line
   const [order, setOrder] = useState('')
   const [pageCurrent, setPageCurrent] = useState(1)
-  const pageSize = 3
+  const [pageSize] = useState(6)
   const indexOfLastBooks = pageCurrent * pageSize
   const indexOfFirstBooks = indexOfLastBooks - pageSize
   const currentBooks = allBooks?.slice(indexOfFirstBooks, indexOfLastBooks)
@@ -51,8 +51,11 @@ export default function Home() {
      setPageCurrent(pageNumber)
    }
 
-const goToNextPage = () => setPageCurrent(pageCurrent + 1)
- const goToPreviousPage = () => {
+const goToNextPage = () => {
+  if (pageCurrent < Math.floor(1+allBooks.length/pageSize)) setPageCurrent(pageCurrent + 1)
+}
+
+const goToPreviousPage = () => {
    if (pageCurrent > 1) setPageCurrent(pageCurrent - 1)
 }
 
