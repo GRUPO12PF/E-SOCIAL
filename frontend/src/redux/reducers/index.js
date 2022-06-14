@@ -1,4 +1,4 @@
-import { GET_CATEGORIES, FILTER_BY_CATEGORY, SORT_BY_NAME, SORT_BY_PRICE, ASCENDENT, RESET_SORTS } from '../utils/constants'
+import { GET_CATEGORIES, FILTER_BY_CATEGORY, SORT_BY, NAME_ASC, NAME_DESC, PRICE_ASC, PRICE_DESC } from '../utils/constants'
 
 const initialState = {
   books: [],
@@ -134,38 +134,33 @@ function rootReducer(state = initialState, action) {
       }
 
     // SORTERS
-    case SORT_BY_NAME:
-      let nameSorting = [...state.books]
-      action.payload === ASCENDENT
-        ? nameSorting.sort((a, b) => a.nombre.localeCompare(b.nombre))
-        : nameSorting.sort((a, b) => b.nombre.localeCompare(a.nombre))
+    case SORT_BY:
+      let sortedBooks = [...state.books]
+
+      if (action.payload === NAME_ASC) {
+        sortedBooks.sort((a, b) => a.nombre.localeCompare(b.nombre))
+      }
+      if (action.payload === NAME_DESC) {
+        sortedBooks.sort((a, b) => b.nombre.localeCompare(a.nombre))
+      }
+      if (action.payload === PRICE_ASC) {
+        sortedBooks.sort((a, b) =>
+          a.price !== b.price
+            ? a.price - b.price
+            : a.nombre.localeCompare(b.nombre)
+        )
+      }
+      if (action.payload === PRICE_DESC) {
+        sortedBooks.sort((a, b) =>
+          a.price !== b.price
+            ? b.price - a.price
+            : b.nombre.localeCompare(a.nombre)
+        )
+      }
       return {
         ...state,
-        books: nameSorting
+        books: sortedBooks
       }
-
-    case SORT_BY_PRICE:
-      let priceSorting = [...state.books]
-      priceSorting.sort((a, b) => {
-        if (a.price !== b.price) return action.payload === ASCENDENT
-          ? a.price - b.price
-          : b.price - a.price
-
-        else return action.payload === ASCENDENT
-          ? a.nombre.localeCompare(b.nombre)
-          : b.nombre.localeCompare(a.nombre)
-      })
-      return {
-        ...state,
-        books: priceSorting
-      }
-
-    // case RESET_SORTS:
-    //   action.payload
-    //   return {
-    //     ...state,
-    //     books: action.payload
-    //   }
 
     case 'PAGINATION_BOOKS':
       return {
@@ -196,4 +191,5 @@ function rootReducer(state = initialState, action) {
       return state
   }
 }
+
 export default rootReducer

@@ -3,8 +3,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { cleanData, searchByName } from '../../redux/actions/actionBooks'
 import FilterCategories from '../FilterCategories/FilterCategories'
-import SorterByName from '../SorterByName/SorterByName'
-import SorterByPrice from '../SorterByPrice/SorterByPrice'
+import Sorter from '../Sorter/Sorter'
 import s from './SearchBar.module.css'
 
 export default function SearchBar() {
@@ -33,8 +32,7 @@ export default function SearchBar() {
       <button className={s.btnR} onClick={e => (handleOnClick(e))}>RELOAD ALL BOOKS</button>
       <div className={s.divFilter}>
         <FilterCategories />
-        <SorterByName />
-        <SorterByPrice />
+        <Sorter />
       </div>
     </div>
   )
