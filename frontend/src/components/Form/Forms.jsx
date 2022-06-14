@@ -12,7 +12,8 @@ const Forms = () => {
     let navigate = useNavigate()
     const dispatch = useDispatch()
     const categorie = useSelector(state => state.categories)
-   
+    
+    
     useEffect(() => {
         dispatch(getCategories()) 
       }, [dispatch])
@@ -34,6 +35,7 @@ const Forms = () => {
                         category:''
 
                     }}
+                   
                     validate={(values) => {
                         let errors = {}
 
@@ -168,6 +170,8 @@ const Forms = () => {
 
                     
                     </Form>)}
+
+            
                    
                 </Formik>
             
