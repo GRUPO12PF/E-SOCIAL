@@ -47,4 +47,7 @@
 }
 .divFilter{
     margin-left: 25px;
+    display: flex;
+    background-color: #f7ede2;
+    justify-content: space-between;
 }
