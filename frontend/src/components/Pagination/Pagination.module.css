@@ -36,6 +36,8 @@
 
 .pag ul {
     padding-left: 0px;
+    display: inline-flex;
+    padding: 0.2%;
 }
 .pag li{
     margin-bottom: 2%;
