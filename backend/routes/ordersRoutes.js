@@ -13,12 +13,11 @@ const router = express.Router();
 router
     .route('/')
     .get(obtenerOrders)
-  //  .post(checkAuth, nuevaOrder)
+    .post(checkAuth, nuevaOrder)
 
 router
    .route('/:id')
     .get(detailOrder)
-    .post(checkAuth, nuevaOrder)
     .delete(eliminarOrder);
 
 
