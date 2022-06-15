@@ -56,7 +56,10 @@ app.use("/api/categories", categoriesRoutes);
 app.use("/api/orders", ordersRoutes);
 
 //----Rutas para payment
+app.use(express.static("public"));
+
 app.use("/api/create-payment-intent", paymentsIntent)
+
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

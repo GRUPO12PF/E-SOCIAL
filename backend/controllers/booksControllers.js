@@ -44,6 +44,20 @@ const nuevoBook = async (req, res) => {
 const detailBook = async (req, res) => {
   try {
     const { id } = req.params
+    const book = await Book.findById(id, projection) 
+    if (!book) {
+      const error = new Error('No se encontró el libro.')
+      return res.status(404).json({ msg: error.message })
+    }
+
+    res.json(book)
+  } catch (error) {
+    console.log(error)
+  }
+}
+const detailBookByBody = async (req, res) => {
+  try {
+    const { id } = req.body
     const book = await getBookById(id)
     if (!book) {
       const error = new Error('No se encontró el libro.')
@@ -104,6 +118,7 @@ const eliminarBook = async (req, res) => {
 
 export {
   obtenerBooks,
+  detailBookByBody,
   detailBook,
   nuevoBook,
   editarBook,
