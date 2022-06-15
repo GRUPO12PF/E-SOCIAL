@@ -1,5 +1,6 @@
 import React from 'react'
 import style from './Book.module.css'
+import { Link, useParams } from 'react-router-dom'
 
 function Book({nombre,image, price}) {
     const { id } = useParams()
