@@ -6,7 +6,8 @@ import booksRoutes from './routes/booksRoutes.js';
 import proyectoRoutes from './routes/proyectoRoutes.js';
 import categoriesRoutes from './routes/categoriesRoutes.js';
 import ordersRoutes from './routes/ordersRoutes.js';
-
+//---- ruta para payment
+import paymentsIntent from './routes/paymentsIntent.js'
 
 import cors from "cors";
 import fileUpload from "express-fileupload";
@@ -53,6 +54,12 @@ app.use("/api/books", booksRoutes);
 app.use("/api/proyectos", proyectoRoutes);
 app.use("/api/categories", categoriesRoutes);
 app.use("/api/orders", ordersRoutes);
+
+//----Rutas para payment
+app.use(express.static("public"));
+
+app.use("/api/create-payment-intent", paymentsIntent)
+
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
