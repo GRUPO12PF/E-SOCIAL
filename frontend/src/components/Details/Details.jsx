@@ -8,8 +8,9 @@ import s from './Details.module.css';
 import {deleteBook} from '../../redux/actions/actionBooks'
 import NotFoundGral from '../NotFound/NotFoundGral'
 import Loading from '../Loading/Loading';
-import {buyBook} from '../../redux/actions/actionBuy'
-import { Link } from 'react-router-dom';
+import Buy from '../Buy/Buy';
+
+
 
 const Details = () => {
   const [loading, setLoading] = useState(true);
@@ -18,6 +19,7 @@ const Details = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate();
   const detail = useSelector((state) => state.detail)
+  
   // console.log(detail)
 
   if(Object.keys(detail).length > 0 && loading){
@@ -34,10 +36,6 @@ const Details = () => {
     navigate("/");
   }
 
-  const handleBuy = () => {
-        e.preventDefault()
-        dispatch(buyBook(id))
-      }
   function handleDeleteBook(e) {
     e.preventDefault()
     dispatch(deleteBook(id))
@@ -87,9 +85,7 @@ const Details = () => {
               <h5 className={s.h5}>Descripción</h5>
               {detail.descripcion}
             </div>
-            <Link to= '/checkout'>
-            <button onClick={(e) => handleBuy(e)} >BUY NOW</button>
-            </Link>
+            <Buy/>
             </div> 
 
           </div>

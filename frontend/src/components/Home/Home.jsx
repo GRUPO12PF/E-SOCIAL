@@ -79,14 +79,15 @@ const goToPreviousPage = () => {
               return (
                 <div key={i}>
                   {e.error ? <h1>ERROR!</h1> :
-                    <Link to={'/details/' + e._id}>
+                    // <Link to={'/details/' + e._id}>
                       <Book
                         id={e._id}
                         nombre={e.nombre}
                         image={e.image}
                         price={'$'+e.price+'.00'}
                       />
-                    </Link>}
+                    // </Link>
+                    }
                 </div>
               )
             })
