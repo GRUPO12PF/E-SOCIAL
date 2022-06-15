@@ -7,6 +7,7 @@ import { detailsBook } from '../../redux/actions/detailsBooks'
 const checkOutEnvio = () => {
     return(
         <div>
+            
         </div>
     )
 }

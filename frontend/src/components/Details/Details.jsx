@@ -8,8 +8,7 @@ import s from './Details.module.css';
 import {deleteBook} from '../../redux/actions/actionBooks'
 import NotFoundGral from '../NotFound/NotFoundGral'
 import Loading from '../Loading/Loading';
-import Buy from '../Buy/Buy'
-
+import {buyBook} from '../../redux/actions/actionBuy'
 
 const Details = () => {
   const [loading, setLoading] = useState(true);
@@ -33,6 +32,11 @@ const Details = () => {
   if (!token) {
     navigate("/");
   }
+
+  const handleBuy = () => {
+        e.preventDefault()
+        dispatch(buyBook(id))
+      }
   function handleDeleteBook(e) {
     e.preventDefault()
     dispatch(deleteBook(id))
@@ -43,7 +47,7 @@ const Details = () => {
     e.preventDefault()
      navigate(`/details/update/${id}`)
   }
-  // console.log(id)
+  //console.log(id)
   return (
     <div>
       <div>
@@ -83,6 +87,9 @@ const Details = () => {
               <h5 className={s.h5}>Descripción</h5>
               {detail.descripcion}
             </div>
+            <Link to= '/checkout'>
+            <button onClick={(e) => handleBuy(e)} >BUY NOW</button>
+            </Link>
             </div> 
 
           </div>

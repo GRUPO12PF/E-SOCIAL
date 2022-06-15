@@ -41,6 +41,7 @@ function App() {
         <Route path='/create' element={<Forms />} />
         <Route path='/about' element={<About />} />
         <Route path='/home' element={<VerificationUser />}>
+        
           <Route index element={<Home />} />
           
         </Route>
