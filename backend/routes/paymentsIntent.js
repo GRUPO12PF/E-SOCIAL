@@ -1,14 +1,14 @@
-import express from 'express'; 
-import { paymentIntent } from '../controllers/paymentControllers.js';
-import {detailBookByBody} from '../controllers/booksControllers.js'
-import checkAuth from '../middleware/checkAuth.js';
+import express from 'express'
+import { paymentIntent } from '../controllers/paymentControllers.js'
+import { detailBook } from '../controllers/booksControllers.js'
+import checkAuth from '../middleware/checkAuth.js'
 
-const router = express.Router();
+const router = express.Router()
 
 router
     .route('/')
-        // .post(checkAuth, paymentIntent)
+        .get(detailBook)
         .post(paymentIntent)
-        .get(detailBookByBody)
+        // .post(checkAuth, paymentIntent)
 
-export default router;
+export default router
