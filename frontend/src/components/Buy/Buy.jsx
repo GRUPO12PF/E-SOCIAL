@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from "react-router";
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { buyBook } from '../../redux/actions/actionBuy'
 
 const buy = () => {
@@ -12,11 +12,12 @@ const buy = () => {
 
     const handleBuy = () => {
           dispatch(buyBook(id))
-          navigate('/checkOut') 
         }
     return(
         <div>
+            <Link to= '/checkout'>
             <button onClick={(e) => handleBuy(e)} >BUY NOW</button>
+            </Link>
         </div>
     )
 }
