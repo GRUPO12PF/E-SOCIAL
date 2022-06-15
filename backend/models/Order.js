@@ -13,16 +13,8 @@ const orderSchema = mongoose.Schema(
         id: String,
         qty: Number
       }
-    ],
-    adress: {
-        type: String,
-        trim: true,
-        required: true,
-      },
+    ]
     
-  },
-  {
-    timestamps: true,
   }
 )
 
