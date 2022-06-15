@@ -18,7 +18,7 @@ export default async function getOrderAmount(books) {
         amount += operation;
     }
     const onlyTwoDecimals = amount.toFixed(2);
-    const parsedAmount = parseInt(onlyTwoDecimals.replace('.', ''), 10)
-    console.log(parsedAmount)
+    const parsedAmount = parseInt(onlyTwoDecimals.replace('.', ','), 10)
+    console.log("💨💚 monto total de la compra!!!", parsedAmount)
     return parsedAmount;
 } 
