@@ -64,7 +64,6 @@ const Details = () => {
             </div>
             <div className={s.background}>
 
-
               <div className={s.name}>
 
                 <h3 className={s.pName}>{detail.nombre}</h3>
