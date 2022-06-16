@@ -9,7 +9,7 @@ import VerificationUser from './components/VerificationUser/VerificationUser'
 import Home from './components/Home/Home'
 import UpdatePassword from './components/UpdatePassword/UpdatePassword'
 import Forms from './components/Form/Forms'
-import Details from './components/Details/Details'
+import Details from './components/Details/Details copy'
 import Settings from './components/Settings/Settings'
 import About from './components/About/About'
 import Homeout from './components/Homeout/Homeout'
@@ -33,9 +33,7 @@ function App() {
         <Route path='/details/:id' element={<Details />} />
         <Route path='/homeout' element={<Homeout />} />
         <Route path='/details/update/:id' element={<UpdateBook />} />
-
-        <Route path='/checkout/:id' element={<Checkout />} />
-        
+        <Route path='/checkout/' element={<Checkout />} />        
         <Route path='/create' element={<Forms />} />
         <Route path='/about' element={<About />} />
         <Route path='/home' element={<VerificationUser />}>

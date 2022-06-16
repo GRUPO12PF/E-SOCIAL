@@ -84,7 +84,7 @@ const Details = () => {
                 <h5 className={s.h5}>Descripción</h5>
                 {detail.descripcion}
               </div>
-              <Link to={`/checkout/${id}`}>
+              <Link to={`/checkout/`}>
                 <button onClick={(e) => /* handleBuy */(e)} >BUY NOW</button>
               </Link>
             </div>

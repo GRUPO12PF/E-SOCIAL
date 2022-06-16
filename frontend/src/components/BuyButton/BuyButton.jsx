@@ -11,7 +11,7 @@ function BuyButton() {
     }    
     return (
         <div>
-            <Link to='/checkout' id={id}>
+            <Link to='/checkout'>
                 <button onClick={(e) => handleBuy(e)} >BUY NOW</button>
             </Link>
         </div>
