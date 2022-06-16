@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { Formik, Field, ErrorMessage, Form } from 'formik'
+import { Formik, Field, ErrorMessage, Form, } from 'formik'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { postCreate } from '../../redux/actions/postProducts';
@@ -7,12 +7,46 @@ import NavBar from '../NavBar/NavBar';
 import s from '../Form/Form.module.css'
 import { getCategories } from '../../redux/actions/actionCategories.js';
 import { getBooks } from '../../redux/actions/actionBooks';
+import Select from 'react-select'
 
 const Forms = () => {
     let navigate = useNavigate()
     const dispatch = useDispatch()
     const categorie = useSelector(state => state.categories)
+
+    let opcions = categorie.map(c=>{
+        return(
+            {value:c,label:c}
+        )
+    })
+
+    // const validateForm = (opcions,value)=>{
+    //     return opcions ? opcions.filter(op=> op.opcions.value === value):""
+    // }
+
     
+    // const [values,setInput]= useState({
+    //     category:[]
+    // })
+
+    
+    // const handleSelect = (e)=>{
+
+    //         setInput({
+    //             ...input,
+    //             category:[...input.category,e.target.value]
+    //         })
+        
+        
+    //       console.log(input)
+    // }
+    
+    // const handleDelete= (el)=>{
+    //     setInput({
+    //         ...input,
+    //         category: input.category.filter(e => e !== el)
+    //     })
+    // } 
     
     useEffect(() => {
         dispatch(getCategories()) 
@@ -32,43 +66,48 @@ const Forms = () => {
                         image: '',
                         ranking: '',
                         colection: '',
-                        category:''
-
+                        category:[]
                     }}
+                   
+                   
                    
                     validate={(values) => {
                         let errors = {}
 
                         if (!values.nombre) {
                             errors.nombre = 'required field'
-                        } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(values.nombre)) {
-                            errors.nombre = 'name only'
+                        } else if (!/^[a-zA-ZÀ-ÿ\s]$/.test(values.nombre)) {
+                            errors.nombre = 'solo nombres y numeros'
                         }
                         if (!values.descripcion) {
-                            errors.descripcion = 'required field'
+                            errors.descripcion = 'campo requerido'
                         } else if (!values.price) {
-                            errors.price = 'required'
+                            errors.price = 'campo requerido'
                         } else if (!values.ranking) {
-                            errors.ranking = 'required field'
+                            errors.ranking = 'campo requerido'
                         } else if (!values.colection) {
-                            errors.colection = 'required field'
+                            errors.colection = 'campo requerido'
                         }else if(!values.category){
-                            errors.category= 'required field'
+                            errors.category= 'campo requerido'
                         }
 
                         return errors;
                     }}
-                    onSubmit={(values, { resetForm }) => {
+
+                    onSubmit={(values,{ resetForm }) => {
                         console.log(values)
+                       
                         dispatch(postCreate(values))
                         resetForm()
                         navigate('/home')
                         dispatch(getBooks())
                         // window.location.reload();
                     }}
+
+            
                 >
 
-                    {({ errors, handleSubmit }) => (<Form action="" onSubmit={handleSubmit} className={s.formik} >
+                    {({ errors, handleSubmit,values,category}) => (<Form action="" onSubmit={handleSubmit} className={s.formik} >
 
                         <div className={s.form}>
 
@@ -149,31 +188,157 @@ const Forms = () => {
 
                             </div>
                             
-                            <label htmlFor="" className={s.label} >Category</label>
-                             <div>
-                            <Field name="category" id="category"  as="select"  className={s.input}>
-                                 <option >Category</option>
-                                {
-                                    categorie?.map((e,i)=>{
-                                        return(
-                                            <option className={s.select} value={e.category} key={i}>{e}</option>
-                                        )
-                                    })
-                                }
-                            </Field>
-                            <ErrorMessage name='category' component={() => (<p>{errors.category}</p>)} />
+                            <label htmlFor="" className={s.label}>Category</label>
+                             <div className={s.chek}>
+                            
+                            {/* { <Select options={opcions} isMulti  name="category" multiple={true} as="select" id="category" className={s.input}>
+                            <option id="category"  name="category">category</option>
+                            {
+                                categorie?.map((c,i)=> {
+                                    return(
+                                    
+                                        <option key={i} name="category" value={c.category} id="category">{c}</option>
+                                        
+                                    )
+                                })
+                            }
+                            
+                        </Select>   } */}
+
+                                     <div role="group" aria-labelledby="checkbox-group" >
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Autoayuda" />
+                                            Autoayuda
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Autobiográficos" />
+                                            Autobiográficos
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Aventura" />
+                                            Aventura
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Biografía" />
+                                            Biografía
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Ciencia" />
+                                            Ciencia
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="ficción" />
+                                            ficción
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Científicos" />
+                                            Científicos
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Cómics" />
+                                            Cómics
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Cuentos" />
+                                            Cuentos
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Deporte" />
+                                            Deporte
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Historia" />
+                                            Historia
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Humor" />
+                                            Humor
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Marketing" />
+                                            Marketing
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Microrrelatos" />
+                                            Microrrelatos
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Novela de culto" />
+                                            Novela de culto
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Novela de no ficción" />
+                                            Novela de no ficción
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Novela" />
+                                            Novela
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Histórica" />
+                                            Histórica
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Novelas" />
+                                            Novelas
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Postapocalíptico" />
+                                            Postapocalíptico
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Románticas" />
+                                            Románticas
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Salud" />
+                                            Salud
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Sociedad" />
+                                            Sociedad
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Suspense" />
+                                            Suspense
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Terror" />
+                                            Terror
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Otros" />
+                                            Otros
+                                            </label>
+                                            <label>
+                                            <Field type="checkbox" name="category" value="Videojuegos" />
+                                            Videojuegos
+                                            </label>
+                                        </div>
+
+                           
+
                             </div> 
 
-                            <button className={s.sendMsg} type="submit">Send</button>
+                            <button className={s.sendMsg}  type="submit">Send</button>
 
                         </div>
 
                     
                     </Form>)}
 
+          
             
                    
                 </Formik>
+                {/* <div className={s.botonFle} >
+                    {values.category.map((el) => (
+                    <div key={el} className={s.el}>
+                    <span className={s.sp} >{el}</span >
+                    <button className={s.btt} onClick={() => handleDelete(el)}> x </button>
+                    </div>
+                ))}
+                </div> */}
             
                 <br />
                 <Link className={s.back} to="/home">BACK</Link>
