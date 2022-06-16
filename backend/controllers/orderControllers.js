@@ -15,10 +15,9 @@ const obtenerOrders = async (req, res) => {
   }
 
 const nuevaOrder = async (req, res) => {
-    const {idBook} = req.params
     const order = new Order({
         adress: req.body.adress,
-        bookSelected: idBook,
+        book: req.body.book,
     })   
     order.comprador = req.usuario._id
       
