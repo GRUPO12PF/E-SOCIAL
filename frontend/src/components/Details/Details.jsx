@@ -3,13 +3,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from "react-router"
 import { Link, useParams } from 'react-router-dom'
 import { detailsBook } from '../../redux/actions/detailsBooks'
-import NavBar from "../NavBar/NavBar"
-import s from './Details.module.css'
 import { deleteBook } from '../../redux/actions/actionBooks'
+import s from './Details.module.css'
+import NavBar from "../NavBar/NavBar"
 import NotFoundGral from '../NotFound/NotFoundGral'
 import Loading from '../Loading/Loading'
-
-import { buyBook } from '../../redux/actions/actionBuy'
+import BuyButton from '../BuyButton/BuyButton'
 
 const Details = () => {
   const [loading, setLoading] = useState(true)
@@ -18,7 +17,6 @@ const Details = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const detail = useSelector((state) => state.detail)
-  // console.log(detail)
 
   if (Object.keys(detail).length > 0 && loading) {
     setLoading(false)
@@ -43,21 +41,21 @@ const Details = () => {
     navigate('/home')
     window.location.reload()
   }
+
   function handleUpdateBook(e) {
     e.preventDefault()
     navigate(`/details/update/${id}`)
   }
-  //console.log(id)
+
   return (
     <div>
       <div>
         <NavBar />
       </div>
-
       {
         Object.keys(detail).length > 0 && !loading ? (
           <div>
-            {/* <Buy /> */}
+            <BuyButton />
             <div className={s.botoness}>
               <button className={s.btn} onClick={(e) => handleDeleteBook(e)}>DELETE</button>
               <button className={s.btn} onClick={(e) => handleUpdateBook(e)}>UPDATE</button>
@@ -86,8 +84,8 @@ const Details = () => {
                 <h5 className={s.h5}>Descripción</h5>
                 {detail.descripcion}
               </div>
-              <Link to='/checkout'>
-                <button onClick={(e) => handleBuy(e)} >BUY NOW</button>
+              <Link to={`/checkout/${id}`}>
+                <button onClick={(e) => /* handleBuy */(e)} >BUY NOW</button>
               </Link>
             </div>
 
@@ -98,7 +96,6 @@ const Details = () => {
           <NotFoundGral />
         )
       }
-
     </div>
   )
 }

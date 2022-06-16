@@ -14,16 +14,10 @@ import Settings from './components/Settings/Settings'
 import About from './components/About/About'
 import Homeout from './components/Homeout/Homeout'
 import NotFound from './components/NotFound/NotFound'
-// import { useEffect } from 'react'
-// import { useDispatch, useSelector } from 'react-redux'
-// import { getBooks } from './redux/actions/actionBooks'
 import UpdateBook from './components/UpdateBook/UpdateBook'
+import Checkout from './components/Checkout/Checkout'
 
 function App() {
-  // const dispatch = useDispatch()
-  
- 
-
   return (
     <Router>
       <Routes>
@@ -34,16 +28,20 @@ function App() {
         <Route path='olvide-password/:token' element={<NewPassword />} />
         <Route path='confirmar/:id' element={<ConfirmAccount />} />
         <Route path='/update-password' element={<UpdatePassword />} />
+
         <Route path='/create' element={<Forms />} />
         <Route path='/details/:id' element={<Details />} />
         <Route path='/homeout' element={<Homeout />} />
-        <Route path='/details/update/:id' element={<UpdateBook/>} />
+        <Route path='/details/update/:id' element={<UpdateBook />} />
+
+        <Route path='/checkout/:id' element={<Checkout />} />
+        
         <Route path='/create' element={<Forms />} />
         <Route path='/about' element={<About />} />
         <Route path='/home' element={<VerificationUser />}>
-        
+
           <Route index element={<Home />} />
-          
+
         </Route>
         <Route path='/home/usuario/setting' element={<VerificationUser />}>
           <Route index element={<Settings />} />
