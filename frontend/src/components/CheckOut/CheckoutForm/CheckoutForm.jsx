@@ -1,18 +1,13 @@
 import React, { useState } from "react"
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import s from './CheckoutForm.module.css'
-
-import {
-  CardElement,
-  useStripe,
-  useElements,
-} from "@stripe/react-stripe-js"
-
-import axios from "axios"
+import { buyBook } from "../../../redux/actions/actionBuy"
 
 const CheckoutForm = () => {
   const stripe = useStripe()
   const elements = useElements()
+  const dispatch = useDispatch()
   const id = useSelector(state => state.detail._id)
   console.log("🚀 ~ file: CheckoutForm.jsx ~ line 14 ~ id", id)
 
@@ -31,14 +26,19 @@ const CheckoutForm = () => {
       // console.log(paymentMethod)
       const { id } = paymentMethod
       try {
-        const { data } = await axios.post(
-          "http://localhost:3001/api/checkout",
-          {
+        // const { data } = await axios.post( // TODO acá hay que hacer el dispatch de buyBook
+        //   "http://localhost:3001/api/checkout",
+        //   {
+        //     id,
+        //     amount: 10000, //cents
+        //   }
+        // )
+        // console.log(data)
+
+        dispatch(buyBook({
             id,
-            amount: 10000, //cents
-          }
-        )
-        console.log(data)
+            qty: 1, //cents
+        }))
 
         elements.getElement(CardElement).clear()
       } catch (error) {
