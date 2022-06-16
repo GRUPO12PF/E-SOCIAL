@@ -194,6 +194,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         buy: action.payload
       }
+      
     default:
       return state
   }

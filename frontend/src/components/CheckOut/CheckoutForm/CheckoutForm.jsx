@@ -8,8 +8,8 @@ const CheckoutForm = () => {
   const stripe = useStripe()
   const elements = useElements()
   const dispatch = useDispatch()
-  const id = useSelector(state => state.detail._id)
-  console.log("🚀 ~ file: CheckoutForm.jsx ~ line 14 ~ id", id)
+  const product = useSelector(state => state.detail)
+  const bookId = product._id
 
   const [loading, setLoading] = useState(false)
 
@@ -18,27 +18,23 @@ const CheckoutForm = () => {
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
-      card: elements.getElement(CardElement),
+      card: elements.getElement(CardElement)
     })
+    console.log("🚀 ~ file: CheckoutForm.jsx ~ line 23 ~ handleSubmit ~ paymentMethod", paymentMethod)
     setLoading(true)
 
     if (!error) {
-      // console.log(paymentMethod)
-      const { id } = paymentMethod
+      const pm = paymentMethod.id
+      
       try {
-        // const { data } = await axios.post( // TODO acá hay que hacer el dispatch de buyBook
-        //   "http://localhost:3001/api/checkout",
-        //   {
-        //     id,
-        //     amount: 10000, //cents
-        //   }
-        // )
-        // console.log(data)
 
-        dispatch(buyBook({
-            id,
+        dispatch(buyBook(
+          [{
+            id: bookId,
             qty: 1, //cents
-        }))
+            pm
+          }]
+        ))
 
         elements.getElement(CardElement).clear()
       } catch (error) {
@@ -60,7 +56,8 @@ const CheckoutForm = () => {
           className={s.productImg}
         />
 
-        <h3 className="text-center my-2">Price: 100$</h3> {/* TODO cambiar por price del libro */}
+        <h3 className="text-center my-2">{product.nombre}</h3>
+        <h3 className="text-center my-2">$ {product.price}</h3>
 
         {/* User Card Input */}
         <div className={s.cardElement}>
