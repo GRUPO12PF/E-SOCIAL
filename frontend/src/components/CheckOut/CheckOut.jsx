@@ -1,20 +1,24 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from "react-router";
-import { useParams } from 'react-router-dom'
-import { buyBook } from '../../redux/actions/actionBuy'
+import React from "react"
+import { Elements } from "@stripe/react-stripe-js"
+import { loadStripe } from "@stripe/stripe-js"
+import Checkoutform from "./CheckoutForm/CheckoutForm"
 
-const checkOut = () => {
-    useEffect(() => {
-    
-        dispatch(buyBook(id))
-            
-    }, [dispatch])
+// import { buyBook } from '../../redux/actions/actionBuy'
 
-    return(
-        <div>
-        </div>
-    )
+const stripePromise = loadStripe('pk_test_51LAg9hHDqRgCh1WMinPYGhVaxGp2m9Df26h0orDwuaSZJak0vVZl2rUcrvlbK14XVmWZ9kScsTCXMWiZLFA6Abek00ezDxZtwN') // TODO cambiar por la variable con la secret key!
+
+const CheckOut = () => {
+  // useEffect(() => {
+  //     dispatch(buyBook(id))
+  // }, [dispatch])
+
+  return (
+    <Elements stripe={stripePromise}>
+      <div>
+        <Checkoutform />
+      </div>
+    </Elements>
+  )
 }
 
-export default checkOut;
+export default CheckOut
