@@ -18,11 +18,12 @@ import NotFound from './components/NotFound/NotFound'
 // import { useDispatch, useSelector } from 'react-redux'
 // import { getBooks } from './redux/actions/actionBooks'
 import UpdateBook from './components/UpdateBook/UpdateBook'
+import CheckOut from './components/CheckOut/CheckOut'
 
 function App() {
   // const dispatch = useDispatch()
-  
- 
+
+
 
   return (
     <Router>
@@ -34,15 +35,17 @@ function App() {
         <Route path='olvide-password/:token' element={<NewPassword />} />
         <Route path='confirmar/:id' element={<ConfirmAccount />} />
         <Route path='/update-password' element={<UpdatePassword />} />
+
         <Route path='/create' element={<Forms />} />
         <Route path='/details/:id' element={<Details />} />
         <Route path='/homeout' element={<Homeout />} />
-        <Route path='/details/update/:id' element={<UpdateBook/>} />
-        <Route path='/create' element={<Forms />} />
+        <Route path='/details/update/:id' element={<UpdateBook />} />
+        <Route path='/checkout' element={<CheckOut />} />
+
         <Route path='/about' element={<About />} />
         <Route path='/home' element={<VerificationUser />}>
           <Route index element={<Home />} />
-          
+
         </Route>
         <Route path='/home/usuario/setting' element={<VerificationUser />}>
           <Route index element={<Settings />} />
