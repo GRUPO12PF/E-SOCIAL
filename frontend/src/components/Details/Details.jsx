@@ -8,6 +8,7 @@ import s from './Details.module.css';
 import {deleteBook} from '../../redux/actions/actionBooks'
 import NotFoundGral from '../NotFound/NotFoundGral'
 import Loading from '../Loading/Loading';
+import Buy from '../Buy/Buy'
 
 
 const Details = () => {
@@ -52,6 +53,7 @@ const Details = () => {
       { 
         Object.keys(detail).length > 0 && !loading ?  (
             <div>
+              <Buy/>
           <div className={s.botoness}>
           <button className={s.btn} onClick={(e) => handleDeleteBook(e)}>DELETE</button>
           <button className={s.btn} onClick={(e) => handleUpdateBook(e)}>UPDATE</button>
@@ -73,7 +75,7 @@ const Details = () => {
               {detail.colection}
 
               <h5 className={s.h5}>Categoría</h5>
-              {detail.category}
+              {" "+detail.category+" "}
 
               <h5 className={s.h5}>Ranking</h5>
               {detail.ranking ? detail.ranking : "no tiene ranking"}
@@ -82,6 +84,7 @@ const Details = () => {
               {detail.descripcion}
             </div>
             </div> 
+
           </div>
         )  :  !Object.keys(detail).length > 0 && loading ? (
             <Loading/>

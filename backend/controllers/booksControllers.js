@@ -1,3 +1,4 @@
+import getBookById from '../helpers/getBookById.js'
 import Book from '../models/Book.js'
 
 const projection = { createdAt: 0, updatedAt: 0, __v: 0, avaliable: 0 }
@@ -24,7 +25,7 @@ const obtenerBooks = async (req, res) => {
     }
     res.json(response)
   } catch (error) {
-    console.log(error)
+    console.log(error, "🔴")
   }
 }
 
@@ -42,11 +43,8 @@ const nuevoBook = async (req, res) => {
 
 const detailBook = async (req, res) => {
   try {
-    const { id } = req.params
-    const book = await Book.findById(id, projection)
-
-
-
+    const { id } = req.params || req.body
+    const book = await Book.findById(id, projection) 
     if (!book) {
       const error = new Error('No se encontró el libro.')
       return res.status(404).json({ msg: error.message })
@@ -60,7 +58,6 @@ const detailBook = async (req, res) => {
 
 const editarBook = async (req, res) => {
       const id = req.params.id
-
 
     try {
         // const libroEditado = await Book.save()
