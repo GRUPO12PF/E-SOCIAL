@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from "react-router"
-import { Link, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router'
+import { useParams } from 'react-router-dom'
 import { detailsBook } from '../../redux/actions/detailsBooks'
-import { deleteBook } from '../../redux/actions/actionBooks'
+import NavBar from '../NavBar/NavBar'
 import s from './Details.module.css'
-import NavBar from "../NavBar/NavBar"
+import { deleteBook } from '../../redux/actions/actionBooks'
 import NotFoundGral from '../NotFound/NotFoundGral'
 import Loading from '../Loading/Loading'
 import BuyButton from '../BuyButton/BuyButton'
@@ -29,19 +29,12 @@ const Details = () => {
   if (!token) {
     navigate("/")
   }
-
-  // const handleBuy = () => {
-  //   e.preventDefault()
-  //   dispatch(buyBook(id))
-  // }
-
   function handleDeleteBook(e) {
     e.preventDefault()
     dispatch(deleteBook(id))
     navigate('/home')
     window.location.reload()
   }
-
   function handleUpdateBook(e) {
     e.preventDefault()
     navigate(`/details/update/${id}`)
@@ -52,6 +45,7 @@ const Details = () => {
       <div>
         <NavBar />
       </div>
+
       {
         Object.keys(detail).length > 0 && !loading ? (
           <div>
@@ -76,7 +70,7 @@ const Details = () => {
                 {detail.colection}
 
                 <h5 className={s.h5}>Categoría</h5>
-                {detail.category}
+                {" " + detail.category + " "}
 
                 <h5 className={s.h5}>Ranking</h5>
                 {detail.ranking ? detail.ranking : "no tiene ranking"}
@@ -96,6 +90,7 @@ const Details = () => {
           <NotFoundGral />
         )
       }
+
     </div>
   )
 }
