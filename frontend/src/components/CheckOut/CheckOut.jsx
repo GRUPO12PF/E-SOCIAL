@@ -11,13 +11,10 @@ export default function checkOut ({id,image,price})  {
     const stripe = useStripe();
     const stripePromise = loadStripe('pk_test_51LAg9hHDqRgCh1WMinPYGhVaxGp2m9Df26h0orDwuaSZJak0vVZl2rUcrvlbK14XVmWZ9kScsTCXMWiZLFA6Abek00ezDxZtwN')
     const elements = useElements();
-    
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        stripe.createPaymentMethod({
-            type: 'card',
-            card: elements.getElement(CardElement),
-        })
+       dispatch(buyBook(id))
         
     }
     return(
