@@ -24,7 +24,6 @@
     "fs-extra": "^10.1.0",
     "google-auth-library": "^8.0.2",
     "jsonwebtoken": "^8.5.1",
-    "mercadopago": "^1.5.13",
     "mongoose": "^6.3.4",
     "mongoose-autopopulate": "^0.16.1",
     "mongoose-paginate-v2": "^1.6.3",
