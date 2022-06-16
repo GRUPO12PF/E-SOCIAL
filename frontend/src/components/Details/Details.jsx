@@ -77,7 +77,7 @@ const Details = () => {
               {detail.colection}
 
               <h5 className={s.h5}>Categoría</h5>
-              {detail.category}
+              {" "+detail.category+" "}
 
               <h5 className={s.h5}>Ranking</h5>
               {detail.ranking ? detail.ranking : "no tiene ranking"}
