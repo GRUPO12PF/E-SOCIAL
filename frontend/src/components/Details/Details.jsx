@@ -9,7 +9,7 @@ import {deleteBook} from '../../redux/actions/actionBooks'
 import NotFoundGral from '../NotFound/NotFoundGral'
 import Loading from '../Loading/Loading';
 import Buy from '../Buy/Buy'
-
+import ConfirmationMail from '../ConfirmationMail/ConfirmationMail';
 
 const Details = () => {
   const [loading, setLoading] = useState(true);
@@ -54,6 +54,7 @@ const Details = () => {
         Object.keys(detail).length > 0 && !loading ?  (
             <div>
               <Buy/>
+              <ConfirmationMail />
           <div className={s.botoness}>
           <button className={s.btn} onClick={(e) => handleDeleteBook(e)}>DELETE</button>
           <button className={s.btn} onClick={(e) => handleUpdateBook(e)}>UPDATE</button>
