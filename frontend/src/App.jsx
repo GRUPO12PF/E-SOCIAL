@@ -14,15 +14,9 @@ import Settings from './components/Settings/Settings'
 import About from './components/About/About'
 import Homeout from './components/Homeout/Homeout'
 import NotFound from './components/NotFound/NotFound'
-// import { useEffect } from 'react'
-// import { useDispatch, useSelector } from 'react-redux'
-// import { getBooks } from './redux/actions/actionBooks'
 import UpdateBook from './components/UpdateBook/UpdateBook'
 
 function App() {
-  // const dispatch = useDispatch()
-  
- 
 
   return (
     <Router>
