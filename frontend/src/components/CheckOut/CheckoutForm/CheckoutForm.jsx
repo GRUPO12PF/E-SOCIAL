@@ -25,14 +25,14 @@ const CheckoutForm = () => {
 
     if (!error) {
       const pm = paymentMethod.id
-      
+
       try {
 
         dispatch(buyBook(
           [{
-            id: bookId,
+            pm,
             qty: 1, //cents
-            pm
+            id: bookId
           }]
         ))
 
@@ -44,7 +44,7 @@ const CheckoutForm = () => {
     }
   }
 
-  console.log(!stripe || loading)
+  // console.log(!stripe || loading)
 
   return (
     <div className={s.bigDiv}>

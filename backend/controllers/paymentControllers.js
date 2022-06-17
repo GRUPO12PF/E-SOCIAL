@@ -8,12 +8,12 @@ const paymentIntent = async (req, res) => {
   const paymentIntent = await stripe.paymentIntents.create({
     amount: await getOrderAmount(books),
     currency: "ars",
-    payment_method: books.pm,
-    automatic_payment_methods: {
-      enabled: true,
-    }
+    payment_method: books[0].pm,
+    confirm: true
+    // automatic_payment_methods: {
+    //   enabled: true,
+    // },
   })
-  // stripe.confirmCardPayment(paymentIntent.client_secret, books.pm)
 
   res.send({
     clientSecret: paymentIntent.client_secret,
