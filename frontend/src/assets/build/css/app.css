@@ -490,7 +490,6 @@ img {
   }
 }
 .bookItem {
-  background-color: rgba(228, 0, 0, 0.164);
   border-radius: 10px;
   transition: all 0.3s;
   margin: 15px;
