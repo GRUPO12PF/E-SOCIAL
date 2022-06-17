@@ -1,14 +1,15 @@
+
 .searchBar {
     display: flex;
-    flex-wrap: wrap;
-    padding: 5px;
     margin-bottom: 1%;
+    padding: 1%;
+    flex-wrap: wrap;
     font-size: large;
     font-weight: bold;
-    align-content: center;
     font-family:  'Roboto', sans-serif;
     color: #FCFFE7;
     background: rgba(31, 124, 185, 0.978);
+    justify-content: center;
   }
 
 .btnS {
@@ -42,6 +43,8 @@
 }
 
 .input{
+    
+   
     background-color: #f7ede2;
     border-radius: 5px;
 }
