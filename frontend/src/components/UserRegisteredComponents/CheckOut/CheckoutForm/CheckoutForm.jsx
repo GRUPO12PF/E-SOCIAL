@@ -4,6 +4,7 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import s from './CheckoutForm.module.css'
 import { buyBook } from "../../../redux/actions/actionBuy"
 
+
 const CheckoutForm = () => {
   const stripe = useStripe()
   const elements = useElements()
@@ -74,6 +75,7 @@ const CheckoutForm = () => {
           )}
         </button>
       </form>
+
     </div>
   )
 }

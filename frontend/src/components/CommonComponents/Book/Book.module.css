@@ -14,13 +14,14 @@
     border: black; 
 }
 .book{
-    height: 300px;
-    width: 250px;
-   
+    height: 180px;
+    width: 180px;
+   background-size: cover;
     justify-content: center;
     display: flex;
     align-items: center;
 }
+
 
 .nombre {
     color: black;
