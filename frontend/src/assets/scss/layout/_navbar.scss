@@ -1,0 +1,51 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.nav {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 3px;
+    background: v.$colorNav;
+   }
+
+body::-webkit-scrollbar {
+    width: 7px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.712);
+    border-radius: 18px;
+    color: black;
+}
+
+.link {
+    align-items: center;
+    justify-content: space-evenly;
+    color: #2c3e50;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+.link:hover{
+    transform: scale(1.10);
+}
+
+.setting {
+    justify-content: space-evenly;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.setting:hover{
+    transform: scale(1.10);
+}
+.logout {
+    justify-content: space-evenly;
+    margin-top: 15px;
+    margin-left: 15px;
+
+}
+.logout:hover{
+    transform: scale(1.10);
+}

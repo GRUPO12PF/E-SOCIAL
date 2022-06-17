@@ -1,15 +1,21 @@
 .contenedorGral {
+<<<<<<< HEAD
+  margin:auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+=======
   height: 100vh;
   width: 100%;
   background-color: #f7ede2;
   background-size: cover;
-  overflow: auto;
   top: 0;
   left: 0;
   z-index: -1;
   height: 100vh;
   width: 100%;
   align-content: center;
+>>>>>>> 504d0414ca105bd28aae76278c8cf0f43370c7c3
 }
 
 * {
@@ -18,15 +24,13 @@
 }
 
 .contenedorBooks {
-  height: 100vh;
-  display: inline;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2rem;
   align-items: center;
-  max-width: 120rem;
+  /* max-width: 120rem; */
   margin: 0 auto;
   flex-wrap: wrap;
   flex-direction: row;

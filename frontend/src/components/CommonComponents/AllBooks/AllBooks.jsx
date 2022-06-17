@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Loading from "../Loading/Loading";
-import style from "./AllBooks.module.css";
 import NotFound from "../../CommonComponents/NotFound/NotFoundGral";
 import { cleanData, getBooks } from "../../../redux/actions/actionBooks.js";
 
@@ -20,7 +19,7 @@ function AllBooks() {
 
   const allBooks = useSelector((state) => state.books);
   const [pageCurrent, setPageCurrent] = useState(1);
-  const pageSize = 3;
+  const pageSize = 4;
   const indexOfLastBooks = pageCurrent * pageSize;
   const indexOfFirstBooks = indexOfLastBooks - pageSize;
   const currentBooks = allBooks?.slice(indexOfFirstBooks, indexOfLastBooks);
@@ -36,8 +35,8 @@ function AllBooks() {
   };
 
   return (
-    <div className={style.contenedorGral}>
-      <div className={style.contenedorBooks}>
+    <div className="contenedorGral">
+      <div className="contenedorBooks">
         {loading ? (
           <Loading />
         ) : currentBooks?.length > 0 && !loading ? (

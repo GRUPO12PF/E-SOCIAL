@@ -1,8 +1,10 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
 .bookItem {
     border-radius: 10px;
     transition: all .3s;
     margin: 15px;
-    box-shadow: 2px 3px 8px rgb(42, 129, 150);
+    box-shadow: 2px 3px 8px rgb(0, 0, 0);
     padding: 20px;
     margin: 0 auto;
 }
@@ -14,14 +16,12 @@
     border: black; 
 }
 .book{
-    height: 180px;
-    width: 180px;
-   background-size: cover;
+    height: 300px;
+    width: 250px;
     justify-content: center;
     display: flex;
     align-items: center;
 }
-
 
 .nombre {
     color: black;
@@ -31,5 +31,4 @@
     align-items: center;
     justify-content: center;
     display: flex;
-    font-family: 'Roboto', sans-serif
 }

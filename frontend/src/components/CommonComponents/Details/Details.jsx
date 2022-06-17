@@ -9,6 +9,7 @@ import { deleteBook } from "../../../redux/actions/actionBooks";
 import Loading from "../Loading/Loading";
 import book from "../../../assets/images/book.svg";
 import swal from 'sweetalert';
+import ConfirmacionPago from "../../UserRegisteredComponents/CheckOut/ConfirmacionPago/ConfirmacionPago";
 
 const Details = () => {
   const [loading, setLoading] = useState(true);
@@ -85,12 +86,16 @@ const Details = () => {
 
 
               <h5 className={s.h5}>Descripción</h5>
-              {detail.descripcion}
+              <p className={s.parra}>
+                {detail.descripcion }
+              </p>
             </div>
           </div>
         </div>
       ) : <Loading />
       }
+
+      <ConfirmacionPago/>
     </div>
   );
 };

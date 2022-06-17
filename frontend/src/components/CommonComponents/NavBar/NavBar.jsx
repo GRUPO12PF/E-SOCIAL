@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import style from './NavBar.module.css';
-
+import IconsLogout from '../../../Iconos/IconsLogout';
+import Settings from '../../../Iconos/ArrowLeft';
 
 export default function NavBar() {
     const token = localStorage.getItem("token");
@@ -11,17 +11,13 @@ export default function NavBar() {
     }
     return (
         <div>
-            <nav className={style.nav}>
-                <Link to="/" className={style.link}>HOME</Link>
-                {token ? ( <Link to="/create" className={style.link}>CREATED</Link> ) : null}
-                <Link to="/about" className={style.link}>ABOUT</Link>
-                {token ? ( <Link to="/user/setting" className={style.link}>SETTINGS</Link> ) : null}
-                {!token ? ( <Link to="/homeout" className={style.link}>REGISTER/LOGIN</Link> ) : null}
-                {token ? ( <div onClick={() => logOut()}>
-                    <Link to='/'>
-                        <h3 className={style.logout}>LOGOUT</h3>
-                    </Link>
-                </div> ) : null}
+            <nav className="nav">
+                <Link to="/" className="link">HOME</Link>
+                {token ? ( <Link to="/create" className="link">CREATED</Link> ) : null}
+                <Link to="/about" className="link">ABOUT</Link>
+                {token ? ( <Link to="/user/setting" className="setting"><Settings/></Link> ) : null}
+                {!token ? ( <Link to="/homeout" className="link">REGISTER/LOGIN</Link> ) : null}
+                {token ? (<Link to='/' onClick={() => logOut()} className="logout"><IconsLogout /></Link>) : null}
             </nav>
         </div>
     )
