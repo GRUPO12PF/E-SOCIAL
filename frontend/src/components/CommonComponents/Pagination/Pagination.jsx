@@ -13,7 +13,7 @@ export default function Pagination({ pageSize, allBooks, page, pageCurrent}) {
   }
   
   return (
-        <nav className={s.nav}>
+        <nav className={s.nav2}>
           <div className={s.pag}>
              
             {Paginas > 1 ? <>

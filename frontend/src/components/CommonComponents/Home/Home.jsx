@@ -6,7 +6,7 @@ import Alien from '../../../Iconos/Alien.jsx'
 import Footer from '../Footer/Footer.jsx'
 export default function Home() {
 return(
-  <div className="contenedorGral">
+  <div className='contenedorTotal'>
     <NavBar />
       <SearchBar/>
       <AllBooks/>

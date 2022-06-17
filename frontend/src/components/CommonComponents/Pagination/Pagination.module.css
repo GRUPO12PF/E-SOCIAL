@@ -1,9 +1,9 @@
-.nav {
+.nav2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 70px;
   text-align: center;
+  margin-top: 60px;
 }
 .num {
   width: 75px;

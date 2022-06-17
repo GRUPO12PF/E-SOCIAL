@@ -382,11 +382,6 @@ img {
   display: block;
 }
 
-.main {
-  width: 90%;
-  margin: 5rem auto;
-}
-
 .contSettings {
   margin: 0 auto;
 }
@@ -453,8 +448,6 @@ img {
   }
 }
 .contenedorGral {
-  height: 100%;
-  width: 100%;
   background-color: #c0c0c0;
   background-size: cover;
   top: 0;
@@ -479,17 +472,13 @@ img {
     height: auto;
     width: auto;
   }
-  .nav {
-    display: flex;
-  }
 }
 .bookItem {
   border-radius: 10px;
   transition: all 0.3s;
-  margin: 15px;
+  margin-top: 20px;
   box-shadow: 2px 3px 8px rgb(0, 0, 0);
   padding: 20px;
-  margin: 0 auto;
 }
 
 .bookItem:hover {
@@ -500,8 +489,8 @@ img {
 }
 
 .book {
-  height: 300px;
-  width: 250px;
+  height: 200px;
+  width: 200px;
   background-size: cover;
   justify-content: center;
   display: flex;
@@ -567,6 +556,22 @@ body::-webkit-scrollbar-thumb {
 
 .logout:hover {
   transform: scale(1.1);
+}
+
+.perfil {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.fotoperfil {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+
+.nameUser {
+  font-size: 2rem;
+  color: #2c3e50;
 }
 
 .num {
@@ -645,3 +650,4 @@ body::-webkit-scrollbar-thumb {
 .btn:hover {
   transform: scale(1.1);
 }
+/*# sourceMappingURL=app.css.map */
