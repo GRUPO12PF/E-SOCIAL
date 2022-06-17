@@ -12,12 +12,11 @@ const buy = () => {
 
     const handleBuy = () => {
           dispatch(buyBook(id))
+          navigate('/checkout')
         }
     return(
         <div>
-            <Link id="checkout" to= '/checkout'>
             <button onClick={(e) => handleBuy(e)} >BUY NOW</button>
-            </Link>
         </div>
     )
 }

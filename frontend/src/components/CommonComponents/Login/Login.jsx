@@ -52,7 +52,7 @@ export default function Login() {
   });
 
   useEffect(() => {
-    token ? navigate("/home") : null;
+    token ? navigate("/") : null;
   }, [token]);
 
 
@@ -95,7 +95,7 @@ export default function Login() {
         e.preventDefault();
       } else {
         dispatch(resetErrorLoginUser());
-        navigate("/home");
+        navigate("/");
       }
     } else setErrors(val);
   };
