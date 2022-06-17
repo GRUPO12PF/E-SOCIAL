@@ -13,6 +13,7 @@ export default function Pagination({ pageSize, allBooks, page, pageCurrent}) {
   return (
             <nav className={s.nav}>
             <div className={s.pag}>
+            <button className={s.num} onClick={() => page(pageCurrent = 1)}>  First</button>  
             {Paginas > 1 ? <>
             {
             pageCurrent - 1 > 0 ? (
@@ -31,6 +32,7 @@ export default function Pagination({ pageSize, allBooks, page, pageCurrent}) {
             )
               : null
           }
+          <button className={s.num} onClick={() => page(pageCurrent = Paginas)}>  Last</button>  
         </>
           : null
         }
