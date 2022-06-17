@@ -19,14 +19,8 @@ const initialState = {
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
-
-    case 'GET_BOOKS':
-      return {
-        ...state,
-        books: action.payload,
-        allBooks: action.payload,
-      }
-
+    
+    //---------------------USER----------------------------------------
     case 'GOOGLE_LOGIN':
       return {
         ...state,
@@ -89,6 +83,14 @@ function rootReducer(state = initialState, action) {
         email: [],
       }
 
+    case 'GET_BOOKS':
+      return {
+        ...state,
+        books: action.payload,
+        allBooks: action.payload,
+      }
+
+    //---------------------BOOKS----------------------------------------
     case 'GET_DETAIL':
       return {
         ...state,

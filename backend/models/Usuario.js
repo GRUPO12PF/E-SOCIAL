@@ -41,6 +41,7 @@ const usuarioSchema = mongoose.Schema({
     books: {
         type: Array,
     },
+    
     notificaciones: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Notificacion"
