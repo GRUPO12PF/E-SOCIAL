@@ -57,9 +57,15 @@ const Forms = () => {
 
                         dispatch(postCreate(values))
                         resetForm()
+                        swal({
+                            title: "Creado con exito!",
+                            text: " ",
+                            icon: "success",
+                            button: "Ok!",
+                          });
                         navigate('/')
                         dispatch(getBooks())
-                        // window.location.reload();
+                        
                     }}
                 >
                     {({ errors, handleSubmit, values, category }) => (<Form action="" onSubmit={handleSubmit} className={s.formik} >

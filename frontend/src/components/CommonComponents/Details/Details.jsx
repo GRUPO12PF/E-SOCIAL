@@ -8,6 +8,7 @@ import s from "./Details.module.css";
 import { deleteBook } from "../../../redux/actions/actionBooks";
 import Loading from "../Loading/Loading";
 import book from "../../../assets/images/book.svg";
+import swal from 'sweetalert';
 
 const Details = () => {
   const [loading, setLoading] = useState(true);
@@ -30,8 +31,14 @@ const Details = () => {
   function handleDeleteBook(e) {
     e.preventDefault();
     dispatch(deleteBook(id));
+    swal({
+      title: "Eliminado con exito!",
+      text: " ",
+      icon: "success",
+      button: "Ok!",
+    });
     navigate("/");
-    window.location.reload();
+    
   }
   function handleUpdateBook(e) {
     e.preventDefault();
@@ -47,8 +54,10 @@ const Details = () => {
         <div>
           {token ? (
             <div className={s.botoness}>
-              <button className={s.btn} onClick={(e) => handleDeleteBook(e)}>
+              <button  className={s.btn} onClick={(e) => handleDeleteBook(e)}>
                 DELETE
+               
+
               </button>
               <button className={s.btn} onClick={(e) => handleUpdateBook(e)}>
                 UPDATE
@@ -72,10 +81,8 @@ const Details = () => {
               {detail.colection}
 
               <h5 className={s.h5}>Categoría</h5>
-              {detail.category}
+              {detail.category.join(", ")}
 
-              <h5 className={s.h5}>Ranking</h5>
-              {detail.ranking ? detail.ranking : "no tiene ranking"}
 
               <h5 className={s.h5}>Descripción</h5>
               {detail.descripcion}
