@@ -1,0 +1,40 @@
+@use "../base/variables" as v;
+@use "../base/mixins" as m;
+
+.contenedorGral {
+	height: 100vh;
+	width: 100%;
+	background-color: v.$fondo;
+	background-size: cover;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	height: 100vh;
+	width: 100%;
+	align-content: center;
+}
+  
+.contenedorBooks {
+	height: 100vh;
+	display: inline;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+	align-items: center;
+	max-width: 120rem;
+	margin: 0 auto;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+@include m.telefono{
+    .divFiltros {
+        height: auto;
+        width: auto;
+    }
+    .nav {
+        display: flex;
+    }
+  }
