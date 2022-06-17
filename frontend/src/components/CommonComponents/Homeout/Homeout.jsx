@@ -25,7 +25,7 @@ export default function Homeout() {
       },
     };
     let usuarioA = dispatch(autenticarUser(config));
-    usuarioA ? navigate("/home") : null;
+    usuarioA ? navigate("/") : null;
   }, []);
 console.log("prueba")
   return (

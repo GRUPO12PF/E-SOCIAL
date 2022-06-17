@@ -7,7 +7,6 @@ export default function NavBar() {
     const token = localStorage.getItem("token");
     function logOut() {
         window.localStorage.removeItem("token");
-        window.location.reload()
     }
     return (
         <div>

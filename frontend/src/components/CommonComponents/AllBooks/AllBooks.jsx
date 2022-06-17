@@ -16,7 +16,7 @@ function AllBooks() {
     return () => {
       dispatch(cleanData());
     }
-  }, [dispatch]);
+  }, []);
 
   const allBooks = useSelector((state) => state.books);
   const [pageCurrent, setPageCurrent] = useState(1);
