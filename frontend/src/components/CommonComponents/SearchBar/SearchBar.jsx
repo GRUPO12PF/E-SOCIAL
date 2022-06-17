@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { cleanData, searchByName } from '../../../redux/actions/actionBooks'
 import FilterCategories from '../FilterCategories/FilterCategories'
-import Sorter from '../../UserRegisteredComponents/Sorter/Sorter'
+import Sorter from '../../CommonComponents/Sorter/Sorter'
 import s from './SearchBar.module.css'
 
 export default function SearchBar() {
