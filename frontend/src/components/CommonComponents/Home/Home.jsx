@@ -2,7 +2,7 @@ import React from 'react'
 import AllBooks from '../AllBooks/AllBooks.jsx'
 import NavBar from '../NavBar/NavBar'
 import SearchBar from '../SearchBar/SearchBar.jsx'
-
+import Alien from '../../../Iconos/Alien.jsx'
 
 export default function Home() {
 return(
@@ -10,11 +10,11 @@ return(
     <NavBar />
     <div> 
       <SearchBar/>
-       </div>
+    </div>
     <div> 
       <AllBooks/>
-       </div>
-
+    </div>
+    <Alien/>
   </div>
 )
 }
