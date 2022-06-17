@@ -1,25 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from "react-router";
-import { useParams, Link } from 'react-router-dom'
-import { buyBook } from '../../../redux/actions/actionBuy'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-const buy = () => {
-    const buy = useSelector((state) => state.buy)
-    const dispatch = useDispatch()
-    const navigate = useNavigate();
-    const { id } = useParams()
-
-    const handleBuy = () => {
-          dispatch(buyBook(id))
-        }
-    return(
+const Buy = () => {
+    return (
         <div>
-            <Link id="checkout" to= '/checkout'>
-            <button onClick={(e) => handleBuy(e)} >BUY NOW</button>
+            <Link to='/checkout'>
+                <button>COMPRAR</button>
             </Link>
         </div>
     )
 }
 
-export default buy;
+export default Buy

@@ -1,8 +1,8 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import s from './CheckoutForm.module.css'
-import { buyBook } from "../../../redux/actions/actionBuy"
+import { buyBook } from '../../../../redux/actions/actionBuy.js'
 
 const CheckoutForm = () => {
   const stripe = useStripe()
@@ -20,8 +20,6 @@ const CheckoutForm = () => {
       type: "card",
       card: elements.getElement(CardElement)
     })
-    console.log("🚀 ~ file: CheckoutForm.jsx ~ line 23 ~ handleSubmit ~ paymentMethod", paymentMethod)
-    setLoading(true)
 
     if (!error) {
       const pm = paymentMethod.id
@@ -29,11 +27,11 @@ const CheckoutForm = () => {
       try {
 
         dispatch(buyBook(
-          [{
+          {
             pm,
             qty: 1, //cents
             id: bookId
-          }]
+          }
         ))
 
         elements.getElement(CardElement).clear()

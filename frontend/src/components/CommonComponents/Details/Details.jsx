@@ -1,42 +1,43 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router";
-import { useParams } from "react-router-dom";
-import { detailsBook } from "../../../redux/actions/detailsBooks";
-import NavBar from "../../UserRegisteredComponents/NavBar/NavBar";
-import GuestNavBar from "../../GuestComponents/GuestNavBar/GuestNavBar";
-import s from "./Details.module.css";
-import { deleteBook } from "../../../redux/actions/actionBooks";
-import Loading from "../Loading/Loading";
-import book from "../../../assets/images/book.svg";
+import React, { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { useNavigate } from "react-router"
+import { useParams } from "react-router-dom"
+import { detailsBook } from "../../../redux/actions/detailsBooks"
+import NavBar from "../../UserRegisteredComponents/NavBar/NavBar"
+import GuestNavBar from "../../GuestComponents/GuestNavBar/GuestNavBar"
+import Loading from "../Loading/Loading"
+import Buy from "../../UserRegisteredComponents/Buy/Buy"
+import { deleteBook } from "../../../redux/actions/actionBooks"
+import book from "../../../assets/images/book.svg"
+import s from "./Details.module.css"
 
 const Details = () => {
-  const [loading, setLoading] = useState(true);
-  const token = localStorage.getItem("token");
-  const { id } = useParams();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const detail = useSelector((state) => state.detail);
+  const [loading, setLoading] = useState(true)
+  const token = localStorage.getItem("token")
+  const { id } = useParams()
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const detail = useSelector((state) => state.detail)
 
   if (Object.keys(detail).length > 0 && loading) {
-     setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
   }
 
   useEffect(() => {
-    dispatch(detailsBook(id));
-  }, [dispatch]);
+    dispatch(detailsBook(id))
+  }, [dispatch])
 
   function handleDeleteBook(e) {
-    e.preventDefault();
-    dispatch(deleteBook(id));
-    navigate("/home");
-    window.location.reload();
+    e.preventDefault()
+    dispatch(deleteBook(id))
+    navigate("/home")
+    window.location.reload()
   }
   function handleUpdateBook(e) {
-    e.preventDefault();
-    navigate(`/details/update/${id}`);
+    e.preventDefault()
+    navigate(`/details/update/${id}`)
   }
 
   return (
@@ -51,6 +52,7 @@ const Details = () => {
       }
       {Object.keys(detail).length > 0 && !loading ? (
         <div>
+          <Buy />
           {token ? (
             <div className={s.botoness}>
               <button className={s.btn} onClick={(e) => handleDeleteBook(e)}>
@@ -91,7 +93,7 @@ const Details = () => {
       ) : <Loading />
       }
     </div>
-  );
-};
+  )
+}
 
-export default Details;
+export default Details
