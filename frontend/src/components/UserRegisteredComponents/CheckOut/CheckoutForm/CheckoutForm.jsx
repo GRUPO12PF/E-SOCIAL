@@ -28,9 +28,9 @@ const CheckoutForm = () => {
 
         dispatch(buyBook(
           {
-            pm,
+            id: bookId,
             qty: 1, //cents
-            id: bookId
+            pm
           }
         ))
 
@@ -49,8 +49,8 @@ const CheckoutForm = () => {
       <form className={s.form} onSubmit={handleSubmit}>
         {/* Product Information */}
         <img
-          src="https://i.imgur.com/YoEVHEg.jpg" // TODO cambiar por imagen del libro
-          alt="asfasgf" // TODO cambiar por texto acorde
+          src={product.image}
+          alt={product.name} // TODO cambiar por texto acorde
           className={s.productImg}
         />
 
