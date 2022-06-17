@@ -1,4 +1,4 @@
-import clienteAxios from '../../config/clienteAxios.jsx'
+import clienteAxios from '../../config/clienteAxios.jsx';
 import { BUY_BOOK } from '../utils/constants.js'
 
 export const buyBook = (pago) => {

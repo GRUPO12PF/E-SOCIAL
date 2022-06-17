@@ -11,6 +11,8 @@ html {
     box-sizing: inherit;
 }
 body {
+    background-color: v.$fondo;
+    font-family: v.$fuente_principal;
     font-size: 1.6rem;
 
     &.fijar-body {
@@ -32,6 +34,7 @@ p {
 }
 a{
     text-decoration: none;
+    color: v.$grisclaro;
     &:hover{
         cursor: pointer;
     }
@@ -39,6 +42,7 @@ a{
 
 .a {
     text-decoration: none;
+    color: v.$grisclaro;
     &:hover{
         cursor: pointer;
     }

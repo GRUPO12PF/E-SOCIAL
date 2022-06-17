@@ -15,18 +15,13 @@ const initialState = {
   detail: [],
   delete: [],
   put: [],
+  buy: [],
 }
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
-
-    case 'GET_BOOKS':
-      return {
-        ...state,
-        books: action.payload,
-        allBooks: action.payload,
-      }
-
+    
+    //---------------------USER----------------------------------------
     case 'GOOGLE_LOGIN':
       return {
         ...state,
@@ -89,6 +84,18 @@ function rootReducer(state = initialState, action) {
         email: [],
       }
 
+    case 'GET_BOOKS':
+      return {
+        ...state,
+        books: action.payload,
+        allBooks: action.payload,
+      }
+
+    //---------------------BOOKS----------------------------------------
+    case 'POST_CREATE':
+      return {
+        ...state,
+      }
     case 'GET_DETAIL':
       return {
         ...state,
@@ -177,6 +184,13 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         put: action.payload
+      }
+   
+      //BUY
+    case BUY_BOOK:
+      return {
+        ...state,
+        buy: action.payload
       }
 
     default:
