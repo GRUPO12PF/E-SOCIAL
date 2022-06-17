@@ -3,7 +3,7 @@ import { Formik, Field, ErrorMessage, Form } from 'formik'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { postCreate } from '../../../redux/actions/postProducts';
-import NavBar from '../NavBar/NavBar';
+import NavBar from '../../CommonComponents/NavBar/NavBar';
 import s from '../Form/Form.module.css'
 import { getCategories } from '../../../redux/actions/actionCategories.js';
 import { getBooks } from '../../../redux/actions/actionBooks';

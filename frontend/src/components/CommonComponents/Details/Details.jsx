@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { useParams } from "react-router-dom";
 import { detailsBook } from "../../../redux/actions/detailsBooks";
-import NavBar from "../../UserRegisteredComponents/NavBar/NavBar";
-import GuestNavBar from "../../GuestComponents/GuestNavBar/GuestNavBar";
+import NavBar from "../../CommonComponents/NavBar/NavBar";
 import s from "./Details.module.css";
 import { deleteBook } from "../../../redux/actions/actionBooks";
 import Loading from "../Loading/Loading";
@@ -41,14 +40,9 @@ const Details = () => {
 
   return (
     <div>
-      {token ? (
         <div>
           <NavBar />
-        </div>) :
-        <div>
-          <GuestNavBar />
         </div>
-      }
       {Object.keys(detail).length > 0 && !loading ? (
         <div>
           {token ? (

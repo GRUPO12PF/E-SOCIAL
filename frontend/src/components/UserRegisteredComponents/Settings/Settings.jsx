@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { cambiarImagen, usuarioActual } from "../../../redux/actions/actionUser";
 import { useDispatch, useSelector } from "react-redux";
 import profile from "../../../assets/images/avatar.png";
-import NavBar from "../NavBar/NavBar";
+import NavBar from "../../CommonComponents/NavBar/NavBar";
 
 export default function Settings() {
   const dispatch = useDispatch();
