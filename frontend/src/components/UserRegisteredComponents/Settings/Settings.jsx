@@ -40,7 +40,7 @@ export default function Settings() {
             </div>
           </div>
           <div className="enlace">
-            <Link to="/home/">
+            <Link to="/">
               <button>HOME</button>
             </Link>
             <Link to="/olvide-password/">

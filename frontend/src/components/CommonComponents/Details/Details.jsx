@@ -30,7 +30,7 @@ const Details = () => {
   function handleDeleteBook(e) {
     e.preventDefault();
     dispatch(deleteBook(id));
-    navigate("/home");
+    navigate("/");
     window.location.reload();
   }
   function handleUpdateBook(e) {
