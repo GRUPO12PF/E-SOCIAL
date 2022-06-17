@@ -11,13 +11,6 @@ import { getBooks } from '../../../redux/actions/actionBooks';
 const Forms = () => {
     let navigate = useNavigate()
     const dispatch = useDispatch()
-    const categorie = useSelector(state => state.categories)
-
-    let opcions = categorie.map(c => {
-        return (
-            { value: c, label: c }
-        )
-    })
 
     useEffect(() => {
         dispatch(getCategories())
@@ -35,7 +28,6 @@ const Forms = () => {
                         descripcion: '',
                         price: '',
                         image: '',
-                        ranking: '',
                         colection: '',
                         category: []
                     }}
@@ -52,8 +44,6 @@ const Forms = () => {
                             errors.descripcion = 'campo requerido'
                         } else if (!values.price) {
                             errors.price = 'campo requerido'
-                        } else if (!values.ranking) {
-                            errors.ranking = 'campo requerido'
                         } else if (!values.colection) {
                             errors.colection = 'campo requerido'
                         } else if (!values.category) {
@@ -67,7 +57,7 @@ const Forms = () => {
 
                         dispatch(postCreate(values))
                         resetForm()
-                        navigate('/home')
+                        navigate('/')
                         dispatch(getBooks())
                         // window.location.reload();
                     }}
@@ -126,15 +116,6 @@ const Forms = () => {
                                 />
                                 <ErrorMessage name='descripcion' component={() => (<p>{errors.descripcion}</p>)} />
                             </div>
-                            <label htmlFor="" className={s.label} >Ranking</label>
-                            <div className={s.range}>
-                                <Field
-                                    type="range"
-                                    name="ranking"
-                                    id="ranking"
-                                />
-                                <ErrorMessage name='ranking' component={() => (<p>{errors.ranking}</p>)} />
-                            </div>
                             <label htmlFor="" className={s.label}>Category</label>
                             <div className={s.chek}>
                                 <div role="group" aria-labelledby="checkbox-group" >
@@ -172,7 +153,7 @@ const Forms = () => {
                     </Form>)}
                 </Formik>
                 <br />
-                <Link className={s.back} to="/home">BACK</Link>
+                <Link className={s.back} to="/">BACK</Link>
             </div>
         </div>
     )

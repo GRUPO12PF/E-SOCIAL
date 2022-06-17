@@ -58,7 +58,7 @@ const UpdateBook = (_id) => {
                        dispatch(putBookBody(values))
                         console.log(values)
                         resetForm()
-                        navigate('/home')
+                        navigate('/')
                         dispatch(getBooks())
 
                     }}
@@ -150,7 +150,7 @@ const UpdateBook = (_id) => {
                     </Form>)}
                 </Formik>
                 <br />
-                <Link to="/home">
+                <Link to="/">
                     <button className={s.botonB}>Back</button>
                 </Link>
             </div>
