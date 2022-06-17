@@ -2,8 +2,6 @@
 @use "../base/mixins" as m;
 
 .contenedorGral {
-	height: 100%;
-	width: 100%;
 	background-color: v.$fondo;
 	background-size: cover;
 	top: 0;
@@ -27,8 +25,5 @@
     .divFiltros {
         height: auto;
         width: auto;
-    }
-    .nav {
-        display: flex;
     }
   }

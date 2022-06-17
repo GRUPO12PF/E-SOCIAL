@@ -6,14 +6,12 @@
     flex-wrap: wrap;
     font-size: large;
     font-weight: bold;
-    font-family:  'Roboto', sans-serif;
     color: #FCFFE7;
     background: rgba(31, 124, 185, 0.978);
     justify-content: center;
   }
 
 .btnS {
-    font-family: 'Roboto', sans-serif;
     justify-content: space-between;
     border-radius: 5px;
     margin-right:5px;
@@ -27,7 +25,6 @@
 }
 
 .btnR {
-    font-family: 'Roboto', sans-serif;
     justify-content: space-between;
     margin-left:  20px;
     border-radius: 5px;
@@ -43,8 +40,6 @@
 }
 
 .input{
-    
-   
     background-color: #f7ede2;
     border-radius: 5px;
 }

@@ -49,3 +49,18 @@ body::-webkit-scrollbar-thumb {
 .logout:hover{
     transform: scale(1.10);
 }
+
+.perfil {
+    display: flex;
+    justify-content: space-evenly;
+}
+.fotoperfil {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+.nameUser {
+    font-size: 2rem;
+    color: #2c3e50;
+}
