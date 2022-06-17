@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import s from './CheckoutForm.module.css'
-import { buyBook } from "../../../redux/actions/actionBuy"
+import { buyBook } from "../../../../redux/actions/actionBuy.js"
 
 
 const CheckoutForm = () => {
