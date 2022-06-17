@@ -7,7 +7,7 @@ import NavBar from "../../CommonComponents/NavBar/NavBar";
 
 export default function Settings() {
   const dispatch = useDispatch();
-  const usuarioAct = useSelector((state) => state.usuario);
+  const usuarioAct = useSelector((state) => state.usuarioActual);
 
   useEffect(() => {
     dispatch(usuarioActual());
@@ -19,12 +19,12 @@ export default function Settings() {
   }
 
   return (
-    <div>
-      <NavBar />
-      <div className="contSettings">
+    usuarioAct.length !== 0 ? 
+    <div className="contSettings">
+      {usuarioAct ?  <NavBar usuario={usuarioAct} /> : null}
         <div className="contSettings-info">
           <div className="contProfile">
-            <img src={usuarioAct.image.url || profile} alt="No Img" width='250px' height='200px'/>
+          <img src={usuarioAct?.image.url ? usuarioAct?.image.url : profile} alt="" />
             <span>Extenciones Soportadas: jpg/png</span>
             <div className="contFile">
               <label className="labelmiinput" htmlFor="mifile">
@@ -48,7 +48,6 @@ export default function Settings() {
             </Link>
           </div>
         </div>
-      </div>
-    </div>
-  );
+    </div> : <p>Loading</p>
+  ) 
 }
