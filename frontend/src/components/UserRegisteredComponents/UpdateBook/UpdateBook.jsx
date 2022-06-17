@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { getBooks, putBookBody  } from '../../../redux/actions/actionBooks';
 import NavBar from '../NavBar/NavBar';
-import s from '../UpdateBook/UpdateBook.module.css'
+import s from './UpdateBook.module.css'
 
 
 const UpdateBook = (_id) => {
