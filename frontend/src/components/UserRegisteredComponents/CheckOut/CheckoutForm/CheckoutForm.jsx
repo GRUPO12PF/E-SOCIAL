@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import s from './CheckoutForm.module.css'
-import { buyBook } from "../../../redux/actions/actionBuy"
+import { buyBook } from "../../../../redux/actions/actionBuy.js"
 
 
 const CheckoutForm = () => {
@@ -26,14 +26,14 @@ const CheckoutForm = () => {
 
     if (!error) {
       const pm = paymentMethod.id
-      
+
       try {
 
         dispatch(buyBook(
           [{
-            id: bookId,
+            pm,
             qty: 1, //cents
-            pm
+            id: bookId
           }]
         ))
 
@@ -45,7 +45,7 @@ const CheckoutForm = () => {
     }
   }
 
-  console.log(!stripe || loading)
+  // console.log(!stripe || loading)
 
   return (
     <div className={s.bigDiv}>

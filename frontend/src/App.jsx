@@ -25,6 +25,7 @@ import RutaProtegida from "./layouts/RutaProtegida";
 import Forms from "./components/UserRegisteredComponents/Form/Forms.jsx";
 import Settings from "./components/UserRegisteredComponents/Settings/Settings.jsx";
 import UpdateBook from "./components/UserRegisteredComponents/UpdateBook/UpdateBook.jsx";
+import CheckOut from "./components/UserRegisteredComponents/CheckOut/CheckOut";
 //----------------------------------ADMIN---------------------------------------------
 
 export default function App() {
@@ -49,6 +50,7 @@ export default function App() {
           <Route path="/details/update/:id" element={<UpdateBook />} />
           <Route path="/details/:id" element={<Details />} />
           <Route path="/user/setting" element={<Settings />} />
+          <Route path="/checkout" element={<CheckOut />} />
         </Route>
 
         <Route path="*" element={<NotFound />} />

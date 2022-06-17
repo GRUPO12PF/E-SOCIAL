@@ -1,24 +1,17 @@
-
-import { parse } from 'dotenv';
 import getBookById from './getBookById.js'
 
-export default async function getOrderAmount(books) {
-    let amount = 0; 
-    // console.log("💤",books)
-    
-    for (let index = 0; index < books.length; index++) {
-        const book = books[index];
-        // console.log("ojkitoooooooo", book.id)
+export default async function getOrderAmount(products) {
+    const bookDB = await getBookById(products[0].id)
+    const finalAmount = bookDB.price
 
-        const bookDB = await getBookById(book.id)
-        // console.log("veamos qué trae de la base de datosxd", bookDB)
-        
-        
-        let operation = bookDB.price * book.qty 
-        amount += operation;
-    }
-    const onlyTwoDecimals = amount.toFixed(2);
-    const parsedAmount = parseInt(onlyTwoDecimals.replace('.', ','), 10)
-    console.log("💨💚 monto total de la compra!!!", parsedAmount)
-    return parsedAmount;
+    // let amount = 0 // POR SI NECESITAMOS PASAR VARIOS PRODUCTOS
+    // for (let index = 0; index < products.length; index++) {
+    //     const book = products[index]
+    //     const bookDB = await getBookById(book.id)
+    //     let operation = bookDB.price * book.qty 
+    //     amount += operation
+    // }
+    // const onlyTwoDecimals = amount.toFixed(2) // corta los decimales 3+
+    // const finalAmount = parseInt(onlyTwoDecimals.replace('.', ''), 10) // elimina separación dedecimales por punto
+    return finalAmount
 } 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { detailsBook } from "../../../redux/actions/detailsBooks";
 import NavBar from "../../CommonComponents/NavBar/NavBar";
 import s from "./Details.module.css";
@@ -20,7 +20,7 @@ const Details = () => {
   const detail = useSelector((state) => state.detail);
 
   if (Object.keys(detail).length > 0 && loading) {
-     setTimeout(() => {
+    setTimeout(() => {
       setLoading(false);
     }, 2000);
   }
@@ -39,7 +39,7 @@ const Details = () => {
       button: "Ok!",
     });
     navigate("/");
-    
+
   }
   function handleUpdateBook(e) {
     e.preventDefault();
@@ -48,16 +48,16 @@ const Details = () => {
 
   return (
     <div>
-        <div>
-          <NavBar />
-        </div>
+      <div>
+        <NavBar />
+      </div>
       {Object.keys(detail).length > 0 && !loading ? (
         <div>
           {token ? (
             <div className={s.botoness}>
-              <button  className={s.btn} onClick={(e) => handleDeleteBook(e)}>
+              <button className={s.btn} onClick={(e) => handleDeleteBook(e)}>
                 DELETE
-               
+
 
               </button>
               <button className={s.btn} onClick={(e) => handleUpdateBook(e)}>
@@ -75,7 +75,9 @@ const Details = () => {
                 className={s.image}
               />
               <h3 className={s.pName}>Precio: {"$" + detail.price + ".00"}</h3>
-              <button className={s.btnn}>Añadir a Carrito</button>
+              <Link to="/checkout">
+                <button className={s.btnn}>COMPRAR</button>
+              </Link>
             </div>
             <div className={s.description}>
               <h5 className={s.h5}>Colección</h5>
@@ -87,7 +89,7 @@ const Details = () => {
 
               <h5 className={s.h5}>Descripción</h5>
               <p className={s.parra}>
-                {detail.descripcion }
+                {detail.descripcion}
               </p>
             </div>
           </div>
@@ -95,7 +97,7 @@ const Details = () => {
       ) : <Loading />
       }
 
-      <ConfirmacionPago/>
+      <ConfirmacionPago />
     </div>
   );
 };

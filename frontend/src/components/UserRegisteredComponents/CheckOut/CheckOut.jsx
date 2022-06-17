@@ -5,15 +5,9 @@ import Checkoutform from "./CheckoutForm/CheckoutForm"
 
 const stripePublicKey = 'pk_test_51LAg9hHDqRgCh1WMinPYGhVaxGp2m9Df26h0orDwuaSZJak0vVZl2rUcrvlbK14XVmWZ9kScsTCXMWiZLFA6Abek00ezDxZtwN'
 
-// import { buyBook } from '../../redux/actions/actionBuy'
-
-const stripePromise = loadStripe(stripePublicKey) // TODO cambiar por la variable con la secret key!
+const stripePromise = loadStripe(stripePublicKey)
 
 const CheckOut = () => {
-  // useEffect(() => {
-  //     dispatch(buyBook(id))
-  // }, [dispatch])
-
   return (
     <Elements stripe={stripePromise}>
       <div>

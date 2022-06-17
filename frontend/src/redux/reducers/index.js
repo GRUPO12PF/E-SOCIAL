@@ -175,7 +175,6 @@ function rootReducer(state = initialState, action) {
       }
 
     case 'DELETE_BOOK':
-      console.log(action.payload)
       return {
         ...state,
         delete: action.payload
