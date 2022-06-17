@@ -26,14 +26,16 @@ export default function SearchBar() {
   }
 
   return (
-    <div className={s.searchBar}>
-      <input className={s.input} type="text" placeholder="Search by Name" onChange={(e) => handleInputChange(e)} />
-      <button className={s.btnS} onClick={e => handleSubmit(e)}>Search</button>
-      <button className={s.btnR} onClick={e => (handleOnClick(e))}>RELOAD ALL BOOKS</button>
-      <div className={s.divFilter}>
-        <FilterCategories />
-        <Sorter />
+    
+      <div className={s.searchBar}>
+        <input className={s.input} type="text" placeholder="Search by Name" onChange={(e) => handleInputChange(e)} />
+        <button className={s.btnS} onClick={e => handleSubmit(e)}>Search</button>
+        <button className={s.btnR} onClick={e => (handleOnClick(e))}>RELOAD ALL BOOKS</button>
+        <div className={s.divFilter}>
+          <FilterCategories />
+          <Sorter />
+        </div>
       </div>
-    </div>
+   
   )
 }
