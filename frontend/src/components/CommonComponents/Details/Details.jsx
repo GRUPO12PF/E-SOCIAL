@@ -13,10 +13,10 @@ import swal from 'sweetalert';
 
 const Details = () => {
   const [loading, setLoading] = useState(true);
-  const token = localStorage.getItem("token");
+  // const token = localStorage.getItem("token");
   const { id } = useParams();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const detail = useSelector((state) => state.detail);
 
   if (Object.keys(detail).length > 0 && loading) {
@@ -29,22 +29,22 @@ const Details = () => {
     dispatch(detailsBook(id));
   }, [dispatch]);
 
-  function handleDeleteBook(e) {
-    e.preventDefault();
-    dispatch(deleteBook(id));
-    swal({
-      title: "Eliminado con exito!",
-      text: " ",
-      icon: "success",
-      button: "Ok!",
-    });
-    navigate("/");
+  // function handleDeleteBook(e) {
+  //   e.preventDefault();
+  //   dispatch(deleteBook(id));
+  //   swal({
+  //     title: "Eliminado con exito!",
+  //     text: " ",
+  //     icon: "success",
+  //     button: "Ok!",
+  //   });
+  //   navigate("/");
 
-  }
-  function handleUpdateBook(e) {
-    e.preventDefault();
-    navigate(`/details/update/${id}`);
-  }
+  // }
+  // function handleUpdateBook(e) {
+  //   e.preventDefault();
+  //   navigate(`/details/update/${id}`);
+  // }
 
   return (
     <div>
@@ -53,7 +53,7 @@ const Details = () => {
       </div>
       {Object.keys(detail).length > 0 && !loading ? (
         <div>
-          {token ? (
+          {/* {token ? (
             <div className={s.botoness}>
               <button className={s.btn} onClick={(e) => handleDeleteBook(e)}>
                 DELETE
@@ -64,7 +64,7 @@ const Details = () => {
                 UPDATE
               </button>
             </div>
-          ) : null}
+          ) : null} */}
 
           <div className={s.background}>
             <div className={s.name}>

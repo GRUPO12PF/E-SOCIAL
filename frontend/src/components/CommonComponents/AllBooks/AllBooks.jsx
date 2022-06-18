@@ -65,7 +65,7 @@ function AllBooks() {
         <Pagination
           pageSize={pageSize}
           pageCurrent={pageCurrent}
-          allBooks={allBooks.length}
+          allBooks={allBooks?.length}
           page={page}
         />
       </div>
