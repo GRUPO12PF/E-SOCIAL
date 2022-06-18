@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { setToResetPassword, setStateEmail } from "../../../redux/actions/actionUser";
 import validarEmail from "../../../middleware/validarEmail";
 import s from "./ForgotPassword.module.css";
+import Footer from "../Footer/Footer";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -79,6 +80,7 @@ export default function ForgotPassword() {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

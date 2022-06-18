@@ -3,6 +3,7 @@ import book from '../../../assets/images/book.svg'
 import { deleteBook } from "../../../redux/actions/actionBooks";
 import swal from 'sweetalert';
 import s from "./Books.module.css";
+import Footer from '../../CommonComponents/Footer/Footer';
 
 function Books({ nombre, image, price }) {
     const token = localStorage.getItem("token");
@@ -52,6 +53,7 @@ function Books({ nombre, image, price }) {
             </div>
           ) : null}
             </div>
+            <Footer />
         </div>
     )
 }
