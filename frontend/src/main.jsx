@@ -4,6 +4,9 @@ import App from "./App";
 import "../src/assets/build/css/app.css";
 import { Provider } from "react-redux";
 import { store } from "../src/redux/store/index.js";
+dotenv.config()
+
+axios.defaults.baseURL = process.env.REACT_APP_API || 'http://localhost:3001'
 
 ReactDOM.render(
   <React.StrictMode>

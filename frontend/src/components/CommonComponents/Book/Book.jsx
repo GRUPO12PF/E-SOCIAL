@@ -16,7 +16,7 @@ function Book({ nombre, image, price }) {
                 />
                 <h2 className="nombre">Precio: {price}</h2>
             </div>
-            <Buy/>
+            {/* <Buy/> */}
         </div>
     )
 }

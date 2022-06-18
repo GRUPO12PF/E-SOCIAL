@@ -12,7 +12,7 @@ const buy = () => {
 
     const handleBuy = () => {
           dispatch(buyBook(id))
-          navigate('/checkout')
+          navigate('/checkout')gi
         }
     return(
         <div>
