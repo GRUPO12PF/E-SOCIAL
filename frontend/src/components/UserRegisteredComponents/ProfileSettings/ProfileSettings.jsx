@@ -28,7 +28,7 @@ export default function ProfileSettings() {
 
   return (
     <div className="profileModal">
-      <div className="divModalPerfil" onClick={() => (handleOnClickBooks(e))}>
+      <div className="divModalPerfil" onClick={() => (handleOnClickBooks())}>
       <Link to="/" >
         <Books />
         <h3>Books</h3>
