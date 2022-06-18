@@ -26,6 +26,7 @@ import Forms from "./components/UserRegisteredComponents/Form/Forms.jsx";
 import Settings from "./components/UserRegisteredComponents/Settings/Settings.jsx";
 import UpdateBook from "./components/UserRegisteredComponents/UpdateBook/UpdateBook.jsx";
 import CheckOut from "./components/UserRegisteredComponents/CheckOut/CheckOut";
+import OrderDetail from "./components/UserRegisteredComponents/OrderDetail/OrderDetail";
 //----------------------------------ADMIN---------------------------------------------
 
 export default function App() {
@@ -51,6 +52,7 @@ export default function App() {
           <Route path="/details/:id" element={<Details />} />
           <Route path="/user/setting" element={<Settings />} />
           <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/order" element={<OrderDetail/>}/>
         </Route>
 
         <Route path="*" element={<NotFound />} />

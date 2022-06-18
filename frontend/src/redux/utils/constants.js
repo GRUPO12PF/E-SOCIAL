@@ -11,3 +11,9 @@ export const NAME_ASC = 'NAME_ASC'
 export const NAME_DESC = 'NAME_DESC'
 export const PRICE_ASC = 'PRICE_ASC'
 export const PRICE_DESC = 'PRICE_DESC'
+
+
+
+// ORDER
+
+export const GET_DETALLE_ORDER = 'GET_DETALLE_ORDER'

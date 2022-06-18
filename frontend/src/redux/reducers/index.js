@@ -1,4 +1,4 @@
-import { GET_CATEGORIES, FILTER_BY_CATEGORY, SORT_BY, NAME_ASC, NAME_DESC, PRICE_ASC, PRICE_DESC, BUY_BOOK } from '../utils/constants'
+import { GET_CATEGORIES, FILTER_BY_CATEGORY, SORT_BY, NAME_ASC, NAME_DESC, PRICE_ASC, PRICE_DESC, BUY_BOOK, GET_DETALLE_ORDER } from '../utils/constants'
 
 const initialState = {
   books: [],
@@ -16,6 +16,7 @@ const initialState = {
   delete: [],
   put: [],
   buy: [],
+  order:[]
 }
 
 function rootReducer(state = initialState, action) {
@@ -192,6 +193,13 @@ function rootReducer(state = initialState, action) {
         ...state,
         buy: action.payload
       }
+
+    case GET_DETALLE_ORDER:
+      console.log(action.payload)
+      return{
+        ...state,
+        order:action.payload
+      }  
 
     default:
       return state
