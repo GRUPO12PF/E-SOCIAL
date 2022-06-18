@@ -7,6 +7,7 @@ import NavBar from '../../CommonComponents/NavBar/NavBar';
 import s from '../Form/Form.module.css'
 import { getCategories } from '../../../redux/actions/actionCategories.js';
 import { getBooks } from '../../../redux/actions/actionBooks';
+import Footer from '../../CommonComponents/Footer/Footer';
 
 const Forms = () => {
     let navigate = useNavigate()
@@ -161,6 +162,7 @@ const Forms = () => {
                 <br />
                 <Link className={s.back} to="/">BACK</Link>
             </div>
+            <Footer />
         </div>
     )
 }

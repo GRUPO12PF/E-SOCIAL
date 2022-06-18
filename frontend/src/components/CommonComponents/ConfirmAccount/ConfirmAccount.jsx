@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { validateUser } from "../../../redux/actions/actionUser.js";
 import s from "./ConfirmAccount.module.css";
+import Footer from "../Footer/Footer.jsx";
 
 export default function ConfirmarCuenta() {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ export default function ConfirmarCuenta() {
       <Link to="/">
         <button className={s.btn}>Go back home</button>
       </Link>
+      <Footer />
     </div>
   );
 }

@@ -14,6 +14,7 @@ import { GoogleLogin } from "@react-oauth/google";
 import s from './Login.module.css';
 import image from '../../../assets/images/login.jpg';
 import { FaRegEye,FaRegEyeSlash} from 'react-icons/fa';
+import Footer from "../Footer/Footer";
 
 function validate(email, password) {
   let objeto = {};
@@ -175,6 +176,7 @@ export default function Login() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

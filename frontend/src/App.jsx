@@ -49,7 +49,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
         </Route>
 
-        <Route path="/" element={<VerificationUser />}>
+         <Route path="/" element={<VerificationUser />}/>
           <Route path="/create" element={<Forms />} />
           <Route path="/details/update/:id" element={<UpdateBook />} />
           <Route path="/details/:id" element={<Details />} />
@@ -57,10 +57,9 @@ export default function App() {
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/profile/" element={<Profile />} />
           <Route path="/historyOrders/" element={<OrdersHistory/>}/>
-          <Route path="/order" element={<OrderDetail/>}/>
+          <Route path="/order/:id" element={<OrderDetail/>}/>
           <Route path="/bookCreated/:id" element={<BooksCreated/>}/>
 
-        </Route>
 
         <Route path="*" element={<NotFound />} />
       </Routes>
