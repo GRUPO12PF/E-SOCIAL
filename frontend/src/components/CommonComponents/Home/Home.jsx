@@ -8,8 +8,8 @@ export default function Home() {
 return(
   <div className='contenedorTotal'>
     <NavBar />
-      <SearchBar/>
-      <AllBooks/>
+    <SearchBar/>
+    <AllBooks/>
     <Footer/>
   </div>
 )

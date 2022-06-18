@@ -1,42 +1,61 @@
-import React, { useEffect } from "react";
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import Modal from "react-modal";
+import { Link } from "react-router-dom";
 import { usuarioActual } from "../../../redux/actions/actionUser";
 import { useDispatch, useSelector } from "react-redux";
-import IconsLogout from '../../../Iconos/IconsLogout';
-import Settings from '../../../Iconos/ArrowLeft';
-import profile from '../../../assets/images/avatar.png'
-import Order from '../../../Iconos/Order'
+import profile from "../../../assets/images/avatar.png";
+
+import ProfileSettings from "../../UserRegisteredComponents/ProfileSettings/ProfileSettings";
+
+const customStyls = {
+  overlay: {
+    backgroundColor: "rgba(11,12,41,0.48)",
+  },
+};
 
 export default function NavBar() {
-    const dispatch = useDispatch();
-    const usuarioAct = useSelector((state) => state.usuarioActual);
+  const dispatch = useDispatch();
+  const usuarioAct = useSelector((state) => state.usuarioActual);
+  const [showModal, setShowModal] = useState(false);
+  const [showModalNotification, setShowModalNotification] = useState(false);
+  
+  useEffect(() => {
+    dispatch(usuarioActual());
+  },[dispatch]);
+    
+  const token = localStorage.getItem("token");
 
-    useEffect(() => {
-      dispatch(usuarioActual());
-    }),
-      [dispatch];
-    const token = localStorage.getItem("token");
-    function logOut() {
-        window.localStorage.removeItem("token");
-        window.location.reload()
-    }
-    return (
-        <div>
-            <nav className="nav">
-                <Link to="/" className="link">HOME</Link>
-                {token ? ( <Link to="/create" className="link">CREATED</Link> ) : null}
-                <Link to="/about" className="link">ABOUT</Link>
-                {token ? ( <Link to="/user/setting" className="setting"><Settings/></Link> ) : null}
-                {!token ? ( <Link to="/homeout" className="link">REGISTER/LOGIN</Link> ) : null}
-                {token ? (<Link to='/' onClick={() => logOut()} className="logout"><IconsLogout /></Link>) : null}
-                <div className="perfil">
-                {token ?<h3 className="nameUser">{usuarioAct.nombre}</h3>: null}
-                {token ?<img className="fotoperfil" src={usuarioAct?.image ? usuarioAct?.image.url : profile} alt="" />: null}
-                {token ?<Link to="/profile">Profile </Link> : null}
-                </div>
-                {token ?<Link to="/order"><Order/> </Link> : null}
-                
-            </nav>
-        </div>
-    )
-} 
+  function handleButton() {
+    setShowModal(true);
+  }
+  function closeModal() {
+    showModalNotification && setShowModalNotification(false);
+    showModal && setShowModal(false);
+  }
+  return (
+    <div>
+      <nav className="nav" onClick={closeModal}>
+        <Link to="/" className="link">HOME</Link>
+        {token ? (<Link to="/create" className="link">CREATED</Link>) : null}
+        <Link to="/about" className="link">ABOUT</Link>
+        {!token ? (<Link to="/homeout" className="link">REGISTER/LOGIN</Link>) : null}
+        <div className="perfil">
+        {token ?<p className="nameUser">{`¡Hi ${usuarioAct?.nombre}!`}</p>: null}
+        {usuarioAct?.length !== 0 ? (
+          <div>
+            <img
+            className="fotoperfil"
+              src={usuarioAct?.image.url ? usuarioAct.image.url : profile}
+              alt="Profile User"
+              onClick={handleButton}
+            />
+          </div>
+        ) : null}
+        <Modal style={customStyls} isOpen={showModal} className="customStyles">
+          <ProfileSettings/>
+        </Modal>
+      </div>
+      </nav>
+    </div>
+  );
+}

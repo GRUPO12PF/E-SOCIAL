@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 
 function Profile() {
   const navigate = useNavigate();
-  const user = useSelector(state => state.usuario)
+  const user = useSelector(state => state.usuarioActual)
   const idUser = user._id
   console.log(idUser)
   
@@ -21,7 +21,7 @@ function Profile() {
 
   return (
     <div>
-      <button onClick={e => (handleOnClickHistory(e))}>History Orders</button>
+      {/* <button onClick={e => (handleOnClickHistory(e))}>History Orders</button> */}
       <button onClick={e => (handleOnClickBooks(e))}>Books Created</button>
     </div>
     

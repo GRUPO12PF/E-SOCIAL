@@ -3,22 +3,25 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams, Link } from 'react-router-dom'
 import { historyOrders } from '../../../redux/actions/actionOrder'
 import Order from './Order'
+import NavBar from '../../CommonComponents/NavBar/NavBar'
+import Footer from '../../CommonComponents/Footer/Footer'
 
 export default function OrdersHistory() {
     const dispatch = useDispatch()
     const { id } = useParams();
 
+    
+    const allOrders = useSelector((state) => state.orders);
+    console.log(allOrders)
+    
     useEffect(() => {
         dispatch(historyOrders(id))
       }, [dispatch]);
-
-     const allOrders = useSelector((state) => state.orders);
-    console.log(allOrders)
-
     return(
         <>
+          <NavBar />
           <h1>holissssss</h1>
-          {  allOrders.map((e, i) => {
+          {  allOrders?.map((e, i) => {
             return (
               <div key={i}>
                     <Order
@@ -28,6 +31,7 @@ export default function OrdersHistory() {
             );
           })
         }
+        <Footer />
           </>
     )
 }

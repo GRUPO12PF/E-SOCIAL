@@ -511,7 +511,7 @@ img {
   display: flex;
   justify-content: space-evenly;
   padding-top: 3px;
-  background: rgba(59, 205, 241, 0.808);
+  background: rgb(0, 0, 0);
 }
 
 body::-webkit-scrollbar {
@@ -559,17 +559,21 @@ body::-webkit-scrollbar-thumb {
 }
 
 .perfil {
+  position: relative;
   display: flex;
   justify-content: space-evenly;
+  left: 12%;
 }
 
 .fotoperfil {
   border-radius: 50%;
   width: 60px;
   height: 60px;
+  cursor: pointer;
 }
 
 .nameUser {
+  padding: 0.5rem;
   font-size: 2rem;
   color: #2c3e50;
 }
@@ -649,5 +653,106 @@ body::-webkit-scrollbar-thumb {
 
 .btn:hover {
   transform: scale(1.1);
+}
+
+.searchBar {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: large;
+  font-weight: bold;
+  background: rgb(0, 0, 0);
+  justify-content: center;
+}
+
+.btnS {
+  justify-content: space-between;
+  border-radius: 5px;
+  margin-right: 5px;
+  background-color: #f7ede2;
+}
+
+.btnS:hover:hover {
+  background-color: #cecccc;
+  color: rgb(247, 243, 243);
+  color: rgb(47, 47, 47);
+}
+
+.btnR {
+  justify-content: space-between;
+  margin-left: 20px;
+  border-radius: 5px;
+  margin-right: 5px;
+  padding-top: 3px;
+  background-color: #f7ede2;
+}
+
+.btnR:hover {
+  background-color: #cecccc;
+  color: rgb(247, 243, 243);
+  color: rgb(47, 47, 47);
+}
+
+.divFilter {
+  margin-left: 25px;
+  display: flex;
+  background-color: #f7ede2;
+  justify-content: space-between;
+}
+
+@media (min-width: 320px) {
+  .customStyles {
+    position: absolute;
+    top: 42%;
+    left: 60%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    width: 250px;
+  }
+}
+@media (min-width: 768px) {
+  .customStyles {
+    top: 30%;
+    left: 85%;
+    width: 250px;
+  }
+}
+.boton {
+  cursor: pointer;
+}
+
+.profileModal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  background-color: #c0c0c0;
+  padding: 1rem 0;
+}
+
+.divModalPerfil {
+  border: none;
+  height: 70px;
+  width: 40%;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+.divModalPerfil a {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1fr;
+  align-items: center;
+  align-content: center;
+}
+.divModalPerfil h3 {
+  grid-column: 1/3;
+  margin: 0;
+}
+.divModalPerfil:hover {
+  background-color: #c5c5c5;
 }
 /*# sourceMappingURL=app.css.map */

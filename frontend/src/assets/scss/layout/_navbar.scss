@@ -51,16 +51,19 @@ body::-webkit-scrollbar-thumb {
 }
 
 .perfil {
+    position: relative;
     display: flex;
     justify-content: space-evenly;
+    left: 12%;
 }
 .fotoperfil {
     border-radius: 50%;
     width: 60px;
     height: 60px;
+    cursor: pointer;
 }
-
 .nameUser {
+    padding: 0.5rem;
     font-size: 2rem;
     color: #2c3e50;
 }
