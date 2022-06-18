@@ -10,7 +10,7 @@ export function usuarioCreated(payload) {
         },
       };
       try {
-        const json = await clienteAxios.get(`/usuarioCreador/${payload}`, config);
+        const json = await clienteAxios.get(`/usuarioCreador/${payload.id}`, config);
         console.log(json.data)
         return dispatch({
           type: "USUARIO_CREATED",

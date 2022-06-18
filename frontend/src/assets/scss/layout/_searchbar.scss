@@ -9,11 +9,20 @@
     background: v.$colorNav;
     justify-content: center;
   }
+  .select{
+    display: flex;
+}
+.filter{
 
+    display: flex;
+    background-color: #f7ede2;
+    justify-content: space-between;
+
+}
 .btnS {
     justify-content: space-between;
     border-radius: 5px;
-    margin-right:5px;
+    margin-right:4px;
     background-color: #f7ede2;
 }
 
@@ -25,7 +34,7 @@
 
 .btnR {
     justify-content: space-between;
-    margin-left:  20px;
+    margin-left:  15px;
     border-radius: 5px;
     margin-right:5px;
     padding-top: 3px;
