@@ -11,6 +11,7 @@ const CheckoutForm = () => {
   const elements = useElements()
   const dispatch = useDispatch()
   const product = useSelector(state => state.detail)
+  console.log(product)
   const bookId = product._id
 
   const [loading, setLoading] = useState(false)
@@ -51,19 +52,25 @@ const CheckoutForm = () => {
   return (
     <div className={s.bigDiv}>
       <form className={s.form} onSubmit={handleSubmit}>
-        {/* Product Information */}
-        <img
-          src="https://i.imgur.com/YoEVHEg.jpg" // TODO cambiar por imagen del libro
-          alt="asfasgf" // TODO cambiar por texto acorde
-          className={s.productImg}
-        />
+        
+      
 
         <h3 className="text-center my-2">{product.nombre}</h3>
+
+        <div className={s.flex}>
+        <img
+          src={product.image} // TODO cambiar por imagen del libro
+          alt="not found" // TODO cambiar por texto acorde
+          className={s.productImg}
+        />
         <h3 className="text-center my-2">$ {product.price}</h3>
+        </div>
 
         {/* User Card Input */}
+        <div className={s.flex2}>
         <div className={s.cardElement}>
           <CardElement />
+        </div>
         </div>
 
         <button disabled={!stripe} className={s.butones}>
@@ -76,6 +83,7 @@ const CheckoutForm = () => {
           )}
         </button>
       </form>
+     {/* <ConfirmacionPago/> */}
     </div>
   )
 }
