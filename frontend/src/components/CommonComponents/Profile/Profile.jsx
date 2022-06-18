@@ -21,7 +21,7 @@ function Profile() {
 
   return (
     <div>
-      <button onClick={e => (handleOnClickHistory(e))}>History Orders</button>
+      {/* <button onClick={e => (handleOnClickHistory(e))}>History Orders</button> */}
       <button onClick={e => (handleOnClickBooks(e))}>Books Created</button>
     </div>
     

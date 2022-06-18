@@ -3,29 +3,38 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams, Link } from 'react-router-dom'
 import {usuarioCreated} from '../../../redux/actions/actionCreatedUser'
 import Books from './Books'
-
-
+import NavBar from '../../CommonComponents/NavBar/NavBar.jsx'
+import Footer from '../../CommonComponents/Footer/Footer'
 
 export default function BooksCreated() {
     const dispatch = useDispatch()
     const { id } = useParams();
 
     console.log(id)
-   
+    // const usuarioActual  = useSelector ((state)=> state.usuario)
+    // const userId = usuarioActual._id
+    // console.log(userId)
+    const allBooks = useSelector((state) => state.booksCreated);
+    
     useEffect(() => {
         dispatch(usuarioCreated(id))
       }, [dispatch]);
+    
+      
 
-     const allBooks = useSelector((state) => state.booksCreated);
     console.log(allBooks)
 
     return(
+      
         <>
-          <h1>holissssss</h1>
+                <NavBar />
+
+          {/* <h1>holissssss</h1> */}
+
           <Link to="/home">Volver al home</Link>
         {  allBooks.map((e, i) => {
-            return (
-              <div key={i}>
+          return (
+            <div key={i}>
                     <Books
                       id={e._id}
                       nombre={e.nombre}
@@ -36,6 +45,7 @@ export default function BooksCreated() {
             );
           })
         }
+        <Footer />
         </>
     )
 
