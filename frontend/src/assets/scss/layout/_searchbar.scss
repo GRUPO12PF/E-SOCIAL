@@ -1,5 +1,48 @@
 @use '../base/variables' as v;
 @use '../base/mixins' as m;
 
+.searchBar {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: large;
+    font-weight: bold;
+    background: v.$colorNav;
+    justify-content: center;
+  }
 
+.btnS {
+    justify-content: space-between;
+    border-radius: 5px;
+    margin-right:5px;
+    background-color: #f7ede2;
+}
+
+.btnS:hover:hover {
+    background-color: #cecccc;
+    color: rgb(247, 243, 243);
+    color: rgb(47, 47, 47);
+}
+
+.btnR {
+    justify-content: space-between;
+    margin-left:  20px;
+    border-radius: 5px;
+    margin-right:5px;
+    padding-top: 3px;
+    background-color: #f7ede2;
+}
+
+.btnR:hover {
+    background-color: #cecccc;
+    color: rgb(247, 243, 243);
+    color: rgb(47, 47, 47);
+}
+
+
+.divFilter{
+    margin-left: 25px;
+    display: flex;
+    background-color: #f7ede2;
+    justify-content: space-between;
+}
 
