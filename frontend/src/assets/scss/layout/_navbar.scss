@@ -6,6 +6,9 @@
     justify-content: space-evenly;
     padding-top: 3px;
     background: v.$colorNav;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
    }
 
 body::-webkit-scrollbar {

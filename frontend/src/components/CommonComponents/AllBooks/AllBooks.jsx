@@ -19,7 +19,7 @@ function AllBooks() {
 
   const allBooks = useSelector((state) => state.books);
   const [pageCurrent, setPageCurrent] = useState(1);
-  const pageSize = 4;
+  const pageSize = 10;
   const indexOfLastBooks = pageCurrent * pageSize;
   const indexOfFirstBooks = indexOfLastBooks - pageSize;
   const currentBooks = allBooks?.slice(indexOfFirstBooks, indexOfLastBooks);
