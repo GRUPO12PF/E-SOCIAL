@@ -1,3 +1,10 @@
-.footer{
-    background-color: grey;
+.footer {
+    padding: 1rem;
+    position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+    background: linear-gradient(180deg, rgb(102, 102, 102) 0%, rgba(250, 241, 241, 0.327) 94%, rgb(100, 94, 94) 1px);
+    
+    text-align: center;
 }

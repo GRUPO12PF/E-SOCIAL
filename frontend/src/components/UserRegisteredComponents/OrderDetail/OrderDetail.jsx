@@ -3,7 +3,10 @@ import {useParams} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import { getDetalleOrder } from '../../../redux/actions/actionOrder'
 import { useState } from 'react'
-
+import Loading from '../../CommonComponents/Loading/Loading'
+import axios from 'axios'
+import { detailsBook } from '../../../redux/actions/detailsBooks'
+import Footer from '../../CommonComponents/Footer/Footer'
 
 
 const OrderDetail = () => {
@@ -29,6 +32,7 @@ const OrderDetail = () => {
     <div>
         <h3>holaaaaa</h3>
         <h3>{}</h3>
+        <Footer />
     </div>
   )
 }

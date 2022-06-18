@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router";
 import { useSelector } from 'react-redux'
-
+import Footer from '../Footer/Footer';
 
  
 
@@ -21,8 +21,9 @@ function Profile() {
 
   return (
     <div>
-      <button onClick={e => (handleOnClickHistory(e))}>History Orders</button>
+      {/* <button onClick={e => (handleOnClickHistory(e))}>History Orders</button> */}
       <button onClick={e => (handleOnClickBooks(e))}>Books Created</button>
+      <Footer />
     </div>
     
   )

@@ -18,10 +18,11 @@ export default function NavBar() {
   const usuarioAct = useSelector((state) => state.usuarioActual);
   const [showModal, setShowModal] = useState(false);
   const [showModalNotification, setShowModalNotification] = useState(false);
+  
   useEffect(() => {
     dispatch(usuarioActual());
-  }),
-    [dispatch];
+  },[dispatch]);
+    
   const token = localStorage.getItem("token");
 
   function handleButton() {
@@ -39,12 +40,12 @@ export default function NavBar() {
         <Link to="/about" className="link">ABOUT</Link>
         {!token ? (<Link to="/homeout" className="link">REGISTER/LOGIN</Link>) : null}
         <div className="perfil">
-        {token ?<p className="nameUser">{`¡Hi ${usuarioAct.nombre}!`}</p>: null}
-        {usuarioAct.length !== 0 ? (
+        {token ?<p className="nameUser">{`¡Hi ${usuarioAct?.nombre}!`}</p>: null}
+        {usuarioAct?.length !== 0 ? (
           <div>
             <img
             className="fotoperfil"
-              src={usuarioAct.image.url ? usuarioAct.image.url : profile}
+              src={usuarioAct?.image.url ? usuarioAct.image.url : profile}
               alt="Profile User"
               onClick={handleButton}
             />

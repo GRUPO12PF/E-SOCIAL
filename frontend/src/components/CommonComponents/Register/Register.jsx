@@ -7,6 +7,7 @@ import validatePassword from "../../../middleware/validarPassword";
 import { Link } from "react-router-dom";
 import s from './Register.module.css';
 import { FaRegEye,FaRegEyeSlash} from 'react-icons/fa';
+import Footer from "../Footer/Footer";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -141,6 +142,7 @@ export default function Register() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
