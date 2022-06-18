@@ -3,9 +3,7 @@ import {useParams} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import { getDetalleOrder } from '../../../redux/actions/actionOrder'
 import { useState } from 'react'
-import Loading from '../../CommonComponents/Loading/Loading'
-import axios from 'axios'
-import { detailsBook } from '../../../redux/actions/detailsBooks'
+
 
 
 const OrderDetail = () => {
