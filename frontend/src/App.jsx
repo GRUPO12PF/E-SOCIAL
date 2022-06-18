@@ -29,6 +29,7 @@ import CheckOut from "./components/UserRegisteredComponents/CheckOut/CheckOut";
 import OrdersHistory from "./components/UserRegisteredComponents/OrdersHistory/OrdersHistory";
 import OrderDetail from "./components/UserRegisteredComponents/OrderDetail/OrderDetail";
 import Profile from "./components/CommonComponents/Profile/Profile"
+import BooksCreated from "./components/UserRegisteredComponents/BooksCreated/BooksCreated"
 //----------------------------------ADMIN---------------------------------------------
 
 export default function App() {
@@ -57,6 +58,8 @@ export default function App() {
           <Route path="/profile/" element={<Profile />} />
           <Route path="/historyOrders/:id" element={<OrdersHistory/>}/>
           <Route path="/order" element={<OrderDetail/>}/>
+          <Route path="/bookCreated/:id" element={<BooksCreated/>}/>
+
         </Route>
 
         <Route path="*" element={<NotFound />} />

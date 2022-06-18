@@ -17,7 +17,8 @@ const initialState = {
   put: [],
   buy: [],
   orders: [],
-  order: []
+  order: [],
+  booksCreated: []
 }
 
 function rootReducer(state = initialState, action) {
@@ -206,6 +207,10 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         order: action.payload
+      }
+    case "USUARIO_CREATED":
+      return{
+        booksCreated: action.payload
       }
 
     default:

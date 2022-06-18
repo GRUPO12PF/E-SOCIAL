@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, Link } from 'react-router-dom'
 import { historyOrders } from '../../../redux/actions/actionOrder'
-
+import Order from './Order'
 
 export default function OrdersHistory() {
     const dispatch = useDispatch()
@@ -16,8 +16,18 @@ export default function OrdersHistory() {
     console.log(allOrders)
 
     return(
+        <>
           <h1>holissssss</h1>
+          {  allOrders.map((e, i) => {
+            return (
+              <div key={i}>
+                    <Order
+                      id={e._id}
+                    />
+              </div>
+            );
+          })
+        }
+          </>
     )
-
-
 }
