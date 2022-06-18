@@ -20,11 +20,13 @@ export default function OrdersHistory() {
           <h1>holissssss</h1>
           {  allOrders.map((e, i) => {
             return (
+              <Link to={"/order/" + e._id}>
               <div key={i}>
                     <Order
                       id={e._id}
                     />
               </div>
+              </Link>
             );
           })
         }

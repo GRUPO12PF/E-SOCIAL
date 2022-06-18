@@ -57,7 +57,7 @@ export default function App() {
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/profile/" element={<Profile />} />
           <Route path="/historyOrders/:id" element={<OrdersHistory/>}/>
-          <Route path="/order" element={<OrderDetail/>}/>
+          <Route path="/order/:id" element={<OrderDetail/>}/>
           <Route path="/bookCreated/:id" element={<BooksCreated/>}/>
 
         </Route>
