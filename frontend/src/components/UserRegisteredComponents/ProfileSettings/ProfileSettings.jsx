@@ -1,11 +1,10 @@
-import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import IconsLogout from "../../../Iconos/IconsLogout";
 import Settings from "../../../Iconos/ArrowLeft";
 import Order from "../../../Iconos/Order";
-import Footer from "../../CommonComponents/Footer/Footer";
+import Books from "../../../Iconos/Books";
 
 export default function ProfileSettings() {
   const navigate = useNavigate();
@@ -29,8 +28,11 @@ export default function ProfileSettings() {
 
   return (
     <div className="profileModal">
-      <div className="divModalPerfil">
-        <button onClick={e => (handleOnClickBooks(e))}>libros creados</button>
+      <div className="divModalPerfil" onClick={() => (handleOnClickBooks(e))}>
+      <Link to="/" >
+        <Books />
+        <h3>Books</h3>
+        </Link>
       </div>
       <div className="divModalPerfil">
         <Link to="/historyOrders/" >
@@ -50,7 +52,6 @@ export default function ProfileSettings() {
           <h3>Logout</h3>
         </Link>
       </div>
-      <Footer />
     </div>
   );
 }

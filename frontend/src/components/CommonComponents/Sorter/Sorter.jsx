@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux'
 import { NAME_ASC, NAME_DESC, PRICE_ASC, PRICE_DESC } from '../../../redux/utils/constants'
 import { sortBy } from '../../../redux/actions/actionSorter'
-import s from './Sorter.css'
+//import s from './Sorter.css'
 
 export default function Sort() {
   const dispatch = useDispatch()
@@ -12,7 +12,7 @@ export default function Sort() {
   }
   return (
     <div>
-      <select name='select' defaultValue='default' onChange={onSelectChange} className={s.select}>
+      <select name='select' defaultValue='default' onChange={onSelectChange} className="select">
         <option value='default'>Ordenar por nombre</option>
         <option value={NAME_ASC}>A-Z</option>
         <option value={NAME_DESC}>Z-A</option>

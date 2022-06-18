@@ -558,7 +558,7 @@ body::-webkit-scrollbar-thumb {
   transform: scale(1.1);
 }
 
-.perfil {
+.perfilIcon {
   position: relative;
   display: flex;
   justify-content: space-evenly;
@@ -604,7 +604,7 @@ body::-webkit-scrollbar-thumb {
   text-align: center;
   cursor: pointer;
   padding: 4px 13px;
-  background: rgba(31, 124, 185, 0.978);
+  background: #333332;
 }
 
 .num1:hover {
@@ -664,10 +664,20 @@ body::-webkit-scrollbar-thumb {
   justify-content: center;
 }
 
+.select {
+  display: flex;
+}
+
+.filter {
+  display: flex;
+  background-color: #f7ede2;
+  justify-content: space-between;
+}
+
 .btnS {
   justify-content: space-between;
   border-radius: 5px;
-  margin-right: 5px;
+  margin-right: 4px;
   background-color: #f7ede2;
 }
 
@@ -679,7 +689,7 @@ body::-webkit-scrollbar-thumb {
 
 .btnR {
   justify-content: space-between;
-  margin-left: 20px;
+  margin-left: 15px;
   border-radius: 5px;
   margin-right: 5px;
   padding-top: 3px;
@@ -727,18 +737,18 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2rem;
+  gap: 1rem;
   background-color: #c0c0c0;
   padding: 1rem 0;
 }
 
 .divModalPerfil {
   border: none;
-  height: 70px;
-  width: 40%;
-  margin: 0 auto;
+  height: 50px;
+  width: 30%;
+  margin: 0.1rem;
   border-radius: 0.5rem;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 .divModalPerfil a {
   width: 100%;
@@ -749,10 +759,20 @@ body::-webkit-scrollbar-thumb {
   align-content: center;
 }
 .divModalPerfil h3 {
-  grid-column: 1/3;
+  font-size: 25px;
+  grid-column: 2/4;
   margin: 0;
 }
 .divModalPerfil:hover {
+  transition-duration: 500ms;
+  width: 80%;
   background-color: #c5c5c5;
+}
+
+.icon {
+  height: 30px;
+  width: 30px;
+  grid-column: 1/2;
+  display: inline-block;
 }
 /*# sourceMappingURL=app.css.map */
