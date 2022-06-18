@@ -9,7 +9,7 @@ import { deleteBook } from "../../../redux/actions/actionBooks";
 import Loading from "../Loading/Loading";
 import book from "../../../assets/images/book.svg";
 import swal from 'sweetalert';
-import ConfirmacionPago from "../../UserRegisteredComponents/CheckOut/ConfirmacionPago/ConfirmacionPago";
+
 
 const Details = () => {
   const [loading, setLoading] = useState(true);
@@ -97,7 +97,7 @@ const Details = () => {
       ) : <Loading />
       }
 
-      <ConfirmacionPago />
+  
     </div>
   );
 };
