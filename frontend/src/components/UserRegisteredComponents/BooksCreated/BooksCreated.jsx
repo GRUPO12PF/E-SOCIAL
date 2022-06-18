@@ -33,7 +33,7 @@ export default function BooksCreated() {
 
           {/* <h1>holissssss</h1> */}
 
-          <Link to="/home">Volver al home</Link>
+          <Link to="/">Volver al home</Link>
         {  allBooks.map((e, i) => {
           return (
             <div key={i}>
