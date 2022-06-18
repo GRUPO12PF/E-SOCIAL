@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 
 function Profile() {
   const navigate = useNavigate();
-  const user = useSelector(state => state.usuario)
+  const user = useSelector(state => state.usuarioActual)
   const idUser = user._id
   console.log(idUser)
   
