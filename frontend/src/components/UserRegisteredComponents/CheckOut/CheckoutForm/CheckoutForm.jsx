@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import s from './CheckoutForm.module.css'
 import { buyBook } from "../../../../redux/actions/actionBuy.js"
-import ConfirmacionPago from "../ConfirmacionPago/ConfirmacionPago"
+
 
 
 const CheckoutForm = () => {
@@ -76,7 +76,6 @@ const CheckoutForm = () => {
           )}
         </button>
       </form>
-     <ConfirmacionPago/>
     </div>
   )
 }

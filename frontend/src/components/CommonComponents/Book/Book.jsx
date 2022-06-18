@@ -1,6 +1,5 @@
 import React from 'react'
 import book from '../../../assets/images/book.svg'
-import Buy from '../../UserRegisteredComponents/Buy/Buy'
 
 function Book({ nombre, image, price }) {
 
@@ -16,7 +15,6 @@ function Book({ nombre, image, price }) {
                 />
                 <h2 className="nombre">Precio: {price}</h2>
             </div>
-            <Buy/>
         </div>
     )
 }
