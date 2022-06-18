@@ -1,0 +1,23 @@
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useParams, Link } from 'react-router-dom'
+import { historyOrders } from '../../../redux/actions/actionOrder'
+
+
+export default function OrdersHistory() {
+    const dispatch = useDispatch()
+    const { id } = useParams();
+
+    useEffect(() => {
+        dispatch(historyOrders(id))
+      }, [dispatch]);
+
+     const allOrders = useSelector((state) => state.orders);
+    console.log(allOrders)
+
+    return(
+          <h1>holissssss</h1>
+    )
+
+
+}

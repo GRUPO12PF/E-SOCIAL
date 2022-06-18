@@ -32,8 +32,10 @@ export default function NavBar() {
                 <div className="perfil">
                 {token ?<h3 className="nameUser">{usuarioAct.nombre}</h3>: null}
                 {token ?<img className="fotoperfil" src={usuarioAct?.image ? usuarioAct?.image.url : profile} alt="" />: null}
-                {token ?<Link to="/order"><Order/> </Link> : null}
+                {token ?<Link to="/profile">Profile </Link> : null}
                 </div>
+                {token ?<Link to="/order"><Order/> </Link> : null}
+                
             </nav>
         </div>
     )

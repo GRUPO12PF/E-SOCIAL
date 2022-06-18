@@ -16,12 +16,13 @@ const initialState = {
   delete: [],
   put: [],
   buy: [],
-  order:[]
+  orders: [],
+  order: []
 }
 
 function rootReducer(state = initialState, action) {
   switch (action.type) {
-    
+
     //---------------------USER----------------------------------------
     case 'GOOGLE_LOGIN':
       return {
@@ -186,20 +187,26 @@ function rootReducer(state = initialState, action) {
         ...state,
         put: action.payload
       }
-   
-      //BUY
+
+    //BUY
     case BUY_BOOK:
       return {
         ...state,
         buy: action.payload
       }
 
+    //ORDERS
+    case 'HISTORY_ORDER':
+      return {
+        ...state,
+        orders: action.payload,
+      }
     case GET_DETALLE_ORDER:
       console.log(action.payload)
-      return{
+      return {
         ...state,
-        order:action.payload
-      }  
+        order: action.payload
+      }
 
     default:
       return state

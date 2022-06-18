@@ -6,6 +6,7 @@ import booksRoutes from './routes/booksRoutes.js';
 import proyectoRoutes from './routes/proyectoRoutes.js';
 import categoriesRoutes from './routes/categoriesRoutes.js';
 import ordersRoutes from './routes/ordersRoutes.js';
+import usuarioCreadorRoutes from './routes/usuarioCreadorRoutes.js'
 //---- ruta para payment
 import paymentsIntent from './routes/paymentsIntent.js'
 
@@ -54,6 +55,7 @@ app.use("/api/books", booksRoutes);
 app.use("/api/proyectos", proyectoRoutes);
 app.use("/api/categories", categoriesRoutes);
 app.use("/api/orders", ordersRoutes);
+app.use("/api/usuarioCreador", usuarioCreadorRoutes);
 
 //----Rutas para payment
 app.use(express.static("public"));

@@ -1,17 +1,10 @@
-import OrderCreated from "../models/Order.js"
 import Order from "../models/Order.js"
-
-
 
 const obtenerOrders = async (req, res) => {
   try {
     const { id } = req.params
     const orders = await Order.find({ comprador: id })
-    //const algo = await Order.aggregate([{$unwind: "$book"}]) esta funcion es para que me muestre los objetos que tiene adentro book
     let response = orders
-    //console.log(algo)
-
-
 
     res.json(response)
   } catch (error) {
