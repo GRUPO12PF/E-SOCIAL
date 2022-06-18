@@ -41,3 +41,6 @@
   padding: 0;
   list-style: none;
 }
+@mixin borderRadius {
+  border-radius: 0.5rem;
+}
