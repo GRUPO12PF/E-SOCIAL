@@ -28,5 +28,5 @@ const reviewSchema = mongoose.Schema(
     }
 )
 
-const OrderCreated = mongoose.model("Order", orderSchema);
-export default OrderCreated;
+const reviewCreated = mongoose.model("Review", reviewSchema);
+export default reviewCreated;
