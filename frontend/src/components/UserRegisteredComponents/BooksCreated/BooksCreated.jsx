@@ -5,6 +5,7 @@ import {usuarioCreated} from '../../../redux/actions/actionCreatedUser'
 import Books from './Books'
 import NavBar from '../../CommonComponents/NavBar/NavBar.jsx'
 import Footer from '../../CommonComponents/Footer/Footer'
+import { usuarioActual } from '../../../redux/actions/actionUser'
 
 export default function BooksCreated() {
     const dispatch = useDispatch()
@@ -17,6 +18,7 @@ export default function BooksCreated() {
     const allBooks = useSelector((state) => state.booksCreated);
     
     useEffect(() => {
+        dispatch(usuarioActual())
         dispatch(usuarioCreated(id))
       }, [dispatch]);
     
@@ -31,7 +33,7 @@ export default function BooksCreated() {
 
           {/* <h1>holissssss</h1> */}
 
-          <Link to="/home">Volver al home</Link>
+          <Link to="/">Volver al home</Link>
         {  allBooks.map((e, i) => {
           return (
             <div key={i}>

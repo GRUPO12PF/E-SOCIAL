@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "../NavBar/NavBar";
 import style from './About.module.css';
 import image from '../../../assets/images/about.jpg';
+import Footer from '../Footer/Footer';
 
 export default function About() {
 
@@ -23,6 +24,7 @@ export default function About() {
                 respectivas reseñas dejadas por usuarios que una vez compraron el producto.
             </p>
             </div>
+            <Footer />
         </div>
     )
 }

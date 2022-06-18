@@ -6,6 +6,7 @@ import { useState } from 'react'
 import Loading from '../../CommonComponents/Loading/Loading'
 import axios from 'axios'
 import { detailsBook } from '../../../redux/actions/detailsBooks'
+import Footer from '../../CommonComponents/Footer/Footer'
 
 
 const OrderDetail = () => {
@@ -31,6 +32,7 @@ const OrderDetail = () => {
     <div>
         <h3>holaaaaa</h3>
         <h3>{}</h3>
+        <Footer />
     </div>
   )
 }
