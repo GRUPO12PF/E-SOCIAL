@@ -53,7 +53,6 @@ function Books({ nombre, image, price }) {
             </div>
           ) : null}
             </div>
-            <Footer />
         </div>
     )
 }
