@@ -6,6 +6,7 @@ import {
   setStateEmail,
 } from "../../../redux/actions/actionUser";
 import validarEmail from "../../../middleware/validarEmail";
+import Footer from "../Footer/Footer";
 
 export default function OlvidePassword() {
   const [email, setEmail] = useState("");
@@ -87,6 +88,7 @@ export default function OlvidePassword() {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

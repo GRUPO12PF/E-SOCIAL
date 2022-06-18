@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { getBooks, putBookBody  } from '../../../redux/actions/actionBooks';
 import NavBar from '../../CommonComponents/NavBar/NavBar';
 import s from '../UpdateBook/UpdateBook.module.css'
-
+import Footer from '../../CommonComponents/Footer/Footer';
 
 
 const UpdateBook = (_id) => {
@@ -154,6 +154,7 @@ const UpdateBook = (_id) => {
                     <button className={s.botonB}>Back</button>
                 </Link>
             </div>
+            <Footer />
         </div>
     )
 }
