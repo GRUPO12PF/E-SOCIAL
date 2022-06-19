@@ -382,6 +382,11 @@ img {
   display: block;
 }
 
+.contenedorTotal {
+  width: 100%;
+  height: 100%;
+}
+
 .contSettings {
   margin: 0 auto;
 }
@@ -479,6 +484,8 @@ img {
   margin-top: 20px;
   box-shadow: 2px 3px 8px rgb(0, 0, 0);
   padding: 20px;
+  width: 25rem;
+  height: 35rem;
 }
 
 .bookItem:hover {
@@ -498,7 +505,9 @@ img {
 }
 
 .nombre {
-  color: black;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: rgb(0, 0, 0);
   text-transform: uppercase;
   font-size: 1.5rem;
   font-weight: bold;
@@ -512,6 +521,9 @@ img {
   justify-content: space-evenly;
   padding-top: 3px;
   background: rgb(0, 0, 0);
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
 }
 
 body::-webkit-scrollbar {
