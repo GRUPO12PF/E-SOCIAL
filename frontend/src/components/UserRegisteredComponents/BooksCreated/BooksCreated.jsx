@@ -21,9 +21,6 @@ export default function BooksCreated() {
         //dispatch(usuarioActual())
         dispatch(usuarioCreated(id))
       }, [dispatch]);
-    
-      
-
     console.log(allBooks)
 
     return(
@@ -34,7 +31,7 @@ export default function BooksCreated() {
           {/* <h1>holissssss</h1> */}
 
           <Link to="/">Volver al home</Link>
-        {  allBooks.map((e, i) => {
+        {  allBooks?.map((e, i) => {
           return (
             <div key={i}>
                     <Books
