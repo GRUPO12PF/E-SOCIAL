@@ -210,6 +210,7 @@ function rootReducer(state = initialState, action) {
       }
     case "USUARIO_CREATED":
       return{
+        ...state,
         booksCreated: action.payload
       }
 

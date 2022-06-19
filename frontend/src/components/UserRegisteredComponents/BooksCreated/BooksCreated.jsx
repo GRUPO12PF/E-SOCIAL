@@ -18,7 +18,7 @@ export default function BooksCreated() {
     const allBooks = useSelector((state) => state.booksCreated);
     
     useEffect(() => {
-        dispatch(usuarioActual())
+        //dispatch(usuarioActual())
         dispatch(usuarioCreated(id))
       }, [dispatch]);
     
