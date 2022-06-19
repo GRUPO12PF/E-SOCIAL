@@ -1,13 +1,33 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import book from '../../../assets/images/book.svg'
 import { deleteBook } from "../../../redux/actions/actionBooks";
 import swal from 'sweetalert';
 import s from "./Books.module.css";
 import Footer from '../../CommonComponents/Footer/Footer';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
+import { usuarioCreated } from '../../../redux/actions/actionCreatedUser';
+import {detailsBook} from '../../../redux/actions/detailsBooks'
 
-function Books({ nombre, image, price }) {
+function Books({ nombre, image, price, id }) {
     const token = localStorage.getItem("token");
+  
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    /*
+    const book = useSelector((state ) => state.booksCreated)
+    const bookID = book._id
+    console.log (bookID)
+   
+    const allBooks = useSelector((state) => state.booksCreated);
+    const bookId = allBooks.map(ele => ele._id)
     
+        console.log(bookId)
+     useEffect(() => {
+      dispatch(detailsBook(id))
+    }, [dispatch]);*/
+
 
     function handleDeleteBook(e) {
         e.preventDefault();
@@ -27,20 +47,10 @@ function Books({ nombre, image, price }) {
       }
 
     return (
-        <div className="bookItem">
+        <div className={s.bookItem}>
             
             <div>
-                <h1 className="nombre">Nombre del libro:{nombre}</h1>
-                <img
-                    className="book"
-                    src={image || book}
-                    alt='Img not found'
-                />
-                <h2 className="nombre">Precio: {price}</h2>
-            </div>
-            <div>
-
-             {token ? (
+            {token ? (
             <div className={s.botoness}>
               <button className={s.btn} onClick={(e) => handleDeleteBook(e)}>
                 DELETE
@@ -52,7 +62,19 @@ function Books({ nombre, image, price }) {
               </button>
             </div>
           ) : null}
+                <h1 className="nombre">Nombre del libro:{nombre}</h1>
+                <img
+                    className="book"
+                    src={image || book}
+                    alt='Img not found'
+                />
+                <h2 className="nombre">Precio: {price}</h2>
+                <div>
+
+            
             </div>
+            </div>
+            
         </div>
     )
 }
