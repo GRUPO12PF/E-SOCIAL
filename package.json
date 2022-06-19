@@ -14,6 +14,10 @@
   ],
   "author": "Los Chicos del PF",
   "license": "ISC",
+  "engines": {
+    "node": "16.13.1",
+    "npm": "8.1.2"
+  },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cloudinary": "^1.29.1",
