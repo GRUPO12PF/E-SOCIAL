@@ -21,6 +21,10 @@ export default function ProfileSettings() {
     navigate(`/bookCreated/${idUser}`);
   }
 
+  function handleOnClickOrders() {
+    navigate(`/historyOrders/${idUser}`);
+  }
+
   function logOut() {
     window.localStorage.removeItem("token");
     window.location.reload();
@@ -34,8 +38,8 @@ export default function ProfileSettings() {
         <h3>Books</h3>
         </Link>
       </div>
-      <div className="divModalPerfil">
-        <Link to="/historyOrders/" >
+      <div className="divModalPerfil" onClick={() => (handleOnClickOrders())}>
+        <Link to="" >
         <Order />
         <h3>Orders</h3>
         </Link>

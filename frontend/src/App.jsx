@@ -29,7 +29,6 @@ import UpdateBook from "./components/UserRegisteredComponents/UpdateBook/UpdateB
 import CheckOut from "./components/UserRegisteredComponents/CheckOut/CheckOut";
 import OrdersHistory from "./components/UserRegisteredComponents/OrdersHistory/OrdersHistory";
 import OrderDetail from "./components/UserRegisteredComponents/OrderDetail/OrderDetail";
-import Profile from "./components/CommonComponents/Profile/Profile"
 import BooksCreated from "./components/UserRegisteredComponents/BooksCreated/BooksCreated"
 //----------------------------------ADMIN---------------------------------------------
 import AllUsers from "./components/AdminComponents/AllUsers/AllUsers";
@@ -62,8 +61,7 @@ export default function App() {
           <Route path="/details/:id" element={<Details />} />
           <Route path="/user/setting" element={<Settings />} />
           <Route path="/checkout" element={<CheckOut />} />
-          <Route path="/profile/" element={<Profile />} />
-          <Route path="/historyOrders/" element={<OrdersHistory/>}/>
+          <Route path="/historyOrders/:id" element={<OrdersHistory/>}/>
           <Route path="/order/:id" element={<OrderDetail/>}/>
           <Route path="/bookCreated/:id" element={<BooksCreated/>}/>
           <Route path="/admin/users" element={<AllUsers/>}/>
