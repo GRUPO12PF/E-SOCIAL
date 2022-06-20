@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react'
 import book from '../../../assets/images/book.svg'
-import { deleteBook } from "../../../redux/actions/actionBooks";
+import { deleteBook, cleanData } from "../../../redux/actions/actionBooks";
 import swal from 'sweetalert';
 import s from "./Books.module.css";
-import Footer from '../../CommonComponents/Footer/Footer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
-import { usuarioCreated } from '../../../redux/actions/actionCreatedUser';
-import {detailsBook} from '../../../redux/actions/detailsBooks'
+
 
 function Books({ nombre, image, price, id }) {
     const token = localStorage.getItem("token");
@@ -15,21 +13,7 @@ function Books({ nombre, image, price, id }) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    /*
-    const book = useSelector((state ) => state.booksCreated)
-    const bookID = book._id
-    console.log (bookID)
-   
-    const allBooks = useSelector((state) => state.booksCreated);
-    const bookId = allBooks.map(ele => ele._id)
-    
-        console.log(bookId)
-     useEffect(() => {
-      dispatch(detailsBook(id))
-    }, [dispatch]);*/
-
-
-    function handleDeleteBook(e) {
+        function handleDeleteBook(e) {
         e.preventDefault();
         dispatch(deleteBook(id));
         swal({

@@ -1,0 +1,11 @@
+.image{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.UsersTable{
+    background-color: black;
+    color: white;
+    font-size: 5px;
+}
