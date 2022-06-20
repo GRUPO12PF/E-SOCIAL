@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import { Link } from "react-router-dom";
 import { usuarioActual } from "../../../redux/actions/actionUser";
 import { useDispatch, useSelector } from "react-redux";
-import profile from "../../../assets/images/avatar.png";
+import profile from "../../../assets/images/avatar2.png";
 
 import ProfileSettings from "../../UserRegisteredComponents/ProfileSettings/ProfileSettings";
 
@@ -36,6 +36,7 @@ export default function NavBar() {
     <div>
       <nav className="nav" onClick={closeModal}>
         <Link to="/" className="link">HOME</Link>
+        {token ? (<Link to="/admin" className="link">ADMIN</Link>) : null}
         {token ? (<Link to="/create" className="link">CREATED</Link>) : null}
         <Link to="/about" className="link">ABOUT</Link>
         {!token ? (<Link to="/homeout" className="link">REGISTER/LOGIN</Link>) : null}
