@@ -15,8 +15,7 @@
     background-color: #f7ede2;
 }
 .inputSearch {
-    position: absolute;
-    margin-right: 80rem;
+    position: relative;
 }
 
 .filter{
@@ -26,9 +25,7 @@
 }
 
 .btnS {
-    position: relative;
-    justify-content: space-between;
-    margin-right:10px;
+    background-color: #f7ede2;
 }
 
 .btnS:hover:hover {
@@ -45,11 +42,9 @@
 }
 
 .btnR:hover {
-    background-color: #cecccc;
     color: rgb(247, 243, 243);
     color: rgb(47, 47, 47);
 }
-
 .divFilter{
     margin-left: 20px;
     display: flex;
