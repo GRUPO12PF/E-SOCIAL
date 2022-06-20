@@ -2,14 +2,15 @@
 @use "../base/mixins" as m;
 
 .contSettings{
-
+    background-color: v.$grisclaro;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
 }
 .contSettings-info{
-    
+    padding: 2rem;
     width: 80%;
     margin: 0 auto;
-    
     .enlace{
         margin: 0 auto;
         width: 80%;
@@ -25,6 +26,7 @@
         height: 300px;
         background-size: cover;
         img{
+            @include m.borderRadius;
             height: 100%;
             object-fit: cover;
             object-position: center center;

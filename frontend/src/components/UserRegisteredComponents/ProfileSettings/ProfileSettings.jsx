@@ -2,7 +2,7 @@ import { useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import IconsLogout from "../../../Iconos/IconsLogout";
-import Settings from "../../../Iconos/ArrowLeft";
+import Settings from "../../../Iconos/Settings";
 import Order from "../../../Iconos/Order";
 import Books from "../../../Iconos/Books";
 import Admin from "../../../Iconos/Admin";

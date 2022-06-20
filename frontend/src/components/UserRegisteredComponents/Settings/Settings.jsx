@@ -1,19 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { cambiarImagen, usuarioActual } from "../../../redux/actions/actionUser";
+import { cambiarImagen } from "../../../redux/actions/actionUser";
 import { useDispatch, useSelector } from "react-redux";
 import profile from "../../../assets/images/avatar.png";
 import NavBar from "../../CommonComponents/NavBar/NavBar";
+import Loading from "../../CommonComponents/Loading/Loading";
 
 export default function Settings() {
   const dispatch = useDispatch();
   const usuarioAct = useSelector((state) => state.usuarioActual);
 
-  /*
-  useEffect(() => {
-    dispatch(usuarioActual());
-  },[dispatch])
-    */
 
   function handleFileImage(image) {
     dispatch(cambiarImagen(image));
@@ -22,10 +18,10 @@ export default function Settings() {
   return (
     usuarioAct.length !== 0 ? 
     <div className="contSettings">
-      {usuarioAct ?  <NavBar usuario={usuarioAct} /> : null}
+      <NavBar/>
         <div className="contSettings-info">
           <div className="contProfile">
-          <img src={usuarioAct?.image.url ? usuarioAct?.image.url : profile} alt="" />
+          <img src={usuarioAct.image.url ? usuarioAct.image.url : profile} alt="" />
             <span>Extenciones Soportadas: jpg/png</span>
             <div className="contFile">
               <label className="labelmiinput" htmlFor="mifile">
@@ -41,14 +37,11 @@ export default function Settings() {
             </div>
           </div>
           <div className="enlace">
-            {/* <Link to="/">
-              <button>HOME</button>
-            </Link> */}
             <Link to="/olvide-password/">
               <button>Change password</button>
             </Link>
           </div>
         </div>
-    </div> : <p>Loading</p>
+    </div> : <Loading/>
   ) 
 }

@@ -29,7 +29,6 @@ const booksSchema = mongoose.Schema(
     ],
     image: {
       type: String,
-      default: 'https://img.freepik.com/vector-gratis/libro-cerrado-marron_135176-141.jpg'
     },
     price: {
       type: String,
