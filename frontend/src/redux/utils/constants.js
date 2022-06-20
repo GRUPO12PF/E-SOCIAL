@@ -21,3 +21,4 @@ export const GET_DETALLE_ORDER = 'GET_DETALLE_ORDER'
 //ADMIN 
 
 export const GET_USUARIOS = 'GET_USUARIOS'
+export const GET_ORDERS = 'GET_ORDERS'

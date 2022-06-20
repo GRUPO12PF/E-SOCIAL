@@ -33,3 +33,23 @@ export const getDetalleOrder = (id) =>{
         })
     }
 }
+
+
+export const orderPost = (payload) => {
+    return async function (dispatch) {
+        const id = localStorage.getItem("token");
+        const config = {
+            headers: {
+                "Content-Type": "multipart/form-data",
+                Authorization: `Bearer ${id}`,
+            },
+        };
+        try {
+            const json = await clienteAxios.put(`/orders`, payload, config);
+            return json.data;
+        } catch (error) {
+            throw error
+        }
+    };
+  };
+  

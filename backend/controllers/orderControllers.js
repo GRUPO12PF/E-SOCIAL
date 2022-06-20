@@ -1,9 +1,11 @@
 import Order from "../models/Order.js"
+import Book from '../models/Book.js'
+
 
 const obtenerOrders = async (req, res) => {
   try {
     const { id } = req.params
-    const orders = await Order.find({ comprador: id })
+    const orders = await Order.find({ comprador: id }).populate("books")
     let response = orders
 
     res.json(response)
@@ -13,13 +15,20 @@ const obtenerOrders = async (req, res) => {
 }
 
 const nuevaOrder = async (req, res) => {
+  
+  const{bookId} = req.body
+
+  const book = await Book.findById(bookId)
+
   const order = new Order({
-    book: req.body.book,
+
+    books: book._id
   })
   order.comprador = req.usuario._id
-
   try {
     const orderAlmacenada = await order.save()
+    book.order = book.order.concat(orderAlmacenada._id)
+    await book.save()
     res.status(201).json(orderAlmacenada);
   } catch (error) {
     console.log(error)
@@ -39,7 +48,7 @@ const eliminarOrder = async (req, res) => {
 const detailOrder = async (req, res) => {
   try {
     const { id } = req.params
-    const order = await Order.findById({ _id: id })
+    const order = await Order.findById({ _id: id }).populate("books")
 
     if (!order) {
       const error = new Error('No se encontró la orden')

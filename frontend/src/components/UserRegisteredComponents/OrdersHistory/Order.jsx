@@ -1,11 +1,14 @@
 import React from 'react'
 
-function Order({ id }) {
+function Order({ id, nombre, image }) {
 
     return (
         <div>
             
-                <h1>{id}</h1>   
+                <p>{id}</p>
+                <p>{nombre}</p>  
+                <img src={image}/>
+            
         </div>
     )
 }

@@ -1,4 +1,5 @@
 import Usuario from "../models/Usuario.js";
+import Order from "../models/Order.js"
 import { generarId } from "../helpers/generarId.js";
 import generarJWT from "../helpers/generarJWT.js";
 import { emailRegistro, emailOlvidePassword } from "../helpers/emails.js";
@@ -229,6 +230,17 @@ const traerUsuarios = async (req, res) => {
     });
 };
 
+const obtenerOrdersUsuarios = async (req, res) => {
+    try {
+      const orders = await Order.find().populate("books").populate("comprador")
+      let response = orders
+  
+      res.json(response)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 const cambiarImage = async (req, res) => {
     const nombre = req.usuario.nombre;
     const formatos = ["png", "jpg", "webp", "gif"];
@@ -274,6 +286,7 @@ export {
     perfil,
     usuario,
     traerUsuarios,
+    obtenerOrdersUsuarios,
     cambiarImage,
     googleLogin,
 };

@@ -1,5 +1,4 @@
-import React from 'react'
-import { useEffect } from 'react';
+import React, { useEffect } from 'react'
 import { getAllUsers } from '../../../redux/actions/actionAdmin';
 import { useDispatch, useSelector } from 'react-redux'
 import { cleanData, getBooks } from '../../../redux/actions/actionBooks'
@@ -47,22 +46,23 @@ function AllUsers() {
             <NavBar />
 
             <div className={s.container}>
-                <div>
+                <div className={s.flex}>
                     <table className={s.usersTable}>
                         <thead>
                             <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Image</th>
-                                <th>Verified</th>
-                                <th>Blocked</th>
-                                <th>Moderator</th>
+                                <th className={s.no}>Id</th>
+                                <th className={s.no}>Name</th>
+                                <th className={s.no}>Image</th>
+                                <th className={s.no}>Verified</th>
+                                <th className={s.no}>Blocked</th>
+                                <th className={s.no}>Moderator</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {allUsers?.map((u) => {
+                            {allUsers?.map((u,i) => {
                                 return (
                                     <tr
+                                    key={i}
                                         className={s.containerInfo}
                                     >
                                         <td className={s.id}>{u.id}</td>

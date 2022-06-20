@@ -79,3 +79,11 @@
     background: rgba(35, 40, 102, 0.295);
     font-family: 'Roboto', sans-serif;
 }
+
+.bot{
+    border: none;
+    cursor: pointer;
+    background: transparent;
+  
+
+}

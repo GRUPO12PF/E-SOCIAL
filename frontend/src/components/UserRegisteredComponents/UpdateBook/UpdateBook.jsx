@@ -43,9 +43,6 @@ const UpdateBook = (_id) => {
                             errors.descripcion = 'required field'
                         } else if (!values.price) {
                             errors.price = 'required'
-
-                        } else if (!values.ranking) {
-                            errors.ranking = 'required field'
                         } else if (!values.colection) {
                             errors.colection = 'required field'
                         }
@@ -127,20 +124,6 @@ const UpdateBook = (_id) => {
 
                                 />
                                 <ErrorMessage name='descripcion' component={() => (<p>{errors.descripcion}</p>)} />
-
-                            </div>
-
-                            <label htmlFor="" className={s.label} >Ranking</label>
-                            <div className={s.range}>
-                                <Field
-
-                                    type="range"
-                                    name="ranking"
-                                    id="ranking"
-
-
-                                />
-                                <ErrorMessage name='ranking' component={() => (<p>{errors.ranking}</p>)} />
 
                             </div>
                             <button type="submit" className={s.botonS}>Send</button>

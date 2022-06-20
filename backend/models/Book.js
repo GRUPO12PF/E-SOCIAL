@@ -52,6 +52,12 @@ const booksSchema = mongoose.Schema(
       trim: true,
       default: false,
     },
+    order: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Order'
+      }
+    ]
   },
   {
     timestamps: true,
