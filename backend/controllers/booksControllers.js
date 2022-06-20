@@ -76,7 +76,7 @@ const editarBook = async (req, res) => {
             const error = new Error("No Enctontrado el libro");
             return res.status(404).json({msg: error.message});
         }
-        console.log("yes")
+        
     
         // if (bookId.creador.toString() !== req.usuario._id.toString() ) {
         //     const error = new Error("Accion No Valida");
