@@ -19,7 +19,7 @@ function Book({ nombre, image, price,imageUser,nameUser,category }) {
                     {price}
                 </h4>
                 <p>
-                    {category}
+                    {category +""}
                 </p>
                 <div className={s.user}>
                     <img src={imageUser} alt="user" />
