@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "CI=false vite build",
+    "build": "CI=false npm run vite build",
     "preview": "vite preview"
   },
   "dependencies": {
