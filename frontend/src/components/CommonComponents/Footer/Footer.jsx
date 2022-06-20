@@ -1,20 +1,16 @@
 import React from 'react'
-import image from '../../../assets/images/github.svg'
+import { Link } from 'react-router-dom';
 import s from './Footer.module.css'
+import GitHub from '../../../Iconos/GitHub';
 function Footer() {
   return (
           <div className={s.footer}>
-        <hr />
+        <div>
+        <Link to='https://github.com/GRUPO12PF/E-SOCIAL' >
         
-         <a
-            href="https://github.com/GRUPO12PF/E-SOCIAL"
-          >
-              <img width='1%' height='1%'
-              src="https://img.icons8.com/ios-glyphs/344/github.png"
-              alt="Png Github Icon"
-            />  
-          </a> 
-        
+        <GitHub/>
+        </Link>
+        </div>
         
           <div className={s.leyenda}>
           <p className="col-sm">
