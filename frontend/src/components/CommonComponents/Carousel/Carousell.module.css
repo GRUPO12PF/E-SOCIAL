@@ -5,7 +5,9 @@
     background-position:top;
     background-size: cover;
 }
-
+.legend p{
+  width: 15%;
+}
 ul{
     display:none;
 }
