@@ -5,6 +5,7 @@ import IconsLogout from "../../../Iconos/IconsLogout";
 import Settings from "../../../Iconos/ArrowLeft";
 import Order from "../../../Iconos/Order";
 import Books from "../../../Iconos/Books";
+import Admin from "../../../Iconos/Admin";
 
 export default function ProfileSettings() {
   const navigate = useNavigate();
@@ -48,6 +49,12 @@ export default function ProfileSettings() {
         <Link to="/user/setting" >
           <Settings />
           <h3>Settings</h3>
+        </Link>
+      </div>
+      <div className="divModalPerfil">
+        <Link to="/admin">
+          <Admin />
+          <h3>ADMIN</h3>
         </Link>
       </div>
       <div className="divModalPerfil" onClick={() => logOut()}>
