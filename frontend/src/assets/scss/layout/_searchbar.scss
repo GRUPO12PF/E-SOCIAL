@@ -8,28 +8,31 @@
     font-weight: bold;
     background: v.$colorNav;
     justify-content: center;
+    padding: 1rem
   }
   .select{
     display: flex;
+    background-color: #f7ede2;
 }
-.filter{
+.inputSearch {
+    position: absolute;
+    margin-right: 80rem;
+}
 
+.filter{
     display: flex;
     background-color: #f7ede2;
     justify-content: space-between;
-
 }
+
 .btnS {
+    position: relative;
     justify-content: space-between;
-    border-radius: 5px;
-    margin-right:4px;
-    background-color: #f7ede2;
+    margin-right:10px;
 }
 
 .btnS:hover:hover {
-    background-color: #cecccc;
-    color: rgb(247, 243, 243);
-    color: rgb(47, 47, 47);
+    transform: scale(1.10);
 }
 
 .btnR {
@@ -47,11 +50,9 @@
     color: rgb(47, 47, 47);
 }
 
-
 .divFilter{
-    margin-left: 25px;
+    margin-left: 20px;
     display: flex;
-    background-color: #f7ede2;
     justify-content: space-between;
 }
 

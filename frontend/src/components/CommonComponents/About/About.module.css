@@ -3,35 +3,29 @@
     object-fit: cover;
     top: 0;
     left: 0;
-    z-index: -1;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     align-content: center;
-    border-radius: 10px;
 }
 
 .about {
-
     display: flex;
     padding: 20px;
     margin: 0 auto;
     justify-content: center;
 }
 .tittle {
+    z-index: 1;
     color: #060606;
     font-size: 3rem;
     font-weight:bold;
-    font-family: 'Roboto', sans-serif;
-    text-shadow: #fffefe 0px 0px 10px;
 }
 
 .text {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    z-index: 1;
     color: rgb(8, 8, 8);
-    text-shadow: #fffefe 0px 0px 10px;
     font-weight: bold;
     padding: 20px;
     overflow: hidden;
     margin: 20px auto;
-    font-family: 'Roboto', sans-serif;
 }

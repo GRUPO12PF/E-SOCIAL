@@ -12,11 +12,11 @@ export default function Sort() {
   }
   return (
     <div>
-      <select name='select' defaultValue='default' onChange={onSelectChange} className="select">
-        <option value='default'>Ordenar por nombre</option>
+      <select name='select' onChange={onSelectChange} className="select">
+        <option value='Ordenar por nombre'>Ordenar por nombre</option>
         <option value={NAME_ASC}>A-Z</option>
         <option value={NAME_DESC}>Z-A</option>
-        <option value='default'>Ordenar por precio</option>
+        <option value='Ordenar por precio'>Ordenar por precio</option>
         <option value={PRICE_ASC}>$ ^</option>
         <option value={PRICE_DESC}>$ v</option>
       </select>

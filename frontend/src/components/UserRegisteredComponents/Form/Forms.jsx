@@ -162,7 +162,6 @@ const Forms = () => {
                 <br />
                 <Link className={s.back} to="/">BACK</Link>
             </div>
-            <Footer />
         </div>
     )
 }

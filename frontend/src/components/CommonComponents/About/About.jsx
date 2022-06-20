@@ -8,7 +8,6 @@ export default function About() {
 
     return (
         <div>
-            <img className={style.image} src={image} alt='' />
             <div>
                 <NavBar />
             </div>
@@ -24,7 +23,6 @@ export default function About() {
                 respectivas reseñas dejadas por usuarios que una vez compraron el producto.
             </p>
             </div>
-            <Footer />
         </div>
     )
 }

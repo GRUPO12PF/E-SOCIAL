@@ -1,11 +1,11 @@
 .footer {
-padding: 1rem;
-  position: fixed;
-display: inline-block;
+  padding: 0.2rem;
+  display: inline-block;
   left: 0;
   bottom: 0;
   width: 100%;
-  /* background: linear-gradient(180deg, rgba(11, 0, 0, 0.585) 0%, rgba(250, 241, 241, 0.327) 94%, rgb(100, 94, 94) 1px); */
+  color: #f0f8ff;
+  background-color: #621708;
   justify-content: center;
   text-align: center;
 }
