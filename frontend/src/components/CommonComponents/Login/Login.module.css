@@ -31,7 +31,6 @@
     margin-top: 20px;
     border-radius: 15px;
     padding: 5px;
-    position: relative;
  }
 .btn{
     border: none;
@@ -41,12 +40,14 @@
 
 }
 .eye{
-    
-    float: right;
-    right: 300px;
-    top: 380px;
+    display: block;
+    position: absolute;
     border: none;
-    
+    bottom: 170px;
+    right: 440px;
+    font-size: 18px;
+    background-color: transparent;
+    cursor: pointer;
 }
 .label {
     font-size: medium;
@@ -64,6 +65,14 @@
     border-radius: 15px;
     font-size: medium;
     font-weight: bold;
+}
+.inputt {
+    margin-left: 30px;
+    padding: 5px 70px;
+    border-radius: 15px;
+    font-size: medium;
+    font-weight: bold;
+    position: relative;
 }
 
 .container {
