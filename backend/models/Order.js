@@ -12,13 +12,12 @@ const orderSchema = mongoose.Schema(
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Books'
       }
-    ,
-    email: {
+    /*email: {
       type: String,
       require: true,
       trim: true,
       unique: true,
-    }
+    }*/
 
   }
 )

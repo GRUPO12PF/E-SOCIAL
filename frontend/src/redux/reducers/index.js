@@ -197,6 +197,10 @@ function rootReducer(state = initialState, action) {
       }
 
     //ORDERS
+    case "ORDER_POST":
+      return{
+        ...state
+      }
     case 'HISTORY_ORDER':
       return {
         ...state,

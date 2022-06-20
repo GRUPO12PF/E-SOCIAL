@@ -1,4 +1,5 @@
 import Usuario from "../models/Usuario.js";
+import Order from "../models/Order.js"
 import { generarId } from "../helpers/generarId.js";
 import generarJWT from "../helpers/generarJWT.js";
 import { emailRegistro, emailOlvidePassword } from "../helpers/emails.js";
@@ -231,7 +232,7 @@ const traerUsuarios = async (req, res) => {
 
 const obtenerOrdersUsuarios = async (req, res) => {
     try {
-      const orders = await Order.find()
+      const orders = await Order.find().populate("books")
       let response = orders
   
       res.json(response)

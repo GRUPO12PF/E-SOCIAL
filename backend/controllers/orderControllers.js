@@ -16,12 +16,12 @@ const obtenerOrders = async (req, res) => {
 
 const nuevaOrder = async (req, res) => {
   
-  const{email, bookId} = req.body
+  const{bookId} = req.body
 
   const book = await Book.findById(bookId)
 
   const order = new Order({
-    email,
+
     books: book._id
   })
   order.comprador = req.usuario._id
@@ -48,7 +48,7 @@ const eliminarOrder = async (req, res) => {
 const detailOrder = async (req, res) => {
   try {
     const { id } = req.params
-    const order = await Order.findById({ _id: id })
+    const order = await Order.findById({ _id: id }).populate("books")
 
     if (!order) {
       const error = new Error('No se encontró la orden')
