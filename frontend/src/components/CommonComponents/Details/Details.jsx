@@ -13,7 +13,7 @@ import Footer from "../Footer/Footer";
 
 const Details = () => {
   const [loading, setLoading] = useState(true);
-  // const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
   const { id } = useParams();
   const dispatch = useDispatch();
   // const navigate = useNavigate();
@@ -75,9 +75,17 @@ const Details = () => {
                 className={s.image}
               />
               <h3 className={s.pName}>Precio: {"$" + detail.price + ".00"}</h3>
-              <Link to="/checkout">
+              {
+                token ? 
+                <Link to="/checkout">
                 <button className={s.btnn}>COMPRAR</button>
-              </Link>
+                </Link>
+                : 
+                <Link to="/homeout">
+                  <button className={s.btnn}>COMPRAR</button>
+                </Link>
+              }
+              
             </div>
             <div className={s.description}>
               <h5 className={s.h5}>Colección</h5>
