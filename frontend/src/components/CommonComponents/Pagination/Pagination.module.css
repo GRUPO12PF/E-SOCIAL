@@ -15,7 +15,7 @@
   text-align: center;
   cursor: pointer;
   padding: 4px 13px;
-  background: rgba(190, 190, 190, 0.7);
+  background: #df5625;
 }
 
 .num:hover {
@@ -31,7 +31,7 @@
   text-align: center;
   cursor: pointer;
   padding: 4px 13px;
-  background: rgba(31, 124, 185, 0.978);
+  background: #F6AA1C;
 }
 
 .num1:hover {
@@ -74,7 +74,6 @@
   color: #070000;
   margin-right: 1px;
   text-align: center;
-  font-family: "Roboto", sans-serif;
 }
 
 .btn:hover {
