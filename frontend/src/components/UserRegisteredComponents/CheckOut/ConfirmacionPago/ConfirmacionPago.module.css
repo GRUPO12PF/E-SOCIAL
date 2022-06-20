@@ -1,0 +1,134 @@
+.formFondo{
+    background-color: #f7ede2;
+    width: 100%;
+    height: 110vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.formik{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+
+}
+
+.form{
+    background-color: rgba(20, 25, 32, 0.351);
+    margin-top: 1rem;
+    border-radius: 20px;
+    padding: 40px 250px;
+    font-family: 'Roboto', sans-serif; 
+    position: relative;
+}
+
+.input{
+    outline: none;
+    background: white;
+    border: none;
+    padding: 3px 60px;
+    color: rgb(0, 0, 0);
+    border-radius: 6px;
+}
+.textarea{
+    outline: none;
+    background: white;
+    padding: 3px 60px;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+}
+.label{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+}
+
+.range{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+select{
+    background: rgba(0, 0, 0, 0.484);
+}
+.back{
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.back:hover{
+    color:rgb(218, 8, 8)
+}
+.sendMsg{
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 5px;
+    z-index: 999;
+    cursor: pointer;
+}
+
+.botonFle{
+    display: flex;
+    justify-content: center;
+
+}
+.sp{
+    background:rgba(128, 128, 128, 0.63) ;
+    border-radius: 7px;
+    font-family: 'Roboto', sans-serif;
+    padding: 3px 10px;
+    
+}
+
+.el{
+    margin: 3px;
+}
+
+.btt{
+    border: none;
+    background-color: rgba(128, 128, 128, 0.63) ;
+    padding: 4px;
+    border-radius: 7px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+
+    
+}
+
+.chek{
+    display: grid;
+    /* grid-template-columns: repeat(3,1fr); */
+    justify-content: center;
+    background-color: rgba(128, 128, 128, 0.63) ;
+    width:300px;
+    height: 250px; 
+     overflow: scroll;
+    padding: 30px;
+    gap: 2rem;
+    
+    
+}
+
+ input[type=checkbox]{
+    display:block;
+    /* padding: 100px; */
+}
+
+.separar{
+    margin-top: 150px;
+}
+/* input[type=checkbox]+ label{
+    cursor: pointer;
+}  */

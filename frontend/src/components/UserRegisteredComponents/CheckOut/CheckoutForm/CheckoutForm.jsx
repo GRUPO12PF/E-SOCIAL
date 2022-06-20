@@ -44,7 +44,7 @@ const CheckoutForm = () => {
           }))
           alert("Pago recibido")
           setTimeout(() => {
-            navigate("/")
+            navigate("/confirmation")
           }, 1000);
 
         } else {
