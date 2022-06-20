@@ -19,7 +19,7 @@ const obtenerBooks = async (req, res) => {
         const categoryResponse = await Book.find({ category: { $in: [`${category}`] }}, { projection })
         response = categoryResponse
       } else {
-        const books = await Book.find({}, { projection })
+        const books = await Book.find({}, { projection }).populate('order')
         response = books
       }
     }

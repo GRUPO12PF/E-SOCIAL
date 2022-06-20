@@ -7,14 +7,19 @@ const orderSchema = mongoose.Schema(
       ref: 'Usuario',
       required: true,
     },
-    book: [
+    books: 
       {
-        _id: false,
-        id: String,
-        qty: Number
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Books'
       }
-    ]
-    
+    ,
+    email: {
+      type: String,
+      require: true,
+      trim: true,
+      unique: true,
+    }
+
   }
 )
 
