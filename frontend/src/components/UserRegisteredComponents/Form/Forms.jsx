@@ -10,6 +10,7 @@ import { getBooks } from '../../../redux/actions/actionBooks';
 import Footer from '../../CommonComponents/Footer/Footer';
 
 const Forms = () => {
+    const categories = useSelector(state => state.categories)
     let navigate = useNavigate()
     const dispatch = useDispatch()
 
@@ -63,10 +64,10 @@ const Forms = () => {
                             text: " ",
                             icon: "success",
                             button: "Ok!",
-                          });
+                        });
                         navigate('/')
                         dispatch(getBooks())
-                        
+
                     }}
                 >
                     {({ errors, handleSubmit, values, category }) => (<Form action="" onSubmit={handleSubmit} className={s.formik} >
@@ -126,33 +127,9 @@ const Forms = () => {
                             <label htmlFor="" className={s.label}>Category</label>
                             <div className={s.chek}>
                                 <div role="group" aria-labelledby="checkbox-group" >
-                                    <label> <Field type="checkbox" name="category" value="Autoayuda" /> Autoayuda </label>
-                                    <label> <Field type="checkbox" name="category" value="Autobiográficos" /> Autobiográficos </label>
-                                    <label> <Field type="checkbox" name="category" value="Aventura" /> Aventura </label>
-                                    <label> <Field type="checkbox" name="category" value="Biografía" /> Biografía </label>
-                                    <label> <Field type="checkbox" name="category" value="Ciencia" /> Ciencia </label>
-                                    <label> <Field type="checkbox" name="category" value="ficción" /> ficción </label>
-                                    <label> <Field type="checkbox" name="category" value="Científicos" /> Científicos </label>
-                                    <label> <Field type="checkbox" name="category" value="Cómics" /> Cómics </label>
-                                    <label> <Field type="checkbox" name="category" value="Cuentos" /> Cuentos </label>
-                                    <label> <Field type="checkbox" name="category" value="Deporte" /> Deporte </label>
-                                    <label> <Field type="checkbox" name="category" value="Historia" /> Historia </label>
-                                    <label> <Field type="checkbox" name="category" value="Humor" /> Humor </label>
-                                    <label> <Field type="checkbox" name="category" value="Marketing" /> Marketing </label>
-                                    <label> <Field type="checkbox" name="category" value="Microrrelatos" /> Microrrelatos </label>
-                                    <label> <Field type="checkbox" name="category" value="Novela de culto" /> Novela de culto </label>
-                                    <label> <Field type="checkbox" name="category" value="Novela de no ficción" /> Novela de no ficción </label>
-                                    <label> <Field type="checkbox" name="category" value="Novela" /> Novela </label>
-                                    <label> <Field type="checkbox" name="category" value="Histórica" />Histórica </label>
-                                    <label> <Field type="checkbox" name="category" value="Novelas" /> Novelas </label>
-                                    <label> <Field type="checkbox" name="category" value="Postapocalíptico" /> Postapocalíptico </label>
-                                    <label> <Field type="checkbox" name="category" value="Románticas" /> Románticas </label>
-                                    <label> <Field type="checkbox" name="category" value="Salud" /> Salud </label>
-                                    <label> <Field type="checkbox" name="category" value="Sociedad" /> Sociedad </label>
-                                    <label> <Field type="checkbox" name="category" value="Suspense" />Suspense </label>
-                                    <label> <Field type="checkbox" name="category" value="Terror" /> Terror </label>
-                                    <label> <Field type="checkbox" name="category" value="Otros" /> Otros </label>
-                                    <label> <Field type="checkbox" name="category" value="Videojuegos" /> Videojuegos </label>
+                                    {categories?.map((e, i) =>
+                                        <label> <Field type="checkbox" name="category" value={`${e}`} key={i} /> {e} </label>
+                                    )}
                                 </div>
                             </div>
                             <button className={s.sendMsg} type="submit">Send</button>
