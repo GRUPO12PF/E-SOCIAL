@@ -10,6 +10,7 @@ import {
     perfil,
     usuario,
     traerUsuarios,
+    obtenerOrdersUsuarios,
     cambiarImage,
 } from "../controllers/usuarioControllers.js";
 
@@ -27,6 +28,7 @@ router.route("/olvide-password/:token").get(comprobarToken).post(nuevoPassword);
 
 router.get('/perfil', checkAuth, perfil); //Ingresar al perfil solo si es el usuario
 router.get("/traer-usuarios", traerUsuarios);
+router.get("/traer-orders", obtenerOrdersUsuarios);
 router.get("/actual", checkAuth, usuario);
 router.put("/imagen", checkAuth, cambiarImage);//Cambiar imagen de perfil
 
