@@ -88,7 +88,6 @@ export default function OlvidePassword() {
           </form>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

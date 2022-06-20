@@ -31,14 +31,14 @@ const CheckoutForm = () => {
 
       try {
 
-        dispatch(buyBook(
+       const buy = await dispatch(buyBook(
           [{
             pm,
             qty: 1, //cents
             id: bookId
           }]
         ))
-
+        console.log(buy.payload.data)
         elements.getElement(CardElement).clear()
       } catch (error) {
         console.log(error)

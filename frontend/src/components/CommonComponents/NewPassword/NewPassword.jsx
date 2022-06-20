@@ -105,7 +105,6 @@ export default function NewPassword() {
           </form>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

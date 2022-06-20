@@ -137,7 +137,6 @@ const UpdateBook = (_id) => {
                     <button className={s.botonB}>Back</button>
                 </Link>
             </div>
-            <Footer />
         </div>
     )
 }

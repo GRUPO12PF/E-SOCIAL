@@ -6,8 +6,7 @@
     flex-wrap: wrap;
     font-size: large;
     font-weight: bold;
-    color: #FCFFE7;
-    background: rgba(31, 124, 185, 0.978);
+    color: #f0f8ff;
     justify-content: center;
   }
 
@@ -15,7 +14,7 @@
     justify-content: space-between;
     border-radius: 5px;
     margin-right:5px;
-    background-color: #f7ede2;
+    background-color: #f0f8ff;
 }
 
 .btnS:hover:hover {
@@ -30,7 +29,7 @@
     border-radius: 5px;
     margin-right:5px;
     padding-top: 3px;
-    background-color: #f7ede2;
+    background-color: #f0f8ff;
 }
 
 .btnR:hover {
@@ -40,7 +39,7 @@
 }
 
 .input{
-    background-color: #f7ede2;
+    background-color: #f0f8ff;
     border-radius: 5px;
 }
 .divFilter{

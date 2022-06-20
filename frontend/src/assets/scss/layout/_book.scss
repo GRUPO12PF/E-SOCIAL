@@ -1,6 +1,8 @@
 @use "../base/variables" as v;
 @use "../base/mixins" as m;
+
 .bookItem {
+    background-color: v.$fondocard;
     border-radius: 10px;
     transition: all .3s;
     margin-top: 20px;
