@@ -16,8 +16,10 @@ const OrderDetail = () => {
 
   
     const dispatch = useDispatch()
+    
 
     const detalles = useSelector(state=> state.order)
+    console.log(detalles)
     // const de = useSelector(state=> state.detail)
     // console.log(de)
     // console.log(detalles)
