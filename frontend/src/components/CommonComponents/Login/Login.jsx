@@ -13,7 +13,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { GoogleLogin } from "@react-oauth/google";
 import s from './Login.module.css';
 import image from '../../../assets/images/login.jpg';
-import { FaRegEye,FaRegEyeSlash} from 'react-icons/fa';
+import { FaRegEye,FaRegEyeSlash, FaWindows} from 'react-icons/fa';
 import Footer from "../Footer/Footer";
 
 function validate(email, password) {
@@ -54,6 +54,7 @@ export default function Login() {
 
   useEffect(() => {
     token ? navigate("/") : null;
+    
   }, [token]);
 
 

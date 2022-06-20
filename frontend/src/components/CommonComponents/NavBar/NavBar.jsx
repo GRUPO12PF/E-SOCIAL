@@ -18,12 +18,18 @@ export default function NavBar() {
   const usuarioAct = useSelector((state) => state.usuarioActual);
   const [showModal, setShowModal] = useState(false);
   const [showModalNotification, setShowModalNotification] = useState(false);
+  const [token, setToken] = useState("")
+
+  const token2 = localStorage.getItem("token");
   
   useEffect(() => {
     dispatch(usuarioActual());
-  },[dispatch]);
-    
-  const token = localStorage.getItem("token");
+    setTimeout(() => {
+      setToken(localStorage.getItem("token"))
+    }, 1000);
+  },[dispatch, token]);
+
+  console.log(token)
 
   function handleButton() {
     setShowModal(true);
