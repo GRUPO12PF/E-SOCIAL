@@ -9,14 +9,14 @@ const obtenerBooks = async (req, res) => {
     // booksByQuery
     if (req.query.name) {
       const { name } = req.query
-      const bookQuery = await Book.find({ 'nombre': { $regex: `^.*${name}.*`, $options: 'i' }}, { projection })
+      const bookQuery = await Book.find({ 'nombre': { $regex: `^.*${name}.*`, $options: 'i' }}, { projection }).populate('creador')
       response = bookQuery
 
       // booksByCategory
     } else {
       const { category } = req.query
       if (category) {
-        const categoryResponse = await Book.find({ category: { $in: [`${category}`] }}, { projection })
+        const categoryResponse = await Book.find({ category: { $in: [`${category}`] }}, { projection }).populate('creador')
         response = categoryResponse
       } else {
         const books = await Book.find({}, { projection }).populate('order').populate('creador')
