@@ -232,7 +232,7 @@ const traerUsuarios = async (req, res) => {
 
 const obtenerOrdersUsuarios = async (req, res) => {
     try {
-      const orders = await Order.find().populate("books")
+      const orders = await Order.find().populate("books").populate("comprador")
       let response = orders
   
       res.json(response)
