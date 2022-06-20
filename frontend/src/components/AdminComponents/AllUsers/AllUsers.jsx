@@ -60,9 +60,10 @@ function AllUsers() {
                             </tr>
                         </thead>
                         <tbody>
-                            {allUsers?.map((u) => {
+                            {allUsers?.map((u,i) => {
                                 return (
                                     <tr
+                                    key={i}
                                         className={s.containerInfo}
                                     >
                                         <td className={s.id}>{u.id}</td>
