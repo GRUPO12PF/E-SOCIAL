@@ -1,56 +1,11 @@
-/* .bookItem {
-    border-radius: 10px;
-    transition: all .3s;
-    margin: 15px;
-    box-shadow: 2px 3px 8px rgb(42, 129, 150);
-    padding: 20px;
-    margin: 0 auto;
-}
-
-.bookItem:hover {
-    transform: scale(1.10);
-    box-shadow: rgba(148, 210, 223, 0.05) 25px 25px;
-    border-radius:rgba(85, 134, 141, 0.05) 25px 25px;
-    border: black; 
-}
-.book{
-    height: 180px;
-    width: 180px;
-   background-size: cover;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-}
-
-
-.nombre {
-    color: black;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    font-weight:bold;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    font-family: 'Roboto', sans-serif
-} */
-
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 * {
   box-sizing: border-box;
 }
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  background-color: #f7f8fc;
-  font-family: "Roboto", sans-serif;
-  color: #10182f;
-}
+
 .container {
   display: flex;
-  /* width: 1040px; */
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
