@@ -10,7 +10,6 @@ function AdminHome() {
         <NavBar/>
       <Link to="/admin/users">ALL USERS </Link>
       <Link to="/admin/allOrders"> ALL ORDERS </Link>
-        <Footer/>
     </div>
   )
 }

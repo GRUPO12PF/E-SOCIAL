@@ -95,7 +95,6 @@ function AllUsers() {
                 </div>
             </div>
             <Pagination />
-            <Footer />
         </div>
     )
 }
