@@ -45,7 +45,7 @@ export const orderPost = (payload) => {
             },
         };
         try {
-            const json = await clienteAxios.put(`/orders`, payload, config);
+            const json = await clienteAxios.post(`/orders`, payload, config);
             return json.data;
         } catch (error) {
             throw error

@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import s from './CheckoutForm.module.css'
 import { buyBook } from "../../../../redux/actions/actionBuy.js"
-
-
+import { orderPost } from "../../../../redux/actions/actionOrder"
+import { useNavigate } from "react-router";
 
 const CheckoutForm = () => {
   const stripe = useStripe()
   const elements = useElements()
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const product = useSelector(state => state.detail)
   console.log(product)
   const bookId = product._id
@@ -30,7 +31,6 @@ const CheckoutForm = () => {
       const pm = paymentMethod.id
 
       try {
-
        const buy = await dispatch(buyBook(
           [{
             pm,
@@ -38,7 +38,21 @@ const CheckoutForm = () => {
             id: bookId
           }]
         ))
-        console.log(buy.payload.data)
+        if(buy.payload.data.clientSecret){
+         await dispatch (orderPost({
+            bookId : bookId
+          }))
+          alert("Pago recibido")
+          setTimeout(() => {
+            navigate("/")
+          }, 1000);
+
+        } else {
+          alert("Pago rechazado")
+        }
+        console.log(buy.payload.data.clientSecret)
+        // console.log("esto es la compraaaa!!!", pago)
+
         elements.getElement(CardElement).clear()
       } catch (error) {
         console.log(error)

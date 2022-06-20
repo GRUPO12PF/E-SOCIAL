@@ -24,7 +24,6 @@ export default function OrdersHistory() {
     return(
         <>
           <NavBar />
-          <h1>holissssss</h1>
           {  allOrders?.map((e, i) => {
             return (
               <Link to={"/order/" + e._id}>
