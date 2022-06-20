@@ -26,7 +26,7 @@ export default function NavBar() {
     dispatch(usuarioActual());
     setTimeout(() => {
       setToken(localStorage.getItem("token"))
-    }, 1000);
+    }, 200);
   },[dispatch, token]);
 
   console.log(token)
