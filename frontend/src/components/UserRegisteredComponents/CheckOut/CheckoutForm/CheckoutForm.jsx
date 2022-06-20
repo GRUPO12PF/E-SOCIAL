@@ -5,7 +5,7 @@ import s from './CheckoutForm.module.css'
 import { buyBook } from "../../../../redux/actions/actionBuy.js"
 import { orderPost } from "../../../../redux/actions/actionOrder"
 import { useNavigate } from "react-router";
-
+import swal from 'sweetalert';
 const CheckoutForm = () => {
   const stripe = useStripe()
   const elements = useElements()
@@ -42,13 +42,15 @@ const CheckoutForm = () => {
          await dispatch (orderPost({
             bookId : bookId
           }))
-          alert("Pago recibido")
+          swal("Pago recibido!", "You clicked the button!", "success");
+         
           setTimeout(() => {
             navigate("/confirmation")
           }, 1000);
 
         } else {
-          alert("Pago rechazado")
+          swal("Pago rechazado!", "You clicked the button!", "");
+          
         }
         console.log(buy.payload.data.clientSecret)
         // console.log("esto es la compraaaa!!!", pago)
