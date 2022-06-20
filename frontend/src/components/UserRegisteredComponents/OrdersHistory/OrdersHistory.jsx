@@ -5,7 +5,7 @@ import { historyOrders } from '../../../redux/actions/actionOrder'
 import Order from './Order'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
 import Footer from '../../CommonComponents/Footer/Footer'
-
+import styles from './OrdersHistory.module.css'
 export default function OrdersHistory() {
     const dispatch = useDispatch()
     const { id } = useParams();
@@ -24,6 +24,9 @@ export default function OrdersHistory() {
     return(
         <>
           <NavBar />
+          <box>
+          <div className='container'>
+            
           {  allOrders?.map((e, i) => {
             return (
               <Link to={"/order/" + e._id}>
@@ -38,7 +41,10 @@ export default function OrdersHistory() {
             );
             
           })
+          
         }
+        </div>
+        </box>
           </>
     )
 }
