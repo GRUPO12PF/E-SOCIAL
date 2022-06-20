@@ -1,5 +1,5 @@
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 * {
   box-sizing: border-box;
 }
@@ -67,5 +67,5 @@ background-color: #47bcd4;
   margin: 0;
 }
 .userinfo small {
-  color: #545d7a;
+  color: #1f2330;
 }

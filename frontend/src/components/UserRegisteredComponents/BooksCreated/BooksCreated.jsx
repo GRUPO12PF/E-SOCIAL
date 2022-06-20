@@ -24,13 +24,8 @@ export default function BooksCreated() {
     console.log(allBooks)
 
     return(
-      
         <>
-                <NavBar />
-
-          {/* <h1>holissssss</h1> */}
-
-          <Link to="/">Volver al home</Link>
+        <NavBar />
         {  allBooks?.map((e, i) => {
           return (
             <div key={i}>

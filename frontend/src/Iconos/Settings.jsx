@@ -2,7 +2,7 @@
 
 export default function Settings() {
   return (
-<svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-adjustments-horizontal" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#2c3e50" fill="none" strokeLinecap="round" strokeLinejoin="round">
+<svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-adjustments-horizontal" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#f0f8ff" fill="none" strokeLinecap="round" strokeLinejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <circle cx="14" cy="6" r="2" />
   <line x1="4" y1="6" x2="12" y2="6" />
