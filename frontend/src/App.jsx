@@ -19,6 +19,7 @@ import About from "./components/CommonComponents/About/About";
 import NotFound from "./components/CommonComponents/NotFound/NotFound.jsx";
 import Home from "./components/CommonComponents/Home/Home";
 import Homeout from "./components/CommonComponents/Homeout/Homeout.jsx";
+import UserCard from "./components/CommonComponents/UserCard/UserCard.jsx";
 //----------------------------------USER---------------------------------------------
 import VerificationUser from "./components/CommonComponents/VerificationUser/VerificationUser.jsx";
 import RutaProtegida from "./layouts/RutaProtegida";
@@ -51,6 +52,8 @@ export default function App() {
           <Route path="/update-password" element={<UpdatePassword />} />
           <Route path="/details/:id" element={<Details />} />
           <Route path="/about" element={<About />} />
+          <Route path="/seller" element={<UserCard />} />
+
         </Route>
 
          <Route path="/" element={<VerificationUser />}/>

@@ -11,6 +11,7 @@ import book from "../../../assets/images/book.svg";
 import swal from 'sweetalert';
 import Footer from "../Footer/Footer";
 
+
 const Details = () => {
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem("token");
@@ -53,19 +54,6 @@ const Details = () => {
       </div>
       {Object.keys(detail).length > 0 && !loading ? (
         <div>
-          {/* {token ? (
-            <div className={s.botoness}>
-              <button className={s.btn} onClick={(e) => handleDeleteBook(e)}>
-                DELETE
-
-
-              </button>
-              <button className={s.btn} onClick={(e) => handleUpdateBook(e)}>
-                UPDATE
-              </button>
-            </div>
-          ) : null} */}
-
           <div className={s.background}>
             <div className={s.name}>
               <h3 className={s.pName}>{detail.nombre}</h3>
@@ -76,16 +64,16 @@ const Details = () => {
               />
               <h3 className={s.pName}>Precio: {"$" + detail.price + ".00"}</h3>
               {
-                token ? 
-                <Link to="/checkout">
-                <button className={s.btnn}>COMPRAR</button>
-                </Link>
-                : 
-                <Link to="/homeout">
-                  <button className={s.btnn}>COMPRAR</button>
-                </Link>
+                token ?
+                  <Link to="/checkout">
+                    <button className={s.btnn}>COMPRAR</button>
+                  </Link>
+                  :
+                  <Link to="/homeout">
+                    <button className={s.btnn}>COMPRAR</button>
+                  </Link>
               }
-              
+
             </div>
             <div className={s.description}>
               <h5 className={s.h5}>Colección</h5>
@@ -99,13 +87,16 @@ const Details = () => {
               <p className={s.parra}>
                 {detail.descripcion}
               </p>
+              <Link to="/seller">
+                    <button className={s.btnn}>VENDEDOR</button>
+                  </Link>
             </div>
           </div>
         </div>
       ) : <Loading />
       }
 
-  <Footer />
+      <Footer />
     </div>
   );
 };
