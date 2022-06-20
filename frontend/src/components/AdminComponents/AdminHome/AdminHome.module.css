@@ -1,0 +1,19 @@
+.linked{
+    color: #621708;
+    text-justify: center;
+    margin: 10rem;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    border: solid #F6AA1C;
+    padding: 1rem;
+   }
+
+.AdCont{
+
+    padding-top: 30rem;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
