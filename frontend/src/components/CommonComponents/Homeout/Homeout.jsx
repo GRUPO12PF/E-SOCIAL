@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Modal from "react-modal";
 import { autenticarUser } from "../../../redux/actions/actionUser.js";
-import s from './Homeout.module.css';
-import image from '../../../assets/images/homeout.jpeg';
+import s from "./Homeout.module.css";
+import image from "../../../assets/images/homeout.jpeg";
 import Footer from "../Footer/Footer";
 
 Modal.setAppElement("#root");
@@ -28,10 +28,10 @@ export default function Homeout() {
     let usuarioA = dispatch(autenticarUser(config));
     usuarioA ? navigate("/") : null;
   }, []);
-console.log("prueba")
+  console.log("prueba");
   return (
     <div>
-      <img className={s.image} src={image} alt='' />
+      <img className={s.image} src={image} alt="" />
       <div className={s.btncontainer}>
         <Link to="/login">
           <button className={s.btn}>LOGIN</button>
@@ -42,10 +42,10 @@ console.log("prueba")
       </div>
 
       <div className={s.btnHome}>
-      <Link to="/">
-        <button className={s.btnH}>HOME</button>
-          </Link>
-          </div>
-     </div>
+        <Link to="/">
+          <button className={s.btnH}>HOME</button>
+        </Link>
+      </div>
+    </div>
   );
 }

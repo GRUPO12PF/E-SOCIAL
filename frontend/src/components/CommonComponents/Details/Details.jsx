@@ -75,8 +75,6 @@ const Details = () => {
         </div>
       ) : <Loading />
       }
-
-      <Footer />
     </div>
   );
 };

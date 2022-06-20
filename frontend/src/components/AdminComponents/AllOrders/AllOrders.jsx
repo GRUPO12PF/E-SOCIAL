@@ -52,7 +52,6 @@ function AllOrders() {
                     </table>
                 </div>
             </div> 
-      <Footer />
     </div>
   )
 }
