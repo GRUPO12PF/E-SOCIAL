@@ -1,11 +1,15 @@
 .footer {
 padding: 1rem;
   position: fixed;
-display: inline-block;
-  left: 0;
-  bottom: 0;
   width: 100%;
-  background: linear-gradient(180deg, rgba(163, 162, 162, 0.585) 0%, rgba(250, 241, 241, 0.327) 94%, rgb(100, 94, 94) 1px);
-  justify-content: center;
+  height: auto;
   text-align: center;
+  bottom: 0;
+  padding: 30px 25px;
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
 }
