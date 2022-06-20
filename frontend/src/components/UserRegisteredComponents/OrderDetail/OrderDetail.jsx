@@ -23,7 +23,7 @@ const OrderDetail = () => {
   return (
     <div>
                 <NavBar />
-      <h3>holaaaaa</h3>
+      
       <p>id de la orden: {detalles._id}</p>
       <p>nombre del libro: {detalles.book}</p>
              
