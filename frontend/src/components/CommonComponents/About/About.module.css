@@ -15,14 +15,14 @@
     justify-content: center;
 }
 .tittle {
-    z-index: 1;
+    z-index: 0;
     color: #060606;
     font-size: 3rem;
     font-weight:bold;
 }
 
 .text {
-    z-index: 1;
+    z-index: 0;
     color: rgb(8, 8, 8);
     font-weight: bold;
     padding: 20px;
