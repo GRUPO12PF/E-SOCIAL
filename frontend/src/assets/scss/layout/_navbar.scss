@@ -2,6 +2,7 @@
 @use '../base/mixins' as m;
 
 .nav {
+    padding: 1rem;
     display: flex;
     justify-content: space-evenly;
     padding-top: 3px;
@@ -24,7 +25,7 @@ body::-webkit-scrollbar-thumb {
 .link {
     align-items: center;
     justify-content: space-evenly;
-    color: #2c3e50;
+    color: v.$letras;
     text-decoration: none;
     font-size: 25px;
     font-weight: bold;
@@ -68,5 +69,5 @@ body::-webkit-scrollbar-thumb {
 .nameUser {
     padding: 0.5rem;
     font-size: 2rem;
-    color: #2c3e50;
+    color: v.$letras;
 }

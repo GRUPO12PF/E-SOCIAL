@@ -46,7 +46,6 @@ console.log("prueba")
         <button className={s.btnH}>HOME</button>
           </Link>
           </div>
-      <Footer />
      </div>
   );
 }

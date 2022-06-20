@@ -28,8 +28,8 @@ export default function SearchBar() {
 
   return (
       <div className="searchBar">
-        <input className="input" type="text" placeholder="Search by Name" onChange={(e) => handleInputChange(e)} />
-        <button className="btnS" onClick={e => handleSubmit(e)}><SearchIcon/></button>
+        <input className="inputSearch" type="text" placeholder="Search by Name" onChange={(e) => handleInputChange(e)} />
+        <div className="btnS" onClick={e => handleSubmit(e)}><SearchIcon/></div>
         <button className="btnR" onClick={e => (handleOnClick(e))}>RELOAD ALL BOOKS</button>
         <div className="divFilter">
           <FilterCategories />

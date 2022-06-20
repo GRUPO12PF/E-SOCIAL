@@ -27,7 +27,6 @@ export default function ConfirmarCuenta() {
       <Link to="/">
         <button className={s.btn}>Go back home</button>
       </Link>
-      <Footer />
     </div>
   );
 }

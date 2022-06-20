@@ -28,7 +28,6 @@ const OrderDetail = () => {
       <p>nombre del libro: {detalles.book}</p>
              
           
-<Footer />
     </div >
   )
 }

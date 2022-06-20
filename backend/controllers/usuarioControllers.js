@@ -36,7 +36,7 @@ const googleLogin = async (req, res) => {
                 } else {
                   let nuevoUsuario = new Usuario({
                     nombre: given_name,
-                    email,
+                    email: email_verified,
                     image: { public_id: "", url: picture },
                   });
                   nuevoUsuario.confirmado = true;
@@ -53,6 +53,7 @@ const googleLogin = async (req, res) => {
             });
           }
         });
+    const usuario = new Usuario({});
     } catch (error) {
         console.log(error);
     }

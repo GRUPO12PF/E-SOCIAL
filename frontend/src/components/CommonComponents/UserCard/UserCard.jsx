@@ -7,7 +7,6 @@ function UserCard() {
         <div>
             <NavBar />
             SELLER PROFILE
-            <Footer />
         </div>
 
     )
