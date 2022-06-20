@@ -1,6 +1,5 @@
 import React from 'react'
 import book from '../../../assets/images/book.svg'
-import Buy from '../../UserRegisteredComponents/Buy/Buy'
 
 function Book({ nombre, image, price }) {
 

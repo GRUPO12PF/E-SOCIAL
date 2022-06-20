@@ -7,10 +7,14 @@ import Footer from '../Footer/Footer.jsx'
 export default function Home() {
 return(
   <div className='contenedorTotal'>
+    <div>
     <NavBar />
     <SearchBar/>
     <AllBooks/>
+    </div>
+    <div>
     <Footer/>
+    </div>
   </div>
 )
 }
