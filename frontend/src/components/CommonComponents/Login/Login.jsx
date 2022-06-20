@@ -138,7 +138,7 @@ export default function Login() {
 
               <label className={s.label} htmlFor="password">Password</label>
               <div>
-                <input className={s.input}
+                <input className={s.inputt}
                   id="password"
                   type={state ? "text" : "password"}
                   value={usuario.password}
@@ -164,8 +164,9 @@ export default function Login() {
               </form>
               <GoogleOAuthProvider
               clientId={`${import.meta.env.VITE_URL_CLIENT_ID}`}
-            >
-              <GoogleLogin login_uri="" onSuccess={responseGoogle} />
+              >
+              <GoogleLogin   login_uri="" onSuccess={responseGoogle}  />
+             
             </GoogleOAuthProvider>
            <button className={s.eye} onClick={handleToggle}>{state ? <FaRegEye/> : <FaRegEyeSlash/> }</button>
            </div>

@@ -119,7 +119,7 @@ export default function Register() {
                 placeholder="Your password"
                 className={s.inp}
               />
-              <button onClick={handleToggle}>{state ? <FaRegEye/> : <FaRegEyeSlash/> }</button>
+              <span className={s.bot} onClick={handleToggle}>{state ? <FaRegEye/> : <FaRegEyeSlash/> }</span>
              </div>
               
               <div>
@@ -132,7 +132,7 @@ export default function Register() {
                 placeholder="enter password again"
                 className={s.inp}
               />
-                 <button onClick={handleTogglee}>{statee ? <FaRegEye/> : <FaRegEyeSlash/>  }</button>
+                 <span className={s.bot} onClick={handleTogglee}>{statee ? <FaRegEye/> : <FaRegEyeSlash/>  }</span>
               </div>
               {errores.length !== 0 && <p>{errores[1]}</p>}
               <button type="submit" className={s.btnRes}>
