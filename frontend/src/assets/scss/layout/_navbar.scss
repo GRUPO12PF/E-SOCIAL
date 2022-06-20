@@ -58,10 +58,7 @@ body::-webkit-scrollbar-thumb {
     position: relative;
     display: flex;
     justify-content: space-evenly;
-    left: 10rem;
-}
-.perfilIcon:hover{
-    transform: scale(1.10);
+    left: 12%;
 }
 .fotoperfil {
     border-radius: 50%;
@@ -74,15 +71,3 @@ body::-webkit-scrollbar-thumb {
     font-size: 2rem;
     color: v.$letras;
 }
-
-
-@include m.desktop{
-    .perfilIcon {
-        margin-right: 9rem;
-    }
-    @include m.tablet{
-        .perfilIcon {
-            margin-right: 3rem;
-        }
-      }
-  }

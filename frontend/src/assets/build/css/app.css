@@ -392,7 +392,6 @@ img {
 }
 
 .contSettings-info {
-  padding: 1rem;
   width: 80%;
   margin: 0 auto;
 }
@@ -577,11 +576,7 @@ body::-webkit-scrollbar-thumb {
   position: relative;
   display: flex;
   justify-content: space-evenly;
-  left: 10rem;
-}
-
-.perfilIcon:hover {
-  transform: scale(1.1);
+  left: 12%;
 }
 
 .fotoperfil {
@@ -597,16 +592,6 @@ body::-webkit-scrollbar-thumb {
   color: #F6AA1C;
 }
 
-@media (min-width: 768px) {
-  .perfilIcon {
-    margin-right: 9rem;
-  }
-}
-@media (min-width: 768px) and (min-width: 570px) {
-  .perfilIcon {
-    margin-right: 3rem;
-  }
-}
 .num {
   width: 75px;
   height: 45px;
