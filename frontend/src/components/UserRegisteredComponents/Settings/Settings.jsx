@@ -9,10 +9,11 @@ export default function Settings() {
   const dispatch = useDispatch();
   const usuarioAct = useSelector((state) => state.usuarioActual);
 
+  /*
   useEffect(() => {
     dispatch(usuarioActual());
-  }),
-    [dispatch];
+  },[dispatch])
+    */
 
   function handleFileImage(image) {
     dispatch(cambiarImagen(image));

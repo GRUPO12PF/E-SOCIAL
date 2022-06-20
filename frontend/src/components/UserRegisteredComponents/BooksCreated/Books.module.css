@@ -102,3 +102,7 @@
     font-size: 17px;
     max-width: 120rem;
 }
+.bookItem{
+    display: flex;
+    flex-direction: column;
+}

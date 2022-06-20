@@ -31,6 +31,10 @@ import OrderDetail from "./components/UserRegisteredComponents/OrderDetail/Order
 import Profile from "./components/CommonComponents/Profile/Profile"
 import BooksCreated from "./components/UserRegisteredComponents/BooksCreated/BooksCreated"
 //----------------------------------ADMIN---------------------------------------------
+import AllUsers from "./components/AdminComponents/AllUsers/AllUsers";
+import AdminHome from "./components/AdminComponents/AdminHome/AdminHome";
+import AllOrders from "./components/AdminComponents/AllOrders/AllOrders";
+
 
 export default function App() {
   return (
@@ -59,6 +63,9 @@ export default function App() {
           <Route path="/historyOrders/" element={<OrdersHistory/>}/>
           <Route path="/order/:id" element={<OrderDetail/>}/>
           <Route path="/bookCreated/:id" element={<BooksCreated/>}/>
+          <Route path="/admin/users" element={<AllUsers/>}/>
+          <Route path="/admin" element={<AdminHome/>}/>
+          <Route path="/admin/allOrders" element={<AllOrders/>}/>
 
 
         <Route path="*" element={<NotFound />} />

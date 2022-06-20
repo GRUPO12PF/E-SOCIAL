@@ -1,4 +1,4 @@
-import { GET_CATEGORIES, FILTER_BY_CATEGORY, SORT_BY, NAME_ASC, NAME_DESC, PRICE_ASC, PRICE_DESC, BUY_BOOK, GET_DETALLE_ORDER } from '../utils/constants'
+import { GET_CATEGORIES, FILTER_BY_CATEGORY, SORT_BY, NAME_ASC, NAME_DESC, PRICE_ASC, PRICE_DESC, BUY_BOOK, GET_DETALLE_ORDER, GET_USUARIOS } from '../utils/constants'
 
 const initialState = {
   books: [],
@@ -209,10 +209,18 @@ function rootReducer(state = initialState, action) {
         order: action.payload
       }
     case "USUARIO_CREATED":
-      return{
+      return {
+        ...state,
         booksCreated: action.payload
       }
+    //-----------------ADMIN----------------------------------------
+    case GET_USUARIOS:
+      console.log(action.payload)
+      return {
+        ...state,
+        allUsuarios: action.payload,
 
+      }
     default:
       return state
   }
