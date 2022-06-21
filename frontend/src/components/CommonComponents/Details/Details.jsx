@@ -27,7 +27,7 @@ const Details = () => {
 
   return (
     <>
-          <NavBar />
+      <NavBar />
 
       <div className="card">
         <div className="clip">
@@ -42,23 +42,6 @@ const Details = () => {
           {formatToCurrency(detail.price)}
 
           <div className="description">
-              <h5 className="h5-detalle">Descripción</h5>
-              <p className="parra-detalle">
-                {detail.descripcion}
-              </p>
-           
-            </div>
-          <div className="che-detalle">
-          {
-                token ?
-                  <Link to="/checkout">
-                    <button className="btnn-detalle">COMPRAR</button>
-                  </Link>
-                  :
-                  <Link to="/homeout">
-                    <button className="btnn-detalle">COMPRAR</button>
-                  </Link>
-              }
 
             <h5 className="h5">Saga / Serie</h5>
             {detail.colection}
@@ -83,7 +66,6 @@ const Details = () => {
                   <button className="btnn">COMPRAR</button>
                 </Link>
             }
-
           </div>
         </div>
       </div>
@@ -93,50 +75,3 @@ const Details = () => {
 }
 
 export default Details
-
-
-
-{/* <div>
-        <NavBar />
-      </div>
-      {Object.keys(detail).length > 0 && !loading ? (
-        <div>
-          <div className={s.background}>
-            <div className={s.name}>
-              <h3 className={s.pName}>{detail.nombre}</h3>
-              <img
-                src={detail.image || book}
-                alt="not found"
-                className={s.image}
-              />
-              <h3 className={s.pName}>Precio: {"$" + detail.price + ".00"}</h3>
-              {
-                token ?
-                  <Link to="/checkout">
-                    <button className={s.btnn}>COMPRAR</button>
-                  </Link>
-                  :
-                  <Link to="/homeout">
-                    <button className={s.btnn}>COMPRAR</button>
-                  </Link>
-              }
-
-            </div>
-            <div className={s.description}>
-              <h5 className={s.h5}>Colección</h5>
-              {detail.colection}
-
-              <h5 className={s.h5}>Categoría</h5>
-              {detail.category.join(", ")}
-
-
-              <h5 className={s.h5}>Descripción</h5>
-              <p className={s.parra}>
-                {detail.descripcion}
-              </p>
-           
-            </div>
-          </div>
-        </div> */}
-{/* ) : <Loading />
-      } */}
