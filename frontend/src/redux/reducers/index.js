@@ -28,6 +28,7 @@ function rootReducer(state = initialState, action) {
 
     //---------------------USER----------------------------------------
     case 'GOOGLE_LOGIN':
+      console.log(action.payload)
       return {
         ...state,
         usuario: action.payload,
