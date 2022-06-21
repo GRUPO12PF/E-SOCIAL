@@ -29,10 +29,10 @@ export default function SearchBar() {
   return (
 
       <div className="searchBar">
-      <form onsubmit="event.preventDefault();" role="search">
-      <label for="search">Search for stuff</label>
-      <input id="search" type="search" placeholder="Search..." onChange={(e) => handleInputChange(e)} autofocus required />
-      <button type="submit" onClick={e => handleSubmit(e)}>Go</button>    
+      <form className="formbusqueda" onsubmit="event.preventDefault();" role="search">
+      <label className='labelB' for="search">Search for stuff</label>
+      <input className='inputB' id="search" type="search" placeholder="Search..." onChange={(e) => handleInputChange(e)} autofocus required />
+      <button className='buttonB' type="submit" onClick={e => handleSubmit(e)}>Go</button>    
       </form>
         
       <button className="btnR" onClick={e => (handleOnClick(e))}>RELOAD ALL BOOKS</button>
