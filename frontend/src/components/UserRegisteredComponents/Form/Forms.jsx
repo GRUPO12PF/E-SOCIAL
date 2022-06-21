@@ -79,7 +79,7 @@ const Forms = () => {
                                     type="text"
                                     name="nombre"
                                     id="nombre"
-                                    placeholder="name"
+                                    placeholder="nombre..."
                                 />
                                 <ErrorMessage name='nombre' component={() => (<p>{errors.nombre}</p>)} />
                             </div>
@@ -100,6 +100,7 @@ const Forms = () => {
                                     type="number"
                                     name="price"
                                     id="price"
+                                    placeholder="precio en centavos de USD..."
                                 />
                                 <ErrorMessage name='price' component={() => (<p >{errors.price}</p>)} />
                             </div>
