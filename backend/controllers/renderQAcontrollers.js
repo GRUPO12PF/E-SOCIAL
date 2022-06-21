@@ -59,7 +59,7 @@ const getQA = async (req, res) => {
 
 const QAIdBook = async(req, res)=>{
     const {id} = req.params
-    const qaId = await Answer.find({book: id})
+    const qaId = await Answer.find({book: id}).populate("question")
 
     try{
         res.json(qaId)
