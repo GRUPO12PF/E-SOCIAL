@@ -7,6 +7,7 @@ export function registroGoogle(googleData) {
     try {
       const response = await clienteAxios.post(`/usuarios`, { idToken: token });
       localStorage.setItem("token", response.data.token);
+      console.log(response)
       return dispatch({
         type: "GOOGLE_LOGIN",
         payload: response.data,

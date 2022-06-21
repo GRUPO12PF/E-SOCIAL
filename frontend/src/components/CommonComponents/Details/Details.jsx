@@ -30,41 +30,41 @@ const Details = () => {
     <>
     <NavBar />
     
-    <div className="card">
-      <div className="clip">
+    <div className="card-detalle">
+      <div className="clip-detalle">
         
       </div>
       <div>
-      <img  src={detail.image || book} alt="not found"className="image" />
+      <img  src={detail.image || book} alt="not found"className="image-detalle" />
       </div>
 
       <div>
-        <h3 className="pName">{detail.nombre}</h3>
+        <h3 className="pName-detalle">{detail.nombre}</h3>
 
-        <div className="description">
+        <div className="description-detalle">
           
-              <h5 className="h5">Colección</h5>
+              <h5 className="h5-detalle">Colección</h5>
               {detail.colection}
 
-              <h5 className="h5">Categoría</h5>
+              <h5 className="h5-detalle">Categoría</h5>
               {detail.category+", "}
 
 
-              <h5 className="h5">Descripción</h5>
-              <p className="parra">
+              <h5 className="h5-detalle">Descripción</h5>
+              <p className="parra-detalle">
                 {detail.descripcion}
               </p>
            
             </div>
-          <div className="che">
+          <div className="che-detalle">
           {
                 token ?
                   <Link to="/checkout">
-                    <button className="btnn">COMPRAR</button>
+                    <button className="btnn-detalle">COMPRAR</button>
                   </Link>
                   :
                   <Link to="/homeout">
-                    <button className="btnn">COMPRAR</button>
+                    <button className="btnn-detalle">COMPRAR</button>
                   </Link>
               }
           </div>
