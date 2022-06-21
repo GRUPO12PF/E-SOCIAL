@@ -12,26 +12,26 @@ const OrderDetail = () => {
 
   const dispatch = useDispatch()
 
-
-  const detalles = useSelector(state => state.order)
-  //console.log(detalles.books.nombre)
-
   useEffect(() => {
      dispatch(getDetalleOrder(id));  
-  }, []);
+  }, [dispatch]);
+
+  const detalles = useSelector(state => state.order)
+  console.log(detalles)
+
 
 
   return (
     <div>
                 <NavBar />        
                 <p>ID: {detalles._id}</p>
-                <img src={detalles.books.image}/>
+                {/* <img src={detalles.books.image}/>
                <p>{detalles.books.nombre}</p>
                <p>{detalles.books.price}</p>
                <p>{detalles.books.descripcion}</p>
                <p>{detalles.books.category}</p>
                <p>{detalles.comprador.nombre}</p>
-               <img src={detalles.comprador.image.url}/>
+               <img src={detalles.comprador.image.url}/> */}
 
                <button>OPINAR SOBRE EL VENDEDOR</button>
 
