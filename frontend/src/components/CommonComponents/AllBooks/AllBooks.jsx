@@ -53,7 +53,7 @@ function AllBooks() {
                       nombre={e.nombre}
                       image={e.image}
                       nameUser={e.creador.nombre}
-                      category={e.category}
+                      descripcion={e.descripcion}
                       imageUser={e.creador.image.url}
                       price={"$" + e.price + ".00"}
                     />
