@@ -27,13 +27,18 @@ export default function SearchBar() {
   }
 
   return (
+
       <div className="searchBar">
-        <input className="inputSearch" type="text" placeholder="Search by Name" onChange={(e) => handleInputChange(e)} />
-        <div className="btnS" onClick={e => handleSubmit(e)}><SearchIcon/></div>
-        <button className="btnR" onClick={e => (handleOnClick(e))}>RELOAD ALL BOOKS</button>
-        <div className="divFilter">
-          <FilterCategories />
-          <Sorter />
+      <form onsubmit="event.preventDefault();" role="search">
+      <label for="search">Search for stuff</label>
+      <input id="search" type="search" placeholder="Search..." onChange={(e) => handleInputChange(e)} autofocus required />
+      <button type="submit" onClick={e => handleSubmit(e)}>Go</button>    
+      </form>
+        
+      <button className="btnR" onClick={e => (handleOnClick(e))}>RELOAD ALL BOOKS</button>
+      <div className="divFilter">
+      <FilterCategories />
+      <Sorter />
         </div>
       </div>
    
