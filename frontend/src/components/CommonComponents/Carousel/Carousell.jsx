@@ -18,6 +18,10 @@ const Carousell = () => {
                     <img className={s.imag} src="https://i.blogs.es/a58267/the_lord_of_the_rings_characters/1366_2000.jpeg" />
                     <p className="legend">El Señor de los Anillos</p>
                 </div>
+                <div>
+                    <img className={s.imag} src="https://d33wubrfki0l68.cloudfront.net/7541dea58bd9e0f2a2c64fd748ec4f29306054c8/8a445/images/gulp-banner.jpg" />
+                    <p className="legend">GULP</p>
+                </div>
     </Carousel>
   )
 }

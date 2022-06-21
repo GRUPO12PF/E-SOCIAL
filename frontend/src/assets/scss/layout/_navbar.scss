@@ -27,7 +27,7 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-evenly;
     color: v.$letras;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     margin-top: 25px;
 }
@@ -55,10 +55,14 @@ body::-webkit-scrollbar-thumb {
 }
 
 .perfilIcon {
+    padding: 0.5rem;
     position: relative;
     display: flex;
     justify-content: space-evenly;
     left: 12%;
+}
+.perfilIcon:hover {
+    transform: scale(1.1);
 }
 .fotoperfil {
     border-radius: 50%;
