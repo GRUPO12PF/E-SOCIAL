@@ -11,7 +11,6 @@ const obtenerBooks = async (req, res) => {
       const { name } = req.query
       const bookQuery = await Book.find({ 'nombre': { $regex: `^.*${name}.*`, $options: 'i' }}, { projection }).populate('creador')
       response = bookQuery
-
       // booksByCategory
     } else {
       const { category } = req.query
@@ -45,11 +44,6 @@ const detailBook = async (req, res) => {
   try {
     const { id } = req.params || req.body
     const book = await Book.findById(id, projection) 
-    if (!book) {
-      const error = new Error('No se encontró el libro.')
-      return res.status(404).json({ msg: error.message })
-    }
-
     res.json(book)
   } catch (error) {
     console.log(error)
@@ -60,8 +54,6 @@ const editarBook = async (req, res) => {
       const id = req.params.id
 
     try {
-        // const libroEditado = await Book.save()
-        // res.json(libroEditado)
         const bookId = await Book.findByIdAndUpdate({_id: id}, {
           nombre : req.body.nombre,
           descripcion : req.body.descripcion,
@@ -76,12 +68,7 @@ const editarBook = async (req, res) => {
             const error = new Error("No Enctontrado el libro");
             return res.status(404).json({msg: error.message});
         }
-        
-    
-        // if (bookId.creador.toString() !== req.usuario._id.toString() ) {
-        //     const error = new Error("Accion No Valida");
-        //     return res.status(401).json({msg: error.message});
-        // }
+      
         res.send(bookId).status(201)
         
     } catch (error) {
