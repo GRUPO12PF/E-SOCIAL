@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap");
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+@import url("https://fonts.googleapis.com/css?family=Marvel:400,700"); /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
 /**
@@ -1001,5 +1001,79 @@ body::-webkit-scrollbar-thumb {
   position: absolute;
   bottom: 0.5rem;
   left: 36rem;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.info-about {
+  padding: 7rem 0;
+}
+
+.row-about {
+  width: 100%;
+  max-width: 45rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.card-about {
+  display: inline-block;
+  width: 800px;
+  padding: 7rem 8rem 8rem 7rem;
+  background-color: #220901;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%);
+}
+.card-about:after {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 0px;
+  background-color: skyblue;
+  top: 0px;
+  right: 0px;
+  border-bottom: 20px solid #411507;
+  border-left: 20px solid #411507;
+  border-right: 20px solid #c1c1c1;
+  border-top: 20px solid #c1c1c1;
+  position: absolute;
+  filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.5));
+}
+.card-about:before {
+  content: "";
+  display: block;
+  width: 0px;
+  height: 0px;
+  border-top: 40px solid #411507;
+  border-right: 40px solid #411507;
+  border-left: 40px solid #c1c1c1;
+  border-bottom: 40px solid #c1c1c1;
+  bottom: 0px;
+  left: 0px;
+  position: absolute;
+  filter: drop-shadow(7px -7px 5px rgba(0, 0, 0, 0.5));
+  margin-right: 10%;
+}
+.card-about:nth-of-type(1) {
+  margin-right: 9%;
+}
+.card-about .h2-about {
+  color: snow;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+.card-about .p-about {
+  color: snow;
+  font-size: 14px;
+  width: 100%;
 }
 /*# sourceMappingURL=app.css.map */
