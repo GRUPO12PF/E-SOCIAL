@@ -27,7 +27,7 @@ const Details = () => {
 
   return (
     <>
-      <NavBar />
+          <NavBar />
 
       <div className="card">
         <div className="clip">
@@ -42,6 +42,23 @@ const Details = () => {
           {formatToCurrency(detail.price)}
 
           <div className="description">
+              <h5 className="h5-detalle">Descripción</h5>
+              <p className="parra-detalle">
+                {detail.descripcion}
+              </p>
+           
+            </div>
+          <div className="che-detalle">
+          {
+                token ?
+                  <Link to="/checkout">
+                    <button className="btnn-detalle">COMPRAR</button>
+                  </Link>
+                  :
+                  <Link to="/homeout">
+                    <button className="btnn-detalle">COMPRAR</button>
+                  </Link>
+              }
 
             <h5 className="h5">Saga / Serie</h5>
             {detail.colection}
@@ -66,6 +83,7 @@ const Details = () => {
                   <button className="btnn">COMPRAR</button>
                 </Link>
             }
+
           </div>
         </div>
       </div>

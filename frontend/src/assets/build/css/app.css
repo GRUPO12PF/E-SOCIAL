@@ -935,7 +935,7 @@ body::-webkit-scrollbar-thumb {
   display: inline-block;
 }
 
-.card {
+.card-detalle {
   display: flex;
   justify-content: center;
   text-align: center;
@@ -948,7 +948,7 @@ body::-webkit-scrollbar-thumb {
   border: 1px solid #621708;
 }
 
-.clip {
+.clip-detalle {
   -webkit-clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
           clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
   background-color: rgba(246, 170, 28, 0.662745098);
@@ -956,7 +956,7 @@ body::-webkit-scrollbar-thumb {
   height: 439px;
 }
 
-.image {
+.image-detalle {
   width: 337px;
   height: 439px;
   position: absolute;
@@ -964,7 +964,7 @@ body::-webkit-scrollbar-thumb {
   border-bottom: 1px solid #621708;
 }
 
-.parra {
+.parra-detalle {
   width: 550px;
   height: 80px;
   font-size: 0.9em;
@@ -974,15 +974,15 @@ body::-webkit-scrollbar-thumb {
   padding: 1rem;
 }
 
-.parra::-webkit-scrollbar {
+.parra-detalle::-webkit-scrollbar {
   background-color: #621708;
 }
 
-.parra::-webkit-scrollbar-corner {
+.parra-detalle::-webkit-scrollbar-corner {
   background-color: #621708;
 }
 
-.pName {
+.pName-detalle {
   border-bottom: 1px solid white;
   width: 90%;
   font-family: "Roboto", sans-serif;
@@ -990,14 +990,15 @@ body::-webkit-scrollbar-thumb {
   color: rgb(223, 210, 188);
 }
 
-.h5 {
+.h5-detalle {
   text-transform: uppercase;
   font-size: 17px;
   font-family: "Roboto", sans-serif;
   color: rgb(223, 210, 188);
+  padding: 1.5rem;
 }
 
-.che {
+.che-detalle {
   position: absolute;
   bottom: 0.5rem;
   left: 36rem;
@@ -1075,5 +1076,20 @@ body::-webkit-scrollbar-thumb {
   color: snow;
   font-size: 14px;
   width: 100%;
+}
+
+.imag {
+  width: 100%;
+  height: 310px;
+  background-position: bottom;
+  background-size: cover;
+}
+
+.legend p {
+  width: 15%;
+}
+
+ul {
+  display: none;
 }
 /*# sourceMappingURL=app.css.map */

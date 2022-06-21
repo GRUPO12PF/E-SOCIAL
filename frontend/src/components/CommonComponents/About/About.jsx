@@ -13,7 +13,7 @@ export default function About() {
                 <section className="info-about">
                     <div className="row-about">
                         <div className="card-about">
-                        <h2 className="h2-about">About</h2>
+                        <h2 className="h2-about about">About</h2>
                         <p className="p-about">Somos un grupo de alumnos de Henry realizando nuestro proyecto final, el cual es una app de e-commerce de libros. El objetivo es que los usuarios pueden comprar, vender, seguir
                             usuarios populares, dejar reseñas del producto y hacer comentarios del vendedor después de la compra.
                             La idea es agregarle más funcionalidades apuntando a fomentar el crecimiento de la comunidad que interactúa. Como usuario, vamos a poder agregar productos en nuestro
