@@ -724,7 +724,7 @@ body::-webkit-scrollbar-thumb {
   --dur: .3s;
   --color-dark: #2f2f2f;
   --color-light: #fff;
-  --color-brand: #57bd84;
+  --color-brand: #BC3908;
   --font-fam: "Lato", sans-serif;
   --height: 3rem;
   --btn-width: 6rem;
@@ -760,7 +760,7 @@ input, button {
   height: var(--height);
   font-family: var(--font-fam);
   border: 0;
-  color: var(--color-dark);
+  color: #f0f8ff;
   font-size: 1.8rem;
 }
 
