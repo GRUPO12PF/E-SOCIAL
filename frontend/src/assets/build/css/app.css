@@ -760,8 +760,12 @@ input, button {
   height: var(--height);
   font-family: var(--font-fam);
   border: 0;
-  color: #f0f8ff;
+  color: var(--color-dark);
   font-size: 1.8rem;
+}
+
+button {
+  color: #f0f8ff;
 }
 
 input[type=search] {
