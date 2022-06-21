@@ -1,0 +1,14 @@
+.optionContainer {
+    display:grid;
+    flex-wrap: wrap;
+  }
+  
+ .optionButton {
+    margin: 5px;
+    border-radius: 5px;
+    padding: 7px;
+    border-color: blue;
+    background: transparent;
+    align-items: center;
+    text-align: center;
+  }

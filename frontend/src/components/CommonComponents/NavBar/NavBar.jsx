@@ -7,6 +7,8 @@ import profile from "../../../assets/images/avatar2.png";
 import io from "socket.io-client";
 let socket;
 
+
+
 import ProfileSettings from "../../UserRegisteredComponents/ProfileSettings/ProfileSettings";
 
 const customStyls = {
@@ -16,6 +18,7 @@ const customStyls = {
 };
 
 export default function NavBar() {
+
   const dispatch = useDispatch();
   const params = window.location.href;
   const usuarioAct = useSelector((state) => state.usuarioActual);

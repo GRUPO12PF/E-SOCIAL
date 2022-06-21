@@ -6,8 +6,11 @@ import { useSelector, useDispatch } from "react-redux";
 import Loading from "../Loading/Loading";
 import NotFound from "../../CommonComponents/NotFound/NotFoundGral";
 import { cleanData, getBooks } from "../../../redux/actions/actionBooks.js";
+import Chat from "../ChatBot/ChatBot";
+
 
 function AllBooks() {
+  
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,7 +27,8 @@ function AllBooks() {
   const indexOfFirstBooks = indexOfLastBooks - pageSize;
   const currentBooks = allBooks?.slice(indexOfFirstBooks, indexOfLastBooks);
   const [loading, setLoading] = useState(true);
-
+  const[chatbot, setChatbot]= useState(false)
+  
   if (allBooks?.length > 0 && loading) {
     setTimeout(() => {
       setLoading(false);
@@ -62,9 +66,17 @@ function AllBooks() {
               </div>
             );
           })
-        ) : (
+        
+          ) : (
           <NotFound />
-        )}
+        )} 
+        <div className='contanedorChat'>
+         {
+        chatbot?
+        <div className='visible'><Chat setChatbot={setChatbot} chatbot ={chatbot} /></div>:null
+      }
+      <button onClick={() =>setChatbot(!chatbot)} className="link">Ayuda</button>
+      </div>
         <Pagination
           pageSize={pageSize}
           pageCurrent={pageCurrent}

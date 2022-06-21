@@ -23,6 +23,7 @@
   flex-direction: row;
 }
 
+
 .logout {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -41,4 +42,25 @@
 }
 
 @media only screen and (min-width: 501) and (max-width: 850px) {
+}
+.contenedorChat{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 60px;
+  padding-bottom: 150px;
+}
+.visible{
+  position:fixed;
+  z-index:1;
+  display:flex;
+  flex-direction: column;
+  top: 140px; right:0%;
+  align-self: flex-start;
+  background: linear-gradient(260deg, rgba(11,82,91,1) 0%, rgba(27,58,75,1) 30%, rgba(77,25,77,1) 100%);
+  border: solid var(--color4) 6px;
+  border-radius: 30px;
+  padding: 30px;
+  color: black; 
 }
