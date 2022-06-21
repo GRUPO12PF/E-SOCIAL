@@ -26,17 +26,17 @@ app.use(
 
 //cors
 app.use(
-	cors({
-		origin: '*',
-		credentials: true,
-		allowedHeaders: [
-			'Origin',
-			'X-Requested-With',
-			'Content-Type',
-			'Accept',
-			'authorization',
-		],
-	})
+  cors({
+    origin: '*',
+    credentials: true,
+    allowedHeaders: [
+      'Origin',
+      'X-Requested-With',
+      'Content-Type',
+      'Accept',
+      'authorization',
+    ],
+  })
 );
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
@@ -61,6 +61,48 @@ app.use(express.static("public"));
 app.use("/api/create-payment-intent", paymentsIntent)
 
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`)
+const servidor = app.listen(PORT, () => {
+  console.log(`Servidor corriendo en el puerto ${PORT}`)
+});
+
+//socket io
+
+import { Server } from "socket.io";
+
+const io = new Server(servidor, {
+  pingTimeout: 10000,
+  cors: {
+    origin: process.env.FRONTEND_URL,
+  },
+});
+
+io.on("connection", (socket) => {
+  //definir la conexion
+  //on define que es lo que pasa cuando el evento ocurre
+  socket.on("Actualizar", (room) => {
+    socket.join(room);
+  });
+  socket.on("renderHome", () => {
+    socket.to(`${process.env.FRONTEND_URL}/`).emit("homeUpdate");
+  });
+
+  //chat
+  socket.on('chat', (mensaje) => {
+    io.emit("chatmenaje", mensaje);
+  })
+  /*fin chat*/
+
+
+  socket.on("Settings", (room) => {
+    socket.join(room);
+  });
+  socket.on("updateSettings", () => {
+    socket
+      .to(`${process.env.FRONTEND_URL}/user/setting`)
+      .emit("userSettings");
+  });
+
+  socket.on("Navegar", (room) => {
+    socket.join(room);
+  });
 });

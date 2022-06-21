@@ -10,18 +10,18 @@
     justify-content: center;
     padding: 1rem
   }
-  .select{
+.select{
     display: flex;
-    background-color: #f7ede2;
+    background-color: #f0f8ff;
 }
 .filter{
     display: flex;
-    background-color: #f7ede2;
+    background-color: #f0f8ff;
     justify-content: space-between;
 }
 
 .btnS {
-    background-color: #f7ede2;
+    background-color: #f0f8ff
 }
 
 .btnS:hover:hover {
@@ -30,14 +30,16 @@
 
 .btnR {
     justify-content: space-between;
-    margin-left:  15px;
+    margin-left:  10px;
     border-radius: 5px;
     margin-right:5px;
-    padding-top: 3px;
-    background-color: #f7ede2;
+    padding-top: 4px;
+    background-color: #f0f8ff;
+    font-size: 1.5rem;
 }
 
 .btnR:hover {
+    transform: scale(1.05);
     color: rgb(247, 243, 243);
     color: rgb(47, 47, 47);
 }
@@ -47,6 +49,19 @@
     justify-content: space-between;
 }
 
+//Vars 
+
+:root {
+    --rad: .7rem;
+    --dur: .3s;
+    --color-dark: #2f2f2f;
+    --color-light: #f0f8ff;
+    --color-brand: #BC3908;
+    --font-fam: "Roboto", sans-serif;
+    --height: 3rem;
+    --btn-width: 6rem;
+    --bez: cubic-bezier(0, 0, 0.43, 1.49);
+  }
 .formbusqueda {
     position: relative;
     width: 25rem;
@@ -59,7 +74,7 @@
     font-family: var(--font-fam);
     border: 0;
     color: var(--color-dark);
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
   .buttonB {
     color: #f0f8ff;
@@ -69,7 +84,7 @@
     outline: 0; // <-- shold probably remove this for better accessibility, adding for demo aesthetics for now.
     width: 100%;
     background: var(--color-light);
-    padding: 0 1.6rem;
+    padding: 0 1.5rem;
     border-radius: var(--rad);
     appearance: none; //for iOS input[type="search"] roundedness issue. border-radius alone doesn't work
     transition: all var(--dur) var(--bez);
@@ -103,19 +118,7 @@
     width: 1px;
     overflow: hidden;
   }
-//Vars 
 
-:root {
-    --rad: .7rem;
-    --dur: .3s;
-    --color-dark: #2f2f2f;
-    --color-light: #fff;
-    --color-brand: #BC3908;
-    --font-fam: 'Lato', sans-serif;
-    --height: 3rem;
-    --btn-width: 6rem;
-    --bez: cubic-bezier(0, 0, 0.43, 1.49);
-  }
 
 
 
