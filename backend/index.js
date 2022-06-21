@@ -8,6 +8,7 @@ import ordersRoutes from './routes/ordersRoutes.js';
 import usuarioCreadorRoutes from './routes/usuarioCreadorRoutes.js'
 //---- ruta para payment
 import paymentsIntent from './routes/paymentsIntent.js'
+import renderQARoutes from './routes/renderQARoutes.js'
 
 import cors from "cors";
 import fileUpload from "express-fileupload";
@@ -54,6 +55,7 @@ app.use("/api/books", booksRoutes);
 app.use("/api/categories", categoriesRoutes);
 app.use("/api/orders", ordersRoutes);
 app.use("/api/usuarioCreador", usuarioCreadorRoutes);
+app.use("/api/qa" , renderQARoutes)
 
 //----Rutas para payment
 app.use(express.static("public"));
