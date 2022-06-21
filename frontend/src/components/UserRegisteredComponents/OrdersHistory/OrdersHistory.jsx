@@ -5,6 +5,7 @@ import { historyOrders } from '../../../redux/actions/actionOrder'
 import Order from './Order'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
 import Footer from '../../CommonComponents/Footer/Footer'
+import s from './Orders.module.css'
 
 export default function OrdersHistory() {
     const dispatch = useDispatch()
@@ -24,6 +25,7 @@ export default function OrdersHistory() {
     return(
         <>
           <NavBar />
+          <h3 className={s.titulo}>HISTORIAL DE COMPRAS</h3>
           {  allOrders?.map((e, i) => {
             return (
               <Link to={"/order/" + e._id}>

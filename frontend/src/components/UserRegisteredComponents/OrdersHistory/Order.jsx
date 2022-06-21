@@ -4,12 +4,13 @@ function Order({ id, nombre, image }) {
 
     return (
         <div>
-            
-                <p>{id}</p>
-
-                <p>{nombre}</p>  
+             <div className={s.container}>
+             <div className={s.card}>
+             <p className={s.texto}>{nombre}</p> 
+                <p className={s.texto}>ID: {id}</p>
                 <img className={s.im} src={image}/>
-            
+            </div>
+            </div>
         </div>
     )
 }
