@@ -4,18 +4,18 @@ import s from "./Book.module.css";
 
 function Book({ nombre, image, price, imageUser, nameUser, descripcion }) {
   return (
-    <div className={s.container}>
-      <div className={s.card}>
-        <div className={s.cardheader}>
-        <img className="book" src={image || book} alt='Img not found' />
+    <div className="container">
+      <div className="card-book">
+        <div className="cardheader-book">
+        <img className="book-book" src={image || book} alt='Img not found' />
         </div>
-        <div className={s.cardbody}>
-          <span className={s.tagtagteal}>{nombre}</span>
+        <div className="cardbody-book">
+          <span className="tagtagteal-book">{nombre}</span>
           <h4>{price}</h4>
-          <p className={s.p}>{descripcion + ""}</p>
-          <div className={s.user}>
+          <p className="parrafo-book">{descripcion + ""}</p>
+          <div className="user-book">
             <img src={imageUser} alt="user" />
-            <div className={s.userinfo}>
+            <div className="userinfo-book">
               <h5>{nameUser}</h5>
               <small></small>
             </div>
