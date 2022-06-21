@@ -1,6 +1,5 @@
 import Answer from "../models/modelsforquestions/Answer.js"
 import Question from "../models/modelsforquestions/Question.js"
-import RenderModelQA from "../models/modelsforquestions/RenderModelQA.js"
 import Usuario from "../models/Usuario.js"
 
 const postQuestion = async (req, res) => {
