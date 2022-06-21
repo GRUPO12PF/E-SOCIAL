@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap");
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -483,43 +484,96 @@ img {
     width: auto;
   }
 }
-.bookItem {
-  background-color: #c9c9c9;
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.card-book {
+  margin: 10px;
+  background-color: #fff;
   border-radius: 10px;
-  transition: all 0.3s;
-  margin-top: 20px;
-  box-shadow: 2px 3px 8px rgb(0, 0, 0);
-  padding: 20px;
-  width: 25rem;
-  height: 35rem;
-}
-
-.bookItem:hover {
-  transform: scale(1.1);
-  box-shadow: rgba(148, 210, 223, 0.05) 25px 25px;
-  border-radius: rgba(85, 134, 141, 0.05) 25px 25px;
-  border: black;
-}
-
-.book {
-  height: 200px;
-  width: 200px;
-  background-size: cover;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-}
-
-.nombre {
-  text-overflow: ellipsis;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  color: rgb(0, 0, 0);
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  font-weight: bold;
-  align-items: center;
-  justify-content: center;
+  width: 260px;
+}
+
+.card-book:hover {
+  box-shadow: 9px 13px 30px -9px rgba(0, 0, 0, 0.56);
+  -webkit-box-shadow: 9px 13px 30px -9px rgba(0, 0, 0, 0.56);
+  -moz-box-shadow: 9px 13px 30px -9px rgba(0, 0, 0, 0.56);
+}
+
+.cardheader-book img {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.cardbody-book {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  min-height: 250px;
+}
+
+.tagtagteal-book {
+  background-color: #BC3908;
+  border-radius: 50px;
+  font-size: 12px;
+  margin: 0;
+  color: #f0f8ff;
+  padding: 2px 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.cardbody-book .parrafo-book {
+  font-size: 13px;
+  margin: 0 0 40px;
+}
+
+.user-book {
+  display: flex;
+  margin-top: auto;
+}
+
+.user-book img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.userinfo-book h5 {
+  margin: 0;
+}
+
+.userinfo-book small {
+  color: #1f2330;
+}
+
+.parrafo-book {
+  width: 220px;
+  height: 70px;
+  overflow: scroll;
+  border-bottom: 1px solid #BC3908;
+}
+
+.parrafo-book::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+.parrafo-book::-webkit-scrollbar-corner {
+  background-color: transparent;
 }
 
 .nav {
@@ -879,5 +933,73 @@ body::-webkit-scrollbar-thumb {
   width: 30px;
   grid-column: 1/2;
   display: inline-block;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 8rem auto;
+  width: 1000px;
+  height: 440px;
+  background-color: #621708;
+  position: relative;
+  color: rgb(223, 210, 188);
+  border: 1px solid #621708;
+}
+
+.clip {
+  -webkit-clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+          clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+  background-color: rgba(246, 170, 28, 0.662745098);
+  width: 100%;
+  height: 439px;
+}
+
+.image {
+  width: 337px;
+  height: 439px;
+  position: absolute;
+  left: 0px;
+  border-bottom: 1px solid #621708;
+}
+
+.parra {
+  width: 550px;
+  height: 80px;
+  font-size: 0.9em;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  overflow: scroll;
+  padding: 1rem;
+}
+
+.parra::-webkit-scrollbar {
+  background-color: #621708;
+}
+
+.parra::-webkit-scrollbar-corner {
+  background-color: #621708;
+}
+
+.pName {
+  border-bottom: 1px solid white;
+  width: 90%;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  color: rgb(223, 210, 188);
+}
+
+.h5 {
+  text-transform: uppercase;
+  font-size: 17px;
+  font-family: "Roboto", sans-serif;
+  color: rgb(223, 210, 188);
+}
+
+.che {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 36rem;
 }
 /*# sourceMappingURL=app.css.map */

@@ -1,40 +1,88 @@
 @use "../base/variables" as v;
 @use "../base/mixins" as m;
 
-.bookItem {
-    background-color: v.$fondocard;
+* {
+    box-sizing: border-box;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  .card-book {
+    margin: 10px;
+    background-color: #fff;
     border-radius: 10px;
-    transition: all .3s;
-    margin-top: 20px;
-    box-shadow: 2px 3px 8px rgb(0, 0, 0);
-    padding: 20px;
-    width: 25rem;
-    height: 35rem;
-}
-
-.bookItem:hover {
-    transform: scale(1.10);
-    box-shadow: rgba(148, 210, 223, 0.05) 25px 25px;
-    border-radius:rgba(85, 134, 141, 0.05) 25px 25px;
-    border: black; 
-}
-.book{
-    height: 200px;
-    width: 200px;
-    background-size: cover;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-}
-
-.nombre {
-    text-overflow: ellipsis;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    color: rgb(0, 0, 0);
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    font-weight:bold;
-    align-items: center;
-    justify-content: center;
+    width: 260px;
+  }
+  .card-book:hover{
+    box-shadow: 9px 13px 30px -9px rgba(0,0,0,0.56);
+    -webkit-box-shadow: 9px 13px 30px -9px rgba(0,0,0,0.56);
+    -moz-box-shadow: 9px 13px 30px -9px rgba(0,0,0,0.56);
+  }
+  .cardheader-book img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  .cardbody-book {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    min-height: 250px;
+  }
+  
+  .tagtagteal-book {
+  background-color: #BC3908;
+    border-radius: 50px;
+    font-size: 12px;
+    margin: 0;
+    color: #f0f8ff;
+    padding: 2px 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  
+  
+  .cardbody-book .parrafo-book {
+    font-size: 13px;
+    margin: 0 0 40px;
+  }
+  .user-book {
+    display: flex;
+    margin-top: auto;
+  }
+  
+  .user-book img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  .userinfo-book h5 {
+    margin: 0;
+  }
+  .userinfo-book small {
+    color: #1f2330;
+  }
+  
+  .parrafo-book{
+    width: 220px;
+    height: 70px;
+    overflow: scroll;
+    border-bottom: 1px solid #BC3908;
+  }
+
+  .parrafo-book::-webkit-scrollbar{
+    background-color: transparent;
+  }
+
+  .parrafo-book::-webkit-scrollbar-corner{
+    background-color:transparent;
+    
 }

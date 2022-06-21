@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { detailsBook } from "../../../redux/actions/detailsBooks";
 import NavBar from "../../CommonComponents/NavBar/NavBar";
-import s from "./Details.module.css";
 import Loading from "../Loading/Loading";
 import book from "../../../assets/images/book.svg";
 import Footer from "../Footer/Footer";
@@ -31,41 +30,41 @@ const Details = () => {
     <>
     <NavBar />
     
-    <div className={s.card}>
-      <div className={s.clip}>
+    <div className="card">
+      <div className="clip">
         
       </div>
       <div>
-      <img  src={detail.image || book} alt="not found"className={s.image} />
+      <img  src={detail.image || book} alt="not found"className="image" />
       </div>
 
       <div>
-        <h3 className={s.pName}>{detail.nombre}</h3>
+        <h3 className="pName">{detail.nombre}</h3>
 
-        <div className={s.description}>
+        <div className="description">
           
-              <h5 className={s.h5}>Colección</h5>
+              <h5 className="h5">Colección</h5>
               {detail.colection}
 
-              <h5 className={s.h5}>Categoría</h5>
+              <h5 className="h5">Categoría</h5>
               {detail.category+", "}
 
 
-              <h5 className={s.h5}>Descripción</h5>
-              <p className={s.parra}>
+              <h5 className="h5">Descripción</h5>
+              <p className="parra">
                 {detail.descripcion}
               </p>
            
             </div>
-          <div className={s.che}>
+          <div className="che">
           {
                 token ?
                   <Link to="/checkout">
-                    <button className={s.btnn}>COMPRAR</button>
+                    <button className="btnn">COMPRAR</button>
                   </Link>
                   :
                   <Link to="/homeout">
-                    <button className={s.btnn}>COMPRAR</button>
+                    <button className="btnn">COMPRAR</button>
                   </Link>
               }
           </div>
