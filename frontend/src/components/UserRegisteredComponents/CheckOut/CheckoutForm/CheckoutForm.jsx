@@ -4,8 +4,10 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import s from './CheckoutForm.module.css'
 import { buyBook } from "../../../../redux/actions/actionBuy.js"
 import { orderPost } from "../../../../redux/actions/actionOrder"
-import { useNavigate } from "react-router";
-import swal from 'sweetalert';
+import { useNavigate } from "react-router"
+import { formatToCurrency } from "../../../../utils/helperFunctions.js"
+import swal from 'sweetalert'
+
 const CheckoutForm = () => {
   const stripe = useStripe()
   const elements = useElements()
@@ -42,14 +44,14 @@ const CheckoutForm = () => {
          await dispatch (orderPost({
             bookId : bookId
           }))
-          swal("Pago recibido!", "You clicked the button!", "success");
+          swal("Pago recibido!", "You clicked the button!", "success")
          
           setTimeout(() => {
             navigate("/confirmation")
-          }, 1000);
+          }, 1000)
 
         } else {
-          swal("Pago rechazado!", "You clicked the button!", "");
+          swal("Pago rechazado!", "You clicked the button!", "")
           
         }
         console.log(buy.payload.data.clientSecret)
@@ -79,7 +81,7 @@ const CheckoutForm = () => {
           alt="not found" // TODO cambiar por texto acorde
           className={s.productImg}
         />
-        <h3 className="text-center my-2">$ {product.price}</h3>
+        <h3 className="text-center my-2">{formatToCurrency(product.price)}</h3>
         </div>
 
         {/* User Card Input */}
