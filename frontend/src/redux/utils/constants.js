@@ -12,8 +12,6 @@ export const NAME_DESC = 'NAME_DESC'
 export const PRICE_ASC = 'PRICE_ASC'
 export const PRICE_DESC = 'PRICE_DESC'
 
-
-
 // ORDER
 
 export const GET_DETALLE_ORDER = 'GET_DETALLE_ORDER'
@@ -22,3 +20,10 @@ export const GET_DETALLE_ORDER = 'GET_DETALLE_ORDER'
 
 export const GET_USUARIOS = 'GET_USUARIOS'
 export const GET_ORDERS = 'GET_ORDERS'
+
+// QUESTIONS AND ANSWERS FROM DETAILS OF EACH BOOK 
+
+export const POST_QUESTION = 'POST_QUESTION'
+export const POST_ANSWER = 'POST_ANSWER'
+export const GET_QA = 'GET_QA'
+

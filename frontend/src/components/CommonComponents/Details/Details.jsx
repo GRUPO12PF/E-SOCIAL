@@ -6,13 +6,28 @@ import NavBar from "../../CommonComponents/NavBar/NavBar"
 import book from "../../../assets/images/book.svg"
 import { formatToCurrency } from "../../../utils/helperFunctions"
 
+import {getQA, postQuestion} from "../../../redux/actions/actionQA"
+
 
 const Details = () => {
   const [loading, setLoading] = useState(true)
   const token = localStorage.getItem("token")
   const { id } = useParams()
   const dispatch = useDispatch()
+
+  //--------------------------
   const detail = useSelector((state) => state.detail)
+  const usuarioVendedor = detail.creador
+  const idBook = detail._id
+  
+  const user = useSelector((state)=>state.usuarioActual)
+  const userComprador = user._id
+  
+  // console.log("id del libro", idBook, "id del comprador", userComprador, "id del vendedor", usuarioVendedor)
+  const [input, setInput] = useState({
+    mensaje: ''
+  })
+  //--------------------------
 
   if (Object.keys(detail).length > 0 && loading) {
     setTimeout(() => {
@@ -24,6 +39,25 @@ const Details = () => {
     dispatch(detailsBook(id))
   }, [dispatch])
 
+  const handleSubmitSendQuestion = async () =>{
+    setInput({
+      mensaje: input.mensaje,
+    })
+    console.log("a ver qué te mando jeje", input)
+    dispatch(postQuestion({
+      mensaje: input.mensaje, 
+      id: userComprador,
+      idBook: idBook,
+      idVendedor: usuarioVendedor
+    }))
+  }
+
+  const handleInputChange = function (e) {
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value
+    })
+  }
 
   return (
     <>
@@ -68,6 +102,16 @@ const Details = () => {
             }
           </div>
         </div>
+      </div>
+
+      <div>
+
+          <form onSubmit={()=>handleSubmitSendQuestion()}>
+            <input type="text" placeholder="Acá va su pregunta, señor" name="mensaje" value={input.mensaje} onChange={e => handleInputChange(e)}/> 
+            {/* <input type="text" placeholder="Acá va su pregunta, señor" name={input.mensaje} />  */}
+            <button >enviar</button>
+          </form>
+        {/* acá van las preguntas y respuestas */}
       </div>
 
     </>
