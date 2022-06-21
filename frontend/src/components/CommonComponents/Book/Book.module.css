@@ -69,3 +69,10 @@ background-color: #47bcd4;
 .userinfo small {
   color: #1f2330;
 }
+
+.p{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space:nowrap;
+  width: 100%;
+}

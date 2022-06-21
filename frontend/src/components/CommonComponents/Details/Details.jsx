@@ -28,8 +28,60 @@ const Details = () => {
 
 
   return (
-    <div>
+    <>
+    <NavBar />
+    <div className={s.card}>
+      <div className={s.clip}>
+        
+      </div>
       <div>
+      <img  src={detail.image || book} alt="not found"className={s.image} />
+      </div>
+
+      <div>
+        <h3 className={s.pName}>{detail.nombre}</h3>
+
+        <div className={s.description}>
+          
+              <h5 className={s.h5}>Colección</h5>
+              {detail.colection}
+
+              <h5 className={s.h5}>Categoría</h5>
+              {detail.category+", "}
+
+
+              <h5 className={s.h5}>Descripción</h5>
+              <p className={s.parra}>
+                {detail.descripcion}
+              </p>
+           
+            </div>
+          <div className={s.che}>
+          {
+                token ?
+                  <Link to="/checkout">
+                    <button className={s.btnn}>COMPRAR</button>
+                  </Link>
+                  :
+                  <Link to="/homeout">
+                    <button className={s.btnn}>COMPRAR</button>
+                  </Link>
+              }
+          </div>
+      </div>
+    </div>
+ 
+       
+    
+    </>
+  );
+};
+
+export default Details;
+
+
+
+      {/* <div>
         <NavBar />
       </div>
       {Object.keys(detail).length > 0 && !loading ? (
@@ -67,16 +119,19 @@ const Details = () => {
               <p className={s.parra}>
                 {detail.descripcion}
               </p>
-              {/* <Link to="/seller">
-                    <button className={s.btnn}>VENDEDOR</button>
-                  </Link> */}
+           
             </div>
           </div>
-        </div>
-      ) : <Loading />
-      }
-    </div>
-  );
-};
+        </div> */}
+      {/* ) : <Loading />
+      } */}
 
-export default Details;
+
+
+
+
+
+
+
+
+

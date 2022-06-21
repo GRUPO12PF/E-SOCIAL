@@ -2,7 +2,7 @@ import React from "react";
 import book from "../../../assets/images/book.svg";
 import s from "./Book.module.css";
 
-function Book({ nombre, image, price, imageUser, nameUser, category }) {
+function Book({ nombre, image, price, imageUser, nameUser, descripcion }) {
   return (
     <div className={s.container}>
       <div className={s.card}>
@@ -12,7 +12,7 @@ function Book({ nombre, image, price, imageUser, nameUser, category }) {
         <div className={s.cardbody}>
           <span className={s.tagtagteal}>{nombre}</span>
           <h4>{price}</h4>
-          <p>{category + ""}</p>
+          <p className={s.p}>{descripcion + ""}</p>
           <div className={s.user}>
             <img src={imageUser} alt="user" />
             <div className={s.userinfo}>
