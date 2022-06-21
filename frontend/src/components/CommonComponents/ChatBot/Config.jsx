@@ -21,7 +21,7 @@ const config = {
         props: {
             questions:[
             { question : "¿No sabés cómo registrarte?",
-              answer: "Debes apretar el botón LOGIN, tener que hacer click en 'Registrarme' e ingresar tus datos.",
+              answer: "Debes apretar el boton login, luego hacer click en el boton 'Registrarme' e ingresar tus datos.",
               id: 1,
             },
             {
