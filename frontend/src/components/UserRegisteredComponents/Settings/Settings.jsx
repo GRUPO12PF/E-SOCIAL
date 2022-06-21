@@ -1,17 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { cambiarImagen } from "../../../redux/actions/actionUser";
+import { cambiarImagen, usuarioActual } from "../../../redux/actions/actionUser";
 import { useDispatch, useSelector } from "react-redux";
 import profile from "../../../assets/images/avatar.png";
 import NavBar from "../../CommonComponents/NavBar/NavBar";
 import Loading from "../../CommonComponents/Loading/Loading";
 
+import io from "socket.io-client";
+let socket;
+
+
 export default function Settings() {
   const dispatch = useDispatch();
+  const params = window.location.href;
   const usuarioAct = useSelector((state) => state.usuarioActual);
 
+  useEffect(() => {
+    socket = io(import.meta.env.VITE_BACKEND_URL);
+    socket.emit("Settings", params);
+  }, []);
 
-  function handleFileImage(image) {
+  useEffect(() => {
+    dispatch(usuarioActual());
+    //recibir la respuesta del back
+    socket.on("userSettings", () => {
+      dispatch(usuarioActual());
+    });
+  }, []);
+
+  function handleImage(image) {
     dispatch(cambiarImagen(image));
   }
 
@@ -21,7 +38,7 @@ export default function Settings() {
       <NavBar/>
         <div className="contSettings-info">
           <div className="contProfile">
-          <img src={usuarioAct.image.url ? usuarioAct.image.url : profile} alt="" />
+          <img  src={usuarioAct.image.url ? usuarioAct.image.url : profile} alt="" />
             <span>Extenciones Soportadas: jpg/png</span>
             <div className="contFile">
               <label className="labelmiinput" htmlFor="mifile">
@@ -32,7 +49,7 @@ export default function Settings() {
                 name="image"
                 className="file"
                 id="mifile"
-                onChange={(e) => handleFileImage(e.target.files[0])}
+                onChange={(e) => handleImage(e.target.files[0])}
               />
             </div>
           </div>

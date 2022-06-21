@@ -48,7 +48,7 @@ const eliminarOrder = async (req, res) => {
 const detailOrder = async (req, res) => {
   try {
     const { id } = req.params
-    const order = await Order.findById({ _id: id }).populate("books")
+    const order = await Order.findById({ _id: id }).populate("books").populate("comprador")
 
     if (!order) {
       const error = new Error('No se encontró la orden')

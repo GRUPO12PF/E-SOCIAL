@@ -14,20 +14,27 @@ const OrderDetail = () => {
 
 
   const detalles = useSelector(state => state.order)
+  //console.log(detalles.books.nombre)
 
   useEffect(() => {
-    dispatch(getDetalleOrder(id));
-
+     dispatch(getDetalleOrder(id));  
   }, []);
+
 
   return (
     <div>
-                <NavBar />
-      
-      <p>id de la orden: {detalles._id}</p>
-      <p>nombre del libro: {detalles.book}</p>
-             
-          
+                <NavBar />        
+                <p>ID: {detalles._id}</p>
+                <img src={detalles.books.image}/>
+               <p>{detalles.books.nombre}</p>
+               <p>{detalles.books.price}</p>
+               <p>{detalles.books.descripcion}</p>
+               <p>{detalles.books.category}</p>
+               <p>{detalles.comprador.nombre}</p>
+               <img src={detalles.comprador.image.url}/>
+
+               <button>OPINAR SOBRE EL VENDEDOR</button>
+
     </div >
   )
 }
