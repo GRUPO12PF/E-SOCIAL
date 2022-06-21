@@ -15,6 +15,8 @@
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     width: 260px;
+  }
+  .cardbody {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -31,10 +33,3 @@
     color: gray;
   }
 
-  .titulo {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    color: rgb(109, 109, 109);
-    margin-top: 20px;
-  }
