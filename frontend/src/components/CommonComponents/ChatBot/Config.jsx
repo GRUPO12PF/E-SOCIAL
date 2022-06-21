@@ -21,7 +21,7 @@ const config = {
         props: {
             questions:[
             { question : "¿No sabés cómo registrarte?",
-              answer: "Debes apretar el botón LOGIN, tener que hacer click en 'Registrarme' e ingresar tus datos.",
+              answer: "Debes apretar el botón login, luego hacer click en el botón 'Registrarme' e ingresar tus datos.",
               id: 1,
             },
             {
@@ -30,7 +30,7 @@ const config = {
               id: 2,  
           },
             {
-                question : "¿Ya te registrarte y no podes ingresar?",
+                question : "¿Ya te registraste y no podes ingresar?",
                 answer: "Debes apretar el botón Ingresar o Ingresar con Google, si seguís teniendo problemas envianos un correo a mejorpfenlahistoria@gmail.com",
                 id: 3,  
             },
@@ -65,7 +65,7 @@ const config = {
         props: {
                   questions:[
                   { question : "¿No sabés cómo podés pagar tus compras?",
-                    answer:  "Es fácil y rápido, podes hacerlo mediante cualquier tarjeta a traves de la plataforma online. ",
+                    answer:  "Es fácil y rápido, podes hacerlo mediante cualquier tarjeta a tráves de la plataforma online. ",
                     id: 7,
                   },
                   {
@@ -75,7 +75,7 @@ const config = {
                   },
                   {
                     question : "¿Puedo pagar por transferencia bancaria, Rapipago o efectivo?",
-                    answer: "No, solo aceptamos tarjetas de crédito o débito Visa, Mastercard o Amex. ",
+                    answer: "No, solo aceota la plataforma tarjetas de crédito o débito Visa, Mastercard o Amex. ",
                     id: 9,  
                 },
                   {
