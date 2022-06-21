@@ -10,14 +10,12 @@
     position: relative;
     color: rgb(223, 210, 188);
     border: 1px solid #621708;
-    
 }
 .clip{
     clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
     background-color: #f6aa1ca9;
     width: 100%;
     height: 439px;
-    
 }
 
 .image{
@@ -37,7 +35,6 @@
   overflow: scroll;
   padding: 1rem;
   
-    
 }
 
 .parra::-webkit-scrollbar{
