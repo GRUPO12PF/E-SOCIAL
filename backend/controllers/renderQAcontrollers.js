@@ -6,12 +6,14 @@ import Usuario from "../models/Usuario.js"
 const postQuestion = async (req, res) => {
     try {
         const{id} = req.params
+        const {idBook} = req.body
 
         const user = await Usuario.findById(id)
 
         const newQuestion = new Question({
             mensaje : req.body.mensaje,
-            idComprador : user._id
+            idComprador : user._id,
+            book: idBook
         })
         const question = await newQuestion.save()
         user.questions = user.questions.concat(question._id)
