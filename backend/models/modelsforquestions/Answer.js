@@ -10,6 +10,11 @@ const answerSchema = mongoose.Schema(
     mensaje: {
         type: String,
         required: true,
+    },
+    question: 
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Question'
     }
   }
 )
