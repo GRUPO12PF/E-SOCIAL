@@ -13,7 +13,7 @@ const Quiz = (props) => {
     
     return(
     <div>
-    <p>Para más consultas podes contactactarte al mail: mejorpfenlahistoria@gmail.com</p>
+    <p>Para más consultas podes contactarte al mail: mejorpfenlahistoria@gmail.com</p>
     <p>MUCHAS GRACIAS</p>
     </div>
      ) 
