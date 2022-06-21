@@ -72,7 +72,7 @@ const Forms = () => {
                 >
                     {({ errors, handleSubmit, values, category }) => (<Form action="" onSubmit={handleSubmit} className={s.formik} >
                         <div className={s.form}>
-                            <label htmlFor="" className={s.label} >Name</label>
+                            <label htmlFor="" className={s.label} >Nombre</label>
                             <div>
                                 <Field
                                     className={s.input}
@@ -83,7 +83,7 @@ const Forms = () => {
                                 />
                                 <ErrorMessage name='nombre' component={() => (<p>{errors.nombre}</p>)} />
                             </div>
-                            <label htmlFor="" className={s.label} >Colection</label>
+                            <label htmlFor="" className={s.label} >Colección</label>
                             <div>
                                 <Field
                                     className={s.input}
@@ -93,7 +93,7 @@ const Forms = () => {
                                 />
                                 <ErrorMessage name='colection' component={() => (<p>{errors.colection}</p>)} />
                             </div>
-                            <label htmlFor="" className={s.label} >Price</label>
+                            <label htmlFor="" className={s.label} >Precio</label>
                             <div>
                                 <Field
                                     className={s.input}
@@ -104,7 +104,7 @@ const Forms = () => {
                                 />
                                 <ErrorMessage name='price' component={() => (<p >{errors.price}</p>)} />
                             </div>
-                            <label htmlFor="" className={s.label} >Image</label>
+                            <label htmlFor="" className={s.label} >Imagen</label>
                             <div>
                                 <Field
                                     className={s.input}
@@ -125,7 +125,7 @@ const Forms = () => {
                                 />
                                 <ErrorMessage name='descripcion' component={() => (<p>{errors.descripcion}</p>)} />
                             </div>
-                            <label htmlFor="" className={s.label}>Category</label>
+                            <label htmlFor="" className={s.label}>Categoría</label>
                             <div className={s.chek}>
                                 <div role="group" aria-labelledby="checkbox-group" >
                                     {categories?.map((e, i) =>
