@@ -163,6 +163,7 @@ export default function Login() {
                 <button type="submit"> LOGIN </button>
               </div>
               </form>
+
               <GoogleOAuthProvider
               clientId={`${import.meta.env.VITE_URL_CLIENT_ID}`}
               >
