@@ -30,6 +30,7 @@ const Details = () => {
   return (
     <>
     <NavBar />
+    
     <div className={s.card}>
       <div className={s.clip}>
         
