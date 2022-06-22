@@ -15,6 +15,11 @@ const questionSchema = mongoose.Schema(
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Books'
+      },
+    idVendedor: 
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Usuario'
       }
   }
 )

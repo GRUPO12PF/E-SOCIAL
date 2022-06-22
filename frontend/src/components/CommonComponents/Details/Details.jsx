@@ -6,13 +6,28 @@ import NavBar from "../../CommonComponents/NavBar/NavBar"
 import book from "../../../assets/images/book.svg"
 import { formatToCurrency } from "../../../utils/helperFunctions"
 
+import {getQA, postQuestion} from "../../../redux/actions/actionQA"
+
 
 const Details = () => {
   const [loading, setLoading] = useState(true)
   const token = localStorage.getItem("token")
   const { id } = useParams()
   const dispatch = useDispatch()
+
+  //--------------------------
   const detail = useSelector((state) => state.detail)
+  const usuarioVendedor = detail.creador
+  const idBook = detail._id
+  
+  const user = useSelector((state)=>state.usuarioActual)
+  const userComprador = user._id
+  
+  // console.log("id del libro", idBook, "id del comprador", userComprador, "id del vendedor", usuarioVendedor)
+  const [input, setInput] = useState({
+    mensaje: ''
+  })
+  //--------------------------
 
   if (Object.keys(detail).length > 0 && loading) {
     setTimeout(() => {
@@ -24,68 +39,81 @@ const Details = () => {
     dispatch(detailsBook(id))
   }, [dispatch])
 
+  const handleSubmitSendQuestion = async () =>{
+    setInput({
+      mensaje: input.mensaje,
+    })
+    console.log("a ver qué te mando jeje", input)
+    dispatch(postQuestion({
+      mensaje: input.mensaje, 
+      id: userComprador,
+      idBook: idBook,
+      idVendedor: usuarioVendedor
+    }))
+  }
+
+  const handleInputChange = function (e) {
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value
+    })
+  }
 
   return (
     <>
-          <NavBar />
+      <NavBar />
 
-      <div className="card">
-        <div className="clip">
+      <div className="card-detalle">
+        <div className="clip-detalle">
 
         </div>
         <div>
-          <img src={detail.image || book} alt="not found" className="image" />
+          <img src={detail.image || book} alt="not found" className="image-detalle" />
         </div>
 
         <div>
-          <h3 className="pName">{detail.nombre}</h3>
+          <h3 className="pName-detalle">{detail.nombre}</h3>
+          <div className="price-detalle">
           {formatToCurrency(detail.price)}
+          </div>
 
-          <div className="description">
-              <h5 className="h5-detalle">Descripción</h5>
-              <p className="parra-detalle">
-                {detail.descripcion}
-              </p>
-           
-            </div>
-          <div className="che-detalle">
-          {
-                token ?
-                  <Link to="/checkout">
-                    <button className="btnn-detalle">COMPRAR</button>
-                  </Link>
-                  :
-                  <Link to="/homeout">
-                    <button className="btnn-detalle">COMPRAR</button>
-                  </Link>
-              }
+          <div className="description-detalle">
 
-            <h5 className="h5">Saga / Serie</h5>
+            <h5 className="h5-detalle">Saga / Serie</h5>
             {detail.colection}
 
-            <h5 className="h5">Categoría</h5>
+            <h5 className="h5-detalle">Categoría</h5>
             {detail.category?.sort((a, b) => a.localeCompare(b)).join(', ')}
 
-            <h5 className="h5">Descripción</h5>
-            <p className="parra">
+            <h5 className="h5-detalle">Descripción</h5>
+            <p className="parra-detalle">
               {detail.descripcion}
             </p>
 
           </div>
-          <div className="che">
+          <div className="che-detalle">
             {
               token ?
                 <Link to="/checkout">
-                  <button className="btnn">COMPRAR</button>
+                  <button className="btnn-detalle">COMPRAR</button>
                 </Link>
                 :
                 <Link to="/registrar">
-                  <button className="btnn">COMPRAR</button>
+                  <button className="btnn-detalle">COMPRAR</button>
                 </Link>
             }
-
           </div>
         </div>
+      </div>
+
+      <div>
+
+          <form onSubmit={()=>handleSubmitSendQuestion()}>
+            <input type="text" placeholder="Acá va su pregunta, señor" name="mensaje" value={input.mensaje} onChange={e => handleInputChange(e)}/> 
+            {/* <input type="text" placeholder="Acá va su pregunta, señor" name={input.mensaje} />  */}
+            <button >enviar</button>
+          </form>
+        {/* acá van las preguntas y respuestas */}
       </div>
 
     </>
