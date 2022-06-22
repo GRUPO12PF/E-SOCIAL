@@ -37,7 +37,7 @@ const Forms = () => {
             price: '',
             image: '',
             colection: '',
-            ilustrado: false,
+            ilustrado: null,
             category: []
           }}
 
@@ -68,21 +68,25 @@ const Forms = () => {
               errors.idioma = 'Ingrese un idioma válido de hasta 40 caracteres.'
             }
 
-            if (!/^\S.*$/.test(values.editorial)) {
+            if (/^\s(.)*$/.test(values.editorial)) {
               errors.editorial = 'El primer caracter no puede ser un espacio'
-            } else if (!/^(\d|[a-z]|[\u00f1\u00d1]|[,.:;¡!¿?']|[À-ÿ]|\s){1,40}$/i.test(values.editorial)) {
-              errors.editorial = 'Ingrese un nombre de editorial de hasta 40 caracteres.'
+            } else if (!/^(\d|[a-z]|[\u00f1\u00d1]|[,.:;¡!¿?']|[À-ÿ]|\s){0,40}$/i.test(values.editorial)) {
+              errors.editorial = 'Ingrese un nombre válido de hasta 40 caracteres.'
             }
 
             if (/(\D)/.test(values.edicion) || values.edicion < 1 && values.edicion.toString().length > 0) {
               errors.edicion = 'Ingrese un Nº de edición mayor a 0.'
             }
 
-            if (values.año_de_pub && !/^[012][0-9]{0,3}$/.test(values.año_de_pub)) {
+            if (!/^([a-z]|\s){0,15}$/i.test(values.tapa)) {
+              errors.tapa = 'Ingrese un tipo de tapa.'
+            }
+
+            if (values.año_de_pub && !/^[012]{0,1}[0-9]{0,3}$/.test(values.año_de_pub)) {
               errors.año_de_pub = 'Ingrese un año en formato AAAA.'
             }
 
-            if (/(\D)/.test(values.cant_pags) || values.cant_pags < 1) {
+            if (/(\D|[-0])/.test(values.cant_pags)) {
               errors.cant_pags = 'Ingrese un número de págs. válido.'
             }
 
@@ -95,7 +99,7 @@ const Forms = () => {
             if (/(\D)/.test(values.price)) {
               errors.price = 'Ingrese el precio en centavos de USD.'
             } else if (!values.price || values.price < 50) {
-              errors.price = 'Ingrese un precio válido.'
+              errors.price = 'Ingrese un precio válido mayor a 50 centavos.'
             }
 
             if (!values.category) {
@@ -106,7 +110,6 @@ const Forms = () => {
           }}
 
           onSubmit={(values, { resetForm }) => {
-            console.log(values)
 
             dispatch(postCreate(values))
             resetForm()
