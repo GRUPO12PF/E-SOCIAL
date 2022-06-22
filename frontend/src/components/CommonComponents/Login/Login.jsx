@@ -39,7 +39,6 @@ export default function Login() {
   const errorEmail = useSelector((state) => state.errorEmail);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
 
   const [state,setEstate]= useState(false)
   const [usuario, setUsuario] = useState({
@@ -51,11 +50,6 @@ export default function Login() {
     email: "",
     password: "",
   });
-
-  useEffect(() => {
-    token ? navigate("/") : null;
-    
-  }, [token]);
 
 
   const handleToggle = ()=>{
@@ -84,20 +78,23 @@ export default function Login() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let val = validate(usuario.email, usuario.password);
     if (Object.keys(val).length === 0) {
-      dispatch(login(usuario));
+      const loginData= await dispatch(login(usuario));
+      console.log(loginData.payload)
       setUsuario({
         email: "",
         password: "",
       });
+      
       if (errorEmail) {
         e.preventDefault();
+      
       } else {
-        dispatch(resetErrorLoginUser());
-        navigate("/");
+       dispatch(resetErrorLoginUser());
+        loginData.payload.token ? navigate("/") : null
       }
     } else setErrors(val);
   };
