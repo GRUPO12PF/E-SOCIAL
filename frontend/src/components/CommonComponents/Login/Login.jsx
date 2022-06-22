@@ -39,9 +39,11 @@ export default function Login() {
   const errorEmail = useSelector((state) => state.errorEmail);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
+ // let token = localStorage.getItem("token");
+  //console.log(token)
 
   const [state,setEstate]= useState(false)
+  const [token, setToken] = useState("")
   const [usuario, setUsuario] = useState({
     email: "",
     password: "",
@@ -52,10 +54,10 @@ export default function Login() {
     password: "",
   });
 
-  useEffect(() => {
-    token ? navigate("/") : null;
+  //useEffect(() => {
+ // token ? navigate("/") : null;
     
-  }, [token]);
+  //}, [token]);
 
 
   const handleToggle = ()=>{
@@ -84,20 +86,26 @@ export default function Login() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let val = validate(usuario.email, usuario.password);
     if (Object.keys(val).length === 0) {
-      dispatch(login(usuario));
+      const loginData= await dispatch(login(usuario));
+      console.log(loginData.payload)
       setUsuario({
         email: "",
         password: "",
       });
+      
       if (errorEmail) {
         e.preventDefault();
+      
       } else {
-        dispatch(resetErrorLoginUser());
-        navigate("/");
+       dispatch(resetErrorLoginUser());
+        loginData.payload.token ? navigate("/") : null
+        console.log(setToken)
+        console.log(login)
+        //;
       }
     } else setErrors(val);
   };
