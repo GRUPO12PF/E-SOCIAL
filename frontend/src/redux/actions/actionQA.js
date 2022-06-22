@@ -1,5 +1,5 @@
 import clienteAxios from "../../config/clienteAxios";
-import { GET_QA, POST_ANSWER, POST_QUESTION } from '../utils/constants';
+import { GET_QA } from '../utils/constants';
 
 export const postQuestion = (payload) => {
     return async function (dispatch) {
@@ -11,8 +11,8 @@ export const postQuestion = (payload) => {
             },
         }
         try {
-            console.log("payload de las actionsssssss",payload)
-            const json = await clienteAxios.post(`/qa/question/${payload.id}`, payload.mensaje, payload.idVendedor, payload.idBook, config);
+           const json = await clienteAxios.post(`/qa/question/${payload.idComprador}`, payload, config);
+            console.log("a ver qué trae el jsoonnn ",json)
             return json.data;
         } catch (error) {
             // console.log(error)

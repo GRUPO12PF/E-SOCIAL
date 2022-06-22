@@ -8,15 +8,13 @@ const postQuestion = async (req, res) => {
         //id del usuario que pregunta
         const{id} = req.params
         //idBook es el id del libro al que VAMOS  dejar la pregunta. 
-        const {idBook, idVendedor} = req.body
-
         const user = await Usuario.findById(id)
 
         const newQuestion = new Question({
-            mensaje : req.body.mensaje,
             idComprador : user._id,
-            book: idBook,
-            idVendedor: idVendedor
+            mensaje : req.body.mensaje,
+            book: req.body.book,
+            idVendedor: req.body.idVendedor
         })
         const question = await newQuestion.save()
         user.questions = user.questions.concat(question._id)
@@ -62,6 +60,17 @@ const getQA = async (req, res) => {
       }
 }
 
+const getQuestion = async (req, res) => {
+    try {
+        const QA = await Question.find()
+        let response = QA
+    
+        res.json(response)
+      } catch (error) {
+        console.log(error)
+      }
+}
+
 const QAIdBook = async(req, res)=>{
     const {id} = req.params
     const qaId = await Answer.find({book: id}).populate("question")
@@ -85,6 +94,16 @@ const eliminarAnswer = async (req, res) => {
     }
   }
 
+  const eliminarQuestion = async (req, res) => {
+    try {
+      const id = req.params.id
+      const QAId = await Question.findOneAndDelete({ _id: id })
+      res.json({ QAId })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 const getQuestions = async (req, res) => {
     try {
         const id = req.params.id
@@ -99,8 +118,10 @@ export {
     postQuestion,
     postAnswer,
     getQA,
+    getQuestion,
     QAIdBook,
     eliminarAnswer,
-    getQuestions
+    getQuestions,
+    eliminarQuestion
   }
 

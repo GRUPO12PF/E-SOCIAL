@@ -39,17 +39,19 @@ const Details = () => {
     dispatch(detailsBook(id))
   }, [dispatch])
 
-  const handleSubmitSendQuestion = async () =>{
+  const handleSubmitSendQuestion = async (e) =>{
+    e.preventDefault();
     setInput({
       mensaje: input.mensaje,
     })
     console.log("a ver qué te mando jeje", input)
-    dispatch(postQuestion({
+     dispatch(postQuestion({
       mensaje: input.mensaje, 
-      id: userComprador,
-      idBook: idBook,
+      idComprador: userComprador,
+      book: idBook,
       idVendedor: usuarioVendedor
     }))
+
   }
 
   const handleInputChange = function (e) {
@@ -108,7 +110,7 @@ const Details = () => {
 
       <div>
 
-          <form onSubmit={()=>handleSubmitSendQuestion()}>
+          <form onSubmit={(e)=>handleSubmitSendQuestion(e)}>
             <input type="text" placeholder="Acá va su pregunta, señor" name="mensaje" value={input.mensaje} onChange={e => handleInputChange(e)}/> 
             {/* <input type="text" placeholder="Acá va su pregunta, señor" name={input.mensaje} />  */}
             <button >enviar</button>
