@@ -102,7 +102,7 @@ const Forms = () => {
               errors.price = 'Ingrese un precio válido mayor a 50 centavos.'
             }
 
-            if (!values.category) {
+            if (values.category.length < 1) {
               errors.category = 'Elija al menos 1 categoría.'
             }
 
@@ -283,9 +283,9 @@ const Forms = () => {
                   {categories?.map((e, i) =>
                     <div key={i} > <Field type="checkbox" name="category" value={`${e}`} /> {e} </div>
                   )}
-                  {/* <ErrorMessage name='category' component={() => (<p>{errors.category}</p>)} />      NO ESTÁ FUNCANDO! */}
                 </div>
               </div>
+              <ErrorMessage name='category' className='ASIGNAR!' component={() => (<p>{errors.category}</p>)} />
 
               <button
                 className={s.sendMsg}
