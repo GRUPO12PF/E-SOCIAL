@@ -39,11 +39,8 @@ export default function Login() {
   const errorEmail = useSelector((state) => state.errorEmail);
   const dispatch = useDispatch();
   const navigate = useNavigate();
- // let token = localStorage.getItem("token");
-  //console.log(token)
 
   const [state,setEstate]= useState(false)
-  const [token, setToken] = useState("")
   const [usuario, setUsuario] = useState({
     email: "",
     password: "",
@@ -53,11 +50,6 @@ export default function Login() {
     email: "",
     password: "",
   });
-
-  //useEffect(() => {
- // token ? navigate("/") : null;
-    
-  //}, [token]);
 
 
   const handleToggle = ()=>{
@@ -103,9 +95,6 @@ export default function Login() {
       } else {
        dispatch(resetErrorLoginUser());
         loginData.payload.token ? navigate("/") : null
-        console.log(setToken)
-        console.log(login)
-        //;
       }
     } else setErrors(val);
   };
