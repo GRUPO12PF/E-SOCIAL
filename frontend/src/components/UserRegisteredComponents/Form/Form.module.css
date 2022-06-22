@@ -11,6 +11,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    flex: 1;
 
 }
 
@@ -18,9 +19,11 @@
     background-color: rgba(20, 25, 32, 0.351);
     margin-top: 1rem;
     border-radius: 20px;
-    padding: 40px 250px;
+    padding: 40px 400px;
     font-family: 'Roboto', sans-serif; 
     position: relative;
+    right: 4rem;
+  
 }
 
 .input{
@@ -101,22 +104,31 @@ select{
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
-
+    z-index: 99;
     
 }
 
 .chek{
     display: grid;
-    /* grid-template-columns: repeat(3,1fr); */
     justify-content: center;
     background-color: rgba(128, 128, 128, 0.63) ;
     width:300px;
     height: 250px; 
-     overflow: scroll;
+    overflow: scroll;
     padding: 30px;
     gap: 2rem;
+    position: absolute;
+    top: 7rem;
+    right: 5rem;
     
     
+}
+
+.chek::-webkit-scrollbar{
+    background: none;
+}
+.chek::-webkit-scrollbar-corner{
+    background: none ;
 }
 
  input[type=checkbox]{
@@ -128,3 +140,18 @@ select{
 /* input[type=checkbox]+ label{
     cursor: pointer;
 }  */
+
+.subdi{
+    position: absolute;
+    left: 3rem;
+}
+
+.error{
+    color: rgba(255, 0, 0, 0.699);
+    font-size: 12px;
+    text-align: center;
+}
+.centro{
+    justify-content: center;
+    text-align: center;
+}
