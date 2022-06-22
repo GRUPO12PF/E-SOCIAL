@@ -12,7 +12,6 @@ export const historyOrders = (payload) => {
         };
         try {
             const json = await clienteAxios.get(`/orders/${payload}`, config);
-            console.log(json.data)
             return dispatch({
                 type: "HISTORY_ORDER",
                 payload: json.data
@@ -26,7 +25,6 @@ export const historyOrders = (payload) => {
 export const getDetalleOrder = (id) =>{
     return async function (dispatch){
         const json = await clienteAxios.get(`/orders/detail/${id}`);
-        console.log(json)
         return dispatch({
             type: GET_DETALLE_ORDER,
             payload:json.data

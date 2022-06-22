@@ -38,7 +38,7 @@ const UpdateBook = (_id) => {
             price: '',
             image: '',
             colection: '',
-            ilustrado: null,
+            ilustrado: false,
             category: []
           }}
           validate={(values) => {

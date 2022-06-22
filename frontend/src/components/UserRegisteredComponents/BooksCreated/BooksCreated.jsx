@@ -11,7 +11,6 @@ export default function BooksCreated() {
     const dispatch = useDispatch()
     const { id } = useParams();
 
-    console.log(id)
     // const usuarioActual  = useSelector ((state)=> state.usuario)
     // const userId = usuarioActual._id
     // console.log(userId)
@@ -21,7 +20,6 @@ export default function BooksCreated() {
         //dispatch(usuarioActual())
         dispatch(usuarioCreated(id))
       }, [dispatch]);
-    console.log(allBooks)
 
     return(
         <>

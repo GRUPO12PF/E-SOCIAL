@@ -37,7 +37,7 @@ const Forms = () => {
             price: '',
             image: '',
             colection: '',
-            ilustrado: null,
+            ilustrado: false,
             category: []
           }}
 

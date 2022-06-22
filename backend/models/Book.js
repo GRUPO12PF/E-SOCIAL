@@ -1,44 +1,71 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
 const booksSchema = mongoose.Schema(
   {
     nombre: {
       type: String,
       trim: true,
+      required: true
+    },
+    autor: {
+      type: String,
+      trim: true,
+      required: true
+    },
+    idioma: {
+      type: String,
+      trim: true,
+      required: true
+    },
+    editorial: {
+      type: String,
+      trim: true
+    },
+    edicion: {
+      type: Number,
+      trim: true
+    },
+    tapa: {
+      type: String,
+      trim: true
+    },
+    año_de_pub: {
+      type: Number,
+    },
+    cant_pags: {
+      type: Number,
+    },
+    colection: {
+      type: mongoose.Schema.Types.String,
+      ref: 'Coleccion'
+    },
+    image: {
+      type: String,
+    },
+    price: {
+      type: Number,
       required: true,
     },
     descripcion: {
       type: String,
       trim: true,
-      required: true,
+      required: true
     },
-    creador: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Usuario',
-      required: true,
-    },
-    colection: {
-      type: mongoose.Schema.Types.String,
-      ref: 'Coleccion',
+    ilustrado: {
+      type: Boolean,
+      default: false,
     },
     category: [
       {
         type: mongoose.Schema.Types.String,
-        ref: 'Usuario',
+        required: true,
+        ref: 'Usuario'
       },
     ],
-    image: {
-      type: String,
-    },
-    price: {
-      type: String,
-      trim: true,
-      required: true,
-    },
-    ranking: {
-      type: Number,
-      trim: true,
-      default: 0
+    creador: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Usuario',
+      required: true
     },
     userLikes: [
       {
@@ -48,8 +75,7 @@ const booksSchema = mongoose.Schema(
     ],
     avaliable: {
       type: Boolean,
-      trim: true,
-      default: false,
+      default: true,
     },
     order: [
       {
@@ -63,6 +89,5 @@ const booksSchema = mongoose.Schema(
   }
 )
 
-const BooksCreated = mongoose.model("Books", booksSchema);
-export default BooksCreated;
-
+const BooksCreated = mongoose.model("Books", booksSchema)
+export default BooksCreated
