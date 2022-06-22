@@ -51,6 +51,9 @@ const Details = () => {
       book: idBook,
       idVendedor: usuarioVendedor
     }))
+    setInput({
+      mensaje: ''
+    })
 
   }
 
