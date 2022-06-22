@@ -5,9 +5,7 @@ import { detailsBook } from "../../../redux/actions/detailsBooks"
 import NavBar from "../../CommonComponents/NavBar/NavBar"
 import book from "../../../assets/images/book.svg"
 import { formatToCurrency } from "../../../utils/helperFunctions"
-
-import {getQA, postQuestion} from "../../../redux/actions/actionQA"
-
+import { getQA, postQuestion } from "../../../redux/actions/actionQA"
 
 const Details = () => {
   const [loading, setLoading] = useState(true)
@@ -17,12 +15,14 @@ const Details = () => {
 
   //--------------------------
   const detail = useSelector((state) => state.detail)
+  const { nombre, autor, idioma, editorial, edicion, tapa, cant_pags, colection, image, price, descripcion, category, ilustrado, año_de_pub } = useSelector((state) => state.detail)
+
   const usuarioVendedor = detail.creador
   const idBook = detail._id
-  
-  const user = useSelector((state)=>state.usuarioActual)
+
+  const user = useSelector((state) => state.usuarioActual)
   const userComprador = user._id
-  
+
   // console.log("id del libro", idBook, "id del comprador", userComprador, "id del vendedor", usuarioVendedor)
   const [input, setInput] = useState({
     mensaje: ''
@@ -39,19 +39,18 @@ const Details = () => {
     dispatch(detailsBook(id))
   }, [dispatch])
 
-  const handleSubmitSendQuestion = async (e) =>{
+  const handleSubmitSendQuestion = async (e) => {
     e.preventDefault();
     setInput({
       mensaje: input.mensaje,
     })
     console.log("a ver qué te mando jeje", input)
-     dispatch(postQuestion({
-      mensaje: input.mensaje, 
+    dispatch(postQuestion({
+      mensaje: input.mensaje,
       idComprador: userComprador,
       book: idBook,
       idVendedor: usuarioVendedor
     }))
-
   }
 
   const handleInputChange = function (e) {
@@ -70,26 +69,80 @@ const Details = () => {
 
         </div>
         <div>
-          <img src={detail.image || book} alt="not found" className="image-detalle" />
+          <img src={image || book} alt="not found" className="image-detalle" />
         </div>
 
         <div>
-          <h3 className="pName-detalle">{detail.nombre}</h3>
+          <h3 className="pName-detalle">{nombre}</h3>
           <div className="price-detalle">
-          {formatToCurrency(detail.price)}
+            {formatToCurrency(price)}
           </div>
 
           <div className="description-detalle">
 
-            <h5 className="h5-detalle">Saga / Serie</h5>
-            {detail.colection}
+            {autor ?
+              (<>
+                <h5 className="h5-detalle">Autor</h5> {autor}
+              </>)
+              : null
+            }
+            {idioma ?
+              (<>
+                <h5 className="h5-detalle">Idioma</h5> {idioma}
+              </>)
+              : null
+            }
+            {editorial ?
+              (<>
+                <h5 className="h5-detalle">Editorial</h5> {editorial}
+              </>)
+              : null
+            }
+            {edicion ?
+              (<>
+                <h5 className="h5-detalle">Edición</h5> {edicion}
+              </>)
+              : null
+            }
+            {tapa ?
+              (<>
+                <h5 className="h5-detalle">Tapa</h5> {tapa}
+              </>)
+              : null
+            }
+            {año_de_pub ?
+              (<>
+                <h5 className="h5-detalle">Año de publicación</h5> {año_de_pub}
+              </>)
+              : null
+            }
+            {cant_pags ?
+              (<>
+                <h5 className="h5-detalle">Páginas</h5> {cant_pags}
+              </>)
+              : null
+            }
+            {ilustrado ?
+              (<>
+                <h5 className="h5-detalle">Ilustrado</h5> ✓
+              </>)
+              : (<>
+                <h5 className="h5-detalle">Ilustrado</h5> X
+              </>)
+            }
+            {colection ?
+              (<>
+                <h5 className="h5-detalle">Saga / Serie</h5> {colection}
+              </>)
+              : null
+            }
 
             <h5 className="h5-detalle">Categoría</h5>
-            {detail.category?.sort((a, b) => a.localeCompare(b)).join(', ')}
+            {category?.sort((a, b) => a.localeCompare(b)).join(', ')}
 
             <h5 className="h5-detalle">Descripción</h5>
             <p className="parra-detalle">
-              {detail.descripcion}
+              {descripcion}
             </p>
 
           </div>
@@ -110,11 +163,11 @@ const Details = () => {
 
       <div>
 
-          <form onSubmit={(e)=>handleSubmitSendQuestion(e)}>
-            <input type="text" placeholder="Acá va su pregunta, señor" name="mensaje" value={input.mensaje} onChange={e => handleInputChange(e)}/> 
-            {/* <input type="text" placeholder="Acá va su pregunta, señor" name={input.mensaje} />  */}
-            <button >enviar</button>
-          </form>
+        <form onSubmit={(e) => handleSubmitSendQuestion(e)}>
+          <input type="text" placeholder="Acá va su pregunta, señor" name="mensaje" value={input.mensaje} onChange={e => handleInputChange(e)} />
+          {/* <input type="text" placeholder="Acá va su pregunta, señor" name={input.mensaje} />  */}
+          <button >enviar</button>
+        </form>
         {/* acá van las preguntas y respuestas */}
       </div>
 
@@ -123,50 +176,3 @@ const Details = () => {
 }
 
 export default Details
-
-
-
-{/* <div>
-        <NavBar />
-      </div>
-      {Object.keys(detail).length > 0 && !loading ? (
-        <div>
-          <div className={s.background}>
-            <div className={s.name}>
-              <h3 className={s.pName}>{detail.nombre}</h3>
-              <img
-                src={detail.image || book}
-                alt="not found"
-                className={s.image}
-              />
-              <h3 className={s.pName}>Precio: {"$" + detail.price + ".00"}</h3>
-              {
-                token ?
-                  <Link to="/checkout">
-                    <button className={s.btnn}>COMPRAR</button>
-                  </Link>
-                  :
-                  <Link to="/homeout">
-                    <button className={s.btnn}>COMPRAR</button>
-                  </Link>
-              }
-
-            </div>
-            <div className={s.description}>
-              <h5 className={s.h5}>Colección</h5>
-              {detail.colection}
-
-              <h5 className={s.h5}>Categoría</h5>
-              {detail.category.join(", ")}
-
-
-              <h5 className={s.h5}>Descripción</h5>
-              <p className={s.parra}>
-                {detail.descripcion}
-              </p>
-           
-            </div>
-          </div>
-        </div> */}
-{/* ) : <Loading />
-      } */}
