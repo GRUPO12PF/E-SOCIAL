@@ -20,7 +20,7 @@ const Forms = () => {
   }, [dispatch])
 
   function handleImage(images) {
-    dispatch(subirFotos(images))
+    const imagePreview = dispatch(subirFotos(images))
   }
 
   return (
@@ -244,7 +244,7 @@ const Forms = () => {
                   id="file"
                   onChange={e => handleImage(e.target.files[0])}
                 />
-                <img src={values.image ? values.image[0] : null} alt="Preview de la img subida." />
+                <img src={values.image[0] ? values.image[0] : null} alt="Preview de la img subida." />
                 <ErrorMessage name='image' component={() => (<p>{errors.image}</p>)} />
               </div>
 

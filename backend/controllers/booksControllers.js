@@ -1,5 +1,4 @@
-import { uploadImage } from "../libs/cloudinary.js"
-import fs from "fs-extra"
+import getBookById from '../helpers/getBookById.js'
 import Book from '../models/Book.js'
 
 const projection = { createdAt: 0, updatedAt: 0, __v: 0, avaliable: 0 }
@@ -32,28 +31,9 @@ const obtenerBooks = async (req, res) => {
 const nuevoBook = async (req, res) => {
   const book = new Book(req.body)
   book.creador = req.usuario._id
-
-  // const formatos = ["png", "jpg", "webp", "gif"]
-  // if (
-  //   !formatos.includes(
-  //     req.files.image.name.split(".")[
-  //     req.files.image.name.split(".").length - 1
-  //     ]
-  //   )
-  // ) {
-  //   return res.status(400).send({ msg: "Invalid image format (jpg, png, webp or gif)" })
-  // }
+  console.log(req.body)
 
   try {
-    if (req.files.image) {
-      const response = await uploadImage(req.files.image.tempFilePath)
-      await fs.remove(req.files.image.tempFilePath)
-  
-      book.image = {
-        url: response.secure_url,
-        public_id: response.public_id,
-      }
-    }
     const bookAlmacenado = await book.save()
     res.status(201).json(bookAlmacenado)
   } catch (error) {

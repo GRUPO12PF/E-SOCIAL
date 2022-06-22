@@ -6,6 +6,7 @@ import {
   editarBook,
   eliminarBook,
 } from '../controllers/booksControllers.js'
+import { postBookImage } from '../controllers/imageController.js'
 import checkAuth from '../middleware/checkAuth.js'
 
 const router = express.Router()
@@ -21,5 +22,9 @@ router
   .get(detailBook)
   .put(editarBook)
   .delete(eliminarBook)
+
+router
+  .route('/images')
+  .post(postBookImage)
 
 export default router
