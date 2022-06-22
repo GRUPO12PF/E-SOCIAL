@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { Link, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { detailsBook } from "../../../redux/actions/detailsBooks"
 import NavBar from "../../CommonComponents/NavBar/NavBar"
 import book from "../../../assets/images/book.svg"
@@ -9,13 +9,21 @@ import { getQA, postQuestion } from "../../../redux/actions/actionQA"
 import DetailsField from "./DetailsField/DetailsField"
 
 const Details = () => {
+  const Navigate = useNavigate()
   const [loading, setLoading] = useState(true)
   const token = localStorage.getItem("token")
   const { id } = useParams()
   const dispatch = useDispatch()
-
+  
   //--------------------------
   const detail = useSelector((state) => state.detail)
+
+  const idCreador = detail.creador
+
+
+  const handle = ()=>{
+    Navigate(`/profile/${idCreador}`)
+  }
   const { nombre, autor, idioma, editorial, edicion, tapa, cant_pags, colection, image, price, descripcion, category, ilustrado, año_de_pub } = useSelector((state) => state.detail)
 
   const usuarioVendedor = detail.creador
@@ -185,6 +193,11 @@ const Details = () => {
         {/* acá van las preguntas y respuestas */}
       </div>
 
+        <div>
+
+          <button onClick={handle}>Perfil del vendedor</button>
+
+        </div>
     </>
   )
 }
