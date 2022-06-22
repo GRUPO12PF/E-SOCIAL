@@ -1,0 +1,49 @@
+.link-chatbot{
+    position:fixed;
+    cursor: pointer;
+    align-items: center;
+    color: black;
+    font-size: 50px;
+    margin-top: 25px;
+    border: none;
+    background: none;
+    right: 6rem;
+    bottom: 10%;
+   
+}
+
+.robot{
+    font-size: 60px;
+}
+
+
+.chatbotContainer{
+    position:fixed;
+    right: 12rem;
+    bottom: 10%;
+
+}
+.react-chatbot-kit-chat-bot-message{
+    font-size: 17px;
+}
+.react-chatbot-kit-chat-input{
+    font-size: 15px;
+    outline: none;
+}
+.react-chatbot-kit-user-chat-message{
+    font-size: 15px;
+}
+
+.button-chatbot{
+    background: rgba(95, 95, 95, 0.404);
+    position: relative;
+    top: 2.5rem;
+    right: -25.8rem;
+    z-index: 999;
+    border: none;
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+}
+
