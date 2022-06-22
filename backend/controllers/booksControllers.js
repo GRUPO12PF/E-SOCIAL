@@ -31,6 +31,7 @@ const obtenerBooks = async (req, res) => {
 const nuevoBook = async (req, res) => {
   const book = new Book(req.body)
   book.creador = req.usuario._id
+  console.log(req.body)
 
   try {
     const bookAlmacenado = await book.save()

@@ -200,6 +200,7 @@ const Forms = () => {
                   className={s.input}
                   type="number"
                   name="año_de_pub"
+                  // no consologuea siquiera Año de Pub :O
                   id="año_de_pub"
                   placeholder="AAAA..."
                 />
