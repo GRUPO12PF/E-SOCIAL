@@ -30,10 +30,10 @@ export default function SearchBar() {
     <div className="searchBar">
       <form
         className="formbusqueda"
-        onsubmit="event.preventDefault();"
+        // onSubmit="event.preventDefault();" // estaba tirando error x consola y comentado no cambia el funcionamiento
         role="search"
       >
-        <label className="labelB" for="search">
+        <label className="labelB" htmlFor="search">
           Search for stuff
         </label>
         <input
@@ -42,7 +42,7 @@ export default function SearchBar() {
           type="search"
           placeholder="Search..."
           onChange={(e) => handleInputChange(e)}
-          autofocus
+          autoFocus
           required
         />
         <button
