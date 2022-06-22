@@ -75,7 +75,7 @@ const Details = () => {
         <div> {/* ----- Acá tendríamos que hacer un carrusel de las imágenes que traemos de Cloudinary ----- */}
           {/* image.map((e,i) => {
               <img src={image || book} alt="not found" className="image-detalle" />          
-        }) */}
+        }) */} 
           <img src={image || book} alt="not found" className="image-detalle" />
         </div>
 
