@@ -16,6 +16,7 @@ const postBookImage = async (req, res) => {
   try {
     if (req.files.image) {
       const response = await uploadImage(req.files.image.tempFilePath)
+      console.log("🚀 ~ file: imageController.js ~ line 19 ~ postBookImage ~ response", response)
       await fs.remove(req.files.image.tempFilePath)
 
       const image = {
@@ -23,7 +24,7 @@ const postBookImage = async (req, res) => {
         public_id: response.public_id,
       }
 
-      res.json(image)
+      res.json(image.url)
     }
   } catch (error) {
     console.log(error)

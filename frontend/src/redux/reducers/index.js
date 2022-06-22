@@ -1,26 +1,27 @@
-import { GET_CATEGORIES, FILTER_BY_CATEGORY, SORT_BY, NAME_ASC, NAME_DESC, PRICE_ASC, PRICE_DESC, BUY_BOOK, GET_DETALLE_ORDER, GET_USUARIOS, GET_ORDERS, POST_ANSWER, POST_QUESTION, GET_QA } from '../utils/constants'
+import { GET_CATEGORIES, FILTER_BY_CATEGORY, SORT_BY, NAME_ASC, NAME_DESC, PRICE_ASC, PRICE_DESC, BUY_BOOK, GET_DETALLE_ORDER, GET_USUARIOS, GET_ORDERS, POST_ANSWER, POST_QUESTION, GET_QA, TEMP_STATE, CLEAN_TEMP_STATE } from '../utils/constants'
 
 const initialState = {
-  books: [],
-  countBooks: [],
   allBooks: [],
-  categories: [],
-  usuario: [],
-  usuarioActual: [],
+  allOrders: [],
   allUsuarios: [],
+  books: [],
+  booksCreated: [],
+  buy: [],
+  categories: [],
   confirmacion: {},
+  countBooks: [],
+  delete: [],
+  detail: [],
   email: [],
   invalidToken: true,
   loginUser: false,
-  detail: [],
-  delete: [],
-  put: [],
-  buy: [],
-  allOrders: [],
   orders: [],
   order: [],
-  booksCreated: [],
-  questionsAndAnswers: []
+  put: [],
+  questionsAndAnswers: [],
+  usuario: [],
+  usuarioActual: [],
+  tempState: []
 }
 
 function rootReducer(state = initialState, action) {
@@ -132,6 +133,18 @@ function rootReducer(state = initialState, action) {
         categories: action.payload
       }
 
+    case TEMP_STATE:
+      return {
+        ...state,
+        tempState: action.payload
+      }
+
+    case CLEAN_TEMP_STATE:
+      return {
+        ...state,
+        tempState: []
+      }
+
     // FILTERS
     case FILTER_BY_CATEGORY:
       return {
@@ -201,7 +214,7 @@ function rootReducer(state = initialState, action) {
 
     //ORDERS
     case "ORDER_POST":
-      return{
+      return {
         ...state
       }
     case 'HISTORY_ORDER':
@@ -228,22 +241,22 @@ function rootReducer(state = initialState, action) {
         allUsuarios: action.payload,
 
       }
-      case GET_ORDERS:
-        return{
-          ...state,
-          allOrders: action.payload
-        }
+    case GET_ORDERS:
+      return {
+        ...state,
+        allOrders: action.payload
+      }
     //----------------------QA---------------
     case POST_ANSWER:
-      return{
+      return {
         ...state
       }
     case POST_QUESTION:
-      return{
+      return {
         ...state
       }
     case GET_QA:
-      return{
+      return {
         ...state,
         questionsAndAnswers: action.payload
       }

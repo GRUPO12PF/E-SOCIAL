@@ -1,8 +1,17 @@
 import clienteAxios from "../../config/clienteAxios.jsx"
 import { toast } from "react-toastify"
+import { TEMP_STATE } from "../utils/constants.js"
 
 export function subirFotos(payload) {
-  return async function () {
+  return async function (dispatch) {
+    const id = localStorage.getItem("token")
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${id}`,
+      },
+    }
+
     try {
       const body = {
         image: payload,
@@ -11,13 +20,14 @@ export function subirFotos(payload) {
       for (let key in body) {
         form.append(key, body[key])
       }
-      console.log("🚀 ~ file: actionSubirFotos.js ~ line 10 ~ body", body)
       const json = await clienteAxios.post(`/books/images`, body, config)
-      toast.success(json.data.msg)
+      toast.success(json)
+      const response = json.data
+      console.log("🚀 ~ file: actionSubirFotos.js ~ line 26 ~ response", response)
 
       return dispatch({
-        type: IMG_UPLOAD,
-        json
+        type: TEMP_STATE,
+        response
       })
     } catch (error) {
       console.log(error)

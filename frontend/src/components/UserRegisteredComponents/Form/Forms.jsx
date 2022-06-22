@@ -8,19 +8,21 @@ import s from '../Form/Form.module.css'
 import { getCategories } from '../../../redux/actions/actionCategories.js'
 import { getBooks } from '../../../redux/actions/actionBooks'
 import { subirFotos } from '../../../redux/actions/actionSubirFotos'
+import { cleanTempState } from '../../../redux/actions/actionCleanTempState'
 
 const Forms = () => {
   // const [dispatch, navigate] = [useDispatch(), useNavigate()]
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const categories = useSelector(state => state.categories)
-
+  const imgPreview = useSelector(state => state.tempState)
+  
   useEffect(() => {
     dispatch(getCategories())
   }, [dispatch])
 
   function handleImage(images) {
-    const imagePreview = dispatch(subirFotos(images))
+    dispatch(subirFotos(images))
   }
 
   return (
@@ -125,6 +127,7 @@ const Forms = () => {
               icon: "success",
               button: "Ok!",
             })
+            dispatch(cleanTempState)
             navigate('/')
             dispatch(getBooks())
 
@@ -249,7 +252,7 @@ const Forms = () => {
                   id="file"
                   onChange={e => handleImage(e.target.files[0])}
                 />
-                <img src={values.image[0] ? values.image[0] : null} alt="Preview de la img subida." />
+                <img src={imgPreview ? imgPreview : null} alt="Preview de la img subida." />
                 <ErrorMessage name='image' component={() => (<p>{errors.image}</p>)} />
               </div>
 
