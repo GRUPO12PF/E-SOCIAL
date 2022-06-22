@@ -6,7 +6,7 @@ import NavBar from "../../CommonComponents/NavBar/NavBar"
 import book from "../../../assets/images/book.svg"
 import { formatToCurrency } from "../../../utils/helperFunctions"
 import { getQA, postQuestion } from "../../../redux/actions/actionQA"
-import DetailsCard from "./DetailsCard/DetailsCard"
+import DetailsField from "./DetailsField/DetailsField"
 
 const Details = () => {
   const [loading, setLoading] = useState(true)
@@ -72,7 +72,10 @@ const Details = () => {
         <div className="clip-detalle">
 
         </div>
-        <div>
+        <div> {/* ----- Acá tendríamos que hacer un carrusel de las imágenes que traemos de Cloudinary ----- */}
+          {/* image.map((e,i) => {
+              <img src={image || book} alt="not found" className="image-detalle" />          
+        }) */}
           <img src={image || book} alt="not found" className="image-detalle" />
         </div>
 
@@ -84,43 +87,43 @@ const Details = () => {
 
           <div className="description-detalle">
 
-            <DetailsCard
+            <DetailsField
               constant={autor}
               clase="h5-detalle"
               title='Autor'
             />
 
-            <DetailsCard
+            <DetailsField
               constant={idioma}
               clase="h5-detalle"
               title='Idioma'
             />
 
-            <DetailsCard
+            <DetailsField
               constant={editorial}
               clase="h5-detalle"
               title='Editorial'
             />
 
-            <DetailsCard
+            <DetailsField
               constant={edicion}
               clase="h5-detalle"
               title='Edición'
             />
 
-            <DetailsCard
+            <DetailsField
               constant={tapa}
               clase="h5-detalle"
               title='Tapa'
             />
 
-            <DetailsCard
+            <DetailsField
               constant={año_de_pub} // No me renderiza :C, no está cargando
               clase="h5-detalle"
               title='Año de publicación'
             />
 
-            <DetailsCard
+            <DetailsField
               constant={cant_pags}
               clase="h5-detalle"
               title='Páginas'
@@ -135,16 +138,10 @@ const Details = () => {
               </>)
             }
 
-            <DetailsCard
+            <DetailsField
               constant={colection}
               clase="h5-detalle"
               title='Saga / Serie'
-            />
-            
-            <DetailsCard
-              constant={image}
-              clase="h5-detalle"
-              title='Fotografías del ejemplar'
             />
 
             <h5 className="h5-detalle">Categoría</h5>
@@ -172,18 +169,18 @@ const Details = () => {
       </div>
 
       <div>
-            {
-              token ? 
-          <form onSubmit={(e)=>handleSubmitSendQuestion(e)}>
-            <input type="text" placeholder="Acá va su pregunta, señor" name="mensaje" value={input.mensaje} onChange={e => handleInputChange(e)}/> 
-            {/* <input type="text" placeholder="Acá va su pregunta, señor" name={input.mensaje} />  */}
-            <button >enviar</button>
-          </form>  
-            : 
+        {
+          token ?
+            <form onSubmit={(e) => handleSubmitSendQuestion(e)}>
+              <input type="text" placeholder="Acá va su pregunta, señor" name="mensaje" value={input.mensaje} onChange={e => handleInputChange(e)} />
+              {/* <input type="text" placeholder="Acá va su pregunta, señor" name={input.mensaje} />  */}
+              <button >enviar</button>
+            </form>
+            :
             <Link to="/homeout">
               <button className="btnn-detalle">Preguntar</button>
             </Link>
-          } 
+        }
 
         {/* acá van las preguntas y respuestas */}
       </div>
