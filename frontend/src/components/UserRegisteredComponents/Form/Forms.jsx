@@ -127,6 +127,9 @@ const Forms = () => {
           {({ errors, handleSubmit, values, category }) => (<Form action="" onSubmit={handleSubmit} className={s.formik} >
             <div className={s.form}>
 
+              <div className={s.subdi}>
+
+              
               <label htmlFor="" className={s.label} >Nombre*</label>
               <div>
                 <Field
@@ -135,7 +138,7 @@ const Forms = () => {
                   name="nombre"
                   id="nombre"
                 />
-                <ErrorMessage name='nombre' component={() => (<p>{errors.nombre}</p>)} />
+                <ErrorMessage name='nombre' component={() => (<p className={s.error}>{errors.nombre}</p>)} />
               </div>
 
               <label htmlFor="" className={s.label} >Autor*</label>
@@ -146,7 +149,7 @@ const Forms = () => {
                   name="autor"
                   id="autor"
                 />
-                <ErrorMessage name='autor' component={() => (<p>{errors.autor}</p>)} />
+                <ErrorMessage name='autor' component={() => (<p className={s.error}>{errors.autor}</p>)} />
               </div>
 
               <label htmlFor="" className={s.label} >Idioma*</label>
@@ -157,7 +160,7 @@ const Forms = () => {
                   name="idioma"
                   id="idioma"
                 />
-                <ErrorMessage name='idioma' component={() => (<p>{errors.idioma}</p>)} />
+                <ErrorMessage name='idioma' component={() => (<p className={s.error}>{errors.idioma}</p>)} />
               </div>
 
               <label htmlFor="" className={s.label} >Editorial</label>
@@ -168,7 +171,7 @@ const Forms = () => {
                   name="editorial"
                   id="editorial"
                 />
-                <ErrorMessage name='editorial' component={() => (<p>{errors.editorial}</p>)} />
+                <ErrorMessage name='editorial' component={() => (<p className={s.error}>{errors.editorial}</p>)} />
               </div>
 
               <label htmlFor="" className={s.label} >Edición</label>
@@ -179,7 +182,7 @@ const Forms = () => {
                   name="edicion"
                   id="edicion"
                 />
-                <ErrorMessage name='edicion' component={() => (<p >{errors.edicion}</p>)} />
+                <ErrorMessage name='edicion' component={() => (<p className={s.error}>{errors.edicion}</p>)} />
               </div>
 
               <label htmlFor="" className={s.label} >Tipo de tapa</label>
@@ -191,7 +194,9 @@ const Forms = () => {
                   id="tapa"
                   placeholder="Blanda, Dura..."
                 />
-                <ErrorMessage name='tapa' component={() => (<p>{errors.tapa}</p>)} />
+                <ErrorMessage name='tapa' component={() => (<p className={s.error}>{errors.tapa}</p>)} />
+              </div>
+
               </div>
 
               <label htmlFor="" className={s.label} >Año de publicación</label>
@@ -204,7 +209,7 @@ const Forms = () => {
                   id="año_de_pub"
                   placeholder="AAAA..."
                 />
-                <ErrorMessage name='año_de_pub' component={() => (<p >{errors.año_de_pub}</p>)} />
+                <ErrorMessage name='año_de_pub' component={() => (<p className={s.error}>{errors.año_de_pub}</p>)} />
               </div>
 
               <label htmlFor="" className={s.label} >Páginas</label>
@@ -215,7 +220,7 @@ const Forms = () => {
                   name="cant_pags"
                   id="cant_pags"
                 />
-                <ErrorMessage name='cant_pags' component={() => (<p >{errors.cant_pags}</p>)} />
+                <ErrorMessage name='cant_pags' component={() => (<p className={s.error}>{errors.cant_pags}</p>)} />
               </div>
 
               <label htmlFor="" className={s.label} >Saga / Serie</label>
@@ -226,7 +231,7 @@ const Forms = () => {
                   name="colection"
                   id="colection"
                 />
-                <ErrorMessage name='colection' component={() => (<p>{errors.colection}</p>)} />
+                <ErrorMessage name='colection' component={() => (<p className={s.error}>{errors.colection}</p>)} />
               </div>
 
               <label htmlFor="" className={s.label} >Fotografías del ejemplar</label> {/* ToDo: acá hay que cambiar por upload en Cloudinary */}
@@ -237,7 +242,7 @@ const Forms = () => {
                   name="image"
                   id="image"
                 />
-                <ErrorMessage name='image' component={() => (<p>{errors.image}</p>)} />
+                <ErrorMessage name='image' component={() => (<p className={s.error}>{errors.image}</p>)} />
               </div>
 
               <label htmlFor="" className={s.label} >Precio*</label>
@@ -249,7 +254,7 @@ const Forms = () => {
                   id="price"
                   placeholder="en centavos de USD..."
                 />
-                <ErrorMessage name='price' component={() => (<p >{errors.price}</p>)} />
+                <ErrorMessage name='price' component={() => (<p className={s.error} >{errors.price}</p>)} />
               </div>
 
               <label htmlFor="" className={s.label} >Descripción*</label>
@@ -261,11 +266,11 @@ const Forms = () => {
                   id="descripcion"
                   as="textarea"
                 />
-                <ErrorMessage name='descripcion' component={() => (<p>{errors.descripcion}</p>)} />
+                <ErrorMessage name='descripcion' component={() => (<p className={s.error}>{errors.descripcion}</p>)} />
               </div>
 
               <label htmlFor="" className={s.label}>Ilustrado</label>
-              <div>
+              <div className={s.centro}>
                 <Field
                   className={s.textarea}
                   as="select"
@@ -285,7 +290,7 @@ const Forms = () => {
                   )}
                 </div>
               </div>
-              <ErrorMessage name='category' className='ASIGNAR!' component={() => (<p>{errors.category}</p>)} />
+              <ErrorMessage name='category' className='ASIGNAR!' component={() => (<p className={s.error}>{errors.category}</p>)} />
 
               <button
                 className={s.sendMsg}
