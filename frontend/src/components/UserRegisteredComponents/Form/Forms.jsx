@@ -206,7 +206,7 @@ const Forms = () => {
                 <ErrorMessage name='año_de_pub' component={() => (<p >{errors.año_de_pub}</p>)} />
               </div>
 
-              <label htmlFor="" className={s.label} >Cantidad de páginas</label>
+              <label htmlFor="" className={s.label} >Páginas</label>
               <div>
                 <Field
                   className={s.input}
