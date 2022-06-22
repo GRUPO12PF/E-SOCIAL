@@ -7,15 +7,21 @@ import NavBar from '../../CommonComponents/NavBar/NavBar'
 import s from '../Form/Form.module.css'
 import { getCategories } from '../../../redux/actions/actionCategories.js'
 import { getBooks } from '../../../redux/actions/actionBooks'
+import { subirFotos } from '../../../redux/actions/actionSubirFotos'
 
 const Forms = () => {
-  const categories = useSelector(state => state.categories)
-  let navigate = useNavigate()
+  // const [dispatch, navigate] = [useDispatch(), useNavigate()]
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const categories = useSelector(state => state.categories)
 
   useEffect(() => {
     dispatch(getCategories())
   }, [dispatch])
+
+  function handleImage(images) {
+    dispatch(subirFotos(images))
+  }
 
   return (
     <div className={s.formFondo}>
@@ -48,7 +54,7 @@ const Forms = () => {
               errors.nombre = 'Campo requerido.'
             } else if (!/^\S.*$/.test(values.nombre)) {
               errors.nombre = 'El primer caracter no puede ser un espacio'
-            } else if (!/^(\d|[a-z]|[\u00f1\u00d1]|[,.:;¡!¿?']|[À-ÿ]|\s){1,40}$/i.test(values.nombre)) {
+            } else if (!/^(\d|[a-z]|[\u00f1\u00d1]|[,.:¡!¿?']|[À-ÿ]|\s){1,40}$/i.test(values.nombre)) {
               errors.nombre = 'Ingrese un nombre válido de hasta 40 caracteres.'
             }
 
@@ -70,7 +76,7 @@ const Forms = () => {
 
             if (/^\s(.)*$/.test(values.editorial)) {
               errors.editorial = 'El primer caracter no puede ser un espacio'
-            } else if (!/^(\d|[a-z]|[\u00f1\u00d1]|[,.:;¡!¿?']|[À-ÿ]|\s){0,40}$/i.test(values.editorial)) {
+            } else if (!/^(\d|[a-z]|[\u00f1\u00d1]|[,.:¡!¿?']|[À-ÿ]|\s){0,40}$/i.test(values.editorial)) {
               errors.editorial = 'Ingrese un nombre válido de hasta 40 caracteres.'
             }
 
@@ -124,7 +130,7 @@ const Forms = () => {
 
           }}
         >
-          {({ errors, handleSubmit, values, category }) => (<Form action="" onSubmit={handleSubmit} className={s.formik} >
+          {({ errors, handleSubmit, values /* , category */ }) => (<Form action="" onSubmit={handleSubmit} className={s.formik} >
             <div className={s.form}>
 
               <label htmlFor="" className={s.label} >Nombre*</label>
@@ -229,14 +235,16 @@ const Forms = () => {
                 <ErrorMessage name='colection' component={() => (<p>{errors.colection}</p>)} />
               </div>
 
-              <label htmlFor="" className={s.label} >Fotografías del ejemplar</label> {/* ToDo: acá hay que cambiar por upload en Cloudinary */}
+              <label htmlFor="" className={s.label} >Fotografías del ejemplar</label>
               <div>
                 <Field
                   className={s.input}
-                  type="text"
                   name="image"
-                  id="image"
+                  type="file"
+                  id="file"
+                  onChange={e => handleImage(e.target.files[0])}
                 />
+                <img src={values.image ? values.image[0] : null} alt="Preview de la img subida." />
                 <ErrorMessage name='image' component={() => (<p>{errors.image}</p>)} />
               </div>
 
