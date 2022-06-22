@@ -6,6 +6,7 @@ import NavBar from "../../CommonComponents/NavBar/NavBar"
 import book from "../../../assets/images/book.svg"
 import { formatToCurrency } from "../../../utils/helperFunctions"
 import { getQA, postQuestion } from "../../../redux/actions/actionQA"
+import DetailsCard from "./DetailsCard/DetailsCard"
 
 const Details = () => {
   const [loading, setLoading] = useState(true)
@@ -80,48 +81,48 @@ const Details = () => {
 
           <div className="description-detalle">
 
-            {autor ?
-              (<>
-                <h5 className="h5-detalle">Autor</h5> {autor}
-              </>)
-              : null
-            }
-            {idioma ?
-              (<>
-                <h5 className="h5-detalle">Idioma</h5> {idioma}
-              </>)
-              : null
-            }
-            {editorial ?
-              (<>
-                <h5 className="h5-detalle">Editorial</h5> {editorial}
-              </>)
-              : null
-            }
-            {edicion ?
-              (<>
-                <h5 className="h5-detalle">Edición</h5> {edicion}
-              </>)
-              : null
-            }
-            {tapa ?
-              (<>
-                <h5 className="h5-detalle">Tapa</h5> {tapa}
-              </>)
-              : null
-            }
-            {año_de_pub ?
-              (<>
-                <h5 className="h5-detalle">Año de publicación</h5> {año_de_pub}
-              </>)
-              : null
-            }
-            {cant_pags ?
-              (<>
-                <h5 className="h5-detalle">Páginas</h5> {cant_pags}
-              </>)
-              : null
-            }
+            <DetailsCard
+              constant={autor}
+              clase="h5-detalle"
+              title='Autor'
+            />
+
+            <DetailsCard
+              constant={idioma}
+              clase="h5-detalle"
+              title='Idioma'
+            />
+
+            <DetailsCard
+              constant={editorial}
+              clase="h5-detalle"
+              title='Editorial'
+            />
+
+            <DetailsCard
+              constant={edicion}
+              clase="h5-detalle"
+              title='Edición'
+            />
+
+            <DetailsCard
+              constant={tapa}
+              clase="h5-detalle"
+              title='Tapa'
+            />
+
+            <DetailsCard
+              constant={año_de_pub} // No me renderiza :C, no está cargando
+              clase="h5-detalle"
+              title='Año de publicación'
+            />
+
+            <DetailsCard
+              constant={cant_pags}
+              clase="h5-detalle"
+              title='Páginas'
+            />
+
             {ilustrado ?
               (<>
                 <h5 className="h5-detalle">Ilustrado</h5> ✓
@@ -130,12 +131,18 @@ const Details = () => {
                 <h5 className="h5-detalle">Ilustrado</h5> X
               </>)
             }
-            {colection ?
-              (<>
-                <h5 className="h5-detalle">Saga / Serie</h5> {colection}
-              </>)
-              : null
-            }
+
+            <DetailsCard
+              constant={colection}
+              clase="h5-detalle"
+              title='Saga / Serie'
+            />
+            
+            <DetailsCard
+              constant={image}
+              clase="h5-detalle"
+              title='Fotografías del ejemplar'
+            />
 
             <h5 className="h5-detalle">Categoría</h5>
             {category?.sort((a, b) => a.localeCompare(b)).join(', ')}
