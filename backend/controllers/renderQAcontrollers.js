@@ -113,7 +113,7 @@ const eliminarAnswer = async (req, res) => {
 const getQuestions = async (req, res) => {
     try {
         const id = req.params.id
-        const allQuestions = await Question.find({idVendedor: id})
+        const allQuestions = await Question.find({idVendedor: id}).populate("idComprador")
         res.send(allQuestions)
     } catch (error) {
         console.log(error)
