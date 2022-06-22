@@ -5,15 +5,18 @@ import Usuario from "../models/Usuario.js"
 
 const postQuestion = async (req, res) => {
     try {
+        //id del usuario que pregunta
         const{id} = req.params
-        const {idBook} = req.body
+        //idBook es el id del libro al que VAMOS  dejar la pregunta. 
+        const {idBook, idVendedor} = req.body
 
         const user = await Usuario.findById(id)
 
         const newQuestion = new Question({
             mensaje : req.body.mensaje,
             idComprador : user._id,
-            book: idBook
+            book: idBook,
+            idVendedor: idVendedor
         })
         const question = await newQuestion.save()
         user.questions = user.questions.concat(question._id)
@@ -82,13 +85,22 @@ const eliminarAnswer = async (req, res) => {
     }
   }
 
+const getQuestions = async (req, res) => {
+    try {
+        const id = req.params.id
+        const allQuestions = await Question.find({idVendedor: id})
+        res.send(allQuestions)
+    } catch (error) {
+        console.log(error)
+    }
+  }
   
-
 export {
     postQuestion,
     postAnswer,
     getQA,
     QAIdBook,
-    eliminarAnswer
+    eliminarAnswer,
+    getQuestions
   }
 
