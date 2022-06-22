@@ -5,9 +5,8 @@ import { detailsBook } from "../../../redux/actions/detailsBooks"
 import NavBar from "../../CommonComponents/NavBar/NavBar"
 import book from "../../../assets/images/book.svg"
 import { formatToCurrency } from "../../../utils/helperFunctions"
-
-import {getQA, postQuestion} from "../../../redux/actions/actionQA"
-
+import { getQA, postQuestion } from "../../../redux/actions/actionQA"
+import DetailsField from "./DetailsField/DetailsField"
 
 const Details = () => {
   const [loading, setLoading] = useState(true)
@@ -17,12 +16,14 @@ const Details = () => {
 
   //--------------------------
   const detail = useSelector((state) => state.detail)
+  const { nombre, autor, idioma, editorial, edicion, tapa, cant_pags, colection, image, price, descripcion, category, ilustrado, año_de_pub } = useSelector((state) => state.detail)
+
   const usuarioVendedor = detail.creador
   const idBook = detail._id
-  
-  const user = useSelector((state)=>state.usuarioActual)
+
+  const user = useSelector((state) => state.usuarioActual)
   const userComprador = user._id
-  
+
   // console.log("id del libro", idBook, "id del comprador", userComprador, "id del vendedor", usuarioVendedor)
   const [input, setInput] = useState({
     mensaje: ''
@@ -39,14 +40,14 @@ const Details = () => {
     dispatch(detailsBook(id))
   }, [dispatch])
 
-  const handleSubmitSendQuestion = async (e) =>{
+  const handleSubmitSendQuestion = async (e) => {
     e.preventDefault();
     setInput({
       mensaje: input.mensaje,
     })
     console.log("a ver qué te mando jeje", input)
-     dispatch(postQuestion({
-      mensaje: input.mensaje, 
+    dispatch(postQuestion({
+      mensaje: input.mensaje,
       idComprador: userComprador,
       book: idBook,
       idVendedor: usuarioVendedor
@@ -71,27 +72,84 @@ const Details = () => {
         <div className="clip-detalle">
 
         </div>
-        <div>
-          <img src={detail.image || book} alt="not found" className="image-detalle" />
+        <div> {/* ----- Acá tendríamos que hacer un carrusel de las imágenes que traemos de Cloudinary ----- */}
+          {/* image.map((e,i) => {
+              <img src={image || book} alt="not found" className="image-detalle" />          
+        }) */} 
+          <img src={image || book} alt="not found" className="image-detalle" />
         </div>
 
         <div>
-          <h3 className="pName-detalle">{detail.nombre}</h3>
+          <h3 className="pName-detalle">{nombre}</h3>
           <div className="price-detalle">
-          {formatToCurrency(detail.price)}
+            {formatToCurrency(price)}
           </div>
 
           <div className="description-detalle">
 
-            <h5 className="h5-detalle">Saga / Serie</h5>
-            {detail.colection}
+            <DetailsField
+              constant={autor}
+              clase="h5-detalle"
+              title='Autor'
+            />
+
+            <DetailsField
+              constant={idioma}
+              clase="h5-detalle"
+              title='Idioma'
+            />
+
+            <DetailsField
+              constant={editorial}
+              clase="h5-detalle"
+              title='Editorial'
+            />
+
+            <DetailsField
+              constant={edicion}
+              clase="h5-detalle"
+              title='Edición'
+            />
+
+            <DetailsField
+              constant={tapa}
+              clase="h5-detalle"
+              title='Tapa'
+            />
+
+            <DetailsField
+              constant={año_de_pub} // No me renderiza :C, no está cargando
+              clase="h5-detalle"
+              title='Año de publicación'
+            />
+
+            <DetailsField
+              constant={cant_pags}
+              clase="h5-detalle"
+              title='Páginas'
+            />
+
+            {ilustrado ?
+              (<>
+                <h5 className="h5-detalle">Ilustrado</h5> ✓
+              </>)
+              : (<>
+                <h5 className="h5-detalle">Ilustrado</h5> X
+              </>)
+            }
+
+            <DetailsField
+              constant={colection}
+              clase="h5-detalle"
+              title='Saga / Serie'
+            />
 
             <h5 className="h5-detalle">Categoría</h5>
-            {detail.category?.sort((a, b) => a.localeCompare(b)).join(', ')}
+            {category?.sort((a, b) => a.localeCompare(b)).join(', ')}
 
             <h5 className="h5-detalle">Descripción</h5>
             <p className="parra-detalle">
-              {detail.descripcion}
+              {descripcion}
             </p>
 
           </div>
@@ -111,18 +169,18 @@ const Details = () => {
       </div>
 
       <div>
-            {
-              token ? 
-          <form onSubmit={(e)=>handleSubmitSendQuestion(e)}>
-            <input type="text" placeholder="Acá va su pregunta, señor" name="mensaje" value={input.mensaje} onChange={e => handleInputChange(e)}/> 
-            {/* <input type="text" placeholder="Acá va su pregunta, señor" name={input.mensaje} />  */}
-            <button >enviar</button>
-          </form>  
-            : 
+        {
+          token ?
+            <form onSubmit={(e) => handleSubmitSendQuestion(e)}>
+              <input type="text" placeholder="Acá va su pregunta, señor" name="mensaje" value={input.mensaje} onChange={e => handleInputChange(e)} />
+              {/* <input type="text" placeholder="Acá va su pregunta, señor" name={input.mensaje} />  */}
+              <button >enviar</button>
+            </form>
+            :
             <Link to="/homeout">
               <button className="btnn-detalle">Preguntar</button>
             </Link>
-          } 
+        }
 
         {/* acá van las preguntas y respuestas */}
       </div>
@@ -132,50 +190,3 @@ const Details = () => {
 }
 
 export default Details
-
-
-
-{/* <div>
-        <NavBar />
-      </div>
-      {Object.keys(detail).length > 0 && !loading ? (
-        <div>
-          <div className={s.background}>
-            <div className={s.name}>
-              <h3 className={s.pName}>{detail.nombre}</h3>
-              <img
-                src={detail.image || book}
-                alt="not found"
-                className={s.image}
-              />
-              <h3 className={s.pName}>Precio: {"$" + detail.price + ".00"}</h3>
-              {
-                token ?
-                  <Link to="/checkout">
-                    <button className={s.btnn}>COMPRAR</button>
-                  </Link>
-                  :
-                  <Link to="/homeout">
-                    <button className={s.btnn}>COMPRAR</button>
-                  </Link>
-              }
-
-            </div>
-            <div className={s.description}>
-              <h5 className={s.h5}>Colección</h5>
-              {detail.colection}
-
-              <h5 className={s.h5}>Categoría</h5>
-              {detail.category.join(", ")}
-
-
-              <h5 className={s.h5}>Descripción</h5>
-              <p className={s.parra}>
-                {detail.descripcion}
-              </p>
-           
-            </div>
-          </div>
-        </div> */}
-{/* ) : <Loading />
-      } */}
