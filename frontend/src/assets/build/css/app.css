@@ -1004,6 +1004,16 @@ body::-webkit-scrollbar-thumb {
   left: 36rem;
 }
 
+.price-detalle {
+  position: absolute;
+  left: 5rem;
+  bottom: 1rem;
+  background-color: rgba(246, 170, 28, 0.4941176471);
+  color: black;
+  padding: 3px;
+  border-radius: 15px;
+}
+
 * {
   padding: 0;
   margin: 0;
