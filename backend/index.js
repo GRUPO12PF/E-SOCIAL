@@ -5,11 +5,11 @@ import usuarioRoutes from './routes/usuarioRoutes.js';
 import booksRoutes from './routes/booksRoutes.js';
 import categoriesRoutes from './routes/categoriesRoutes.js';
 import ordersRoutes from './routes/ordersRoutes.js';
-import usuarioCreadorRoutes from './routes/usuarioCreadorRoutes.js'
+import usuarioCreadorRoutes from './routes/usuarioCreadorRoutes.js';
+import renderQARoutes from './routes/renderQARoutes.js';
+import profileRoutes from './routes/profileRoutes.js'
 //---- ruta para payment
 import paymentsIntent from './routes/paymentsIntent.js'
-import renderQARoutes from './routes/renderQARoutes.js'
-
 import cors from "cors";
 import fileUpload from "express-fileupload";
 
@@ -56,6 +56,7 @@ app.use("/api/categories", categoriesRoutes);
 app.use("/api/orders", ordersRoutes);
 app.use("/api/usuarioCreador", usuarioCreadorRoutes);
 app.use("/api/qa" , renderQARoutes)
+app.use("/api/profile" , profileRoutes)
 
 //----Rutas para payment
 app.use(express.static("public"));
