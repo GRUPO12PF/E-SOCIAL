@@ -54,7 +54,6 @@ const Details = () => {
     setInput({
       mensaje: ''
     })
-
   }
 
   const handleInputChange = function (e) {
@@ -103,7 +102,7 @@ const Details = () => {
                   <button className="btnn-detalle">COMPRAR</button>
                 </Link>
                 :
-                <Link to="/registrar">
+                <Link to="/homeout">
                   <button className="btnn-detalle">COMPRAR</button>
                 </Link>
             }
@@ -112,12 +111,19 @@ const Details = () => {
       </div>
 
       <div>
-
+            {
+              token ? 
           <form onSubmit={(e)=>handleSubmitSendQuestion(e)}>
             <input type="text" placeholder="Acá va su pregunta, señor" name="mensaje" value={input.mensaje} onChange={e => handleInputChange(e)}/> 
             {/* <input type="text" placeholder="Acá va su pregunta, señor" name={input.mensaje} />  */}
             <button >enviar</button>
-          </form>
+          </form>  
+            : 
+            <Link to="/homeout">
+              <button className="btnn-detalle">Preguntar</button>
+            </Link>
+          } 
+
         {/* acá van las preguntas y respuestas */}
       </div>
 
