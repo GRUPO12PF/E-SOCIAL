@@ -35,6 +35,8 @@ import AllUsers from "./components/AdminComponents/AllUsers/AllUsers";
 import AdminHome from "./components/AdminComponents/AdminHome/AdminHome";
 import AllOrders from "./components/AdminComponents/AllOrders/AllOrders";
 import ConfirmacionPago from "./components/UserRegisteredComponents/CheckOut/ConfirmacionPago/ConfirmacionPago";
+import Questions from "./components/UserRegisteredComponents/Questions/Questions.jsx";
+import Profile from "./components/UserRegisteredComponents/Profile/Profile";
 
 
 export default function App() {
@@ -59,6 +61,8 @@ export default function App() {
          <Route path="/" element={<VerificationUser />}/>
           <Route path="/create" element={<Forms />} />
           <Route path="/confirmation" element={<ConfirmacionPago />}/>
+          <Route path="/questions/:id" element={<Questions />}/>
+          <Route path="/profile" element={<Profile />}/>
           <Route path="/details/update/:id" element={<UpdateBook />} />
           <Route path="/details/:id" element={<Details />} />
           <Route path="/user/setting" element={<Settings />} />

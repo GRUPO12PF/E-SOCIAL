@@ -1,5 +1,5 @@
 import clienteAxios from "../../config/clienteAxios";
-import { GET_QA } from '../utils/constants';
+import { GET_QA, GET_ALL_QUESTIONS } from '../utils/constants';
 
 export const postQuestion = (payload) => {
     return async function (dispatch) {
@@ -41,7 +41,7 @@ export const postAnswer = (payload) => {
 
 export const getQA = (id) => {
     try {
-        return async function(){
+        return async function(dispatch){
         const QA = await clienteAxios.get(`/qa/${id}`)
       return dispatch({
         type: GET_QA,
@@ -52,3 +52,25 @@ export const getQA = (id) => {
         console.log(error)
     }
 }
+
+export const allQuestions = (payload) => {
+  return async function (dispatch) {
+    const id = localStorage.getItem("token");
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${id}`,
+      },
+    };
+    try {
+      const json = await clienteAxios.get(`/qa/questions/${payload}`, config);
+      console.log(json);
+      return dispatch({
+        type: GET_ALL_QUESTIONS,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
