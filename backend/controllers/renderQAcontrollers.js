@@ -48,9 +48,11 @@ const postAnswer = async (req, res) => {
         console.log(error)
     }
 }
-
+//-----------------------------------------
+//trae todas las respuestas 
 const getQA = async (req, res) => {
     try {
+
         const QA = await Answer.find().populate("question")
         let response = QA
     
@@ -59,7 +61,8 @@ const getQA = async (req, res) => {
         console.log(error)
       }
 }
-
+//-----------------------------------------
+//trae todas las preguntas
 const getQuestion = async (req, res) => {
     try {
         const QA = await Question.find()
@@ -70,7 +73,8 @@ const getQuestion = async (req, res) => {
         console.log(error)
       }
 }
-
+//-----------------------------------------
+//trae una respuesta por id
 const QAIdBook = async(req, res)=>{
     const {id} = req.params
     const qaId = await Answer.find({book: id}).populate("question")
@@ -104,6 +108,8 @@ const eliminarAnswer = async (req, res) => {
     }
   }
 
+//-----------------------------------------
+//trae toda las preguntas del vendedor
 const getQuestions = async (req, res) => {
     try {
         const id = req.params.id
@@ -113,6 +119,7 @@ const getQuestions = async (req, res) => {
         console.log(error)
     }
   }
+
   
 export {
     postQuestion,
