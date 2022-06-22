@@ -16,6 +16,7 @@ import image from '../../../assets/images/login.jpg';
 import { FaRegEye,FaRegEyeSlash, FaWindows} from 'react-icons/fa';
 import Footer from "../Footer/Footer";
 
+
 function validate(email, password) {
   let objeto = {};
   if (email === "") objeto = { ...objeto, email: "this field is required" };
@@ -39,12 +40,20 @@ export default function Login() {
   const errorEmail = useSelector((state) => state.errorEmail);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const token = localStorage.getItem("token")
 
   const [state,setEstate]= useState(false)
   const [usuario, setUsuario] = useState({
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    
+    token? navigate("/"):null
+    
+  }, [token])
+  
 
   const [errors, setErrors] = useState({
     email: "",
@@ -94,16 +103,16 @@ export default function Login() {
       
       } else {
        dispatch(resetErrorLoginUser());
-        loginData.payload.token ? navigate("/") : null
+       loginData.payload.token ? navigate("/") : null
       }
     } else setErrors(val);
   };
   function responseGoogle(el) {
     dispatch(registroGoogle(el));
-    toast.success("login succesfully");
+   
     setTimeout(function () {
-      window.location.reload(1);
-    }, 2500); // After 2,5 secs
+      window.location.reload(1)
+    }, 1500); // After 2,5 secs
   }
   return (
     <div>
