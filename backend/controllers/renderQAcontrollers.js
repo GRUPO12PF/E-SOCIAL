@@ -60,6 +60,17 @@ const getQA = async (req, res) => {
       }
 }
 
+const getQuestion = async (req, res) => {
+    try {
+        const QA = await Question.find()
+        let response = QA
+    
+        res.json(response)
+      } catch (error) {
+        console.log(error)
+      }
+}
+
 const QAIdBook = async(req, res)=>{
     const {id} = req.params
     const qaId = await Answer.find({book: id}).populate("question")
@@ -83,6 +94,16 @@ const eliminarAnswer = async (req, res) => {
     }
   }
 
+  const eliminarQuestion = async (req, res) => {
+    try {
+      const id = req.params.id
+      const QAId = await Question.findOneAndDelete({ _id: id })
+      res.json({ QAId })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 const getQuestions = async (req, res) => {
     try {
         const id = req.params.id
@@ -97,8 +118,10 @@ export {
     postQuestion,
     postAnswer,
     getQA,
+    getQuestion,
     QAIdBook,
     eliminarAnswer,
-    getQuestions
+    getQuestions,
+    eliminarQuestion
   }
 

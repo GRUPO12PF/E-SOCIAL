@@ -1,11 +1,13 @@
 import express from 'express';
 import {
-    postQuestion,
-    postAnswer,
-    getQA,
-    QAIdBook,
-    eliminarAnswer,
-    getQuestions
+  postQuestion,
+  postAnswer,
+  getQA,
+  getQuestion,
+  QAIdBook,
+  eliminarAnswer,
+  eliminarQuestion,
+  getQuestions
 } from '../controllers/renderQAcontrollers.js';
 import checkAuth from '../middleware/checkAuth.js';
 
@@ -13,21 +15,27 @@ import checkAuth from '../middleware/checkAuth.js';
 const router = express.Router();
 
 router
-.route('/')
-.get(getQA)
+  .route('/')
+  .get(getQA)
+
+router
+  .route('/question')
+  .get(getQuestion)
 
 router
   .route('/:id')
   .get(QAIdBook)
-  .delete(checkAuth, eliminarAnswer)
 
 router
   .route('/question/:id')
   .post(checkAuth, postQuestion)
+  .delete(checkAuth, eliminarQuestion)
 
 router
   .route('/answer/:id')
   .post(checkAuth, postAnswer)
+  .delete(checkAuth, eliminarAnswer)
+
 
 router
   .route('/questions/:id')
