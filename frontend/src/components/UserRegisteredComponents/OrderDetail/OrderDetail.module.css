@@ -1,0 +1,76 @@
+.containerGral{
+    background-color:rgba(139, 134, 134, 0.666);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    background-attachment: fixed;
+    overflow: auto;
+    align-items: center;
+}
+
+.texto{
+    font-size: 50px;
+    color: #303030f5;
+    margin-left: 33%;
+    margin-top: 4%;
+}
+.textoId{
+    font-size: 20px;
+    color: #535353f5;
+    margin-left: 39%;
+    margin-top: 2%;
+}
+
+.image{
+    width: 15%;
+    vertical-align: middle;
+    margin-bottom: 20px;
+    padding: 0;
+    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.767);
+    border-radius: 20px;
+    margin-left: 40%;
+    margin-top: 5%;
+}
+
+.contenedorSecundario{
+    box-sizing: border-box;
+    border-radius: 15px;
+    background-color: white;
+    margin-top: 1.5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 1.5%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.items{
+    font-size: 1.4rem;
+    color: #282727;
+}
+
+.button{
+    padding-top:1px;
+    background-color: #f3b84cde ;
+    color: #101111dc;
+    font-size: 1.5 rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    margin-left: 41%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+
+.buttonBack:hover{
+    cursor: pointer;
+    background-color: #b6b1b2b9;
+    transform: translateY(-4px);
+}
