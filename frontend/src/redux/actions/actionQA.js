@@ -40,14 +40,14 @@ export const postAnswer = (payload) => {
 }
 
 export const getQA = (id) => {
-    try {
-        return async function(dispatch){
+  try {
+      return async function(dispatch){
         const QA = await clienteAxios.get(`/qa/${id}`)
-      return dispatch({
-        type: GET_QA,
-        payload: QA
-      }) 
-    }
+        return dispatch({
+          type: GET_QA,
+          payload: QA.data
+        }) 
+      }
     } catch (error) {
         console.log(error)
     }
