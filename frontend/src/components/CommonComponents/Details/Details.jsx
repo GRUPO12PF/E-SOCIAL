@@ -84,7 +84,7 @@ const Details = () => {
           {/* image.map((e,i) => {
               <img src={image || book} alt="not found" className="image-detalle" />          
         }) */} 
-          <img src={image || book} alt="not found" className="image-detalle" />
+          <img src={image || book} alt="No encontrado" className="image-detalle" />
         </div>
 
         <div>
@@ -126,7 +126,7 @@ const Details = () => {
             />
 
             <DetailsField
-              constant={año_de_pub} // No me renderiza :C, no está cargando
+              constant={año_de_pub}
               clase="h5-detalle"
               title='Año de publicación'
             />
@@ -168,7 +168,7 @@ const Details = () => {
                   <button className="btnn-detalle">COMPRAR</button>
                 </Link>
                 :
-                <Link to="/homeout">
+                <Link to="/registrar">
                   <button className="btnn-detalle">COMPRAR</button>
                 </Link>
             }

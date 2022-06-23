@@ -1,46 +1,44 @@
 import React, { useEffect } from 'react'
-import { getAllUsers } from '../../../redux/actions/actionAdmin';
+import { getAllUsers } from '../../../redux/actions/actionAdmin'
 import { useDispatch, useSelector } from 'react-redux'
 import { cleanData, getBooks } from '../../../redux/actions/actionBooks'
-import NavBar from '../../CommonComponents/NavBar/NavBar';
-import Footer from '../../CommonComponents/Footer/Footer';
+import NavBar from '../../CommonComponents/NavBar/NavBar'
 import profile from '../../../assets/images/avatar2.png'
-import Pagination from '../../CommonComponents/Pagination/Pagination';
+import Pagination from '../../CommonComponents/Pagination/Pagination'
 import s from './AllUsers.module.css'
 
-
 function AllUsers() {
-    const dispatch = useDispatch();
-    const allUsers = useSelector(state => state.allUsuarios);
-    console.log(allUsers)
+    const dispatch = useDispatch()
+    const allUsers = useSelector(state => state.allUsuarios)
+    
     useEffect(() => {
         dispatch(getAllUsers())
         dispatch(getBooks())
         return () => {
-            dispatch(cleanData());
+            dispatch(cleanData())
         }
-    }, []);
+    }, [])
     const toggleEditInfo = () => {
-        setEditInfo(!editInfo);
-      };
+        setEditInfo(!editInfo)
+      }
 
     const handleEdit = (e, id) => {
-        e.preventDefault();
-        console.log("id es ", id);
-        toggleEditInfo();
-        setCurrentUser(id);
-    };
+        e.preventDefault()
+        console.log("id es ", id)
+        toggleEditInfo()
+        setCurrentUser(id)
+    }
 
     const handleDelete = (e, id) => {
-        e.preventDefault();
+        e.preventDefault()
         if (
             window.confirm("¿Esta seguro que quiere eliminar este usuario?") === true
         ) {
-            dispatch(deleteUser(id));
-            alert("Usuario eliminado correctamente.");
-            window.location.reload();
+            dispatch(deleteUser(id))
+            alert("Usuario eliminado correctamente.")
+            window.location.reload()
         }
-    };
+    }
     return (
         <div>
             <NavBar />
@@ -67,7 +65,7 @@ function AllUsers() {
                                     >
                                         <td className={s.id}>{u.id}</td>
                                         <td className={s.name}>{u.name}</td>
-                                        <td className={s.image}><img src={u.image.url || profile} alt="Not Available" height={50} width={50} /></td>
+                                        <td className={s.image}><img src={u.image.url || profile} alt="No disponible" height={50} width={50} /></td>
                                         <td className={s.verified}>{u.verified}</td>
                                         <td className={s.blocked}>{u.blocked}</td>
                                         <td className={s.moderator}>{u.moderator}</td>
@@ -88,7 +86,7 @@ function AllUsers() {
                                             )}
                                         </td>
                                     </tr>
-                                );
+                                )
                             })}
                         </tbody>
                     </table>

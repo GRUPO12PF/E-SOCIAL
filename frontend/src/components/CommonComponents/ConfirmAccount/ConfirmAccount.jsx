@@ -1,32 +1,31 @@
-import React, { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { validateUser } from "../../../redux/actions/actionUser.js";
-import s from "./ConfirmAccount.module.css";
-import Footer from "../Footer/Footer.jsx";
+import React, { useEffect } from "react"
+import { useParams, Link } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { validateUser } from "../../../redux/actions/actionUser.js"
+import s from "./ConfirmAccount.module.css"
 
 export default function ConfirmarCuenta() {
-  const dispatch = useDispatch();
-  const respuesta = useSelector((state) => state.confirmacion);
-  const params = useParams();
-  const { id } = params;
+  const dispatch = useDispatch()
+  const respuesta = useSelector((state) => state.confirmacion)
+  const params = useParams()
+  const { id } = params
   
 
   useEffect(() => {
-    dispatch(validateUser(id));
-  }, []);
+    dispatch(validateUser(id))
+  }, [])
 
   return (
     <div className={s.contConfirm}>
       <h2 className={s.title}>
-        Welcome to <span>Books</span> Market
+        ¡Bienvenido a <span>E-Social</span>!
         <br/>
       </h2>
       <div className={s.response}>{respuesta.msg}</div>
       <br/>
       <Link to="/">
-        <button className={s.btn}>Go back home</button>
+        <button className={s.btn}>Volver a HOME</button>
       </Link>
     </div>
-  );
+  )
 }

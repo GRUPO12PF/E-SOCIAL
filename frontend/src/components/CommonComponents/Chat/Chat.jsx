@@ -139,7 +139,7 @@ export default function Chat({ usuario, socket }) {
                 );
               })
             ) : (
-              <li className="cadaMnesaje"> write the first msg </li>
+              <li className="cadaMnesaje"> Escriba el primer mensaje </li>
             )}
           </div>
           <div ref={scrolChat}></div>
@@ -153,7 +153,7 @@ export default function Chat({ usuario, socket }) {
             placeholder="write"
           />
           <button className="buttonChat" type="submit">
-            send
+            ENVIAR
           </button>
         </form>
       </div>

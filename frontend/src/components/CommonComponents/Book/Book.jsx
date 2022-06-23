@@ -1,13 +1,13 @@
-import React from "react";
-import book from "../../../assets/images/book.svg";
-import s from "./Book.module.css";
+import React from "react"
+import book from "../../../assets/images/book.svg"
+import s from "./Book.module.css"
 
 function Book({ nombre, image, price, imageUser, nameUser, descripcion }) {
   return (
     <div className="container">
       <div className="card-book">
         <div className="cardheader-book">
-        <img className="book-book" src={image || book} alt='Img not found' />
+        <img className="book-book" src={image || book} alt='Imagen no encontrada' />
         </div>
         <div className="cardbody-book">
           <span className="tagtagteal-book">{nombre}</span>
@@ -23,7 +23,7 @@ function Book({ nombre, image, price, imageUser, nameUser, descripcion }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Book;
+export default Book
