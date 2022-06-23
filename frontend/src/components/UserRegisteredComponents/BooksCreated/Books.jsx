@@ -31,19 +31,17 @@ function Books({ nombre, image, price, id }) {
       }
 
     return (
-      <div className={s.container}>
-      <div className={s.body}>
+<div className={s.container}>     
 <div className={s.card}>
-<div className={s.card__top}>
+<div className={s.cardBody}>
 <img
   className={s.book}
   src={image || book}
   alt='Img not found'
   /> 
+<h4 className={s.nombre}>{nombre}</h4>
+<p className={s.nombre}>Precio: {price}</p>
 </div>
-<div className={s.card__bottom}>
-<h3 className={s.nombre}>{nombre}</h3>
-<h3>Precio: {price}</h3>
 {token ? (
   <div className={s.botoness}>
   <button className={s.btn} onClick={(e) => handleDeleteBook(e)}>DELETE</button>
@@ -52,8 +50,7 @@ function Books({ nombre, image, price, id }) {
  ) : null}
 </div>
 </div>
-</div>
-</div>
+
     )
 }
 
