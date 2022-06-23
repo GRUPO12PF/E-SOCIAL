@@ -35,7 +35,7 @@ function Books({ nombre, image, price, id }) {
 <div className={s.card}>
 <div className={s.cardBody}>
 <h4 className={s.nombre}>{nombre}</h4>
-<p className={s.nombre}>Precio: {price}</p>
+<p className={s.precio}>Precio: {price}</p>
 <img
   className={s.book}
   src={image || book}
