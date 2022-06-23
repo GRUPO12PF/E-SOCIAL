@@ -30,6 +30,7 @@ import CheckOut from "./components/UserRegisteredComponents/CheckOut/CheckOut";
 import OrdersHistory from "./components/UserRegisteredComponents/OrdersHistory/OrdersHistory";
 import OrderDetail from "./components/UserRegisteredComponents/OrderDetail/OrderDetail";
 import BooksCreated from "./components/UserRegisteredComponents/BooksCreated/BooksCreated"
+import ProfileUsers from "./components/CommonComponents/ProfileUsers/ProfileUsers";
 //----------------------------------ADMIN---------------------------------------------
 import AllUsers from "./components/AdminComponents/AllUsers/AllUsers";
 import AdminHome from "./components/AdminComponents/AdminHome/AdminHome";
@@ -73,6 +74,8 @@ export default function App() {
           <Route path="/admin/users" element={<AllUsers/>}/>
           <Route path="/admin" element={<AdminHome/>}/>
           <Route path="/admin/allOrders" element={<AllOrders/>}/>
+          <Route path="/profile/:id" element={<ProfileUsers/>}/>
+
 
 
         <Route path="*" element={<NotFound />} />
