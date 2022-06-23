@@ -1,15 +1,12 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
-import s from './Review.module.css'
-import { Rating } from 'react-simple-star-rating'
 import { useDispatch, useSelector } from 'react-redux'
 import { getDetalleOrder, review } from '../../../redux/actions/actionOrder'
 import { useNavigate, useParams } from 'react-router'
 
 const Review = () => {
   const Navigate = useNavigate()
-  const [rating, setRating] = useState(0) // initial rating value
   const {id}=useParams()
   const dispatch = useDispatch()
   const detalles = useSelector(state => state.order)
@@ -30,10 +27,7 @@ const Review = () => {
 
   }, [])
   
-  const handleRating = (rating) => {
-    setRating(rating)
-
-  }
+  
   function handleChange(e) {
     setInput({
         ...input,
@@ -59,11 +53,6 @@ const Review = () => {
   return (
     <>
   <NavBar />
-    <div className={s.flex}>
-    
-      <Rating onClick={handleRating} activeColor={"yellow"} color={"black"} ratingValue={rating} size={40} />
-      <p>The rating is {rating + "."}</p>
-    </div>
 
     <form onSubmit={handleSubmit} >
     <label htmlFor="">titulo</label>
