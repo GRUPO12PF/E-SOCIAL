@@ -16,14 +16,16 @@ export function subirFotos(payload) {
       const body = {
         image: payload,
       }
+      
       const form = new FormData()
       for (let key in body) {
         form.append(key, body[key])
       }
+      
       const json = await clienteAxios.post(`/books/images`, body, config)
       toast.success(json)
       const response = json.data
-
+      
       return dispatch({
         type: TEMP_STATE,
         payload: response

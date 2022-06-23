@@ -12,47 +12,13 @@ export const postCreate = (payload) => {
     }
 
     try {
-      const json = await clienteAxios.post(`/books`, payload, config)
-      console.log(json)
-      return json
+      const postResponse = await clienteAxios.post(`/books`, payload, config)
+      console.log("🚀 ~ file: postProducts.js ~ line 16 ~ payload", payload)
+      console.log("🚀 ~ file: postProducts.js ~ line 16 ~ postResponse", postResponse.data) // por alguna razón, año_de_pub NO LLEGA en la respuesta
+      return postResponse
 
     } catch (error) {
       throw error
     }
   }
 }
-
-
-
-/* 
-export const postCreate = (payload) => {
-  return async function () {
-    const id = localStorage.getItem("token")
-    const config = {
-      headers: {
-        "Content-Type": "multipart/form-data",
-        Authorization: `Bearer ${id}`,
-      },
-    }
-
-    try {
-      let newBook = payload
-      const imagesToBook = {
-        image: newBook.image,
-      }
-      const form = new FormData()
-      for (let key in imagesToBook) {
-        form.append(key, imagesToBook[key])
-      }
-      newBook.image = imagesToBook
-      const json = await clienteAxios.post(`/books`, newBook, config)
-      toast.success(json.data.msg)
-      console.log(json.data)
-      return json
-
-    } catch (error) {
-      throw error
-    }
-  }
-}
- */

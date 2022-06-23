@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Formik, Field, ErrorMessage, Form } from 'formik'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,17 +9,17 @@ import { getCategories } from '../../../redux/actions/actionCategories.js'
 import { cleanData, getBooks } from '../../../redux/actions/actionBooks'
 import { subirFotos } from '../../../redux/actions/actionSubirFotos'
 import { currentYear } from '../../../utils/helperFunctions'
+import PreviewImage from './ImgPreview/ImgPreview'
 
 const Forms = () => {
   const [dispatch, navigate] = [useDispatch(), useNavigate()]
   const categories = useSelector(state => state.categories)
   const imgPreview = useSelector(state => state.tempState)
 
-  const [showImg, setShowImg] = useState(false)
+  const fileRef = useRef(null)
 
   function handleImage(images) {
-    dispatch(subirFotos(images))
-    setShowImg(true)
+    dispatch(subirFotos(images))    
   }
 
   useEffect(() => {
@@ -120,7 +120,7 @@ const Forms = () => {
           }}
 
           onSubmit={(values, { resetForm }) => {
-            values.image = values.file
+            values.image = imgPreview
             delete values.file
             console.log("🚀 ~ file: Forms.jsx ~ values", values)
             dispatch(postCreate(values))
@@ -210,7 +210,7 @@ const Forms = () => {
                   </div>
 
                 </div>
-
+              
                 <label className={s.label} >Año de publicación</label>
                 <div>
                   <Field
@@ -247,29 +247,29 @@ const Forms = () => {
 
                 <label className={s.label} >Fotografías del ejemplar</label>
                 <div>
-                  <Field
+                  <input
+                    hidden
+                    ref={fileRef}
                     className={s.input}
-                    name="image"
                     type="file"
                     id="file"
-                    onChange={e => handleImage(e.target.files[0])}
+                    onChange={e => {
+                      setFieldValue("file", e.target.files[0])
+                    }}
                   />
-                  {showImg
-                    ? <img src={imgPreview} alt="Preview de la img subida." />
-                    : null}
-                  {imgPreview[0] && showImg
-                    ? <button type="button"
-                      onClick={() => {
-                        setFieldValue("image", imgPreview)
-                          , setShowImg(false)
-                        //, resetForm({ values: { ...values, file: '' } })
-                        // console.log(values)
-                      }}>Aceptar imagen</button>
-                    : null}
+                  <button className={s.uploadButton} onClick={() => {
+                    fileRef.current.click()
+                  }}>
+                    CARGAR IMAGEN
+                  </button>
+                  {values.file && <PreviewImage file={values.file} />}
+                  {values.file && <button type="button"
+                    onClick={() => {
+                      handleImage(values.file)
+                    }}>SUBIR IMAGEN</button>}
+
                   <ErrorMessage name='image' component={() => (<p>{errors.image}</p>)} />{/* NO lo estmamos validando */}
                 </div>
-
-                {console.log(values)}
 
                 <label className={s.label} >Precio*</label>
                 <div>
