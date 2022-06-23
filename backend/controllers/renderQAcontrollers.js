@@ -16,29 +16,28 @@ const postQuestion = async (req, res) => {
             book: req.body.book,
             idVendedor: req.body.idVendedor
         })
-        const question = await newQuestion.save()
-        user.questions = user.questions.concat(question._id)
-        await user.save()
+        const question = await newQuestion.save()   
         res.status(201).json(question);
     } catch (error) {
         console.log(error)
     }
 }
 
-const postAnswer = async (req, res) => {
-    try {
-      //id del usuario que responde
+const postAnswer = async (req, res) => {  
+   //id del usuario que responde
         const{id} = req.params
 
-        const user = await Usuario.findById(id)
+        const user = await Question.findById(id)
         // const book = await Book.findById(idBook)
 
         const newAnswer = await new Answer({
-            idVendedor : user._id,
             mensaje : req.body.mensaje,
             book: req.body.book,
-            question: req.body.question,
+            question: user._id,
         })
+        newAnswer.idVendedor = req.usuario._id
+    try {
+   
         const answer = await newAnswer.save()
         user.answers = user.answers.concat(answer._id)
         await user.save()
@@ -76,7 +75,7 @@ const getQuestion = async (req, res) => {
 //trae una respuesta por id
 const QAIdBook = async(req, res)=>{
     const {id} = req.params
-    const qaId = await Answer.find({book: id}).populate("question")
+    const qaId = await Question.find({book: id}).populate("answers")
 
     try{
         res.json(qaId)

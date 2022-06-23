@@ -11,11 +11,12 @@ const answerSchema = mongoose.Schema(
         type: String,
         required: true,
     },
-    question: 
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Question'
-    },
+    questions: [
+      {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Question'
+      }
+  ],
     book: 
       {
         type: mongoose.Schema.Types.ObjectId,

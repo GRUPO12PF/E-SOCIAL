@@ -41,18 +41,6 @@ const usuarioSchema = mongoose.Schema({
     books: {
         type: Array,
     },
-    questions: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Question'
-        }
-    ],
-    answers: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Answer'
-        }
-    ],
     reviews: [
         {
             type: mongoose.Schema.Types.ObjectId,
