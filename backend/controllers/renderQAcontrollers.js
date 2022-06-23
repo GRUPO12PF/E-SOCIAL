@@ -27,18 +27,17 @@ const postQuestion = async (req, res) => {
 
 const postAnswer = async (req, res) => {
     try {
+      //id del usuario que responde
         const{id} = req.params
-        const {idQuestion} = req.body
-        const {idBook} = req.body
 
         const user = await Usuario.findById(id)
-        const book = await Book.findById(idBook)
+        // const book = await Book.findById(idBook)
 
         const newAnswer = await new Answer({
-            mensaje : req.body.mensaje,
             idVendedor : user._id,
-            question: idQuestion,
-            book: idBook
+            mensaje : req.body.mensaje,
+            book: req.body.book,
+            question: req.body.question,
         })
         const answer = await newAnswer.save()
         user.answers = user.answers.concat(answer._id)
@@ -113,7 +112,7 @@ const eliminarAnswer = async (req, res) => {
 const getQuestions = async (req, res) => {
     try {
         const id = req.params.id
-        const allQuestions = await Question.find({idVendedor: id}).populate("idComprador")
+        const allQuestions = await Question.find({idVendedor: id}).populate("idComprador").populate("book")
         res.send(allQuestions)
     } catch (error) {
         console.log(error)
