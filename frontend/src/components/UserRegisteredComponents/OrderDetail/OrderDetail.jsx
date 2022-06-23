@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getDetalleOrder } from '../../../redux/actions/actionOrder'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
 import Footer from '../../CommonComponents/Footer/Footer'
+import s from './OrderDetail.module.css'
 
 
 const OrderDetail = () => {
@@ -26,18 +27,24 @@ const OrderDetail = () => {
   return (
     <div>
       <NavBar />
-      <p>ID orden: {detalles?._id}</p>
-      <p>{detalles.books?.nombre}</p>
-      <img src={detalles.books?.image} />
-      <p>{detalles.books?.nombre}</p>
-      <p>{detalles.books?.price}</p>
-      <p>{detalles.books?.descripcion}</p>
-      <p>{detalles.books?.category}</p>
+      <div className= {s.containerGral} >
+      <div className= {s.container}>
+      <p className= {s.texto}>{detalles.books?.nombre}</p>
+      <img className= {s.image} src={detalles.books?.image} />
+      <p className= {s.textoId}>ID orden: {detalles?._id}</p>
+      </div >
+      <div className= {s.contenedorSecundario}>
+      <p className= {s.items}>{detalles.books?.nombre}</p>
+      <p className= {s.items}>{detalles.books?.price}</p>
+      <p className= {s.items}>{detalles.books?.descripcion}</p>
+      <p className= {s.items}>{detalles.books?.category}</p>
       {/* <p>{detalles.comprador.nombre}</p>
                <img src={detalles.comprador.image.url}/> */}
-      <button onClick={handleClick}>OPINAR SOBRE EL VENDEDOR</button>
-
-    </div >
+      <button className= {s.button} onClick={handleClick}>OPINAR SOBRE EL VENDEDOR</button>
+      </div>
+    
+    </div>
+    </div>
   )
 }
 
