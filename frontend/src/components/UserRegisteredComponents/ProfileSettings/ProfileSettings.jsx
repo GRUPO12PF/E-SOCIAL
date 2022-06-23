@@ -6,8 +6,7 @@ import Settings from "../../../Iconos/Settings";
 import Order from "../../../Iconos/Order";
 import Books from "../../../Iconos/Books";
 import Admin from "../../../Iconos/Admin";
-import Questions from "../Questions/Questions";
-import Perfil from "../../../Iconos/Perfil";
+import Chat from "../../../Iconos/Chat";
 
 export default function ProfileSettings() {
   const navigate = useNavigate();
@@ -19,6 +18,16 @@ export default function ProfileSettings() {
     navigate("/");
   }
 
+  
+  function handleOnClickBooks() {
+    navigate(`/bookCreated/${idUser}`);
+  }
+
+  function handleOnClickOrders() {
+    navigate(`/historyOrders/${idUser}`);
+  }
+
+  
   function logOut() {
     window.localStorage.removeItem("token");
     window.location.reload();
@@ -26,10 +35,16 @@ export default function ProfileSettings() {
 
   return (
     <div className="profileModal">
-      <div className="divModalPerfil">
-        <Link to="/profile" >
-          <Perfil/>
-          <h3>Perfil</h3>
+      <div className="divModalPerfil" onClick={() => (handleOnClickBooks())}>
+      <Link to="/" >
+        <Books />
+        <h3>Books</h3>
+        </Link>
+      </div>
+      <div className="divModalPerfil" onClick={() => (handleOnClickOrders())}>
+        <Link to="" >
+        <Order />
+        <h3>Orders</h3>
         </Link>
       </div>
       <div className="divModalPerfil">
@@ -38,10 +53,16 @@ export default function ProfileSettings() {
           <h3>Settings</h3>
         </Link>
       </div>
+      <div className="divModalPerfil" >
+      <Link to="/chat" >
+        <Chat />
+        <h3>Chat</h3>
+        </Link>
+      </div>
       <div className="divModalPerfil">
         <Link to="/admin">
           <Admin />
-          <h3>ADMIN</h3>
+          <h3>Admin</h3>
         </Link>
       </div>
       <div className="divModalPerfil" onClick={() => logOut()}>
