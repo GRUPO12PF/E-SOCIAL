@@ -23,7 +23,8 @@ const initialState = {
   usuarioProfile: [],
   questionsAndAnswers: [],
   questions: [],
-  answers: []
+  answers: [],
+  review:[]
 }
 
 function rootReducer(state = initialState, action) {
@@ -264,6 +265,17 @@ function rootReducer(state = initialState, action) {
         return {
           ...state,
           answers: action.payload
+        }
+// -------------------- REVIEW --------------------- 
+      case "POST_REVIEW":
+        return{
+          ...state
+        }
+
+      case "GET_REVIEW":
+        return{
+          ...state,
+          review:action.payload
         }
     default:
       return state
