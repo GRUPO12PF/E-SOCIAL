@@ -32,6 +32,7 @@ import OrderDetail from "./components/UserRegisteredComponents/OrderDetail/Order
 import BooksCreated from "./components/UserRegisteredComponents/BooksCreated/BooksCreated"
 import ProfileUsers from "./components/CommonComponents/ProfileUsers/ProfileUsers";
 import Review from './components/UserRegisteredComponents/Review/Review'
+import HomeChat from './components/CommonComponents/Chat/HomeChat' 
 //----------------------------------ADMIN---------------------------------------------
 import AllUsers from "./components/AdminComponents/AllUsers/AllUsers";
 import AdminHome from "./components/AdminComponents/AdminHome/AdminHome";
@@ -60,7 +61,7 @@ export default function App() {
 
         </Route>
 
-         <Route path="/" element={<VerificationUser />}/>
+         <Route path="/" element={<VerificationUser />}>
           <Route path="/create" element={<Forms />} />
           <Route path="/confirmation" element={<ConfirmacionPago />}/>
           <Route path="/questions/:id" element={<Questions />}/>
@@ -77,7 +78,8 @@ export default function App() {
           <Route path="/admin/allOrders" element={<AllOrders/>}/>
           <Route path="/profile/:id" element={<ProfileUsers/>}/>
           <Route path="/review/:id" element={<Review />} />
-
+          <Route path="/chat" element={<HomeChat />} />
+          </Route>
 
 
         <Route path="*" element={<NotFound />} />

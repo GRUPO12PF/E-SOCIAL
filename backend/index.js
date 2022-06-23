@@ -90,7 +90,7 @@ io.on("connection", (socket) => {
 
   //chat
   socket.on('chat', (mensaje) => {
-    io.emit("chatmenaje", mensaje);
+    io.emit("chatmensaje", mensaje);
   })
   /*fin chat*/
 
