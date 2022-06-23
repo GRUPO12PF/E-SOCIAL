@@ -6,11 +6,12 @@ import Usuario from "../models/Usuario.js"
 const nuevaReview = async (req, res) => {
 
   const { id } = req.params
+  const {vendedor} = req.body
 
-  const user = await Usuario.findById(id)
+  const user = await Usuario.findById(vendedor)
 
   const newReview = await new Review({
-    orden: req.body.orden,
+    orden: id,
     vendedor: user._id,
     title: req.body.title,
     description: req.body.description,
