@@ -20,7 +20,7 @@ const OrderDetail = () => {
   }, [dispatch]);
 
   const handleClick = () => {
-    navigate(`/profile/${idCreador}`)
+    navigate(`/review/${idCreador}`)
   }
 
   return (
