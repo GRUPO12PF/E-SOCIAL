@@ -31,7 +31,7 @@ export const postAnswer = (payload) => {
             },
         }
         try {
-            const json = await clienteAxios.post(`/qa/answer/${payload.idVendedor}`, payload, config);
+            const json = await clienteAxios.post(`/qa/answer/${payload.question}`, payload, config);
             return json.data;
         } catch (error) {
             throw error
