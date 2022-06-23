@@ -7,6 +7,7 @@ import Order from "../../../Iconos/Order";
 import Books from "../../../Iconos/Books";
 import Admin from "../../../Iconos/Admin";
 import Questions from "../Questions/Questions";
+import Perfil from "../../../Iconos/Perfil";
 
 export default function ProfileSettings() {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ export default function ProfileSettings() {
     <div className="profileModal">
       <div className="divModalPerfil">
         <Link to="/profile" >
+          <Perfil/>
           <h3>Perfil</h3>
         </Link>
       </div>
