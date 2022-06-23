@@ -12,6 +12,7 @@ const ProfileUsers = () => {
 
   const dispatch = useDispatch()
 
+
   const book = useSelector(state => state.booksCreated)
   const user = useSelector(state => state.usuarioProfile)
   console.log(book)
@@ -21,6 +22,7 @@ const ProfileUsers = () => {
     dispatch(usuarioCreated(id))
     dispatch(usuarioProfile(id))
   }, [dispatch])
+
 
 
   return (
