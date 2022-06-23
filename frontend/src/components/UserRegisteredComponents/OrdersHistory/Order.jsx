@@ -6,9 +6,9 @@ function Order({ id, nombre, image }) {
              <div className={s.container}>
              <div className={s.card}>
              <div className={s.cardbody}>
-             <h4 className={s.texto}>{nombre}</h4> 
-                <p className={s.texto}>ID: {id}</p>
+             <h4 className={s.nombre}>{nombre}</h4> 
                 <img className={s.im} src={image}/>
+                <p className={s.texto}>ID: {id}</p>
                 </div> 
             </div>
             </div>

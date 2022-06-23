@@ -63,7 +63,8 @@
     color: rgb(81, 79, 79);
     font-size: 20px;
     margin-top: 6%;
-    margin-left: 4%;
+    text-align:center;
+    text-decoration:underline;
 }
 
 .book{
