@@ -30,4 +30,3 @@ export const GET_ALL_ANSWERS = 'GET_ALL_ANSWERS'
 
 // ESTADO TEMPORAL AUXILIAR ---------------------
 export const TEMP_STATE = 'TEMP_STATE'
-export const CLEAN_TEMP_STATE = 'CLEAN_TEMP_STATE'

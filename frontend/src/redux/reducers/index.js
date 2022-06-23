@@ -1,4 +1,4 @@
-import { GET_CATEGORIES, FILTER_BY_CATEGORY, SORT_BY, NAME_ASC, NAME_DESC, PRICE_ASC, PRICE_DESC, BUY_BOOK, GET_DETALLE_ORDER, GET_USUARIOS, GET_ORDERS, POST_ANSWER, POST_QUESTION, GET_QA, GET_ALL_QUESTIONS, GET_ALL_ANSWERS, TEMP_STATE, CLEAN_TEMP_STATE } from '../utils/constants'
+import { GET_CATEGORIES, FILTER_BY_CATEGORY, SORT_BY, NAME_ASC, NAME_DESC, PRICE_ASC, PRICE_DESC, BUY_BOOK, GET_DETALLE_ORDER, GET_USUARIOS, GET_ORDERS, POST_ANSWER, POST_QUESTION, GET_QA, GET_ALL_QUESTIONS, GET_ALL_ANSWERS, TEMP_STATE } from '../utils/constants'
 
 const initialState = {
   allBooks: [],
@@ -122,6 +122,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         detail: [],
+        tempState: [],
       }
 
     case 'ACTUAL':
@@ -140,12 +141,6 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         tempState: action.payload
-      }
-
-    case CLEAN_TEMP_STATE:
-      return {
-        ...state,
-        tempState: []
       }
 
     // FILTERS

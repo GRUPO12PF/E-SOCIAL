@@ -1,34 +1,31 @@
 import React, { useEffect, useState } from 'react'
-import { Formik, Field, ErrorMessage, Form, useFormik } from 'formik'
+import { Formik, Field, ErrorMessage, Form } from 'formik'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { postCreate } from '../../../redux/actions/postProducts'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
 import s from '../Form/Form.module.css'
 import { getCategories } from '../../../redux/actions/actionCategories.js'
-import { getBooks } from '../../../redux/actions/actionBooks'
+import { cleanData, getBooks } from '../../../redux/actions/actionBooks'
 import { subirFotos } from '../../../redux/actions/actionSubirFotos'
-import { cleanTempState } from '../../../redux/actions/actionCleanTempState'
 import { currentYear } from '../../../utils/helperFunctions'
 
 const Forms = () => {
-  // const [dispatch, navigate] = [useDispatch(), useNavigate()]
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const [dispatch, navigate] = [useDispatch(), useNavigate()]
   const categories = useSelector(state => state.categories)
   const imgPreview = useSelector(state => state.tempState)
 
-  useEffect(() => {
-    dispatch(getCategories())
-  }, [dispatch])
+  const [showImg, setShowImg] = useState(false)
 
   function handleImage(images) {
-    dispatch(cleanTempState)
     dispatch(subirFotos(images))
-    setPreview(true)
+    setShowImg(true)
   }
 
-  const [preview, setPreview] = useState(false)
+  useEffect(() => {
+    dispatch(getCategories())
+    dispatch(cleanData)
+  }, [])
 
   return (
     <div className={s.formFondo}>
@@ -127,6 +124,7 @@ const Forms = () => {
             delete values.file
             console.log("🚀 ~ file: Forms.jsx ~ values", values)
             dispatch(postCreate(values))
+            dispatch(cleanData)
             resetForm()
             swal({
               title: "¡Creado con éxito!",
@@ -138,7 +136,7 @@ const Forms = () => {
             dispatch(getBooks())
           }}
         >
-          {({ errors, handleSubmit, values, setFieldValue }) => (
+          {({ errors, handleSubmit, values, setFieldValue, resetForm }) => (
             <Form onSubmit={handleSubmit} className={s.formik} >
               <div className={s.form}>
 
@@ -256,18 +254,22 @@ const Forms = () => {
                     id="file"
                     onChange={e => handleImage(e.target.files[0])}
                   />
-                  {preview
+                  {showImg
                     ? <img src={imgPreview} alt="Preview de la img subida." />
                     : null}
-                  {imgPreview[0]
-                    ? <button type="button" onClick={() => {
-                      setFieldValue("file", imgPreview),
-                        setPreview(false),
-                        dispatch(cleanTempState)
-                    }}>Aceptar imagen</button>
+                  {imgPreview[0] && showImg
+                    ? <button type="button"
+                      onClick={() => {
+                        setFieldValue("image", imgPreview)
+                          , setShowImg(false)
+                        //, resetForm({ values: { ...values, file: '' } })
+                        // console.log(values)
+                      }}>Aceptar imagen</button>
                     : null}
                   <ErrorMessage name='image' component={() => (<p>{errors.image}</p>)} />{/* NO lo estmamos validando */}
                 </div>
+
+                {console.log(values)}
 
                 <label className={s.label} >Precio*</label>
                 <div>
