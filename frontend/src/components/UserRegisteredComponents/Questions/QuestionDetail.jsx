@@ -9,8 +9,8 @@ export default function QuestionDetail ({_id, mensaje, book, idComprador}){
   const {id} = useParams(); //id del vendedor 
   const idQuestion = _id //id de la pregunta 
   const dispatch = useDispatch()
-  const question = useSelector((state) => state.questions)
-   console.log("questions", question)
+  // const question = useSelector((state) => state.questions)
+  // //  console.log("questions", question)
   // const answer = useSelector((state) => state.answers)
   // const user = useSelector((state)=>state.usuarioActual)
 

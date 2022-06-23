@@ -4,6 +4,13 @@ export function formatToCurrency(value) {
   return finalPrice
 }
 
+export function currentYear(){
+  const current = new Date()
+  const result = `${current.getFullYear()}`
+
+  return result
+}
+
 // export function validateTextName(name) { // tampoco lo pude usar
 //   if (!values[name]) {
 //     return errors[name] = 'Campo requerido.'

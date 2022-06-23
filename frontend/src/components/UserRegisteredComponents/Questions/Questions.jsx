@@ -11,7 +11,7 @@ export default function Questions(){
     const questions = useSelector((state) => state.questions)
     const question = questions.filter(ele => !ele.answers.length > 0)
 
-    console.log("a ver si me trae las preguntas", question)
+    console.log("a ver si me trae las preguntas", questions)
     
     useEffect(() => {
         // dispatch(usuarioActual())
