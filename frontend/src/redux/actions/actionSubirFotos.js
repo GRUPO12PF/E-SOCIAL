@@ -23,11 +23,10 @@ export function subirFotos(payload) {
       const json = await clienteAxios.post(`/books/images`, body, config)
       toast.success(json)
       const response = json.data
-      console.log("🚀 ~ file: actionSubirFotos.js ~ line 26 ~ response", response)
 
       return dispatch({
         type: TEMP_STATE,
-        response
+        payload: response
       })
     } catch (error) {
       console.log(error)

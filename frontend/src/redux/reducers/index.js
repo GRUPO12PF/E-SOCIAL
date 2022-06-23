@@ -19,9 +19,9 @@ const initialState = {
   order: [],
   put: [],
   questionsAndAnswers: [],
+  tempState: [],
   usuario: [],
   usuarioActual: [],
-  tempState: []
 }
 
 function rootReducer(state = initialState, action) {
