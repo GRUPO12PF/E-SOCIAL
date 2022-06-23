@@ -10,7 +10,7 @@ const ProfileUsers = () => {
 
     const dispatch = useDispatch()
 
-    const book = useSelector(state => state.booksCreated)
+    const book = useSelector(state => state.booksCreated[0])
     console.log(book)
 
     useEffect(() => {
@@ -23,6 +23,7 @@ const ProfileUsers = () => {
         {/* <p>{book.creador.nombre}</p>
         <img className={s.imageR} src={book.creador.image.url} alt="" />
         <p>{book.creador.email}</p> */}
+        
     </div>
   )
 }
