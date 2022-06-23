@@ -31,35 +31,29 @@ function Books({ nombre, image, price, id }) {
       }
 
     return (
-        <div className={s.bookItem}>
-            
-            <div>
-            {token ? (
-            <div className={s.botoness}>
-              <button className={s.btn} onClick={(e) => handleDeleteBook(e)}>
-                DELETE
-
-
-              </button>
-              <button className={s.btn} onClick={(e) => handleUpdateBook(e)}>
-                UPDATE
-              </button>
-            </div>
-          ) : null}
-                <h1 className="nombre">Nombre del libro:{nombre}</h1>
-                <img
-                    className="book"
-                    src={image || book}
-                    alt='Img not found'
-                />
-                <h2 className="nombre">Precio: {price}</h2>
-                <div>
-
-            
-            </div>
-            </div>
-            
-        </div>
+      <div className={s.container}>
+      <div className={s.body}>
+<div className={s.card}>
+<div className={s.card__top}>
+<img
+  className={s.book}
+  src={image || book}
+  alt='Img not found'
+  /> 
+</div>
+<div className={s.card__bottom}>
+<h3 className={s.nombre}>{nombre}</h3>
+<h3>Precio: {price}</h3>
+{token ? (
+  <div className={s.botoness}>
+  <button className={s.btn} onClick={(e) => handleDeleteBook(e)}>DELETE</button>
+<button className={s.btn} onClick={(e) => handleUpdateBook(e)}>UPDATE</button>
+  </div>
+ ) : null}
+</div>
+</div>
+</div>
+</div>
     )
 }
 

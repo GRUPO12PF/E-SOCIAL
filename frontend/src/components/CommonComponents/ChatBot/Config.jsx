@@ -75,7 +75,7 @@ const config = {
                   },
                   {
                     question : "¿Puedo pagar por transferencia bancaria, Rapipago o efectivo?",
-                    answer: "No, solo aceota la plataforma tarjetas de crédito o débito Visa, Mastercard o Amex. ",
+                    answer: "No, solo acepta la plataforma tarjetas de crédito o débito Visa, Mastercard o Amex. ",
                     id: 9,  
                 },
                   {

@@ -8,36 +8,7 @@
     -moz-box-shadow: 11px -7px 13px 0px rgba(0,0,0,0.47);
 } 
 
-.name{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    font-family: 'Roboto', sans-serif;
-    margin: 2rem;
-}
 
-.pName{
-    margin-top: 30px;   
-    margin-bottom: 15px;
-    width: 300px;
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-}
-
-.background{
-    background-color:rgba(194, 199, 197, 0.774);
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    overflow: auto;
-  
-
-}
 
 @media screen and (max-width:500px){
 
@@ -51,29 +22,13 @@
 }
 
 
-
-.description{
-    margin-top: 150px;
-    margin-left: 110px;
-    font-family: 'Roboto', sans-serif;
-}
-
-.h5{
-    font-size: 24px;
-    margin-bottom: 10px;
-    font-family: 'Roboto', sans-serif;
-    text-transform: uppercase;
-    border-bottom: 2px solid black;
-    width: fit-content;
-    border-left-width: 20%;
-    
-}
 .botoness{
     font-family: 'Roboto', sans-serif;
     display: flex;
-    background-color:rgba(194, 199, 197, 0.774);
+    background-color:none;
     justify-content: end;
     padding-right: 4rem;
+    padding-top: 30px ;
 
 }
 .btn{
@@ -82,6 +37,7 @@
     background-color: rgb(182, 181, 181);
     padding: 3px 14px;
     cursor: pointer;
+    
 }
 .btn:hover{
     background-color: rgb(194, 174, 174);
@@ -105,4 +61,75 @@
 .bookItem{
     display: flex;
     flex-direction: column;
+}
+
+.body {
+    background-color: none;
+    padding: 10px;
+    display: flex;
+   
+    
+}
+
+.card {
+    background: #fff;
+    overflow: hidden;
+    max-height: 500px;
+    max-width: 350px;
+    border-radius: 10px;
+    
+}
+.card__top {
+    overflow: hidden;
+
+}
+.card__top img {
+    height: 250px;
+    width: 430px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    
+
+}
+
+
+.card__bottom {
+    padding: 72px 44px;
+
+}
+.card h2 {
+    color: #000;
+    font-size: 27px;
+    line-height: 1.5;
+
+}
+.card h3 {
+    color: #220901;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+.nombre{
+    margin: 0px;
+}
+
+.book{
+    width: 100%;
+    
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 120rem;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: none;
+    gap: 2rem;
+    margin: 0 auto;
 }
