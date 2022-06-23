@@ -64,7 +64,7 @@ export const allQuestions = (payload) => {
     };
     try {
       const json = await clienteAxios.get(`/qa/questions/${payload}`, config);
-      console.log(json);
+      // console.log(json);
       return dispatch({
         type: GET_ALL_QUESTIONS,
         payload: json.data,
