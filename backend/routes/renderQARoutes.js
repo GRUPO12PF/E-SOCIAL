@@ -7,6 +7,7 @@ import {
   QAIdBook,
   eliminarAnswer,
   eliminarQuestion,
+  getAnswers,
   getQuestions
 } from '../controllers/renderQAcontrollers.js';
 import checkAuth from '../middleware/checkAuth.js';
@@ -36,8 +37,11 @@ router
   .post(checkAuth, postAnswer)
   .delete(checkAuth, eliminarAnswer)
 
-
 router
   .route('/questions/:id')
   .get(checkAuth, getQuestions)
+
+router
+  .route('/answers/:id')
+  .get(checkAuth, getAnswers)
 export default router;
