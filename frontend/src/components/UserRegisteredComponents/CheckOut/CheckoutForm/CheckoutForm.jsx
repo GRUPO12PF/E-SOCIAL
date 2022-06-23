@@ -41,7 +41,7 @@ const CheckoutForm = () => {
           }]
         ))
         if(buy.payload.data.clientSecret){
-         await dispatch (orderPost({
+          dispatch (orderPost({
             bookId : bookId
           }))
           swal("Pago recibido!", "You clicked the button!", "success")
