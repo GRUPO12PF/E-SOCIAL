@@ -10,9 +10,9 @@ import s from './OrderDetail.module.css'
 const OrderDetail = () => {
   const navigate = useNavigate()
   const { id } = useParams()
-  console.log(id)
+
   const detalles = useSelector(state => state.order)
-  const idCreador = detalles.books?.creador
+ 
 
   const dispatch = useDispatch()
 
@@ -21,7 +21,7 @@ const OrderDetail = () => {
   }, [dispatch]);
 
   const handleClick = () => {
-    navigate(`/review/${idCreador}`)
+    navigate(`/review/${id}`)
   }
 
   return (

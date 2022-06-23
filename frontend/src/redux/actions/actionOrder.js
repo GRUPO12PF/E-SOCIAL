@@ -51,3 +51,35 @@ export const orderPost = (payload) => {
     };
   };
   
+
+
+  export const review = (payload)=>{
+    return async function (dispatch){
+        const id = localStorage.getItem("token");
+        const config = {
+            headers: {
+                "Content-Type": "multipart/form-data",
+                Authorization: `Bearer ${id}`,
+            },
+        };
+        const json = await clienteAxios.post(`/review/${payload.orden}`,payload,config)
+        return dispatch({
+            type:"POST_REVIEW",
+            payload: json.data
+        })
+
+    }
+  }
+
+  export const getReview = (payload)=>{
+    return  async function (dispatch){
+        const json = await clienteAxios.get(`/review/${payload}`)
+
+           return dispatch({
+            type:"GET_REVIEW",
+            payload:json.data
+        })
+
+        
+    }
+  }
