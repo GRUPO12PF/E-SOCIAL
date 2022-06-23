@@ -20,8 +20,9 @@ const initialState = {
   orders: [],
   order: [],
   booksCreated: [],
+  usuarioProfile: [],
   questionsAndAnswers: [],
-  questions : []
+  questions: []
 }
 
 function rootReducer(state = initialState, action) {
@@ -202,7 +203,7 @@ function rootReducer(state = initialState, action) {
 
     //ORDERS
     case "ORDER_POST":
-      return{
+      return {
         ...state
       }
     case 'HISTORY_ORDER':
@@ -221,6 +222,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         booksCreated: action.payload
       }
+    case "USUARIO_INFO_PROFILE":
+      return {
+        ...state,
+        usuarioProfile: action.payload
+      }
     //-----------------ADMIN----------------------------------------
     case GET_USUARIOS:
       console.log(action.payload)
@@ -229,22 +235,22 @@ function rootReducer(state = initialState, action) {
         allUsuarios: action.payload,
 
       }
-      case GET_ORDERS:
-        return{
-          ...state,
-          allOrders: action.payload
-        }
+    case GET_ORDERS:
+      return {
+        ...state,
+        allOrders: action.payload
+      }
     //----------------------QA---------------
     case POST_ANSWER:
-      return{
+      return {
         ...state
       }
     case POST_QUESTION:
-      return{
+      return {
         ...state
       }
     case GET_QA:
-      return{
+      return {
         ...state,
         questionsAndAnswers: action.payload
       }

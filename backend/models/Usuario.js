@@ -53,7 +53,12 @@ const usuarioSchema = mongoose.Schema({
             ref: 'Answer'
         }
     ],
-
+    reviews: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Review'
+        }
+    ],
     notificaciones: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Notificacion"
