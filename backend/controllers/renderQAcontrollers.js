@@ -118,6 +118,16 @@ const getQuestions = async (req, res) => {
     }
   }
 
+  const getAnswers = async (req, res) => {
+    try {
+        const id = req.params.id
+        const allQuestions = await Question.find({idComprador: id}).populate("idComprador").populate("book").populate("answers")
+        res.send(allQuestions)
+    } catch (error) {
+        console.log(error)
+    }
+  }
+
   
 export {
     postQuestion,
@@ -127,6 +137,7 @@ export {
     QAIdBook,
     eliminarAnswer,
     getQuestions,
+    getAnswers,
     eliminarQuestion
   }
 
