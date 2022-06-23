@@ -5,7 +5,6 @@
     background-color:none;
     justify-content: end;
     padding-right: 4rem;
-    padding-top: 30px ;
 
 }
 .btn{
@@ -70,7 +69,3 @@
     min-height: 250px;
 }
 
-.centrar{
-    align-items: center;
-    justify-content: center;
-}
