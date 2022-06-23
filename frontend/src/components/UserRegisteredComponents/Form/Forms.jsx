@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Formik, Field, ErrorMessage, Form, useFormik } from 'formik'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -23,8 +23,12 @@ const Forms = () => {
   }, [dispatch])
 
   function handleImage(images) {
+    dispatch(cleanTempState)
     dispatch(subirFotos(images))
+    setPreview(true)
   }
+
+  const [preview, setPreview] = useState(false)
 
   return (
     <div className={s.formFondo}>
@@ -44,7 +48,7 @@ const Forms = () => {
             cant_pags: '',
             descripcion: '',
             price: '',
-            image: '',
+            file: '', // acá va a ir la imagen, pero se pasa a values.image desp
             colection: '',
             ilustrado: false,
             category: []
@@ -119,7 +123,9 @@ const Forms = () => {
           }}
 
           onSubmit={(values, { resetForm }) => {
-
+            values.image = values.file
+            delete values.file
+            console.log("🚀 ~ file: Forms.jsx ~ values", values)
             dispatch(postCreate(values))
             resetForm()
             swal({
@@ -128,195 +134,196 @@ const Forms = () => {
               icon: "success",
               button: "Ok!",
             })
-            dispatch(cleanTempState)
             navigate('/')
             dispatch(getBooks())
-
           }}
         >
-          {({ errors, handleSubmit, values, setFieldValue }) => (<Form onSubmit={handleSubmit} className={s.formik} >
-            <div className={s.form}>
+          {({ errors, handleSubmit, values, setFieldValue }) => (
+            <Form onSubmit={handleSubmit} className={s.formik} >
+              <div className={s.form}>
 
-              <div className={s.subdi}>
+                <div className={s.subdi}>
 
-                <label className={s.label} >Nombre*</label>
-                <div>
-                  <Field
-                    className={s.input}
-                    type="text"
-                    name="nombre"
-                    id="nombre"
-                  />
-                  <ErrorMessage name='nombre' component={() => (<p className={s.error}>{errors.nombre}</p>)} />
+                  <label className={s.label} >Nombre*</label>
+                  <div>
+                    <Field
+                      className={s.input}
+                      type="text"
+                      name="nombre"
+                      id="nombre"
+                    />
+                    <ErrorMessage name='nombre' component={() => (<p className={s.error}>{errors.nombre}</p>)} />
+                  </div>
+
+                  <label className={s.label} >Autor*</label>
+                  <div>
+                    <Field
+                      className={s.input}
+                      type="text"
+                      name="autor"
+                      id="autor"
+                    />
+                    <ErrorMessage name='autor' component={() => (<p className={s.error}>{errors.autor}</p>)} />
+                  </div>
+
+                  <label className={s.label} >Idioma*</label>
+                  <div>
+                    <Field
+                      className={s.textarea}
+                      type="text"
+                      name="idioma"
+                      id="idioma"
+                    />
+                    <ErrorMessage name='idioma' component={() => (<p className={s.error}>{errors.idioma}</p>)} />
+                  </div>
+
+                  <label className={s.label} >Editorial</label>
+                  <div>
+                    <Field
+                      className={s.textarea}
+                      type="text"
+                      name="editorial"
+                      id="editorial"
+                    />
+                    <ErrorMessage name='editorial' component={() => (<p className={s.error}>{errors.editorial}</p>)} />
+                  </div>
+
+                  <label className={s.label} >Edición</label>
+                  <div>
+                    <Field
+                      className={s.input}
+                      type="number"
+                      name="edicion"
+                      id="edicion"
+                    />
+                    <ErrorMessage name='edicion' component={() => (<p className={s.error}>{errors.edicion}</p>)} />
+                  </div>
+
+                  <label className={s.label} >Tipo de tapa</label>
+                  <div>
+                    <Field
+                      className={s.textarea}
+                      type="text"
+                      name="tapa"
+                      id="tapa"
+                      placeholder="Blanda, Dura..."
+                    />
+                    <ErrorMessage name='tapa' component={() => (<p className={s.error}>{errors.tapa}</p>)} />
+                  </div>
+
                 </div>
 
-                <label className={s.label} >Autor*</label>
-                <div>
-                  <Field
-                    className={s.input}
-                    type="text"
-                    name="autor"
-                    id="autor"
-                  />
-                  <ErrorMessage name='autor' component={() => (<p className={s.error}>{errors.autor}</p>)} />
-                </div>
-
-                <label className={s.label} >Idioma*</label>
-                <div>
-                  <Field
-                    className={s.textarea}
-                    type="text"
-                    name="idioma"
-                    id="idioma"
-                  />
-                  <ErrorMessage name='idioma' component={() => (<p className={s.error}>{errors.idioma}</p>)} />
-                </div>
-
-                <label className={s.label} >Editorial</label>
-                <div>
-                  <Field
-                    className={s.textarea}
-                    type="text"
-                    name="editorial"
-                    id="editorial"
-                  />
-                  <ErrorMessage name='editorial' component={() => (<p className={s.error}>{errors.editorial}</p>)} />
-                </div>
-
-                <label className={s.label} >Edición</label>
+                <label className={s.label} >Año de publicación</label>
                 <div>
                   <Field
                     className={s.input}
                     type="number"
-                    name="edicion"
-                    id="edicion"
+                    name="año_de_pub"
+                    id="año_de_pub"
+                    placeholder="AAAA..."
                   />
-                  <ErrorMessage name='edicion' component={() => (<p className={s.error}>{errors.edicion}</p>)} />
+                  <ErrorMessage name='año_de_pub' component={() => (<p className={s.error}>{errors.año_de_pub}</p>)} />
                 </div>
 
-                <label className={s.label} >Tipo de tapa</label>
+                <label className={s.label} >Páginas</label>
+                <div>
+                  <Field
+                    className={s.input}
+                    type="number"
+                    name="cant_pags"
+                    id="cant_pags"
+                  />
+                  <ErrorMessage name='cant_pags' component={() => (<p className={s.error}>{errors.cant_pags}</p>)} />
+                </div>
+
+                <label className={s.label} >Saga / Serie</label>
+                <div>
+                  <Field
+                    className={s.input}
+                    type="text"
+                    name="colection"
+                    id="colection"
+                  />
+                  <ErrorMessage name='colection' component={() => (<p className={s.error}>{errors.colection}</p>)} />
+                </div>
+
+                <label className={s.label} >Fotografías del ejemplar</label>
+                <div>
+                  <Field
+                    className={s.input}
+                    name="image"
+                    type="file"
+                    id="file"
+                    onChange={e => handleImage(e.target.files[0])}
+                  />
+                  {preview
+                    ? <img src={imgPreview} alt="Preview de la img subida." />
+                    : null}
+                  {imgPreview[0]
+                    ? <button type="button" onClick={() => {
+                      setFieldValue("file", imgPreview),
+                        setPreview(false),
+                        dispatch(cleanTempState)
+                    }}>Aceptar imagen</button>
+                    : null}
+                  <ErrorMessage name='image' component={() => (<p>{errors.image}</p>)} />{/* NO lo estmamos validando */}
+                </div>
+
+                <label className={s.label} >Precio*</label>
+                <div>
+                  <Field
+                    className={s.input}
+                    type="number"
+                    name="price"
+                    id="price"
+                    placeholder="en centavos de USD..."
+                  />
+                  <ErrorMessage name='price' component={() => (<p className={s.error} >{errors.price}</p>)} />
+                </div>
+
+                <label className={s.label} >Descripción*</label>
                 <div>
                   <Field
                     className={s.textarea}
                     type="text"
-                    name="tapa"
-                    id="tapa"
-                    placeholder="Blanda, Dura..."
+                    name="descripcion"
+                    id="descripcion"
+                    as="textarea"
                   />
-                  <ErrorMessage name='tapa' component={() => (<p className={s.error}>{errors.tapa}</p>)} />
+                  <ErrorMessage name='descripcion' component={() => (<p className={s.error}>{errors.descripcion}</p>)} />
                 </div>
 
-              </div>
-
-              <label className={s.label} >Año de publicación</label>
-              <div>
-                <Field
-                  className={s.input}
-                  type="number"
-                  name="año_de_pub"
-                  id="año_de_pub"
-                  placeholder="AAAA..."
-                />
-                <ErrorMessage name='año_de_pub' component={() => (<p className={s.error}>{errors.año_de_pub}</p>)} />
-              </div>
-
-              <label className={s.label} >Páginas</label>
-              <div>
-                <Field
-                  className={s.input}
-                  type="number"
-                  name="cant_pags"
-                  id="cant_pags"
-                />
-                <ErrorMessage name='cant_pags' component={() => (<p className={s.error}>{errors.cant_pags}</p>)} />
-              </div>
-
-              <label className={s.label} >Saga / Serie</label>
-              <div>
-                <Field
-                  className={s.input}
-                  type="text"
-                  name="colection"
-                  id="colection"
-                />
-                <ErrorMessage name='colection' component={() => (<p className={s.error}>{errors.colection}</p>)} />
-              </div>
-
-              <label className={s.label} >Fotografías del ejemplar</label>
-              <div>
-                <Field
-                  className={s.input}
-                  name="image"
-                  type="file"
-                  id="file"
-                  onChange={e => handleImage(e.target.files[0])}                  
-                />
-                {imgPreview.length
-                  ? (
-                    <img src={imgPreview} alt="Preview de la img subida." />
-                    , <button type="button" onClick={()=> {setFieldValue("image", imgPreview)}}>Aceptar imagen</button>
-                  )
-                  : null}
-
-                <ErrorMessage name='image' component={() => (<p>{errors.image}</p>)} />
-              </div>
-
-              <label className={s.label} >Precio*</label>
-              <div>
-                <Field
-                  className={s.input}
-                  type="number"
-                  name="price"
-                  id="price"
-                  placeholder="en centavos de USD..."
-                />
-                <ErrorMessage name='price' component={() => (<p className={s.error} >{errors.price}</p>)} />
-              </div>
-
-              <label className={s.label} >Descripción*</label>
-              <div>
-                <Field
-                  className={s.textarea}
-                  type="text"
-                  name="descripcion"
-                  id="descripcion"
-                  as="textarea"
-                />
-                <ErrorMessage name='descripcion' component={() => (<p className={s.error}>{errors.descripcion}</p>)} />
-              </div>
-
-              <label className={s.label}>Ilustrado</label>
-              <div className={s.centro}>
-                <Field
-                  className={s.textarea}
-                  as="select"
-                  id="ilustrado"
-                  name="ilustrado"
-                >
-                  <option value={false}>NO</option>
-                  <option value={true}>SI</option>
-                </Field>
-              </div>
-
-              <label className={s.label}>Categorías*</label>
-              <div className={s.chek}>
-                <div role="group" aria-labelledby="checkbox-group" >
-                  {categories?.map((e, i) =>
-                    <div key={i} > <Field type="checkbox" name="category" value={`${e}`} /> {e} </div>
-                  )}
+                <label className={s.label}>Ilustrado</label>
+                <div className={s.centro}>
+                  <Field
+                    className={s.textarea}
+                    as="select"
+                    id="ilustrado"
+                    name="ilustrado"
+                  >
+                    <option value={false}>NO</option>
+                    <option value={true}>SI</option>
+                  </Field>
                 </div>
+
+                <label className={s.label}>Categorías*</label>
+                <div className={s.chek}>
+                  <div role="group" aria-labelledby="checkbox-group" >
+                    {categories?.map((e, i) =>
+                      <div key={i} > <Field type="checkbox" name="category" value={`${e}`} /> {e} </div>
+                    )}
+                  </div>
+                </div>
+                <ErrorMessage name='category' className='ASIGNAR!' component={() => (<p className={s.error}>{errors.category}</p>)} />
+
+                <button
+                  className={s.sendMsg}
+                  type="submit"
+                  disabled={errors.nombre || errors.autor || errors.idioma || errors.price || errors.category || errors.descripcion}
+                >ENVIAR</button>
               </div>
-              <ErrorMessage name='category' className='ASIGNAR!' component={() => (<p className={s.error}>{errors.category}</p>)} />
-
-              {console.log("🚀 ~ file: Forms.jsx ~ line 313 ~ Forms ~ values", values)}
-
-              <button
-                className={s.sendMsg}
-                type="submit"
-                disabled={errors.nombre || errors.autor || errors.idioma || errors.price || errors.category || errors.descripcion}
-              >ENVIAR</button>
-            </div>
-          </Form>)}
+            </Form>
+          )}
         </Formik>
         <br />
         <Link className={s.back} to="/">BACK</Link>
