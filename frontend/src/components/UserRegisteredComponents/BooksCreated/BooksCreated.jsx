@@ -25,10 +25,13 @@ export default function BooksCreated() {
     return(
         <>
         <NavBar />
-        <div className={s.fondo}>
+        
+        <h3 className={s.titulo}>HISTORIAL DE COMPRAS</h3>
+        <div className={s.contenedorGral}>
+          <div className={s.contenedorBooks}>
         {  allBooks?.map((e, i) => {
           return (
-            <div className={s.container} key={i}>
+            <div  key={i}>
                     <Books
                       id={e._id}
                       nombre={e.nombre}
@@ -40,6 +43,8 @@ export default function BooksCreated() {
           })
         }
         </div>
+        </div>
+       
         </>
     )
 
