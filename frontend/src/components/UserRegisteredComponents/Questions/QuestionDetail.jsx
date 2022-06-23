@@ -1,15 +1,18 @@
 import React from 'react'
+import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { postAnswer } from '../../../redux/actions/actionQA';
+import { allAnswers, postAnswer } from '../../../redux/actions/actionQA';
 
 export default function QuestionDetail ({_id, mensaje, book, idComprador}){
   const {id} = useParams(); //id del vendedor 
+  const idQuestion = _id //id de la pregunta 
   const dispatch = useDispatch()
-
-  const user = useSelector((state)=>state.usuarioActual)
-  const idQuestion = _id
+  const question = useSelector((state) => state.questions)
+   console.log("questions", question)
+  // const answer = useSelector((state) => state.answers)
+  // const user = useSelector((state)=>state.usuarioActual)
 
   const [input, setInput] = useState({
     mensaje: ''

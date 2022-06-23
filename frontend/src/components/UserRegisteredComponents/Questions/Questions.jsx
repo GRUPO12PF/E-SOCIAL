@@ -8,8 +8,9 @@ import NavBar from "../../CommonComponents/NavBar/NavBar";
 export default function Questions(){
     const dispatch = useDispatch()
     const { id } = useParams();
-    const question = useSelector((state) => state.questions)
-  
+    const questions = useSelector((state) => state.questions)
+    const question = questions.filter(ele => !ele.answers.length > 0)
+
     console.log("a ver si me trae las preguntas", question)
     
     useEffect(() => {
