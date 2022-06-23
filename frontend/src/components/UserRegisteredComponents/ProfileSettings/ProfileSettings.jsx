@@ -11,20 +11,10 @@ import Chat from "../../../Iconos/Chat";
 export default function ProfileSettings() {
   const navigate = useNavigate();
   const user = useSelector(state => state.usuarioActual)
-  const idUser = user._id
 
   const token = localStorage.getItem("token");
   if (!token) {
     navigate("/");
-  }
-
-  
-  function handleOnClickBooks() {
-    navigate(`/bookCreated/${idUser}`);
-  }
-
-  function handleOnClickOrders() {
-    navigate(`/historyOrders/${idUser}`);
   }
 
   
@@ -35,16 +25,10 @@ export default function ProfileSettings() {
 
   return (
     <div className="profileModal">
-      <div className="divModalPerfil" onClick={() => (handleOnClickBooks())}>
-      <Link to="/" >
-        <Books />
-        <h3>Books</h3>
-        </Link>
-      </div>
-      <div className="divModalPerfil" onClick={() => (handleOnClickOrders())}>
-        <Link to="" >
-        <Order />
-        <h3>Orders</h3>
+     <div className="divModalPerfil">
+        <Link to="/profile" >
+          <Perfil/>
+          <h3>Perfil</h3>
         </Link>
       </div>
       <div className="divModalPerfil">
