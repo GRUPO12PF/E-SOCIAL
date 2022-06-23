@@ -31,6 +31,7 @@ import OrdersHistory from "./components/UserRegisteredComponents/OrdersHistory/O
 import OrderDetail from "./components/UserRegisteredComponents/OrderDetail/OrderDetail";
 import BooksCreated from "./components/UserRegisteredComponents/BooksCreated/BooksCreated"
 import ProfileUsers from "./components/CommonComponents/ProfileUsers/ProfileUsers";
+import Review from './components/CommonComponents/Review/Review'
 //----------------------------------ADMIN---------------------------------------------
 import AllUsers from "./components/AdminComponents/AllUsers/AllUsers";
 import AdminHome from "./components/AdminComponents/AdminHome/AdminHome";
@@ -56,6 +57,7 @@ export default function App() {
           <Route path="/details/:id" element={<Details />} />
           <Route path="/about" element={<About />} />
           <Route path="/seller" element={<UserCard />} />
+          <Route path="/review" element={<Review />} />
 
         </Route>
 
