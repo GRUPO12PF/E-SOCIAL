@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import { usuarioCreated, usuarioProfile } from '../../../redux/actions/actionCreatedUser'
+import { getReview } from '../../../redux/actions/actionOrder'
 import NavBar from '../NavBar/NavBar'
 import PaginadoUser from './PaginadoUser'
 import ProfileBook from './ProfileBooks'
+import ProfileReview from './ProfileReview'
 import s from './ProfileUsers.module.css'
 
 const ProfileUsers = () => {
@@ -16,12 +18,14 @@ const ProfileUsers = () => {
 
   const user = useSelector(state => state.usuarioProfile)
   const book = useSelector(state => state.booksCreated)
+  const review = useSelector(state => state.review)
  
-  console.log(user)
+  console.log(review)
   
   useEffect(() => {
     dispatch(usuarioCreated(id))
     dispatch(usuarioProfile(id))
+    dispatch(getReview(id))
   }, [dispatch])
   
   
@@ -67,7 +71,20 @@ const ProfileUsers = () => {
 			<h2 className="name">{user.nombre}</h2>
 			<h3 className="location">San Francisco, CA</h3>
        <p>{user.email}</p>
-		
+      <div>
+          {
+            review?.map((i,u)=>{
+              return(
+                <ProfileReview 
+                  key={u}
+                  description={i.description}
+                  score={i.score}
+                  title={i.title}
+                />
+              )
+            })
+          }
+      </div>
 		</div>
     
 		</div>
