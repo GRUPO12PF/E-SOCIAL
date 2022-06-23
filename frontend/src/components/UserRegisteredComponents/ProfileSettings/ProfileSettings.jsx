@@ -3,8 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import IconsLogout from "../../../Iconos/IconsLogout";
 import Settings from "../../../Iconos/Settings";
-import Order from "../../../Iconos/Order";
-import Books from "../../../Iconos/Books";
+import Perfil from "../../../Iconos/Perfil";
 import Admin from "../../../Iconos/Admin";
 import Chat from "../../../Iconos/Chat";
 
