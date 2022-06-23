@@ -30,11 +30,15 @@ import CheckOut from "./components/UserRegisteredComponents/CheckOut/CheckOut";
 import OrdersHistory from "./components/UserRegisteredComponents/OrdersHistory/OrdersHistory";
 import OrderDetail from "./components/UserRegisteredComponents/OrderDetail/OrderDetail";
 import BooksCreated from "./components/UserRegisteredComponents/BooksCreated/BooksCreated"
+import ProfileUsers from "./components/CommonComponents/ProfileUsers/ProfileUsers";
+import Review from './components/UserRegisteredComponents/Review/Review'
 //----------------------------------ADMIN---------------------------------------------
 import AllUsers from "./components/AdminComponents/AllUsers/AllUsers";
 import AdminHome from "./components/AdminComponents/AdminHome/AdminHome";
 import AllOrders from "./components/AdminComponents/AllOrders/AllOrders";
 import ConfirmacionPago from "./components/UserRegisteredComponents/CheckOut/ConfirmacionPago/ConfirmacionPago";
+import Questions from "./components/UserRegisteredComponents/Questions/Questions.jsx";
+import Profile from "./components/UserRegisteredComponents/Profile/Profile";
 
 
 export default function App() {
@@ -59,6 +63,8 @@ export default function App() {
          <Route path="/" element={<VerificationUser />}/>
           <Route path="/create" element={<Forms />} />
           <Route path="/confirmation" element={<ConfirmacionPago />}/>
+          <Route path="/questions/:id" element={<Questions />}/>
+          <Route path="/profile" element={<Profile />}/>
           <Route path="/details/update/:id" element={<UpdateBook />} />
           <Route path="/details/:id" element={<Details />} />
           <Route path="/user/setting" element={<Settings />} />
@@ -69,6 +75,9 @@ export default function App() {
           <Route path="/admin/users" element={<AllUsers/>}/>
           <Route path="/admin" element={<AdminHome/>}/>
           <Route path="/admin/allOrders" element={<AllOrders/>}/>
+          <Route path="/profile/:id" element={<ProfileUsers/>}/>
+          <Route path="/review/:id" element={<Review />} />
+
 
 
         <Route path="*" element={<NotFound />} />

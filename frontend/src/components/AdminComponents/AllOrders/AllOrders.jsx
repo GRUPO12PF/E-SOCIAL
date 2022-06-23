@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
 import Footer from '../../CommonComponents/Footer/Footer'
 import { getAllOrders } from '../../../redux/actions/actionAdmin';
+import profile from '../../../assets/images/avatar2.png'
 import s from './AllOrders.module.css'
 
 
@@ -39,12 +40,12 @@ function AllOrders() {
                                         className={s.containerInfo}
                                     >
                                         <td className={s.id}>{u._id}</td>
-                                        <td className={s.name}>{u.books.nombre}</td>
-                                        <td className={s.image}><img src={u.books.image || profile} alt="Not Available" height={50} width={50} /></td>
-                                        <td className={s.price}>{u.books.price}</td>
-                                        <td className={s.blocked}>{u.comprador.nombre}</td>
-                                        <td className={s.moderator}>{u.comprador.email}</td>
-                                        <td className={s.moderator}>{u.comprador.updatedAt}</td>
+                                        <td className={s.name}>{u.books?.nombre}</td>
+                                        <td className={s.image}><img src={u.books?.image || profile} alt="Not Available" height={50} width={50} /></td>
+                                        <td className={s.price}>{u.books?.price}</td>
+                                        <td className={s.blocked}>{u.comprador?.nombre}</td>
+                                        <td className={s.moderator}>{u.comprador?.email}</td>
+                                        <td className={s.moderator}>{u.comprador?.updatedAt}</td>
                                     </tr>
                                 );
                             })}

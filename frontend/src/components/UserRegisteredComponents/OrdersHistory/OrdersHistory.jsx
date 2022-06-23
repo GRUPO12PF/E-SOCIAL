@@ -14,10 +14,7 @@ export default function OrdersHistory() {
     
     const allOrders = useSelector((state) => state.orders);
     console.log(allOrders)
-    const hola = allOrders.map(e=>{
-      return e.books._id
-    })
-    console.log (hola)
+  
     
     useEffect(() => {
         dispatch(historyOrders(id))
@@ -34,8 +31,8 @@ export default function OrdersHistory() {
               <div key={i}>
                     <Order
                       id= {e._id}
-                      nombre={e.books.nombre}
-                      image={e.books.image}
+                      nombre={e.books?.nombre}
+                      image={e.books?.image}
                     />
               </div>
               </Link>

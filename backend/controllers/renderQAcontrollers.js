@@ -16,30 +16,28 @@ const postQuestion = async (req, res) => {
             book: req.body.book,
             idVendedor: req.body.idVendedor
         })
-        const question = await newQuestion.save()
-        user.questions = user.questions.concat(question._id)
-        await user.save()
+        const question = await newQuestion.save()   
         res.status(201).json(question);
     } catch (error) {
         console.log(error)
     }
 }
 
-const postAnswer = async (req, res) => {
-    try {
+const postAnswer = async (req, res) => {  
+   //id del usuario que responde
         const{id} = req.params
-        const {idQuestion} = req.body
-        const {idBook} = req.body
 
-        const user = await Usuario.findById(id)
-        const book = await Book.findById(idBook)
+        const user = await Question.findById(id)
+        // const book = await Book.findById(idBook)
 
         const newAnswer = await new Answer({
             mensaje : req.body.mensaje,
-            idVendedor : user._id,
-            question: idQuestion,
-            book: idBook
+            book: req.body.book,
+            question: user._id,
         })
+        newAnswer.idVendedor = req.usuario._id
+    try {
+   
         const answer = await newAnswer.save()
         user.answers = user.answers.concat(answer._id)
         await user.save()
@@ -48,9 +46,11 @@ const postAnswer = async (req, res) => {
         console.log(error)
     }
 }
-
+//-----------------------------------------
+//trae todas las respuestas 
 const getQA = async (req, res) => {
     try {
+
         const QA = await Answer.find().populate("question")
         let response = QA
     
@@ -59,7 +59,8 @@ const getQA = async (req, res) => {
         console.log(error)
       }
 }
-
+//-----------------------------------------
+//trae todas las preguntas
 const getQuestion = async (req, res) => {
     try {
         const QA = await Question.find()
@@ -70,10 +71,11 @@ const getQuestion = async (req, res) => {
         console.log(error)
       }
 }
-
+//-----------------------------------------
+//trae una respuesta por id
 const QAIdBook = async(req, res)=>{
     const {id} = req.params
-    const qaId = await Answer.find({book: id}).populate("question")
+    const qaId = await Question.find({book: id}).populate("answers")
 
     try{
         res.json(qaId)
@@ -104,15 +106,28 @@ const eliminarAnswer = async (req, res) => {
     }
   }
 
+//-----------------------------------------
+//trae toda las preguntas del vendedor
 const getQuestions = async (req, res) => {
     try {
         const id = req.params.id
-        const allQuestions = await Question.find({idVendedor: id})
+        const allQuestions = await Question.find({idVendedor: id}).populate("idComprador").populate("book")
         res.send(allQuestions)
     } catch (error) {
         console.log(error)
     }
   }
+
+  const getAnswers = async (req, res) => {
+    try {
+        const id = req.params.id
+        const allQuestions = await Answer.find({idComprador: id}).populate("book").populate("idVendedor")
+        res.send(allQuestions)
+    } catch (error) {
+        console.log(error)
+    }
+  }
+
   
 export {
     postQuestion,
@@ -122,6 +137,7 @@ export {
     QAIdBook,
     eliminarAnswer,
     getQuestions,
+    getAnswers,
     eliminarQuestion
   }
 

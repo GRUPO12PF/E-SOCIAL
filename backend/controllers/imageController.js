@@ -15,13 +15,12 @@ const postBookImage = async (req, res) => {
 
   try {
     if (req.files.image) {
-      // const response = await uploadImage(req.files.image.tempFilePath) // comentar y descomentar lo sgte p/no subir al pepe ---v
-      const response = {
-        secure_url: 'dummy_secure_url',
-        public_id: 'dummy_public_id'
-      }
+      const response = await uploadImage(req.files.image.tempFilePath) // comentar y descomentar lo sgte p/no subir al pepe ---v
+      // const response = {
+      //   secure_url: 'dummy_secure_url',
+      //   public_id: 'dummy_public_id'
+      // }
       // // ----------------------------
-      console.log("🚀 ~ file: imageController.js ~ line 19 ~ postBookImage ~ response", response)
       await fs.remove(req.files.image.tempFilePath)
 
       const image = {

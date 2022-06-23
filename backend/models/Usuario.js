@@ -41,19 +41,12 @@ const usuarioSchema = mongoose.Schema({
     books: {
         type: Array,
     },
-    questions: [
+    reviews: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Question'
+            ref: 'Review'
         }
     ],
-    answers: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Answer'
-        }
-    ],
-
     notificaciones: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Notificacion"

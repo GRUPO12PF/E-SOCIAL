@@ -6,6 +6,7 @@ import Books from './Books'
 import NavBar from '../../CommonComponents/NavBar/NavBar.jsx'
 import Footer from '../../CommonComponents/Footer/Footer'
 import { usuarioActual } from '../../../redux/actions/actionUser'
+import s from './BooksCreated.module.css'
 
 export default function BooksCreated() {
     const dispatch = useDispatch()
@@ -24,9 +25,13 @@ export default function BooksCreated() {
     return(
         <>
         <NavBar />
+        
+        <h3 className={s.titulo}>HISTORIAL DE COMPRAS</h3>
+        <div className={s.contenedorGral}>
+          <div className={s.contenedorBooks}>
         {  allBooks?.map((e, i) => {
           return (
-            <div key={i}>
+            <div  key={i}>
                     <Books
                       id={e._id}
                       nombre={e.nombre}
@@ -37,6 +42,9 @@ export default function BooksCreated() {
             );
           })
         }
+        </div>
+        </div>
+       
         </>
     )
 

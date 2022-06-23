@@ -19,14 +19,16 @@ function AllBooks() {
     }
   }, [])
 
-  const allBooks = useSelector((state) => state.books)
+  const book = useSelector((state) => state.books)
+  const allBooks = book.filter(el => !el.order.length > 0)
+
   const [pageCurrent, setPageCurrent] = useState(1)
   const pageSize = 10
   const indexOfLastBooks = pageCurrent * pageSize
   const indexOfFirstBooks = indexOfLastBooks - pageSize
   const currentBooks = allBooks?.slice(indexOfFirstBooks, indexOfLastBooks)
   const [loading, setLoading] = useState(true)
-  const[chatbot, setChatbot]= useState(false)
+  const [chatbot, setChatbot] = useState(false)
 
   if (allBooks?.length > 0 && loading) {
     setTimeout(() => {
@@ -69,18 +71,18 @@ function AllBooks() {
           <NotFound />
         )}
         <div className='contanedorChat'>
-         {
-        chatbot?
-        <div className='visible'><Chat setChatbot={setChatbot} chatbot ={chatbot} /></div>:null
-      }
-     
-      <abbr title="NECESITAS AYUDA.."> 
-      <button onClick={() =>setChatbot(!chatbot)}
-       className="link-chatbot"><TbRobot className="robot"/>
-      </button></abbr>.
-      
-      
-      </div>
+          {
+            chatbot ?
+              <div className='visible'><Chat setChatbot={setChatbot} chatbot={chatbot} /></div> : null
+          }
+
+          <abbr title="NECESITAS AYUDA..">
+            <button onClick={() => setChatbot(!chatbot)}
+              className="link-chatbot"><TbRobot className="robot" />
+            </button></abbr>.
+
+
+        </div>
         <Pagination
           pageSize={pageSize}
           pageCurrent={pageCurrent}

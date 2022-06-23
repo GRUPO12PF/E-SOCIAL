@@ -6,6 +6,8 @@ import Settings from "../../../Iconos/Settings";
 import Order from "../../../Iconos/Order";
 import Books from "../../../Iconos/Books";
 import Admin from "../../../Iconos/Admin";
+import Questions from "../Questions/Questions";
+import Perfil from "../../../Iconos/Perfil";
 
 export default function ProfileSettings() {
   const navigate = useNavigate();
@@ -17,15 +19,6 @@ export default function ProfileSettings() {
     navigate("/");
   }
 
-  
-  function handleOnClickBooks() {
-    navigate(`/bookCreated/${idUser}`);
-  }
-
-  function handleOnClickOrders() {
-    navigate(`/historyOrders/${idUser}`);
-  }
-
   function logOut() {
     window.localStorage.removeItem("token");
     window.location.reload();
@@ -33,16 +26,10 @@ export default function ProfileSettings() {
 
   return (
     <div className="profileModal">
-      <div className="divModalPerfil" onClick={() => (handleOnClickBooks())}>
-      <Link to="/" >
-        <Books />
-        <h3>Books</h3>
-        </Link>
-      </div>
-      <div className="divModalPerfil" onClick={() => (handleOnClickOrders())}>
-        <Link to="" >
-        <Order />
-        <h3>Orders</h3>
+      <div className="divModalPerfil">
+        <Link to="/profile" >
+          <Perfil/>
+          <h3>Perfil</h3>
         </Link>
       </div>
       <div className="divModalPerfil">

@@ -1,0 +1,47 @@
+
+
+.fondo{
+    margin:auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.titulo {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    color: rgb(109, 109, 109);
+    margin-top: 20px;
+  }
+
+  .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 120rem;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: none;
+    gap: 2rem;
+    margin: 0 auto;
+}
+.contenedorGral {
+    margin:auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .contenedorBooks {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      align-items: center;
+      /* max-width: 120rem; */
+      margin: 0 auto;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Formik, Field, ErrorMessage, Form } from 'formik'
+import { Formik, Field, ErrorMessage, Form, useFormik } from 'formik'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { postCreate } from '../../../redux/actions/postProducts'
@@ -9,6 +9,7 @@ import { getCategories } from '../../../redux/actions/actionCategories.js'
 import { getBooks } from '../../../redux/actions/actionBooks'
 import { subirFotos } from '../../../redux/actions/actionSubirFotos'
 import { cleanTempState } from '../../../redux/actions/actionCleanTempState'
+import { currentYear } from '../../../utils/helperFunctions'
 
 const Forms = () => {
   // const [dispatch, navigate] = [useDispatch(), useNavigate()]
@@ -52,7 +53,67 @@ const Forms = () => {
           validate={(values) => {
             let errors = {}
 
-           Ø
+            if (!values.nombre) {
+              errors.nombre = 'Campo requerido.'
+            } else if (!/^\S.*$/.test(values.nombre)) {
+              errors.nombre = 'El primer caracter no puede ser un espacio'
+            } else if (!/^(\d|[a-z]|[\u00f1\u00d1]|[,.:¡!¿?']|[À-ÿ]|\s){1,40}$/i.test(values.nombre)) {
+              errors.nombre = 'Ingrese un nombre válido de hasta 40 caracteres.'
+            }
+
+            if (!values.autor) {
+              errors.autor = 'Campo requerido.'
+            } else if (!/^\S.*$/.test(values.autor)) {
+              errors.autor = 'El primer caracter no puede ser un espacio'
+            } else if (!/^(|[a-z]|[()']|[À-ÿ]|[\u00f1\u00d1]|\s){1,40}$/i.test(values.autor)) {
+              errors.autor = 'Ingrese un autor válido de hasta 40 caracteres.'
+            }
+
+            if (!values.idioma) {
+              errors.idioma = 'Campo requerido.'
+            } else if (!/^\S.*$/.test(values.idioma)) {
+              errors.idioma = 'El primer caracter no puede ser un espacio'
+            } else if (!/^([a-z]|[\u00f1\u00d1]|\s){1,20}$/i.test(values.idioma)) {
+              errors.idioma = 'Ingrese un idioma válido de hasta 40 caracteres.'
+            }
+
+            if (/^\s(.)*$/.test(values.editorial)) {
+              errors.editorial = 'El primer caracter no puede ser un espacio'
+            } else if (!/^(\d|[a-z]|[\u00f1\u00d1]|[,.:¡!¿?']|[À-ÿ]|\s){0,40}$/i.test(values.editorial)) {
+              errors.editorial = 'Ingrese un nombre válido de hasta 40 caracteres.'
+            }
+
+            if (/(\D)/.test(values.edicion) || values.edicion < 1 && values.edicion.toString().length > 0) {
+              errors.edicion = 'Ingrese un Nº de edición mayor a 0.'
+            }
+
+            if (!/^([a-z]|\s){0,15}$/i.test(values.tapa)) {
+              errors.tapa = 'Ingrese un tipo de tapa.'
+            }
+
+            if (values.año_de_pub && (!/^[0-9]{0,4}$/.test(values.año_de_pub) || values.año_de_pub > currentYear())) {
+              errors.año_de_pub = 'Ingrese un año válido en formato AAAA.'
+            }
+
+            if (/(\D|^0|[-])/.test(values.cant_pags)) { // NO tira error si solo se le pasa "-"
+              errors.cant_pags = 'Ingrese un número de págs. válido.'
+            }
+
+            if (values.descripcion.length < 6) {
+              errors.descripcion = 'La descripción debe contar con al menos 6 caracteres.'
+            } else if (values.descripcion.length > 1500) {
+              errors.descripcion = 'La descripción debe contar con un máximo de 1500 caracteres.'
+            }
+
+            if (/(\D)/.test(values.price)) {
+              errors.price = 'Ingrese el precio en centavos de USD.'
+            } else if (!values.price || values.price < 50) {
+              errors.price = 'Ingrese un precio válido mayor a 50 centavos.'
+            }
+
+            if (values.category.length < 1) {
+              errors.category = 'Elija al menos 1 categoría.'
+            }
 
             return errors
           }}
@@ -73,13 +134,12 @@ const Forms = () => {
 
           }}
         >
-          {({ errors, handleSubmit, values, setFieldValue }) => (<Form action="" onSubmit={handleSubmit} className={s.formik} >
+          {({ errors, handleSubmit, values, setFieldValue }) => (<Form onSubmit={handleSubmit} className={s.formik} >
             <div className={s.form}>
 
               <div className={s.subdi}>
 
-
-                <label htmlFor="" className={s.label} >Nombre*</label>
+                <label className={s.label} >Nombre*</label>
                 <div>
                   <Field
                     className={s.input}
@@ -90,7 +150,7 @@ const Forms = () => {
                   <ErrorMessage name='nombre' component={() => (<p className={s.error}>{errors.nombre}</p>)} />
                 </div>
 
-                <label htmlFor="" className={s.label} >Autor*</label>
+                <label className={s.label} >Autor*</label>
                 <div>
                   <Field
                     className={s.input}
@@ -101,7 +161,7 @@ const Forms = () => {
                   <ErrorMessage name='autor' component={() => (<p className={s.error}>{errors.autor}</p>)} />
                 </div>
 
-                <label htmlFor="" className={s.label} >Idioma*</label>
+                <label className={s.label} >Idioma*</label>
                 <div>
                   <Field
                     className={s.textarea}
@@ -112,7 +172,7 @@ const Forms = () => {
                   <ErrorMessage name='idioma' component={() => (<p className={s.error}>{errors.idioma}</p>)} />
                 </div>
 
-                <label htmlFor="" className={s.label} >Editorial</label>
+                <label className={s.label} >Editorial</label>
                 <div>
                   <Field
                     className={s.textarea}
@@ -123,7 +183,7 @@ const Forms = () => {
                   <ErrorMessage name='editorial' component={() => (<p className={s.error}>{errors.editorial}</p>)} />
                 </div>
 
-                <label htmlFor="" className={s.label} >Edición</label>
+                <label className={s.label} >Edición</label>
                 <div>
                   <Field
                     className={s.input}
@@ -134,7 +194,7 @@ const Forms = () => {
                   <ErrorMessage name='edicion' component={() => (<p className={s.error}>{errors.edicion}</p>)} />
                 </div>
 
-                <label htmlFor="" className={s.label} >Tipo de tapa</label>
+                <label className={s.label} >Tipo de tapa</label>
                 <div>
                   <Field
                     className={s.textarea}
@@ -148,20 +208,19 @@ const Forms = () => {
 
               </div>
 
-              <label htmlFor="" className={s.label} >Año de publicación</label>
+              <label className={s.label} >Año de publicación</label>
               <div>
                 <Field
                   className={s.input}
                   type="number"
                   name="año_de_pub"
-                  // no consologuea siquiera Año de Pub :O
                   id="año_de_pub"
                   placeholder="AAAA..."
                 />
                 <ErrorMessage name='año_de_pub' component={() => (<p className={s.error}>{errors.año_de_pub}</p>)} />
               </div>
 
-              <label htmlFor="" className={s.label} >Páginas</label>
+              <label className={s.label} >Páginas</label>
               <div>
                 <Field
                   className={s.input}
@@ -172,7 +231,7 @@ const Forms = () => {
                 <ErrorMessage name='cant_pags' component={() => (<p className={s.error}>{errors.cant_pags}</p>)} />
               </div>
 
-              <label htmlFor="" className={s.label} >Saga / Serie</label>
+              <label className={s.label} >Saga / Serie</label>
               <div>
                 <Field
                   className={s.input}
@@ -183,22 +242,26 @@ const Forms = () => {
                 <ErrorMessage name='colection' component={() => (<p className={s.error}>{errors.colection}</p>)} />
               </div>
 
-              <label htmlFor="" className={s.label} >Fotografías del ejemplar</label>
+              <label className={s.label} >Fotografías del ejemplar</label>
               <div>
                 <Field
                   className={s.input}
                   name="image"
                   type="file"
                   id="file"
-                  onChange={e => handleImage(e.target.files[0])}
+                  onChange={e => handleImage(e.target.files[0])}                  
                 />
-                <img src={imgPreview
-                  ? imgPreview
-                  : null} alt="Preview de la img subida." />
+                {imgPreview.length
+                  ? (
+                    <img src={imgPreview} alt="Preview de la img subida." />
+                    , <button type="button" onClick={()=> {setFieldValue("image", imgPreview)}}>Aceptar imagen</button>
+                  )
+                  : null}
+
                 <ErrorMessage name='image' component={() => (<p>{errors.image}</p>)} />
               </div>
 
-              <label htmlFor="" className={s.label} >Precio*</label>
+              <label className={s.label} >Precio*</label>
               <div>
                 <Field
                   className={s.input}
@@ -210,7 +273,7 @@ const Forms = () => {
                 <ErrorMessage name='price' component={() => (<p className={s.error} >{errors.price}</p>)} />
               </div>
 
-              <label htmlFor="" className={s.label} >Descripción*</label>
+              <label className={s.label} >Descripción*</label>
               <div>
                 <Field
                   className={s.textarea}
@@ -222,7 +285,7 @@ const Forms = () => {
                 <ErrorMessage name='descripcion' component={() => (<p className={s.error}>{errors.descripcion}</p>)} />
               </div>
 
-              <label htmlFor="" className={s.label}>Ilustrado</label>
+              <label className={s.label}>Ilustrado</label>
               <div className={s.centro}>
                 <Field
                   className={s.textarea}
@@ -235,7 +298,7 @@ const Forms = () => {
                 </Field>
               </div>
 
-              <label htmlFor="" className={s.label}>Categorías*</label>
+              <label className={s.label}>Categorías*</label>
               <div className={s.chek}>
                 <div role="group" aria-labelledby="checkbox-group" >
                   {categories?.map((e, i) =>
@@ -244,6 +307,8 @@ const Forms = () => {
                 </div>
               </div>
               <ErrorMessage name='category' className='ASIGNAR!' component={() => (<p className={s.error}>{errors.category}</p>)} />
+
+              {console.log("🚀 ~ file: Forms.jsx ~ line 313 ~ Forms ~ values", values)}
 
               <button
                 className={s.sendMsg}

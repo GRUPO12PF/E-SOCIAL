@@ -2,9 +2,19 @@ import mongoose from 'mongoose';
 
 const reviewSchema = mongoose.Schema(
     {
+        comprador: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Usuario',
+            required: true
+          },
         orden: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Order',
+            required: true,
+        },
+        vendedor: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Usuario',
             required: true,
         },
         title: {

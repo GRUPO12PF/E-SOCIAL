@@ -25,6 +25,8 @@ export const GET_ORDERS = 'GET_ORDERS'
 export const POST_QUESTION = 'POST_QUESTION'
 export const POST_ANSWER = 'POST_ANSWER'
 export const GET_QA = 'GET_QA'
+export const GET_ALL_QUESTIONS = 'GET_ALL_QUESTIONS'
+export const GET_ALL_ANSWERS = 'GET_ALL_ANSWERS'
 
 // ESTADO TEMPORAL AUXILIAR ---------------------
 export const TEMP_STATE = 'TEMP_STATE'
