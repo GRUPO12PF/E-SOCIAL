@@ -17,7 +17,7 @@ class MessageParser {
       if(lowercase.includes("pagar"|| "pago"||"pagos")){
         this.actionProvider.handlePagarQuiz();
     }
-    if(lowercase.includes("comprar"|| "compraste"||"compra"||"quiero comprar"||"cómo comprar")){
+    if(lowercase.includes("comprar"|| "compraste"||"compra"||"quiero comprar"||"cómo comprar"||"compra"||"no puedo comprar")){
       this.actionProvider.handleComprarQuiz();
   }
   }

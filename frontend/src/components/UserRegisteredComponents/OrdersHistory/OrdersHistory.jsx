@@ -21,6 +21,9 @@ export default function OrdersHistory() {
   return (
     <>
       <NavBar />
+      <Link to = '/profile'>
+        <button className={s.buttonPerfil}>VOLVER AL MENU</button>
+      </Link>
       <h3 className={s.titulo}>HISTORIAL DE COMPRAS</h3>
       <div className="contenedorGral">
 
