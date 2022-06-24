@@ -1527,27 +1527,30 @@ div.portfoliocard div.follow_count {
   z-index: 999999;
 }
 
+.bienvenido {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reglas {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
 .contentChat {
   width: 90%;
   margin: 1rem auto;
 }
-.contentChat ::-webkit-scrollbar {
-  width: 10px;
-}
-.contentChat ::-webkit-scrollbar-track {
-  border-radius: 10px;
-  background-color: rgba(25, 147, 147, 0.1);
-}
-.contentChat ::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-}
-.contentChat .contChat {
+
+.contChat {
   z-index: -1;
   color: #F6AA1C;
   position: fixed;
   background-color: #621708;
   width: 80%;
-  margin: 0 auto;
   border-radius: 0.5rem;
   border-top: solid 1px #621708;
   border-left: solid 1px #621708;
@@ -1555,53 +1558,84 @@ div.portfoliocard div.follow_count {
   bottom: 0;
   right: 5px;
 }
+
 @media (min-width: 768px) {
-  .contentChat .contChat {
+  .contChat {
     margin: 1rem 5rem;
     width: 90%;
   }
 }
-
 .ulChat {
-  margin: 24px auto 0 auto;
   padding: 0 20px 0 0;
   list-style: none;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: scroll;
+  height: 520px;
+  font-size: 2.5rem;
+}
+
+.ulChat::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+.ulChat::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.ulChat::-webkit-scrollbar-thumb {
+  background-color: #540101;
+  width: 15px;
+  border-radius: 15px;
 }
 
 .cadaMensaje {
   z-index: -1;
   position: relative;
   clear: both;
-  display: inline-block;
-  padding: 16px 40px 16px 20px;
+  display: flex;
+  padding: 38px 30px 12px 20px;
   margin: 0 0 20px 0;
   border-radius: 10px;
   color: #f0f8ff;
-  display: flex;
   margin: 0.5rem 0;
   padding: 1rem;
 }
-.cadaMensaje .cadaMensaje li:after {
-  top: 15px;
-  position: absolute;
-  content: "";
-  width: 0;
-  height: 0;
+
+.inicialMsg {
+  text-align: center;
 }
-.cadaMensaje li:nth-child(even) {
-  animation: show-chat-even 0.15s 1 ease-in;
-  -moz-animation: show-chat-even 0.15s 1 ease-in;
-  -webkit-animation: show-chat-even 0.15s 1 ease-in;
-  float: left;
-  color: #0EC879;
+
+.msj {
+  margin: 2rem;
+  background-color: rgba(240, 56, 56, 0.206);
+  border-radius: 30px;
+  padding: 2rem;
 }
-.cadaMensaje .span {
-  color: #BC3908;
+
+.span {
+  color: #f0f8ff;
   font-weight: 700;
+  padding: 2rem;
+  border-radius: 30%;
 }
-.cadaMensaje .otro {
-  color: #663a8f;
+
+.otro {
+  color: #F6AA1C;
+  padding: 2rem;
+  border-radius: 30%;
+}
+
+.buChat {
+  border-radius: 10%;
+  padding: 1rem;
+}
+
+.inputChat {
+  border-radius: 10%;
+  padding: 1rem;
+}
+
+.chatform {
+  justify-content: center;
+  display: flex;
 }
 /*# sourceMappingURL=app.css.map */
