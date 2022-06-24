@@ -19,6 +19,7 @@ function Profile() {
     navigate(`/historyOrders/${idUser}`)
   }
 
+<<<<<<< HEAD
   function handleOnClickQuestions() {
     navigate(`/questions/${idUser}`)
   }
@@ -26,12 +27,45 @@ function Profile() {
   return (
     <div>
       <NavBar />
+=======
+    function handleOnClickAnswers(){
+      navigate(`/answers/${idUser}`)
+    }
+
+    return (
+>>>>>>> bf4c3e6d8ee2d80cd640ec7bcd411191290401a6
       <div>
 
+<<<<<<< HEAD
         <div onClick={() => handleOnClickBooks()}>
           <Link to="/">
             <p className={estilos.prueba}>LIBROS</p>
           </Link>
+=======
+            <div onClick={() => handleOnClickBooks()}>
+                <Link to="/">
+                    <p className={estilos.prueba}>libros</p>
+                </Link>
+            </div>
+            <div onClick={() => (handleOnClickOrders())}>
+                <Link to="/">
+                    <p className={estilos.prueba}>ordenes</p>
+                </Link>
+            </div>
+            <div onClick={() => (handleOnClickQuestions())}>
+                <Link to="/">
+                    <p className={estilos.prueba}>preguntas</p>
+                </Link>
+            </div>
+            <div onClick={() => (handleOnClickAnswers())}>
+                <Link to="/">
+                  <p className={estilos.prueba}>respuestas</p>
+                </Link>
+            </div>
+            <div>
+                <Link to="/">Mensajes</Link>
+            </div>
+>>>>>>> bf4c3e6d8ee2d80cd640ec7bcd411191290401a6
         </div>
 
         <div onClick={() => (handleOnClickOrders())}>

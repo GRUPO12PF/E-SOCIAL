@@ -118,7 +118,7 @@ export default function Chat({ usuario, socket }) {
   });
 
   return (
-    <div className="chat">
+    <div className="chat-window">
       <button onClick={handleNone} className="chat-title">
         Chat
       </button>

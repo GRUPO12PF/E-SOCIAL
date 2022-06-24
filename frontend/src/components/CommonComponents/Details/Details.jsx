@@ -5,7 +5,7 @@ import { detailsBook } from "../../../redux/actions/detailsBooks"
 import NavBar from "../../CommonComponents/NavBar/NavBar"
 import book from "../../../assets/images/book.svg"
 import { formatToCurrency } from "../../../utils/helperFunctions"
-import { getQA, postQuestion } from "../../../redux/actions/actionQA"
+import { allQuestions, getQA, postQuestion } from "../../../redux/actions/actionQA"
 import DetailsField from "./DetailsField/DetailsField"
 
 const Details = () => {
@@ -14,25 +14,34 @@ const Details = () => {
   const token = localStorage.getItem("token")
   const { id } = useParams()
   const dispatch = useDispatch()
+
   
   //--------------------------
   const detail = useSelector((state) => state.detail)
-
+  
   const idCreador = detail.creador
-
-
+  
+  
   const handle = ()=>{
     Navigate(`/profile/${idCreador}`)
   }
   const { nombre, autor, idioma, editorial, edicion, tapa, cant_pags, colection, image, price, descripcion, category, ilustrado, año_de_pub } = useSelector((state) => state.detail)
-
+  
   const usuarioVendedor = detail.creador
   const idBook = detail._id
-
+  
   const user = useSelector((state) => state.usuarioActual)
   const userComprador = user._id
 
-  // console.log("id del libro", idBook, "id del comprador", userComprador, "id del vendedor", usuarioVendedor)
+
+ //----------------------------------------------------------------------------------------------------------------------------------------------------------- 
+  const qa = useSelector((state)=> state.questionsAndAnswers)
+  console.log(qa)
+  
+
+ //-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
   const [input, setInput] = useState({
     mensaje: ''
   })
@@ -45,6 +54,7 @@ const Details = () => {
   }
 
   useEffect(() => {
+    dispatch(getQA(id))
     dispatch(detailsBook(id))
   }, [dispatch])
 
@@ -176,7 +186,21 @@ const Details = () => {
         </div>
       </div>
 
+            <div>
+            {
+              qa?.map((e, i)=>{
+                return(
+                  <div >
+                    <div><h3>Pregunta: {e.mensaje}</h3></div>
+                    <div><h3>Respuesta: {e.answers[0].mensaje}</h3></div>
+                  </div>
+                )
+              })
+            }
+            </div>
+
       <div>
+
         {
           token ?
             <form onSubmit={(e) => handleSubmitSendQuestion(e)}>

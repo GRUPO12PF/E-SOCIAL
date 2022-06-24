@@ -39,10 +39,17 @@ const OrderDetail = () => {
           <p className={s.items}>{detalles.books?.category}</p>
           {/* <p>{detalles.comprador.nombre}</p>
                <img src={detalles.comprador.image.url}/> */}
+<<<<<<< HEAD
           <button className={s.button} onClick={handleClick}>OPINAR SOBRE EL VENDEDOR</button>
         </div>
 
       </div>
+=======
+     
+      </div>
+      <button className= {s.button} onClick={handleClick}>OPINAR SOBRE EL VENDEDOR</button>
+    </div>
+>>>>>>> bf4c3e6d8ee2d80cd640ec7bcd411191290401a6
     </div>
   )
 }

@@ -111,7 +111,7 @@ const eliminarAnswer = async (req, res) => {
 const getQuestions = async (req, res) => {
     try {
         const id = req.params.id
-        const allQuestions = await Question.find({idVendedor: id}).populate("idComprador").populate("book")
+        const allQuestions = await Question.find({idVendedor: id}).populate("idComprador").populate("book").populate("answers")
         res.send(allQuestions)
     } catch (error) {
         console.log(error)
@@ -121,7 +121,7 @@ const getQuestions = async (req, res) => {
   const getAnswers = async (req, res) => {
     try {
         const id = req.params.id
-        const allQuestions = await Answer.find({idComprador: id}).populate("book").populate("idVendedor")
+        const allQuestions = await Answer.find({idComprador: id}).populate("book").populate("idVendedor").populate("questions")
         res.send(allQuestions)
     } catch (error) {
         console.log(error)
