@@ -59,6 +59,8 @@ export default function App() {
           <Route path="/details/:id" element={<Details />} />
           <Route path="/about" element={<About />} />
           <Route path="/seller" element={<UserCard />} />
+          <Route path="/profile/:id" element={<ProfileUsers/>}/>
+
 
         </Route>
 
@@ -78,7 +80,6 @@ export default function App() {
           <Route path="/admin/users" element={<AllUsers/>}/>
           <Route path="/admin" element={<AdminHome/>}/>
           <Route path="/admin/allOrders" element={<AllOrders/>}/>
-          <Route path="/profile/:id" element={<ProfileUsers/>}/>
           <Route path="/review/:id" element={<Review />} />
           <Route path="/chat" element={<HomeChat />} />
           </Route>

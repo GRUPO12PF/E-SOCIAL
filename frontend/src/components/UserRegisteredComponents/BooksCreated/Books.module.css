@@ -15,6 +15,11 @@
     margin-bottom: 5%;
 
 }
+.vendido{
+    background-color: red;
+    color: white;
+    text-align: center;
+}
 .btn:hover{
     background-color: rgb(194, 174, 174);
 }
