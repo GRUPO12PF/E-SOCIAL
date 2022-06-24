@@ -4,7 +4,7 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import s from './CheckoutForm.module.css'
 import { buyBook } from "../../../../redux/actions/actionBuy.js"
 import { orderPost } from "../../../../redux/actions/actionOrder"
-import { usuarioActual } from "../../../../redux/actions/actionUser"
+import { usuarioActual } from "../../../../redux/actions/actionUser";
 import { useNavigate } from "react-router"
 import { formatToCurrency } from "../../../../utils/helperFunctions.js"
 import swal from 'sweetalert'
@@ -21,8 +21,8 @@ const CheckoutForm = () => {
   const bookId = product._id
 
   useEffect(() => {
-    dispatch(usuarioActual())
-  }, [])
+    dispatch(usuarioActual());
+  }, []);
 
   const [loading, setLoading] = useState(false)
 
@@ -40,7 +40,7 @@ const CheckoutForm = () => {
         const pm = paymentMethod.id
 
         try {
-          const buy = dispatch(buyBook(
+          const buy = await dispatch(buyBook(
             [{
               pm,
               qty: 1,
@@ -51,14 +51,14 @@ const CheckoutForm = () => {
             dispatch(orderPost({
               bookId: bookId
             }))
-            swal("¡Pago recibido!", "No te olvides de confirmar tu mail por favor!", "success")
+            swal("Pago recibido!", "No te olvides de confirmar tu mail por favor!", "success")
 
             setTimeout(() => {
               navigate("/confirmation")
             }, 1000)
 
           } else {
-            swal("¡Pago rechazado!", "Intente nuevamente con otra tarjeta por favor!", "")
+            swal("Pago rechazado!", "Intente nuevamente con otra tarjeta por favor!", "")
 
           }
           elements.getElement(CardElement).clear()
@@ -68,7 +68,7 @@ const CheckoutForm = () => {
         setLoading(false)
       }
     } else {
-      alert('¡No podés comprar el libro que pusiste en venta!')
+      alert('no podes comprar el libro que pusiste en venta!')
     }
   }
 
@@ -78,8 +78,8 @@ const CheckoutForm = () => {
         <h3 className="text-center my-2">{product.nombre}</h3>
         <div className={s.flex}>
           <img
-          src={product.image}
-          alt="No encontrada"
+            src={product.image} // TODO cambiar por imagen del libro
+            alt="not found" // TODO cambiar por texto acorde
             className={s.productImg}
           />
           <h3 className="text-center my-2">{formatToCurrency(product.price)}</h3>
@@ -96,7 +96,7 @@ const CheckoutForm = () => {
               <span className="sr-only">Cargando...</span>
             </div>
           ) : (
-            "COMPRAR"
+            "Comprar"
           )}
         </button>
       </form>
