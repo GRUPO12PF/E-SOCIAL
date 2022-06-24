@@ -121,7 +121,7 @@ const getQuestionsVendedor = async (req, res) => {
 const getQuestionsComprador = async (req, res) => {
   try {
     const id = req.params.id
-    const allQuestions = await Question.find({ idComprador: id }).populate("idComprador").populate("book").populate("answers")
+    const allQuestions = await Question.find({ idComprador: id }).populate("idComprador").populate("book").populate("answers").populate("idVendedor")
     res.send(allQuestions)
   } catch (error) {
     console.log(error)
@@ -131,7 +131,7 @@ const getQuestionsComprador = async (req, res) => {
 const getAnswersVendedor = async (req, res) => {
   try {
     const id = req.params.id
-    const allQuestions = await Answer.find({ idVendedor: id }).populate("book").populate("idVendedor").populate("questions")
+    const allQuestions = await Answer.find({ idVendedor: id }).populate("book").populate("idVendedor").populate("questions").populate("idComprador")
     res.send(allQuestions)
   } catch (error) {
     console.log(error)
