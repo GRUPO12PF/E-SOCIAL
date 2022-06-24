@@ -32,8 +32,9 @@ export default function Questions() {
       {question?.map((e, i) => {
         return (
 
-          <div _id={e._id} key={i}>
+          <div _id={e?._id} key={i}>
             <QuestionDetail
+             _id={e._id}
               mensaje={e.mensaje}
               book={e.book}
               idComprador={e.idComprador}

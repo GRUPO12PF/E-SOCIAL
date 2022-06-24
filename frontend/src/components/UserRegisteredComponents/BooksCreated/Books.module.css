@@ -3,7 +3,7 @@
     display: flex;
     background-color: none;
     justify-content: end;
-    padding-right: 4rem;
+    padding-right: 1rem;
 
 }
 
@@ -51,7 +51,7 @@
     border-radius: 10px;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    width: 260px;
+    width: 321px;
 }
 
 .precio {

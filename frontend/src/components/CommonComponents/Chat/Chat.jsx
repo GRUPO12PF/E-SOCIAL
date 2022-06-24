@@ -112,44 +112,40 @@ export default function Chat({ usuario, socket }) {
     };
   }, [mensajes]);
 
-
-
   return (
     <div className="chat-window">
-      <div id="chat" className="displayNone">
-        <div id="chat" className="contenidoChat">
-          <div id="ulChat" className="ulChat">
-            {mensajes.length !== 0 ? (
+        <div id="ulChat" className="ulChat">
+         {mensajes.length !== 0 ? (
               mensajes?.map((e, i) => {
                 return (
                   <li className="cadaMensaje" key={i}>
-                    <span
+                    <li
                       className={e.usuario === usuario.nombre ? "span" : "otro"}
                     >
                       {e.usuario}:
-                    </span>{" "}
-                    {e.msg}{" "}
-                  </li>
+                    </li>{" "}
+                    <p className="msj"> {e.msg}{" "}</p>
+                    </li>
                 );
               })
             ) : (
-              <li className="cadaMensaje"> Escriba el primer mensaje </li>
+              <div className="inicialMsg"> Escriba el primer mensaje </div>
             )}
           </div>
-        </div>
-        <form onSubmit={(e) => handleSubmit(e)} action="">
+         <form className="chatform"onSubmit={(e) => handleSubmit(e)} action="">
           <input
             value={mensaje}
             className="inputChat"
             onChange={(e) => setMensaje(e.target.value)}
             type="text"
-            placeholder="write"
+            placeholder="Escribe acá"
           />
           <button className="buChat" type="submit">
             ENVIAR
           </button>
         </form>
-      </div>
+      
     </div>
   );
 }
+
