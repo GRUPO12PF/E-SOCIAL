@@ -1,20 +1,24 @@
 import React, { useEffect, useRef } from 'react'
 import { Formik, Field, ErrorMessage, Form } from 'formik'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { postCreate } from '../../../redux/actions/postProducts'
 import { getCategories } from '../../../redux/actions/actionCategories.js'
-import { cleanData, getBooks } from '../../../redux/actions/actionBooks'
+import { cleanData, getBooks, putBookBody } from '../../../redux/actions/actionBooks'
+import { detailsBook } from '../../../redux/actions/detailsBooks'
 import { subirFotos } from '../../../redux/actions/actionSubirFotos'
-import { currentYear } from '../../../utils/helperFunctions'
 import PreviewImage from './ImgPreview/ImgPreview'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
 import s from '../Form/Form.module.css'
+import EditCard from './EditCard/EditCard'
+import { formValidators } from '../../../utils/helperFunctions.js'
 
 const Forms = () => {
   const [dispatch, navigate] = [useDispatch(), useNavigate()]
   const categories = useSelector(state => state.categories)
   const imgPreview = useSelector(state => state.tempState)
+  const { id } = useParams()
+  const isAddMode = !id
 
   const fileRef = useRef(null)
 
@@ -23,16 +27,18 @@ const Forms = () => {
   }
 
   useEffect(() => {
-    dispatch(getCategories())
     dispatch(cleanData)
+    dispatch(getCategories())
+    if (!isAddMode) { dispatch(detailsBook(id)) }
   }, [])
 
   return (
     <div className={s.formFondo}>
       <div>
-        <div>
-          <NavBar />
-        </div>
+        <NavBar />
+
+        <EditCard id={id} addMode={isAddMode} />
+
         <Formik
           initialValues={{
             nombre: '',
@@ -51,83 +57,22 @@ const Forms = () => {
             category: []
           }}
 
-          validate={(values) => {
-            let errors = {}
-
-            if (!values.nombre) {
-              errors.nombre = 'Campo requerido'
-            } else if (!/^\S.*$/.test(values.nombre)) {
-              errors.nombre = 'El primer caracter no puede ser un espacio'
-            } else if (!/^(\d|[a-z]|[\u00f1\u00d1]|[,.:¡!¿?']|[À-ÿ]|\s){1,40}$/i.test(values.nombre)) {
-              errors.nombre = 'Ingrese un nombre válido de hasta 40 caracteres'
-            }
-
-            if (!values.autor) {
-              errors.autor = 'Campo requerido'
-            } else if (!/^\S.*$/.test(values.autor)) {
-              errors.autor = 'El primer caracter no puede ser un espacio'
-            } else if (!/^(|[a-z]|[()']|[À-ÿ]|[\u00f1\u00d1]|\s){1,40}$/i.test(values.autor)) {
-              errors.autor = 'Ingrese un autor válido de hasta 40 caracteres'
-            }
-
-            if (!values.idioma) {
-              errors.idioma = 'Campo requerido'
-            } else if (!/^\S.*$/.test(values.idioma)) {
-              errors.idioma = 'El primer caracter no puede ser un espacio'
-            } else if (!/^([a-z]|[\u00f1\u00d1]|\s){1,20}$/i.test(values.idioma)) {
-              errors.idioma = 'Ingrese un idioma válido de hasta 40 caracteres'
-            }
-
-            if (/^\s(.)*$/.test(values.editorial)) {
-              errors.editorial = 'El primer caracter no puede ser un espacio'
-            } else if (!/^(\d|[a-z]|[\u00f1\u00d1]|[,.:¡!¿?']|[À-ÿ]|\s){0,40}$/i.test(values.editorial)) {
-              errors.editorial = 'Ingrese un nombre válido de hasta 40 caracteres'
-            }
-
-            if (/(\D)/.test(values.edicion) || values.edicion < 1 && values.edicion.toString().length > 0) {
-              errors.edicion = 'Ingrese un Nº de edición mayor a 0'
-            }
-
-            if (!/^([a-z]|\s){0,15}$/i.test(values.tapa)) {
-              errors.tapa = 'Ingrese un tipo de tapa'
-            }
-
-            if (values.año_de_pub && (!/^[0-9]{0,4}$/.test(values.año_de_pub) || values.año_de_pub > currentYear())) {
-              errors.año_de_pub = 'Ingrese un año válido en formato AAAA'
-            }
-
-            if (/(\D|^0|[-])/.test(values.cant_pags)) { // NO tira error si solo se le pasa "-"
-              errors.cant_pags = 'Ingrese un número de págs. válido'
-            }
-
-            if (values.descripcion.length < 6) {
-              errors.descripcion = 'La descripción debe contar con al menos 6 caracteres'
-            } else if (values.descripcion.length > 1500) {
-              errors.descripcion = 'La descripción debe contar con un máximo de 1500 caracteres'
-            }
-
-            if (/(\D)/.test(values.price)) {
-              errors.price = 'Ingrese el precio en centavos de USD'
-            } else if (!values.price || values.price < 50) {
-              errors.price = 'Ingrese un precio válido mayor a 50 centavos'
-            }
-
-            if (values.category.length < 1) {
-              errors.category = 'Elija al menos 1 categoría'
-            }
-
-            return errors
-          }}
+          validate={values => formValidators(values)}
 
           onSubmit={(values, { resetForm }) => {
             values.image = imgPreview
             delete values.file
-            console.log("🚀 ~ file: Forms.jsx ~ values", values)
-            dispatch(postCreate(values))
+
+            if (isAddMode) { dispatch(postCreate(values)) }
+            else {
+              values._id = id
+              dispatch(putBookBody(values))
+            }
+            
             dispatch(cleanData)
             resetForm()
             swal({
-              title: "¡Creado con éxito!",
+              title: "¡Realizado con éxito!",
               text: " ",
               icon: "success",
               button: "Ok!",
@@ -136,7 +81,8 @@ const Forms = () => {
             dispatch(getBooks())
           }}
         >
-          {({ errors, handleSubmit, values, setFieldValue }) => (
+
+          {({ errors, values, handleSubmit, setFieldValue }) => (
             <Form onSubmit={handleSubmit} className={s.formik} >
               <div className={s.form}>
 
@@ -323,6 +269,7 @@ const Forms = () => {
                   type="submit"
                   disabled={errors.nombre || errors.autor || errors.idioma || errors.price || errors.category || errors.descripcion}
                 >ENVIAR</button>
+
               </div>
             </Form>
           )}
@@ -330,7 +277,7 @@ const Forms = () => {
         <br />
         <Link className={s.back} to="/">BACK</Link>
       </div>
-    </div>
+    </div >
   )
 }
 
