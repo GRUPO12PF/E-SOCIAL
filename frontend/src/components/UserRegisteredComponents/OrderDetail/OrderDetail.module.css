@@ -8,6 +8,10 @@
     overflow: auto;
     align-items: center;
 }
+.response{
+    color: red;
+    text-align: center;
+}
 
 .texto{
     font-size: 50px;

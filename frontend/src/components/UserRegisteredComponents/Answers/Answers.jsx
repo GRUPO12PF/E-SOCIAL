@@ -1,36 +1,35 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { allQuestions,  } from "../../../redux/actions/actionQA";
+import { allAnswers  } from "../../../redux/actions/actionQA";
 import { useEffect } from "react";
-import QuestionDetail from "./QuestionDetail";
 import NavBar from "../../CommonComponents/NavBar/NavBar";
+import AnswerDetail from "./AnswerDetail";
 
 export default function Questions(){
     const dispatch = useDispatch()
     const { id } = useParams();
-    const questions = useSelector((state) => state.questions)
-    const question = questions.filter(ele => !ele.answers.length > 0)
+    const answers = useSelector((state) => state.answers)
+    const answersUser = answers.filter(ele => ele.idVendedor._id === id)  
 
-    console.log("a ver si me trae las preguntas", questions)
+
+    console.log("a ver qué trae", answers.createdAt)
     
-    useEffect(() => {
-        // dispatch(usuarioActual())
-        dispatch(allQuestions(id))
+    
+    useEffect(() => {   
+         dispatch(allAnswers(id))
     }, [dispatch]);
     
     return(
         <div>
           <NavBar />
-          <h3>PREGUNTAS POR RESPONDER </h3>
-            {question?.map((e, i)=>{
+          <h3>HISTORIAL DE RESPUESTAS</h3>
+            {answersUser?.map((e, i)=>{
                  return (
-                   
                     <div _id= {e._id} key={i}>
-                          <QuestionDetail
-                            _id= {e._id}
+                          <AnswerDetail
                             mensaje= {e.mensaje}
                             book={e.book}
-                            idComprador={e.idComprador}
+                            createdAt={e.createdAt}
                           />
                     </div>
                   );

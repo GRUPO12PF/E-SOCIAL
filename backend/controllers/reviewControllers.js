@@ -1,6 +1,5 @@
 import Review from "../models/Review.js"
 import Order from "../models/Order.js"
-import Usuario from "../models/Usuario.js"
 
 
 const nuevaReview = async (req, res) => {
@@ -8,11 +7,11 @@ const nuevaReview = async (req, res) => {
   const { id } = req.params
   const {vendedor} = req.body
 
-  const user = await Usuario.findById(vendedor)
+  const user = await Order.findById(id)
 
   const newReview = await new Review({
     orden: id,
-    vendedor: user._id,
+    vendedor,
     title: req.body.title,
     description: req.body.description,
     score: req.body.score

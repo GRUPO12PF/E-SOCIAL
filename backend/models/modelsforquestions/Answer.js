@@ -22,6 +22,8 @@ const answerSchema = mongoose.Schema(
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Books'
       }
+  },{ 
+    timestamps: true
   }
 )
 
