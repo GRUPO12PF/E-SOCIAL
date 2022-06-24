@@ -63,7 +63,6 @@ const detailBook = async (req, res) => {
 const editarBook = async (req, res) => {
   const id = req.params.id
   const { nombre, autor, idioma, editorial, edicion, tapa, año_de_pub, cant_pags, descripcion, price, image, colection, ilustrado, category } = req.body
-  console.log("🚀 ~ file: booksControllers.js ~ line 64 ~ editarBook ~ req", req)
 
   try {
     const bookEditado = await Book.findByIdAndUpdate({ _id: id }, {
