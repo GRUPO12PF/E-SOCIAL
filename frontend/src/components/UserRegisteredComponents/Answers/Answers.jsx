@@ -9,10 +9,10 @@ export default function Questions(){
     const dispatch = useDispatch()
     const { id } = useParams();
     const answers = useSelector((state) => state.answers)
-    const answersUser = answers.filter(ele => ele.idVendedor._id === id)  
+    const answersUser = answers.filter(ele => ele.idVendedor._id === id && ele.book !== null)  
 
 
-    console.log("a ver qué trae", answers.createdAt)
+    console.log("a ver qué trae", answersUser)
     
     
     useEffect(() => {   

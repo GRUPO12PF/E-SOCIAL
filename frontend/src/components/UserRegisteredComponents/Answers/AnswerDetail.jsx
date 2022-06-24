@@ -8,14 +8,14 @@ export default function AnswerDetail ({mensaje, book, createdAt}){
 //   const {id} = useParams(); //id del vendedor 
 //   const idQuestion = _id //id de la pregunta 
 
-console.log(createdAt)
+console.log(book)
   return (
     <div>
       
         <div className={estilos.prueba}>
            <p>Respondido el: {createdAt}</p>
            <p>Lo que respondiste: {mensaje}</p>
-           <p>En el libro: {book.nombre}</p>
+           <p>En el libro: {book?.nombre}</p>
         </div>
         {/* <form onSubmit={(e) => handleSubmitSendAnswer(e)}>
           <input type="text" placeholder='Acá va su respuesta' name="mensaje" value={input.mensaje} onChange={(e)=> handleInputChange(e)}/>
