@@ -56,6 +56,7 @@ const OrderDetail = () => {
         <div className={s.response}>{response ? response : null}</div>
         <button id="review" className={s.button} onClick={handleClick}>OPINAR SOBRE EL VENDEDOR</button>
       </div>
+      <Footer/>
     </div>
   )
 }
