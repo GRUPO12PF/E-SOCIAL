@@ -25,7 +25,7 @@ const Details = () => {
     navigate(`/profile/${usuarioVendedor}`)
   }
 
-  const { nombre, autor, idioma, editorial, edicion, tapa, cant_pags, colection, image, price, descripcion, category, ilustrado, año_de_pub } = useSelector((state) => state.detail)
+  const { nombre, autor, idioma, editorial, edicion, tapa, cant_pags, colection, image, price, descripcion, category, ilustrado, publicado } = useSelector((state) => state.detail)
 
   console.log(detail)
   const user = useSelector((state) => state.usuarioActual)
@@ -160,7 +160,7 @@ const Details = () => {
                       />
 
                       <DetailsField
-                        constant={año_de_pub}
+                        constant={publicado}
                         clase="h5-detalle"
                         title='Año de publicación'
                       />

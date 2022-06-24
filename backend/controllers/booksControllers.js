@@ -62,7 +62,7 @@ const detailBook = async (req, res) => {
 
 const editarBook = async (req, res) => {
   const id = req.params.id
-  const { nombre, autor, idioma, editorial, edicion, tapa, año_de_pub, cant_pags, descripcion, price, image, colection, ilustrado, category } = req.body
+  const { nombre, autor, idioma, editorial, edicion, tapa, publicado, cant_pags, descripcion, price, image, colection, ilustrado, category } = req.body
   
   try {
     const bookEditado = await Book.findByIdAndUpdate({ _id: id }, {
@@ -72,7 +72,7 @@ const editarBook = async (req, res) => {
       editorial,
       edicion,
       tapa,
-      año_de_pub,
+      publicado,
       cant_pags,
       descripcion,
       price,

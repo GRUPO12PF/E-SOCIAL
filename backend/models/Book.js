@@ -29,7 +29,7 @@ const booksSchema = mongoose.Schema(
       type: String,
       trim: true
     },
-    año_de_pub: {
+    publicado: {
       type: Number,
     },
     cant_pags: {

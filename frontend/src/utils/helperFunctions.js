@@ -52,8 +52,8 @@ export function formValidators (values) {
     errors.tapa = 'Ingrese un tipo de tapa'
   }
 
-  if (values.año_de_pub && (!/^[0-9]{0,4}$/.test(values.año_de_pub) || values.año_de_pub > currentYear())) {
-    errors.año_de_pub = 'Ingrese un año válido en formato AAAA'
+  if (values.publicado && (!/^[0-9]{0,4}$/.test(values.publicado) || values.publicado > currentYear())) {
+    errors.publicado = 'Ingrese un año válido en formato AAAA'
   }
 
   if (/(\D|^0|[-])/.test(values.cant_pags)) { // NO tira error si solo se le pasa "-"
