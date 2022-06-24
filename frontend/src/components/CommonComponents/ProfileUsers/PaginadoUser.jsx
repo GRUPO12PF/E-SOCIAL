@@ -1,12 +1,9 @@
 import React from 'react';
 
-
-
-
-export default function PaginadoUser({ allVideogames, pageSize, page, goToPreviousPage, goToNextPage }) {
+export default function PaginadoUser({ allBooks, pageSize, page, goToPreviousPage, goToNextPage }) {
     const pageNumbers = [];
 
-    for (let i = 1; i <= Math.ceil(allVideogames / pageSize); i++) {
+    for (let i = 1; i <= Math.ceil(allBooks / pageSize); i++) {
         pageNumbers.push(i);;
     }
     return (

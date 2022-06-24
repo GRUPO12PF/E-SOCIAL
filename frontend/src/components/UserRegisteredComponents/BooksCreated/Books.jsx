@@ -12,10 +12,11 @@ function Books({ nombre, image, price, id, order }) {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  let hola
-if(order.length>0){
-   hola= 'VENDIDO'
-}
+
+  let vendido
+  if (order.length > 0) {
+    vendido = 'VENDIDO'
+  }
 
   function handleDeleteBook(e) {
     if (!order.length > 0) {
@@ -35,9 +36,9 @@ if(order.length>0){
 
   }
   function handleUpdateBook(e) {
-    if(!order.length>0){
-    e.preventDefault();
-    navigate(`/details/update/${id}`);
+    if (!order.length > 0) {
+      e.preventDefault();
+      navigate(`/details/update/${id}`);
     } else {
       const btnUpdate = document.getElementById('update');
       btnUpdate.disabled = true;
@@ -47,10 +48,9 @@ if(order.length>0){
 
   return (
     <div className={s.container}>
-     
       <div className={s.card}>
         <div className={s.cardBody}>
-          <div className={s.vendido}>{hola ? hola : null}</div>
+          <div className={s.vendido}>{vendido ? vendido : null}</div>
           <h4 className={s.nombre}>{nombre}</h4>
           <p className={s.precio}>Precio: {price}</p>
           <img
@@ -58,10 +58,8 @@ if(order.length>0){
             src={image || book}
             alt='Img not found'
           />
-
           {token ? (
             <div className={s.botoness}>
-
               <button id='delete' className={s.btn} onClick={(e) => handleDeleteBook(e)}>DELETE</button>
               <button id='update' className={s.btn} onClick={(e) => handleUpdateBook(e)}>UPDATE</button>
             </div>
@@ -69,7 +67,6 @@ if(order.length>0){
         </div>
       </div>
     </div>
-
   )
 }
 
