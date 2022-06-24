@@ -26,8 +26,9 @@ function Profile() {
     }
 
     return (
-      <div>
+      <div >
         <NavBar />
+        <div className={s.containerPadre}>
         <div className={s.containerGral}>
         <div className={s.container}>
           <div clasName={s.containerMini}>
@@ -56,7 +57,8 @@ function Profile() {
             </div>
         </div>
         </div>
-        {/* <Footer/> */}
+         <Footer/>
+         </div> 
       </div>
     );
 }

@@ -1,6 +1,6 @@
 .footer {
-  padding: 0.2rem;
-  display: inline-block;
+  padding: 1em;
+  
   left: 0;
   bottom: 0;
   width: 100%;
@@ -8,4 +8,6 @@
   background-color: #621708;
   justify-content: center;
   text-align: center;
+  margin-top: auto;
+  margin-bottom: 0%;
 }
