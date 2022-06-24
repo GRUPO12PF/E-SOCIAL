@@ -3,7 +3,6 @@ import NavBar from '../../CommonComponents/NavBar/NavBar'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
-import estilos from './Profile.module.css'
 import s from './Profile.module.css'
 import Footer from '../../CommonComponents/Footer/Footer'
 
@@ -24,44 +23,41 @@ function Profile() {
     navigate(`/questions/${idUser}`)
   }
 
-  function handleOnClickAnswers() {
-    navigate(`/answers/${idUser}`)
-  }
-
   return (
     <div >
       <NavBar />
+
       <div className={s.containerPadre}>
         <div className={s.containerGral}>
           <div className={s.container}>
-            <div className={s.containerMini}>
+
+            <div clasName={s.containerMini}>
 
               <div onClick={() => handleOnClickBooks()}>
                 <Link to="/">
-                  <p className={estilos.prueba}>LIBROS</p>
+                  <p className={s.prueba}>LIBROS</p>
                 </Link>
               </div>
 
               <div onClick={() => (handleOnClickOrders())}>
                 <Link to="/">
-                  <p className={estilos.prueba}>ÓRDENES</p>
+                  <p className={s.prueba}>ÓRDENES</p>
                 </Link>
               </div>
 
               <div onClick={() => (handleOnClickQuestions())}>
                 <Link to="/">
-                  <p className={estilos.prueba}>PREGUNTAS</p>
-                </Link>
-              </div>
-
-              <div onClick={() => (handleOnClickAnswers())}>
-                <Link to="/">
-                  <p className={estilos.prueba}>RESPUESTAS</p>
+                  <p className={s.prueba}>PREGUNTAS</p>
                 </Link>
               </div>
 
               <div>
-                <Link to="/" className={estilos.prueba}>MENSAJES</Link>
+                <Link to="/"><p className={s.prueba}>RESPUESTAS</p></Link>
+
+              </div>
+
+              <div>
+                <Link to="/"><p className={s.prueba}>MENSAJES</p></Link>
               </div>
 
             </div>
