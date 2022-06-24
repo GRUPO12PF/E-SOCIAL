@@ -1,89 +1,126 @@
 @use '../base/variables' as v;
 @use '../base/mixins' as m;
 
-$scrollbar-width:              10px;
-$chat-thread-msg-arrow-size:   15px;
-$chat-thread-avatar-size:      50px;
+$cadaMensaje-msg-arrow-size: 15px;
 
-.contentChat{
+.bienvenido {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column ;
+  align-items: center ;
+}
+.reglas{
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.contentChat {
   width: 90%;
   margin: 1rem auto;
-  ::-webkit-scrollbar {
-    width: $scrollbar-width;
 }
- 
-::-webkit-scrollbar-track {
-    border-radius: $scrollbar-width;
-    background-color: rgba(25,147,147,0.1);
+
+.contChat {
+  z-index: -1;
+  color: v.$patito;
+  position: fixed;
+  background-color: v.$rojomenostinto;
+  width: 80%;
+  @include m.borderRadius;
+  border-top: solid 1px v.$rojomenostinto ;
+  border-left: solid 1px v.$rojomenostinto ;
+  border-right: solid 1px v.$rojomenostinto ;
+  bottom: 0;
+  right: 5px;
 }
- 
-::-webkit-scrollbar-thumb {
-     border-radius: $scrollbar-width;
-}
-  .contChat{
-    z-index: -1;
-    color: v.$patito;
-      position: fixed;
-      background-color: v.$rojomenostinto;
-      width: 80%;
-      margin: 0 auto;
-      @include m.borderRadius;
-      border-top: solid 1px v.$rojomenostinto ;   
-      border-left: solid 1px v.$rojomenostinto ; 
-      border-right: solid 1px v.$rojomenostinto ; 
-      bottom: 0;
-      right: 5px;
-  }
-  @include m.desktop{
-      .contChat{
-        margin: 1rem 5rem;
-        width: 90%;
-      }
+
+@include m.desktop {
+  .contChat {
+    margin: 1rem 5rem;
+    width: 90%;
   }
 }
-.ulChat{
-	margin: 24px auto 0 auto;
-	padding: 0 20px 0 0;
-	list-style: none;
-	overflow-y: scroll;
-  overflow-x: hidden;
 
-
-}
-      .cadaMensaje{
-        z-index: -1;
-        position: relative;
-        clear: both;
-        display: inline-block;
-        padding: 16px 40px 16px 20px;
-        margin: 0 0 20px 0;
-        border-radius: 10px;
-          color: v.$blanco;
-          display: flex;
-          margin: 0.5rem 0;
-          padding: 1rem;
-
-          .cadaMensaje li:after {
-            top: $chat-thread-msg-arrow-size;
-            position: absolute;
-            content: '';
-            width: 0;
-            height: 0;
-        }
-        li:nth-child(even) {
-          animation: show-chat-even 0.15s 1 ease-in;
-          -moz-animation: show-chat-even 0.15s 1 ease-in;
-          -webkit-animation: show-chat-even 0.15s 1 ease-in;
-          float: left;
-          color: #0EC879;
-      }
-          
-          .span{
-              color: v.$naranja;
-              font-weight: 700;
-          } 
-          .otro{
-              color: v.$morado;
-          }  
-          }
+.ulChat {
   
+  padding: 0 20px 0 0;
+  list-style: none;
+  overflow: scroll;
+  height: 520px;
+font-size: 2.5rem;
+
+}
+
+.ulChat::-webkit-scrollbar {
+  background-color: transparent;
+}
+
+.ulChat::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.ulChat::-webkit-scrollbar-thumb {
+  background-color: rgba($color: #540101a1, $alpha: 1.0);
+  width: 15px;
+  border-radius: 15px;
+}
+
+.cadaMensaje {
+  z-index: -1;
+  position: relative;
+  clear: both;
+  display: flex;
+  padding: 38px 30px 12px 20px;
+  margin: 0 0 20px 0;
+  border-radius: 10px;
+  color: v.$blanco;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  
+}
+.inicialMsg{
+  text-align: center;
+}
+
+ .msj {
+    
+    margin: 2rem ;
+    background-color: rgba(240, 56, 56, 0.206) ;
+    border-radius: 30px;
+    padding: 2rem;
+    
+    
+  }
+  
+
+  .span {
+    color: v.$blanco;
+    font-weight: 700;
+    
+    padding: 2rem;
+    border-radius: 30%;
+  
+  }
+
+  .otro {
+    color: v.$letras;
+    padding: 2rem;
+    border-radius: 30%;
+ 
+  }
+
+  .buChat{
+    border-radius: 10%;
+padding: 1rem;
+  }
+ 
+  .inputChat{
+    border-radius: 10%;
+    padding: 1rem;
+    
+    }
+  
+    .chatform{
+      justify-content: center;
+      display: flex;
+    }

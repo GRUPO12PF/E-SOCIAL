@@ -10,7 +10,7 @@ let socket;
 
 function homeChat() {
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const params = window.location.href;
   const [screen, setScreen] = useState(window.innerWidth);
   const usuario = useSelector((state) => state.usuarioActual);
@@ -32,25 +32,33 @@ function homeChat() {
   useEffect(() => {
     //recibir la respuesta del back
     socket.on("homeUpdate", () => {
-      return ()=>{
+      return () => {
         socket.of()
       }
     });
-  },[]);
+  }, []);
 
   return (
     <>
-    <NavBar />
-    <div className="contentChat">
-      {socket ? (
-        <div className="contChat">
-          <Chat usuario={usuario} socket={socket} />
-        </div>
-      ) : (
-        ""
-      )}
+      <NavBar />
+      <div className="bienvenido">
+        <h2 > Normas de convivencia</h2>
+        <p className="reglas">
+          Sin toxicidad, no toleramos ningún tipo de abuso verbal, falta de respeto, acoso o discriminación. Su incumplimiento supone la expulsión inmediata.
+        <p className="reglas">Sin SPAM. Aquí estamos para compartir contenido, divertirnos, aprender y crecer juntos.
+       </p>
+        </p>
       </div>
-      </>
+      <div className="contentChat">
+        {socket ? (
+          <div className="contChat">
+            <Chat usuario={usuario} socket={socket} />
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
+    </>
   )
 }
 
