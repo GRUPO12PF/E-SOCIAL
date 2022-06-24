@@ -8,7 +8,6 @@ import { useNavigate } from 'react-router'
 
 function Books({ nombre, image, price, id, order }) {
   const token = localStorage.getItem("token")
-
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -45,11 +44,21 @@ function Books({ nombre, image, price, id, order }) {
 
   }
 
+  function handleInfoBook(e) {
+    if (!order.length > 0) {
+      e.preventDefault()
+      navigate(`/details/${id}`)
+    } else {
+      const btnInfo = document.getElementById('info')
+      btnInfo.disabled = true
+    }
+
+  }
   return (
     <div className={s.container}>
       <div className={s.card}>
         <div className={s.cardBody}>
-          
+
           <div className={s.vendido}>{vendido ? vendido : null}</div>
 
           <h4 className={s.nombre}>{nombre}</h4>
@@ -63,6 +72,7 @@ function Books({ nombre, image, price, id, order }) {
             <div className={s.botoness}>
               <button id='delete' className={s.btn} onClick={(e) => handleDeleteBook(e)}>BORRAR</button>
               <button id='update' className={s.btn} onClick={(e) => handleUpdateBook(e)}>ACTUALIZAR</button>
+              <button id='info' className={s.btn} onClick={(e) => handleInfoBook(e)}>INFO</button>
             </div>
           ) : null}
         </div>
