@@ -10,8 +10,10 @@ const stripePromise = loadStripe(stripePublicKey)
 
 const CheckOut = () => {
   return (
+
     <Elements stripe={stripePromise}>
       <NavBar />
+
       <div>
         <Checkoutform />
       </div>
