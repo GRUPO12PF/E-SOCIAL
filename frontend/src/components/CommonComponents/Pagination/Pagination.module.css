@@ -4,6 +4,7 @@
   align-items: center;
   text-align: center;
   margin-top: 60px;
+  
   padding-bottom: 150px;
 }
 .num {
@@ -16,6 +17,7 @@
   cursor: pointer;
   padding: 4px 13px;
   background: #BC3908;
+  
 }
 
 .num:hover {
@@ -32,6 +34,7 @@
   cursor: pointer;
   padding: 4px 13px;
   background: #F6AA1C;
+  
 }
 
 .num1:hover {
@@ -46,12 +49,15 @@
   font-weight: bold;
   margin: 0px;
   margin-top: 0px;
+  
+  
 }
 
 .pag ul {
   padding-left: 0px;
   display: inline-flex;
   padding: 0.2%;
+  
 }
 .pag li {
   margin-bottom: 2%;
@@ -60,6 +66,7 @@
   height: 1em;
   flex-wrap: wrap;
   flex-direction: row;
+  
 }
 
 .btn {
@@ -75,6 +82,7 @@
   margin-right: 1px;
   text-align: center;
   font-family: "Roboto", sans-serif;
+  
 }
 
 .btn:hover {

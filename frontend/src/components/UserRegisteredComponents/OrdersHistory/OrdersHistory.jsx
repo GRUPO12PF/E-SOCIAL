@@ -5,6 +5,7 @@ import { historyOrders } from '../../../redux/actions/actionOrder'
 import Order from './Order'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
 import s from './OrderHistory.module.css'
+import Footer from '../../CommonComponents/Footer/Footer'
 
 export default function OrdersHistory() {
   const dispatch = useDispatch()
@@ -38,7 +39,7 @@ export default function OrdersHistory() {
             )
           })}
         </div>
-
+  <Footer/>
       </div>
     </>
   )

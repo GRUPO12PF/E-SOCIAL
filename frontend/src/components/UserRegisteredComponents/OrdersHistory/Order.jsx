@@ -1,5 +1,6 @@
 import React from 'react'
 import s from './Orders.module.css'
+import Footer from '../../CommonComponents/Footer/Footer'
 
 function Order({ id, nombre, image }) {
   return (
@@ -13,6 +14,7 @@ function Order({ id, nombre, image }) {
         </div>
         
       </div>
+<Footer/>
     </div>
   )
 }
