@@ -32,6 +32,10 @@ function Profile() {
       navigate(`/answers/${idUser}`)
     }
 
+    function handleOnClickAnswers(){
+      navigate(`/answers/${idUser}`)
+    }
+
     return (
 >>>>>>> bf4c3e6d8ee2d80cd640ec7bcd411191290401a6
       <div>
