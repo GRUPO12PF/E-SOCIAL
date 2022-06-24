@@ -33,7 +33,7 @@ const Details = () => {
 
   //----------------------------------------------------------------------------------------------------------------------------------------------------------- 
   const qa = useSelector((state) => state.questionsAndAnswers)
-  const questionAnswered = qa.filter(ele => ele.answers.length)
+  const questionAnswered = qa.length ? qa.filter(ele => ele.answers.length) : null
 
   //-----------------------------------------------------------------------------------------------------------------------------------------------------------
   const [input, setInput] = useState({
