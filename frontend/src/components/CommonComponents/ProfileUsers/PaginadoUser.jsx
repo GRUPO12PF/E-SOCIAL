@@ -1,15 +1,16 @@
+
 import React from 'react'
 
-export default function PaginadoUser({ allVideogames, pageSize, page, goToPreviousPage, goToNextPage }) {
+export default function PaginadoUser({ allBooks, pageSize, page, goToPreviousPage, goToNextPage }) {
   const pageNumbers = []
 
-  for (let i = 1; i <= Math.ceil(allVideogames / pageSize); i++) {
+  for (let i = 1; i <= Math.ceil(allBooks / pageSize); i++) {
     pageNumbers.push(i)
   }
   return (
     <nav>
       <div className="paginado-f">
-        <button onClick={goToPreviousPage}> {"<"} </button>
+        <button onClick={goToPreviousPage} > {"<"} </button>
         {pageNumbers && pageNumbers.map(number => {
           return (
             <ul className='number' key={number}>
@@ -17,7 +18,7 @@ export default function PaginadoUser({ allVideogames, pageSize, page, goToPrevio
             </ul>
           )
         })}
-        <button onClick={goToNextPage}> {">"} </button>
+        <button onClick={goToNextPage} > {">"} </button>
       </div>
     </nav>
   )

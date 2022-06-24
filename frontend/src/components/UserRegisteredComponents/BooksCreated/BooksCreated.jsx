@@ -4,16 +4,18 @@ import { useParams } from 'react-router-dom'
 import { usuarioCreated } from '../../../redux/actions/actionCreatedUser'
 import Books from './Books'
 import NavBar from '../../CommonComponents/NavBar/NavBar.jsx'
+import Footer from '../../CommonComponents/Footer/Footer'
 import s from './BooksCreated.module.css'
 
 export default function BooksCreated() {
   const dispatch = useDispatch()
   const { id } = useParams()
   const allBooks = useSelector((state) => state.booksCreated)
+  console.log(allBooks)
 
   useEffect(() => {
     dispatch(usuarioCreated(id))
-  }, [dispatch])
+  }, [dispatch]);
 
   return (
     <>
@@ -26,6 +28,7 @@ export default function BooksCreated() {
             return (
               <div key={i}>
                 <Books
+                  order={e.order}
                   id={e._id}
                   nombre={e.nombre}
                   image={e.image}
@@ -35,6 +38,8 @@ export default function BooksCreated() {
             )
           })}
         </div>
+
+        <Footer />
       </div>
 
     </>

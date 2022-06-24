@@ -21,7 +21,7 @@ export default function Questions(){
     return(
         <div>
           <NavBar />
-          <h3>HISTORIAL DE PREGUNTAS</h3>
+          <h3>PREGUNTAS POR RESPONDER </h3>
             {question?.map((e, i)=>{
                  return (
                    
