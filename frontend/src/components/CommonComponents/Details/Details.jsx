@@ -8,6 +8,7 @@ import { formatToCurrency } from "../../../utils/helperFunctions"
 import { usuarioActual } from "../../../redux/actions/actionUser";
 import { getQA, postQuestion } from "../../../redux/actions/actionQA"
 import DetailsField from "./DetailsField/DetailsField"
+import NotFound from "../../CommonComponents/NotFound/NotFound.jsx"
 
 const Details = () => {
   const navigate = useNavigate()
@@ -26,6 +27,7 @@ const Details = () => {
 
   const { nombre, autor, idioma, editorial, edicion, tapa, cant_pags, colection, image, price, descripcion, category, ilustrado, año_de_pub } = useSelector((state) => state.detail)
 
+  console.log(detail)
   const user = useSelector((state) => state.usuarioActual)
   const userComprador = user._id
 
@@ -86,6 +88,10 @@ const Details = () => {
   return (
     <>
       <NavBar />
+      {
+        detail.msgError ? <NotFound /> :
+      <div>
+
 
       <div className="card-detalle">
         <div className="clip-detalle">
@@ -174,6 +180,7 @@ const Details = () => {
           </div>
           <div className="che-detalle">
             {
+              detail.order?.length < 1 ?
               token ?
                 <Link to="/checkout">
                   <button className="btnn-detalle">COMPRAR</button>
@@ -182,6 +189,7 @@ const Details = () => {
                 <Link to="/registrar">
                   <button className="btnn-detalle">COMPRAR</button>
                 </Link>
+              : null
             }
           </div>
         </div>
@@ -189,7 +197,6 @@ const Details = () => {
 
       <div>
         {
-
           questionAnswered?.map((e, i) => {
             return (
               <div >
@@ -222,10 +229,18 @@ const Details = () => {
       <div>
 
         <button onClick={handle}>PERFIL DEL VENDEDOR</button>
+      
+      </div>
+
 
       </div>
+      }
+
+      
+
     </>
-  )
+      
+)
 }
 
 export default Details
