@@ -31,6 +31,8 @@ const Details = () => {
 
   //----------------------------------------------------------------------------------------------------------------------------------------------------------- 
   const qa = useSelector((state) => state.questionsAndAnswers)
+  const questionAnswered = qa.filter(ele => ele.answers.length)
+  
   //-----------------------------------------------------------------------------------------------------------------------------------------------------------
   const [input, setInput] = useState({
     mensaje: ''
@@ -66,7 +68,11 @@ const Details = () => {
     }) 
     alert('tu respuesta fue envia con exito!')
   }else{
+    e.preventDefault()
     alert('no podes preguntar por un libro que es tuyo!')
+    setInput({
+      mensaje: ''
+    })
   }
   }
 
@@ -183,11 +189,12 @@ const Details = () => {
 
       <div>
         {
-          qa?.map((e, i) => {
+         
+         questionAnswered?.map((e, i) => {
             return (
               <div >
                 <div><h3>Pregunta: {e.mensaje}</h3></div>
-                <div><h3>Respuesta: {e.answers[0].mensaje}</h3></div>
+                <div><h3>Respuesta: {e.answers[0]?.mensaje}</h3></div>
               </div>
             )
           })
