@@ -15,12 +15,11 @@ export default function BooksCreated() {
     dispatch(usuarioCreated(id))
   }, [dispatch])
 
-<<<<<<< HEAD
   return (
     <>
       <NavBar />
 
-      <h3 className={s.titulo}>LIBROS A LA VENTA</h3>
+      <h3 className={s.titulo}>MIS LIBROS</h3>
       <div className={s.contenedorGral}>
         <div className={s.contenedorBooks}>
           {allBooks?.map((e, i) => {
@@ -32,24 +31,6 @@ export default function BooksCreated() {
                   image={e.image}
                   price={"$" + e.price + ".00"}
                 />
-=======
-    return(
-        <>
-        <NavBar />
-        
-        <h3 className={s.titulo}>MIS LIBROS</h3>
-        <div className={s.contenedorGral}>
-          <div className={s.contenedorBooks}>
-        {  allBooks?.map((e, i) => {
-          return (
-            <div  key={i}>
-                    <Books
-                      id={e._id}
-                      nombre={e.nombre}
-                      image={e.image}
-                      price={"$" + e.price + ".00"}
-                    />
->>>>>>> bf4c3e6d8ee2d80cd640ec7bcd411191290401a6
               </div>
             )
           })}
