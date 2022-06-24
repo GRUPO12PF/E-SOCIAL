@@ -12,11 +12,12 @@ const OrderDetail = () => {
   const { id } = useParams()
 
   const detalles = useSelector(state => state.order)
+  const review = detalles?.reviews
 
   const dispatch = useDispatch()
 
   let response
-  if (detalles?.reviews.length !== 0) {
+  if (review.length !== 0) {
     response = 'YA CALIFICASTE AL VENDEDOR!'
   }
   useEffect(() => {
@@ -24,7 +25,7 @@ const OrderDetail = () => {
   }, [dispatch]);
 
   const handleClick = () => {
-    if (detalles?.reviews.length === 0) {
+    if (review.length === 0) {
       navigate(`/review/${id}`)
     } else {
       const btnReview = document.getElementById('review');
