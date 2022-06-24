@@ -18,7 +18,9 @@ function AllOrders() {
       <NavBar />
       <div className={s.container}>
         <div className={s.flex}>
+          
           <table className={s.usersTable}>
+          
             <thead>
               <tr>
                 <th className={s.no}>ID</th>
@@ -30,6 +32,7 @@ function AllOrders() {
                 <th className={s.no}>Fecha</th>
               </tr>
             </thead>
+
             <tbody>
               {allOrders?.map((u, i) => {
                 return (
@@ -48,7 +51,9 @@ function AllOrders() {
                 )
               })}
             </tbody>
+
           </table>
+
         </div>
       </div>
     </div>

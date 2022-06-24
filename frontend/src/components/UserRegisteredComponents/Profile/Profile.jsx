@@ -3,6 +3,7 @@ import NavBar from '../../CommonComponents/NavBar/NavBar'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
+import estilos from './Profile.module.css'
 import s from './Profile.module.css'
 import Footer from '../../CommonComponents/Footer/Footer'
 
@@ -32,7 +33,7 @@ function Profile() {
       <NavBar />
       <div className={s.containerGral}>
         <div className={s.container}>
-          <div clasName={s.containerMini}>
+          <div className={s.containerMini}>
 
             <div onClick={() => handleOnClickBooks()}>
               <Link to="/">

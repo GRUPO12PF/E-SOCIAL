@@ -9,7 +9,6 @@ import Loading from "../../CommonComponents/Loading/Loading"
 import io from "socket.io-client"
 let socket
 
-
 export default function Settings() {
   const dispatch = useDispatch()
   const params = window.location.href
@@ -40,11 +39,11 @@ export default function Settings() {
 
           <div className="contProfile">
             <img src={usuarioAct.image.url ? usuarioAct.image.url : profile} alt="Imagen de usuario" />
-            <span>Extenciones Soportadas: jpg/png</span>
+            <span>Extensiones soportadas: jpg / png</span>
 
             <div className="contFile">
-              <label className="labelmiinput" htmlFor="mifile">
-                Change image
+              <label className="labelmiinput" htmlFor="mifile"> {/* ¡AGREGAR UN ESTILO QUE PERMITA VER LA LETRA! */}
+                CAMBIAR IMAGEN
               </label>
               <input
                 type="file"
@@ -59,7 +58,7 @@ export default function Settings() {
 
           <div className="enlace">
             <Link to="/olvide-password/">
-              <button>Change password</button>
+              <button>CAMBIAR PASSWORD</button>
             </Link>
           </div>
 
