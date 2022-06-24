@@ -76,6 +76,7 @@ const ProfileUsers = () => {
           {curr?.map(e => {
             return (
               <ProfileBook
+                id={e._id}
                 order={e.order}
                 nombre={e.nombre}
                 autor={e.autor}
