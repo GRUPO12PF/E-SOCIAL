@@ -112,23 +112,17 @@ export default function Chat({ usuario, socket }) {
     };
   }, [mensajes]);
 
-  const scrolChat = useRef(null);
-  useEffect(() => {
-    scrolChat.current.scrollIntoView({ behavior: "smooth" });
-  });
+
 
   return (
     <div className="chat-window">
-      <button onClick={handleNone} className="chat-title">
-        Chat
-      </button>
       <div id="chat" className="displayNone">
         <div id="chat" className="contenidoChat">
           <div id="ulChat" className="ulChat">
             {mensajes.length !== 0 ? (
               mensajes?.map((e, i) => {
                 return (
-                  <li className="cadaMnesaje" key={i}>
+                  <li className="cadaMensaje" key={i}>
                     <span
                       className={e.usuario === usuario.nombre ? "span" : "otro"}
                     >
@@ -139,10 +133,9 @@ export default function Chat({ usuario, socket }) {
                 );
               })
             ) : (
-              <li className="cadaMnesaje"> write the first msg </li>
+              <li className="cadaMensaje"> write the first msg </li>
             )}
           </div>
-          <div ref={scrolChat}></div>
         </div>
         <form onSubmit={(e) => handleSubmit(e)} action="">
           <input
@@ -152,7 +145,7 @@ export default function Chat({ usuario, socket }) {
             type="text"
             placeholder="write"
           />
-          <button className="buttonChat" type="submit">
+          <button className="buChat" type="submit">
             send
           </button>
         </form>

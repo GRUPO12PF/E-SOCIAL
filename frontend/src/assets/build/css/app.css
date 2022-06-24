@@ -347,7 +347,7 @@ p {
 
 a {
   text-decoration: none;
-  color: #c2c2c2;
+  color: #e1e1e1;
 }
 a:hover {
   cursor: pointer;
@@ -355,7 +355,7 @@ a:hover {
 
 .a {
   text-decoration: none;
-  color: #c2c2c2;
+  color: #e1e1e1;
 }
 .a:hover {
   cursor: pointer;
@@ -390,7 +390,7 @@ img {
 }
 
 .contSettings {
-  background-color: #c2c2c2;
+  background-color: #e1e1e1;
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -1527,146 +1527,81 @@ div.portfoliocard div.follow_count {
   z-index: 999999;
 }
 
-.chat-window {
-  width: 300px;
-  height: 420px;
+.contentChat {
+  width: 90%;
+  margin: 1rem auto;
+}
+.contentChat ::-webkit-scrollbar {
+  width: 10px;
+}
+.contentChat ::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: rgba(25, 147, 147, 0.1);
+}
+.contentChat ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+.contentChat .contChat {
+  z-index: -1;
+  color: #F6AA1C;
+  position: fixed;
+  background-color: #621708;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  border-top: solid 1px #621708;
+  border-left: solid 1px #621708;
+  border-right: solid 1px #621708;
+  bottom: 0;
+  right: 5px;
+}
+@media (min-width: 768px) {
+  .contentChat .contChat {
+    margin: 1rem 5rem;
+    width: 90%;
+  }
 }
 
-.chat-window p {
-  margin: 0;
-}
-
-.chat-window .chat-header {
-  height: 45px;
-  border-radius: 6px;
-  background: #263238;
-  position: relative;
-  cursor: pointer;
-}
-
-.chat-window .chat-header p {
-  display: block;
-  padding: 0 1em 0 2em;
-  color: #fff;
-  font-weight: 700;
-  line-height: 45px;
-}
-
-.chat-window .chat-body {
-  height: 335px;
-  border: 1px solid #263238;
-  background: #fff;
-  position: relative;
-}
-
-.chat-window .chat-body .message-container {
-  width: 100%;
-  height: 100%;
+.ulChat {
+  margin: 24px auto 0 auto;
+  padding: 0 20px 0 0;
+  list-style: none;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-.chat-window .chat-body .message-container::-webkit-scrollbar {
-  display: none;
-}
-
-.chat-window .chat-body .message {
-  height: auto;
-  padding: 10px;
+.cadaMensaje {
+  z-index: -1;
+  position: relative;
+  clear: both;
+  display: inline-block;
+  padding: 16px 40px 16px 20px;
+  margin: 0 0 20px 0;
+  border-radius: 10px;
+  color: #f0f8ff;
   display: flex;
+  margin: 0.5rem 0;
+  padding: 1rem;
 }
-
-.chat-window .chat-body .message .message-content {
-  width: auto;
-  height: auto;
-  min-height: 40px;
-  max-width: 120px;
-  background-color: #43a047;
-  border-radius: 5px;
-  color: white;
-  display: flex;
-  align-items: center;
-  margin-right: 5px;
-  margin-left: 5px;
-  padding-right: 5px;
-  padding-left: 5px;
-  overflow-wrap: break-word;
-  word-break: break-word;
+.cadaMensaje .cadaMensaje li:after {
+  top: 15px;
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
 }
-
-#you {
-  justify-content: flex-start;
+.cadaMensaje li:nth-child(even) {
+  animation: show-chat-even 0.15s 1 ease-in;
+  -moz-animation: show-chat-even 0.15s 1 ease-in;
+  -webkit-animation: show-chat-even 0.15s 1 ease-in;
+  float: left;
+  color: #0EC879;
 }
-
-#you .message-content {
-  justify-content: flex-start;
+.cadaMensaje .span {
+  color: #BC3908;
+  font-weight: 700;
 }
-
-#you .message-meta {
-  justify-content: flex-start;
-  margin-left: 5px;
-}
-
-#other {
-  justify-content: flex-end;
-}
-
-#other .message-content {
-  justify-content: flex-end;
-  background-color: cornflowerblue;
-}
-
-#other .message-meta {
-  justify-content: flex-end;
-  margin-right: 5px;
-}
-
-.message-meta #author {
-  margin-left: 10px;
-  font-weight: bold;
-}
-
-.chat-window .chat-body .message .message-meta {
-  display: flex;
-  font-size: 12px;
-}
-
-.chat-window .chat-footer {
-  height: 40px;
-  border: 1px solid #263238;
-  border-top: none;
-  display: flex;
-}
-
-.chat-window .chat-footer input {
-  height: 100%;
-  flex: 85%;
-  border: 0;
-  padding: 0 0.7em;
-  font-size: 1em;
-  border-right: 1px dotted #607d8b;
-  outline: none;
-  font-family: "Open Sans", sans-serif;
-}
-
-.chat-window .chat-footer button {
-  border: 0;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  flex: 15%;
-  height: 100%;
-  background: transparent;
-  outline: none;
-  font-size: 25px;
-  color: lightgray;
-}
-
-.chat-window .chat-footer button:hover {
-  color: #43a047;
-}
-
-.hide {
-  opacity: 0 !important;
+.cadaMensaje .otro {
+  color: #663a8f;
 }
 /*# sourceMappingURL=app.css.map */
