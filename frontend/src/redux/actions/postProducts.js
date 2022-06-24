@@ -14,7 +14,7 @@ export const postCreate = (payload) => {
     try {
       const postResponse = await clienteAxios.post(`/books`, payload, config)
       console.log("🚀 ~ file: postProducts.js ~ line 16 ~ payload", payload)
-      console.log("🚀 ~ file: postProducts.js ~ line 16 ~ postResponse", postResponse.data) // por alguna razón, año_de_pub NO LLEGA en la respuesta
+      console.log("🚀 ~ file: postProducts.js ~ line 16 ~ postResponse", postResponse.data) // por alguna razón, publicado NO LLEGA en la respuesta
       return postResponse
 
     } catch (error) {

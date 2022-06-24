@@ -47,7 +47,7 @@ const Forms = () => {
             editorial: '',
             edicion: '',
             tapa: '',
-            año_de_pub: '',
+            publicado: '',
             cant_pags: '',
             descripcion: '',
             price: '',
@@ -163,11 +163,11 @@ const Forms = () => {
                   <Field
                     className={s.input}
                     type="number"
-                    name="año_de_pub"
-                    id="año_de_pub"
+                    name="publicado"
+                    id="publicado"
                     placeholder="AAAA..."
                   />
-                  <ErrorMessage name='año_de_pub' component={() => (<p className={s.error}>{errors.año_de_pub}</p>)} />
+                  <ErrorMessage name='publicado' component={() => (<p className={s.error}>{errors.publicado}</p>)} />
                 </div>
 
                 <label className={s.label} >Páginas</label>

@@ -5,7 +5,7 @@ import { formatToCurrency } from "../../../../utils/helperFunctions"
 
 const EditCard = ({ id, addMode }) => {
   const dispatch = useDispatch()
-  const { nombre, autor, idioma, editorial, edicion, tapa, año_de_pub, cant_pags, descripcion, price, image, colection, ilustrado, category } = useSelector(state => state.detail)
+  const { nombre, autor, idioma, editorial, edicion, tapa, publicado, cant_pags, descripcion, price, image, colection, ilustrado, category } = useSelector(state => state.detail)
   
   const priceShow = formatToCurrency(price)
 
@@ -34,7 +34,7 @@ const EditCard = ({ id, addMode }) => {
 
               {!verMas
                 ? `${descripcion?.substring(0, 100)}...`
-                : <p>{descripcion}, {editorial}, {edicion}, {tapa}, {año_de_pub}, {cant_pags}, {colection}, {ilustrado}</p>}
+                : <p>{descripcion}, {editorial}, {edicion}, {tapa}, {publicado}, {cant_pags}, {colection}, {ilustrado}</p>}
               <br />
             </div>)
       }
