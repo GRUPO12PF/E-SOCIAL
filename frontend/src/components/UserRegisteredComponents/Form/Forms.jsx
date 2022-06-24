@@ -1,15 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Formik, Field, ErrorMessage, Form } from 'formik'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { postCreate } from '../../../redux/actions/postProducts'
-import NavBar from '../../CommonComponents/NavBar/NavBar'
-import s from '../Form/Form.module.css'
 import { getCategories } from '../../../redux/actions/actionCategories.js'
 import { cleanData, getBooks } from '../../../redux/actions/actionBooks'
 import { subirFotos } from '../../../redux/actions/actionSubirFotos'
 import { currentYear } from '../../../utils/helperFunctions'
 import PreviewImage from './ImgPreview/ImgPreview'
+import NavBar from '../../CommonComponents/NavBar/NavBar'
+import s from '../Form/Form.module.css'
 
 const Forms = () => {
   const [dispatch, navigate] = [useDispatch(), useNavigate()]
@@ -315,7 +315,7 @@ const Forms = () => {
                       handleImage(values.file)
                     }}>SUBIR IMAGEN</button>}
 
-                  <ErrorMessage name='image' component={() => (<p>{errors.image}</p>)} />{/* NO lo estmamos validando */}
+                  <ErrorMessage name='image' component={() => (<p>{errors.image}</p>)} />{/* NO lo estamos validando */}
                 </div>
 
                 <button

@@ -24,12 +24,12 @@ function AllOrders() {
             <thead>
               <tr>
                 <th className={s.no}>ID</th>
-                <th className={s.no}>Libro</th>
-                <th className={s.no}>Imagen</th>
-                <th className={s.no}>Precio</th>
-                <th className={s.no}>Comprador</th>
-                <th className={s.no}>e-mail comprador</th>
-                <th className={s.no}>Fecha</th>
+                <th className={s.no}>LIBRO</th>
+                <th className={s.no}>IMAGEN</th>
+                <th className={s.no}>PRECIO</th>
+                <th className={s.no}>COMPRADOR</th>
+                <th className={s.no}>E-MAIL COMPRADOR</th>
+                <th className={s.no}>FECHA</th>
               </tr>
             </thead>
 
