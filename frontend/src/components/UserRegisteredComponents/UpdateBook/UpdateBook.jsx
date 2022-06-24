@@ -20,9 +20,7 @@ const UpdateBook = (_id) => {
   return (
     <div className={s.formFondo}>
       <div>
-        <div>
-          <NavBar />
-        </div>
+        <NavBar />
         <Formik
           initialValues={{
             _id: id,
@@ -41,6 +39,7 @@ const UpdateBook = (_id) => {
             ilustrado: false,
             category: []
           }}
+
           validate={(values) => {
             let errors = {}
 
@@ -285,13 +284,11 @@ const UpdateBook = (_id) => {
                 type="submit"
                 disabled={errors.nombre || errors.autor || errors.idioma || errors.price || errors.category || errors.descripcion}
               >ENVIAR</button>
+
             </div>
           </Form>)}
         </Formik>
-        <br />
-        <Link to="/">
-          <button className={s.botonB}>Back</button>
-        </Link>
+
       </div>
     </div>
   )

@@ -19,7 +19,7 @@ const Forms = () => {
   const fileRef = useRef(null)
 
   function handleImage(images) {
-    dispatch(subirFotos(images))    
+    dispatch(subirFotos(images))
   }
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const Forms = () => {
             cant_pags: '',
             descripcion: '',
             price: '',
-            file: '', // acá va a ir la imagen, pero se pasa a values.image desp
+            file: '', // acá va a ir la imagen, se pasa a values.image desp
             colection: '',
             ilustrado: false,
             category: []
@@ -55,65 +55,65 @@ const Forms = () => {
             let errors = {}
 
             if (!values.nombre) {
-              errors.nombre = 'Campo requerido.'
+              errors.nombre = 'Campo requerido'
             } else if (!/^\S.*$/.test(values.nombre)) {
               errors.nombre = 'El primer caracter no puede ser un espacio'
             } else if (!/^(\d|[a-z]|[\u00f1\u00d1]|[,.:¡!¿?']|[À-ÿ]|\s){1,40}$/i.test(values.nombre)) {
-              errors.nombre = 'Ingrese un nombre válido de hasta 40 caracteres.'
+              errors.nombre = 'Ingrese un nombre válido de hasta 40 caracteres'
             }
 
             if (!values.autor) {
-              errors.autor = 'Campo requerido.'
+              errors.autor = 'Campo requerido'
             } else if (!/^\S.*$/.test(values.autor)) {
               errors.autor = 'El primer caracter no puede ser un espacio'
             } else if (!/^(|[a-z]|[()']|[À-ÿ]|[\u00f1\u00d1]|\s){1,40}$/i.test(values.autor)) {
-              errors.autor = 'Ingrese un autor válido de hasta 40 caracteres.'
+              errors.autor = 'Ingrese un autor válido de hasta 40 caracteres'
             }
 
             if (!values.idioma) {
-              errors.idioma = 'Campo requerido.'
+              errors.idioma = 'Campo requerido'
             } else if (!/^\S.*$/.test(values.idioma)) {
               errors.idioma = 'El primer caracter no puede ser un espacio'
             } else if (!/^([a-z]|[\u00f1\u00d1]|\s){1,20}$/i.test(values.idioma)) {
-              errors.idioma = 'Ingrese un idioma válido de hasta 40 caracteres.'
+              errors.idioma = 'Ingrese un idioma válido de hasta 40 caracteres'
             }
 
             if (/^\s(.)*$/.test(values.editorial)) {
               errors.editorial = 'El primer caracter no puede ser un espacio'
             } else if (!/^(\d|[a-z]|[\u00f1\u00d1]|[,.:¡!¿?']|[À-ÿ]|\s){0,40}$/i.test(values.editorial)) {
-              errors.editorial = 'Ingrese un nombre válido de hasta 40 caracteres.'
+              errors.editorial = 'Ingrese un nombre válido de hasta 40 caracteres'
             }
 
             if (/(\D)/.test(values.edicion) || values.edicion < 1 && values.edicion.toString().length > 0) {
-              errors.edicion = 'Ingrese un Nº de edición mayor a 0.'
+              errors.edicion = 'Ingrese un Nº de edición mayor a 0'
             }
 
             if (!/^([a-z]|\s){0,15}$/i.test(values.tapa)) {
-              errors.tapa = 'Ingrese un tipo de tapa.'
+              errors.tapa = 'Ingrese un tipo de tapa'
             }
 
             if (values.año_de_pub && (!/^[0-9]{0,4}$/.test(values.año_de_pub) || values.año_de_pub > currentYear())) {
-              errors.año_de_pub = 'Ingrese un año válido en formato AAAA.'
+              errors.año_de_pub = 'Ingrese un año válido en formato AAAA'
             }
 
             if (/(\D|^0|[-])/.test(values.cant_pags)) { // NO tira error si solo se le pasa "-"
-              errors.cant_pags = 'Ingrese un número de págs. válido.'
+              errors.cant_pags = 'Ingrese un número de págs. válido'
             }
 
             if (values.descripcion.length < 6) {
-              errors.descripcion = 'La descripción debe contar con al menos 6 caracteres.'
+              errors.descripcion = 'La descripción debe contar con al menos 6 caracteres'
             } else if (values.descripcion.length > 1500) {
-              errors.descripcion = 'La descripción debe contar con un máximo de 1500 caracteres.'
+              errors.descripcion = 'La descripción debe contar con un máximo de 1500 caracteres'
             }
 
             if (/(\D)/.test(values.price)) {
-              errors.price = 'Ingrese el precio en centavos de USD.'
+              errors.price = 'Ingrese el precio en centavos de USD'
             } else if (!values.price || values.price < 50) {
-              errors.price = 'Ingrese un precio válido mayor a 50 centavos.'
+              errors.price = 'Ingrese un precio válido mayor a 50 centavos'
             }
 
             if (values.category.length < 1) {
-              errors.category = 'Elija al menos 1 categoría.'
+              errors.category = 'Elija al menos 1 categoría'
             }
 
             return errors
@@ -136,7 +136,7 @@ const Forms = () => {
             dispatch(getBooks())
           }}
         >
-          {({ errors, handleSubmit, values, setFieldValue, resetForm }) => (
+          {({ errors, handleSubmit, values, setFieldValue }) => (
             <Form onSubmit={handleSubmit} className={s.formik} >
               <div className={s.form}>
 
@@ -210,7 +210,7 @@ const Forms = () => {
                   </div>
 
                 </div>
-              
+
                 <label className={s.label} >Año de publicación</label>
                 <div>
                   <Field
@@ -243,32 +243,6 @@ const Forms = () => {
                     id="colection"
                   />
                   <ErrorMessage name='colection' component={() => (<p className={s.error}>{errors.colection}</p>)} />
-                </div>
-
-                <label className={s.label} >Fotografías del ejemplar</label>
-                <div>
-                  <input
-                    hidden
-                    ref={fileRef}
-                    className={s.input}
-                    type="file"
-                    id="file"
-                    onChange={e => {
-                      setFieldValue("file", e.target.files[0])
-                    }}
-                  />
-                  <button className={s.uploadButton} onClick={() => {
-                    fileRef.current.click()
-                  }}>
-                    CARGAR IMAGEN
-                  </button>
-                  {values.file && <PreviewImage file={values.file} />}
-                  {values.file && <button type="button"
-                    onClick={() => {
-                      handleImage(values.file)
-                    }}>SUBIR IMAGEN</button>}
-
-                  <ErrorMessage name='image' component={() => (<p>{errors.image}</p>)} />{/* NO lo estmamos validando */}
                 </div>
 
                 <label className={s.label} >Precio*</label>
@@ -317,6 +291,32 @@ const Forms = () => {
                   </div>
                 </div>
                 <ErrorMessage name='category' className='ASIGNAR!' component={() => (<p className={s.error}>{errors.category}</p>)} />
+
+                <label className={s.label} >Fotografías del ejemplar</label>
+                <div>
+                  <input
+                    hidden
+                    ref={fileRef}
+                    className={s.input}
+                    type="file"
+                    id="file"
+                    onChange={e => {
+                      setFieldValue("file", e.target.files[0])
+                    }}
+                  />
+                  <button className={s.uploadButton} onClick={() => {
+                    fileRef.current.click()
+                  }}>
+                    CARGAR IMAGEN
+                  </button>
+                  {values.file && <PreviewImage file={values.file} />}
+                  {values.file && <button type="button"
+                    onClick={() => {
+                      handleImage(values.file)
+                    }}>SUBIR IMAGEN</button>}
+
+                  <ErrorMessage name='image' component={() => (<p>{errors.image}</p>)} />{/* NO lo estmamos validando */}
+                </div>
 
                 <button
                   className={s.sendMsg}

@@ -26,7 +26,6 @@ const CheckoutForm = () => {
       type: "card",
       card: elements.getElement(CardElement)
     })
-    console.log("🚀 ~ file: CheckoutForm.jsx ~ line 23 ~ handleSubmit ~ paymentMethod", paymentMethod)
     setLoading(true)
 
     if (!error) {
@@ -36,7 +35,7 @@ const CheckoutForm = () => {
        const buy = await dispatch(buyBook(
           [{
             pm,
-            qty: 1, //cents
+            qty: 1,
             id: bookId
           }]
         ))
@@ -44,18 +43,17 @@ const CheckoutForm = () => {
           dispatch (orderPost({
             bookId : bookId
           }))
-          swal("Pago recibido!", "You clicked the button!", "success")
+          swal("¡Pago recibido!", "You clicked the button!", "success")
          
           setTimeout(() => {
             navigate("/confirmation")
           }, 1000)
 
         } else {
-          swal("Pago rechazado!", "You clicked the button!", "")
+          swal("¡Pago rechazado!", "You clicked the button!", "")
           
         }
         console.log(buy.payload.data.clientSecret)
-        // console.log("esto es la compraaaa!!!", pago)
 
         elements.getElement(CardElement).clear()
       } catch (error) {
@@ -65,20 +63,16 @@ const CheckoutForm = () => {
     }
   }
 
-  // console.log(!stripe || loading)
-
   return (
     <div className={s.bigDiv}>
       <form className={s.form} onSubmit={handleSubmit}>
         
-      
-
         <h3 className="text-center my-2">{product.nombre}</h3>
 
         <div className={s.flex}>
         <img
-          src={product.image} // TODO cambiar por imagen del libro
-          alt="not found" // TODO cambiar por texto acorde
+          src={product.image}
+          alt="No encontrada"
           className={s.productImg}
         />
         <h3 className="text-center my-2">{formatToCurrency(product.price)}</h3>
@@ -97,7 +91,7 @@ const CheckoutForm = () => {
               <span className="sr-only">Cargando...</span>
             </div>
           ) : (
-            "Comprar"
+            "COMPRAR"
           )}
         </button>
       </form>

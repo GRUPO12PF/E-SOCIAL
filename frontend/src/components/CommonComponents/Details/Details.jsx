@@ -182,7 +182,7 @@ const Details = () => {
             <form onSubmit={(e) => handleSubmitSendQuestion(e)}>
               <input type="text" placeholder="Acá va su pregunta, señor" name="mensaje" value={input.mensaje} onChange={e => handleInputChange(e)} />
               {/* <input type="text" placeholder="Acá va su pregunta, señor" name={input.mensaje} />  */}
-              <button >enviar</button>
+              <button>ENVIAR</button>
             </form>
             :
             <Link to="/homeout">
