@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
 import { usuarioCreated } from '../../../redux/actions/actionCreatedUser'
 import Books from './Books'
 import NavBar from '../../CommonComponents/NavBar/NavBar.jsx'
 import Footer from '../../CommonComponents/Footer/Footer'
 import s from './BooksCreated.module.css'
+import { useParams, Link } from 'react-router-dom'
 
 export default function BooksCreated() {
   const dispatch = useDispatch()
@@ -20,7 +20,9 @@ export default function BooksCreated() {
   return (
     <>
       <NavBar />
-
+      <Link to = '/profile'>
+        <button className={s.buttonPerfil}>VOLVER AL MENU</button>
+      </Link>
       <h3 className={s.titulo}>MIS LIBROS</h3>
       <div className={s.contenedorGral}>
         <div className={s.contenedorBooks}>
