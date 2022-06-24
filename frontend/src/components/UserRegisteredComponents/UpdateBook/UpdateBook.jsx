@@ -16,7 +16,9 @@ const Forms = () => {
   const [dispatch, navigate] = [useDispatch(), useNavigate()]
   const categories = useSelector(state => state.categories)
   const imgPreview = useSelector(state => state.tempState)
-  const {nombre, autor, idioma, editorial, edicion, tapa, año_de_pub, cant_pags, descripcion, price, file, colection, ilustrado, category} = useSelector(state => state.detail)
+  const { nombre, autor, idioma, editorial, edicion, tapa, año_de_pub, cant_pags, descripcion, price, file, colection, ilustrado, category } = useSelector(state => state.detail)
+  const detail = useSelector(state => state.detail)
+  console.log("🚀 ~ file: UpdateBook.jsx ~ line 21 ~ Forms ~ detail", detail)
   const { id } = useParams()
   const isAddMode = !id
 
@@ -27,37 +29,16 @@ const Forms = () => {
   }
 
   useEffect(() => {
+    dispatch(cleanData)
     dispatch(getCategories())
     if (!isAddMode) { dispatch(detailsBook(id)) }
-    dispatch(cleanData)
   }, [])
 
   return (
     <div className={s.formFondo}>
       <div>
         <NavBar />
-        
-        <h1>{isAddMode ? 'Anunciar Producto' : `Editar: ${nombre}`}</h1>
-        {isAddMode
-          ? (
-            <p>{nombre}</p>,
-            <p>{autor}</p>,
-            <p>{idioma}</p>,
-            <p>{editorial}</p>,
-            <p>{edicion}</p>,
-            <p>{tapa}</p>,
-            <p>{año_de_pub}</p>,
-            <p>{cant_pags}</p>,
-            <p>{descripcion}</p>,
-            <p>{price}</p>,
-            <p>{file}</p>,
-            <p>{colection}</p>,
-            <p>{ilustrado}</p>,
-            <p>{category}</p>
-          )
-          : null
-        }
-
+        <EditCard />
         < Formik
           initialValues={{
             nombre: '',
@@ -147,14 +128,13 @@ const Forms = () => {
           onSubmit={(values, { resetForm }) => {
             values.image = imgPreview
             delete values.file
-            console.log("🚀 ~ file: Forms.jsx ~ values", values)
 
             if (isAddMode) { dispatch(postCreate(values)) }
             else {
               values.id = id
               dispatch(putBookBody(values))
             }
-
+            console.log("🚀 ~ file: Forms.jsx ~ values", values)
             dispatch(cleanData)
             resetForm()
             swal({

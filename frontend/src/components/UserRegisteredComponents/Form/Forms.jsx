@@ -38,7 +38,7 @@ const Forms = () => {
         <NavBar />
 
         <h1>{isAddMode ? 'Anunciar Producto' : `Editar ${nombre}`}</h1>
-        {isAddMode
+        {!isAddMode
           ? (
             <p>{nombre}</p>,
             <p>{autor}</p>,
