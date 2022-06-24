@@ -11,8 +11,8 @@ function Footer() {
       </div>
       <div className={s.leyenda}>
         <p className="col-sm">
-          &copy;{new Date().getFullYear()} E-SOCIAL INC | All rights reserved |
-          Terms Of Service | Privacy
+          &copy;{new Date().getFullYear()} E-SOCIAL INC | Todos los derechos reservados |
+          Términos de servicio | Privacidad
         </p>
       </div>
     </div>

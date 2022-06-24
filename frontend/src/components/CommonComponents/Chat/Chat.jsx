@@ -133,7 +133,7 @@ export default function Chat({ usuario, socket }) {
                 );
               })
             ) : (
-              <li className="cadaMensaje"> write the first msg </li>
+              <li className="cadaMensaje"> Escriba el primer mensaje </li>
             )}
           </div>
         </div>
@@ -146,7 +146,7 @@ export default function Chat({ usuario, socket }) {
             placeholder="write"
           />
           <button className="buChat" type="submit">
-            send
+            ENVIAR
           </button>
         </form>
       </div>

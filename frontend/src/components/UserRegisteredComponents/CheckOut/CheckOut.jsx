@@ -13,8 +13,8 @@ const CheckOut = () => {
 
     <Elements stripe={stripePromise}>
       <NavBar />
+
       <div>
-        
         <Checkoutform />
       </div>
     </Elements>

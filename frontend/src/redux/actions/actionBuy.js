@@ -14,4 +14,3 @@ export const buyBook = (pago) => {
     }
   }
 }
-

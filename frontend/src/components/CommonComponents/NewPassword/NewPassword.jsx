@@ -1,70 +1,69 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
-import { resetPassword, setStateEmail } from "../../../redux/actions/actionUser.js";
-import s from "./NewPassword.module.css";
-import Footer from "../Footer/Footer";
-import validatePassword from "../../../middleware/validarPassword";
+import React, { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { useParams } from "react-router"
+import { Link } from "react-router-dom"
+import { resetPassword, setStateEmail } from "../../../redux/actions/actionUser.js"
+import s from "./NewPassword.module.css"
+import validatePassword from "../../../middleware/validarPassword"
 
 export default function NewPassword() {
-  const params = useParams();
-  const respuesta = useSelector((state) => state.email);
-  const { token } = params;
+  const params = useParams()
+  const respuesta = useSelector((state) => state.email)
+  const { token } = params
   const [estado, setEstado] = useState({
     password: "",
     password2: "",
-  });
+  })
   const [errores, setErrores] = useState({
     error: "",
-  });
+  })
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   useEffect(() => {
     return () => {
-      dispatch(setStateEmail());
-    };
-  }, []);
+      dispatch(setStateEmail())
+    }
+  }, [])
 
   const handleChange = (e) => {
     setEstado({
       ...estado,
       [e.target.name]: e.target.value,
-    });
+    })
     if (validatePassword(e.target.value)) {
       setErrores({
         ...errores,
-        error: "Your password must be at least 8 characters",
-      });
+        error: "Tu password debe tener al menos 8 caracteres",
+      })
     } else {
       setErrores({
         ...errores,
         error: "",
-      });
+      })
     }
-  };
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (estado.password !== estado.password2)
-      setErrores({ ...errores, error: "las contraseñas deben ser las mismas" });
+      setErrores({ ...errores, error: "Las contraseñas deben coincidir" })
     else {
-      setErrores({ ...errores, error: "" });
+      setErrores({ ...errores, error: "" })
       dispatch(
         resetPassword({
           token: token,
           password: estado.password,
         })
-      );
+      )
     }
-  };
+  }
 
   return (
     <div className={s.contNewPass}>
       <div>
         <div>
-          <h3 className={s.title}>Resetear Password</h3>
+          <h3 className={s.title}>Resettear Password</h3>
           <form onSubmit={handleSubmit}>
             <label htmlFor="password">Password</label>
             <input
@@ -73,7 +72,7 @@ export default function NewPassword() {
               onChange={handleChange}
               id="password"
               type="password"
-              placeholder="Reset password"
+              placeholder="Resettear password"
             />
             <label htmlFor="password">Repetir Password</label>
             <input     
@@ -99,12 +98,12 @@ export default function NewPassword() {
               </Link>
             ) : (
               <button type="submit" >
-                Reset password
+                Resettear Password
               </button>
             )}
           </form>
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -1,63 +1,62 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 import {
   setToResetPassword,
   setStateEmail,
-} from "../../../redux/actions/actionUser";
-import validarEmail from "../../../middleware/validarEmail";
-import Footer from "../Footer/Footer";
+} from "../../../redux/actions/actionUser"
+import validarEmail from "../../../middleware/validarEmail"
 
 export default function OlvidePassword() {
-  const [email, setEmail] = useState("");
-  const [errors, setErrors] = useState({});
-  const respuesta = useSelector((state) => state.errorEmail);
+  const [email, setEmail] = useState("")
+  const [errors, setErrors] = useState({})
+  const respuesta = useSelector((state) => state.errorEmail)
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   useEffect(() => {
     return () => {
-      dispatch(setStateEmail());
-    };
-  }, []);
+      dispatch(setStateEmail())
+    }
+  }, [])
 
   const handleChange = (e) => {
-    setEmail(e.target.value);
+    setEmail(e.target.value)
     if (validarEmail(e.target.value)) {
       e.target.value.length > 40
         ? setErrors({
-            email: "invalid length",
+            email: "Longitud inválida",
           })
         : setErrors({
-            email: "invalid email",
-          });
+            email: "E-mail inválido",
+          })
     } else {
       setErrors({
         email: "",
-      });
+      })
     }
-  };
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     if (email === "") {
       setErrors({
-        email: "this field is required",
-      });
+        email: "Campo requerido",
+      })
     } else {
-      dispatch(setToResetPassword(email));
-      setEmail("");
+      dispatch(setToResetPassword(email))
+      setEmail("")
     }
-  };
+  }
 
   return (
     <div>
       <div >
         <div>
-          <h3>Enter your email to change your password</h3>
+          <h3>Ingresa tu e-mail para cambiar tu password</h3>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="email">email</label>
+            <label htmlFor="email">e-mail</label>
             <input
               name="email"
               value={email}
@@ -77,17 +76,17 @@ export default function OlvidePassword() {
               <Link to="/">
                 {" "}
                 <button type="submit" className="buttonMorado">
-                  Go back home
+                  HOME
                 </button>{" "}
               </Link>
             ) : (
               <button type="submit" className="buttonPrimary">
-                Reset password
+                RESETTEAR PASSWORD
               </button>
             )}
           </form>
         </div>
       </div>
     </div>
-  );
+  )
 }

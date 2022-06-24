@@ -7,78 +7,78 @@ import { useNavigate, useParams } from 'react-router'
 
 const Review = () => {
   const Navigate = useNavigate()
-  const {id}=useParams()
+  const { id } = useParams()
   const dispatch = useDispatch()
   const detalles = useSelector(state => state.order)
   const vendedor = detalles.books?.creador
   const orderId = detalles._id
 
-  const [input,setInput]=useState({
-    title:"",
-    vendedor:vendedor,
-    description:"",
-    score:"",
-    orden:orderId
+  const [input, setInput] = useState({
+    title: "",
+    vendedor: vendedor,
+    description: "",
+    score: "",
+    orden: orderId
   })
   useEffect(() => {
     dispatch(getDetalleOrder(id));
   }, [])
-  
+
   function handleChange(e) {
     setInput({
-        ...input,
-        [e.target.name]: e.target.value
+      ...input,
+      [e.target.name]: e.target.value
     });
-};
+  };
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(review(input))
     alert("ok")
     setInput({
-      title:"",
-      vendedor:"",
-      description:"",
-      score:"",
-      orden:""
+      title: "",
+      vendedor: "",
+      description: "",
+      score: "",
+      orden: ""
     })
     Navigate("/")
   }
 
   return (
     <>
-  <NavBar />
+      <NavBar />
 
-    <form onSubmit={handleSubmit} >
-    <label htmlFor="">titulo</label>
-      <div>
-        <input 
-          type="text"
-          name="title"
-          value={input.title}
-          onChange={(e) => handleChange(e)}
-         />
-      </div>
-      <label htmlFor="">descripcion</label>
-      <div>
-        <input 
-          type="text"
-          name="description"
-          value={input.description}
-          onChange={(e) => handleChange(e)}
-         />
-      </div>
-      <label htmlFor="">score</label>
-      <div>
-        <input 
-          type="number"
-          name="score"
-          value={input.score}
-          onChange={(e) => handleChange(e)}
-         />
-      </div>
-      <input type="submit" value="enviar" />
-    </form>
+      <form onSubmit={handleSubmit} >
+        <label htmlFor="">TÍTULO</label>
+        <div>
+          <input
+            type="text"
+            name="title"
+            value={input.title}
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+        <label htmlFor="">DESCRIPCIÓN</label>
+        <div>
+          <input
+            type="text"
+            name="description"
+            value={input.description}
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+        <label htmlFor="">PUNTUACIÓN</label>
+        <div>
+          <input
+            type="number"
+            name="score"
+            value={input.score}
+            onChange={(e) => handleChange(e)}
+          />
+        </div>
+        <input type="submit" value="enviar" />
+      </form>
     </>
   )
 }

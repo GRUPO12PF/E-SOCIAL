@@ -19,7 +19,7 @@ const OrderDetail = () => {
 
   let response
   if (review?.length !== 0) {
-    response = 'YA CALIFICASTE AL VENDEDOR!'
+    response = '¡YA CALIFICASTE AL VENDEDOR!'
   }
   useEffect(() => {
     dispatch(getDetalleOrder(id));

@@ -32,7 +32,7 @@ const Details = () => {
   //----------------------------------------------------------------------------------------------------------------------------------------------------------- 
   const qa = useSelector((state) => state.questionsAndAnswers)
   const questionAnswered = qa.filter(ele => ele.answers.length)
-  
+
   //-----------------------------------------------------------------------------------------------------------------------------------------------------------
   const [input, setInput] = useState({
     mensaje: ''
@@ -51,29 +51,29 @@ const Details = () => {
   }, [dispatch])
 
   const handleSubmitSendQuestion = async (e) => {
-    if(userAct !== usuarioVendedor){
-    e.preventDefault();
-    setInput({
-      mensaje: input.mensaje,
-    })
-    dispatch(postQuestion({
-      mensaje: input.mensaje,
-      idComprador: userComprador,
-      book: idBook,
-      idVendedor: usuarioVendedor
-    }))
-   
-    setInput({
-      mensaje: ''
-    }) 
-    alert('tu respuesta fue envia con exito!')
-  }else{
-    e.preventDefault()
-    alert('no podes preguntar por un libro que es tuyo!')
-    setInput({
-      mensaje: ''
-    })
-  }
+    if (userAct !== usuarioVendedor) {
+      e.preventDefault();
+      setInput({
+        mensaje: input.mensaje,
+      })
+      dispatch(postQuestion({
+        mensaje: input.mensaje,
+        idComprador: userComprador,
+        book: idBook,
+        idVendedor: usuarioVendedor
+      }))
+
+      setInput({
+        mensaje: ''
+      })
+      alert('¡Tu respuesta fue envia con exito!')
+    } else {
+      e.preventDefault()
+      alert('¡No podés preguntar por un libro que es tuyo!')
+      setInput({
+        mensaje: ''
+      })
+    }
   }
 
   const handleInputChange = function (e) {
@@ -95,7 +95,7 @@ const Details = () => {
           {/* image.map((e,i) => {
               <img src={image || book} alt="not found" className="image-detalle" />          
         }) */}
-          <img src={image || book} alt="not found" className="image-detalle" />
+          <img src={image || book} alt="No encontrado" className="image-detalle" />
         </div>
 
         <div>
@@ -137,7 +137,7 @@ const Details = () => {
             />
 
             <DetailsField
-              constant={año_de_pub} // No me renderiza :C, no está cargando
+              constant={año_de_pub}
               clase="h5-detalle"
               title='Año de publicación'
             />
@@ -179,7 +179,7 @@ const Details = () => {
                   <button className="btnn-detalle">COMPRAR</button>
                 </Link>
                 :
-                <Link to="/homeout">
+                <Link to="/registrar">
                   <button className="btnn-detalle">COMPRAR</button>
                 </Link>
             }
@@ -189,8 +189,8 @@ const Details = () => {
 
       <div>
         {
-         
-         questionAnswered?.map((e, i) => {
+
+          questionAnswered?.map((e, i) => {
             return (
               <div >
                 <div><h3>Pregunta: {e.mensaje}</h3></div>
@@ -208,11 +208,11 @@ const Details = () => {
             <form onSubmit={(e) => handleSubmitSendQuestion(e)}>
               <input type="text" placeholder="Acá va su pregunta, señor" name="mensaje" value={input.mensaje} onChange={e => handleInputChange(e)} />
               {/* <input type="text" placeholder="Acá va su pregunta, señor" name={input.mensaje} />  */}
-              <button >enviar</button>
+              <button>ENVIAR</button>
             </form>
             :
             <Link to="/homeout">
-              <button className="btnn-detalle">Preguntar</button>
+              <button className="btnn-detalle">PREGUNTAR</button>
             </Link>
         }
 
@@ -221,7 +221,7 @@ const Details = () => {
 
       <div>
 
-        <button onClick={handle}>Perfil del vendedor</button>
+        <button onClick={handle}>PERFIL DEL VENDEDOR</button>
 
       </div>
     </>

@@ -1,24 +1,24 @@
-import React, { useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import React, { useRef } from 'react'
+import emailjs from '@emailjs/browser'
 import s from './ConfirmacionPago.module.css'
-import { useNavigate } from 'react-router';
-import NavBar from '../../../CommonComponents/NavBar/NavBar';
+import { useNavigate } from 'react-router'
+import NavBar from '../../../CommonComponents/NavBar/NavBar'
 
 const ConfirmacionPago = () => {
-  const form = useRef();
-  const navigate = useNavigate();
+  const form = useRef()
+  const navigate = useNavigate()
 
   const sendEmail = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     emailjs.sendForm('service_fawk32l', 'template_ldua3d9', form.current, 'g-ZSRPwlx9NA1IFaD')
       .then((result) => {
-        console.log(result.text);
+        console.log(result.text)
 
       }, (error) => {
-        console.log(error.text);
-      });
+        console.log(error.text)
+      })
     navigate("/")
-  };
+  }
 
   return (
     <div>
@@ -35,8 +35,9 @@ const ConfirmacionPago = () => {
           </div>
         </div>
       </form>
+
     </div>
-  );
-};
+  )
+}
 
 export default ConfirmacionPago
