@@ -29,44 +29,46 @@ function Profile() {
   }
 
   return (
-    <div>
+    <div >
       <NavBar />
-      <div className={s.containerGral}>
-        <div className={s.container}>
-          <div className={s.containerMini}>
+      <div className={s.containerPadre}>
+        <div className={s.containerGral}>
+          <div className={s.container}>
+            <div className={s.containerMini}>
 
-            <div onClick={() => handleOnClickBooks()}>
-              <Link to="/">
-                <p className={estilos.prueba}>LIBROS</p>
-              </Link>
+              <div onClick={() => handleOnClickBooks()}>
+                <Link to="/">
+                  <p className={estilos.prueba}>LIBROS</p>
+                </Link>
+              </div>
+
+              <div onClick={() => (handleOnClickOrders())}>
+                <Link to="/">
+                  <p className={estilos.prueba}>ÓRDENES</p>
+                </Link>
+              </div>
+
+              <div onClick={() => (handleOnClickQuestions())}>
+                <Link to="/">
+                  <p className={estilos.prueba}>PREGUNTAS</p>
+                </Link>
+              </div>
+
+              <div onClick={() => (handleOnClickAnswers())}>
+                <Link to="/">
+                  <p className={estilos.prueba}>RESPUESTAS</p>
+                </Link>
+              </div>
+
+              <div>
+                <Link to="/" className={estilos.prueba}>MENSAJES</Link>
+              </div>
+
             </div>
-
-            <div onClick={() => (handleOnClickOrders())}>
-              <Link to="/">
-                <p className={estilos.prueba}>ÓRDENES</p>
-              </Link>
-            </div>
-
-            <div onClick={() => (handleOnClickQuestions())}>
-              <Link to="/">
-                <p className={estilos.prueba}>PREGUNTAS</p>
-              </Link>
-            </div>
-
-            <div onClick={() => (handleOnClickAnswers())}>
-              <Link to="/">
-                <p className={estilos.prueba}>RESPUESTAS</p>
-              </Link>
-            </div>
-
-            <div>
-              <Link to="/" className={estilos.prueba}>MENSAJES</Link>
-            </div>
-
           </div>
         </div>
+        <Footer />
       </div>
-      {/* <Footer/> */}
     </div>
   )
 }

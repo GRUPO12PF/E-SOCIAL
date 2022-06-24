@@ -8,11 +8,17 @@
 .prueba:hover{
     text-decoration:underline;
 }
+.containerPadre{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 .containerGral{
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     margin-top: 10%;
+    
     
 }
 .container{
