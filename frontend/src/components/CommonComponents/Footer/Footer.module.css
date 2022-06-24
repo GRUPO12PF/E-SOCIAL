@@ -8,4 +8,6 @@
   background-color: #621708;
   justify-content: center;
   text-align: center;
+  position: absolute;
+  bottom: 0;
 }
