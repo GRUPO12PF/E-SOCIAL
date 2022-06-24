@@ -26,7 +26,7 @@ export default function BooksCreated() {
         <>
         <NavBar />
         
-        <h3 className={s.titulo}>HISTORIAL DE COMPRAS</h3>
+        <h3 className={s.titulo}>MIS LIBROS</h3>
         <div className={s.contenedorGral}>
           <div className={s.contenedorBooks}>
         {  allBooks?.map((e, i) => {
