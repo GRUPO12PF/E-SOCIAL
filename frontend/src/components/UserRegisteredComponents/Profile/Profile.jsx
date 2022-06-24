@@ -3,7 +3,8 @@ import NavBar from '../../CommonComponents/NavBar/NavBar'
 import {Link} from 'react-router-dom'
 import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
-import estilos from '../Profile/Profile.module.css'
+import s from './Profile.module.css'
+import Footer from '../../CommonComponents/Footer/Footer';
 
 // import Books from '../BooksCreated/Books';
 
@@ -24,39 +25,38 @@ function Profile() {
       navigate(`/questions/${idUser}`)
     }
 
-    function handleOnClickAnswers(){
-      navigate(`/answers/${idUser}`)
-    }
-
     return (
       <div>
         <NavBar />
-        <div>
-
-            <div onClick={() => handleOnClickBooks()}>
+        <div className={s.containerGral}>
+        <div className={s.container}>
+          <div clasName={s.containerMini}>
+            <div  onClick={() => handleOnClickBooks()}>
                 <Link to="/">
-                    <p className={estilos.prueba}>libros</p>
+                    <p className={s.prueba}>Libros</p>
                 </Link>
             </div>
             <div onClick={() => (handleOnClickOrders())}>
                 <Link to="/">
-                    <p className={estilos.prueba}>ordenes</p>
+                    <p className={s.prueba}>Ordenes</p>
                 </Link>
             </div>
             <div onClick={() => (handleOnClickQuestions())}>
                 <Link to="/">
-                    <p className={estilos.prueba}>preguntas</p>
-                </Link>
-            </div>
-            <div onClick={() => (handleOnClickAnswers())}>
-                <Link to="/">
-                  <p className={estilos.prueba}>respuestas</p>
+                    <p className={s.prueba}>Preguntas</p>
                 </Link>
             </div>
             <div>
-                <Link to="/">Mensajes</Link>
+                <Link to="/"><p className={s.prueba}>Respuestas</p></Link>
+                
+            </div>
+            <div>
+                <Link to="/"><p className={s.prueba}>Mensajes</p></Link>
+            </div>
             </div>
         </div>
+        </div>
+        {/* <Footer/> */}
       </div>
     );
 }
