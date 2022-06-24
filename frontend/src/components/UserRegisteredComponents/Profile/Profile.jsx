@@ -23,6 +23,10 @@ function Profile() {
     navigate(`/questions/${idUser}`)
   }
 
+  function handleOnClickAnswers() {
+    navigate(`/answers/${idUser}`)
+  }
+
   return (
     <div >
       <NavBar />
@@ -51,7 +55,7 @@ function Profile() {
                 </Link>
               </div>
 
-              <div>
+              <div onClick={() => (handleOnClickAnswers())}>
                 <Link to="/"><p className={s.prueba}>RESPUESTAS</p></Link>
 
               </div>

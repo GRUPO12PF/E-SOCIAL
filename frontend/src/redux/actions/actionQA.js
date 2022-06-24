@@ -1,5 +1,5 @@
 import clienteAxios from "../../config/clienteAxios";
-import { GET_QA, GET_ALL_QUESTIONS, GET_ALL_ANSWERS} from '../utils/constants';
+import { GET_QA, GET_ALL_QUESTIONS, GET_ALL_ANSWERS, GET_ALL_QUESTIONS_COMPRADOR } from '../utils/constants';
 
 export const postQuestion = (payload) => {
     return async function (dispatch) {
@@ -63,7 +63,7 @@ export const allQuestions = (payload) => {
       },
     };
     try {
-      const json = await clienteAxios.get(`/qa/questions/${payload}`, config);
+      const json = await clienteAxios.get(`/qa/questions/vendedor/${payload}`, config);
       // console.log(json);
       return dispatch({
         type: GET_ALL_QUESTIONS,
@@ -85,10 +85,32 @@ export const allAnswers = (payload) => {
       },
     };
     try {
-      const json = await clienteAxios.get(`/qa/answers/${payload}`, config);
+      const json = await clienteAxios.get(`/qa/answers/vendedor/${payload}`, config);
       // console.log(json);
       return dispatch({
         type: GET_ALL_ANSWERS,
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const allQuestionsComprador = (payload) => {
+  return async function (dispatch) {
+    const id = localStorage.getItem("token");
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${id}`,
+      },
+    };
+    try {
+      const json = await clienteAxios.get(`/qa/questions/comprador/${payload}`, config);
+      // console.log(json);
+      return dispatch({
+        type: GET_ALL_QUESTIONS_COMPRADOR,
         payload: json.data,
       });
     } catch (error) {
