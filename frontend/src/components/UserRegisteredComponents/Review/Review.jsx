@@ -10,7 +10,6 @@ const Review = () => {
   const {id}=useParams()
   const dispatch = useDispatch()
   const detalles = useSelector(state => state.order)
-  console.log(detalles)
   const vendedor = detalles.books?.creador
   const orderId = detalles._id
 
@@ -20,13 +19,10 @@ const Review = () => {
     description:"",
     score:"",
     orden:orderId
-
   })
   useEffect(() => {
     dispatch(getDetalleOrder(id));
-
   }, [])
-  
   
   function handleChange(e) {
     setInput({
@@ -34,7 +30,6 @@ const Review = () => {
         [e.target.name]: e.target.value
     });
 };
-
 
   const handleSubmit = (e)=>{
     e.preventDefault()
@@ -64,7 +59,6 @@ const Review = () => {
           onChange={(e) => handleChange(e)}
          />
       </div>
-
       <label htmlFor="">descripcion</label>
       <div>
         <input 
@@ -72,10 +66,8 @@ const Review = () => {
           name="description"
           value={input.description}
           onChange={(e) => handleChange(e)}
-          
          />
       </div>
-
       <label htmlFor="">score</label>
       <div>
         <input 
@@ -83,10 +75,8 @@ const Review = () => {
           name="score"
           value={input.score}
           onChange={(e) => handleChange(e)}
-          
          />
       </div>
-
       <input type="submit" value="enviar" />
     </form>
     </>
