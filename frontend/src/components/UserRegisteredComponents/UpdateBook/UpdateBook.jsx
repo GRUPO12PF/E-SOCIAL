@@ -11,14 +11,12 @@ import { currentYear } from '../../../utils/helperFunctions'
 import PreviewImage from '../Form/ImgPreview/ImgPreview'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
 import s from '../Form/Form.module.css'
+import EditCard from '../Form/EditCard/EditCard'
 
 const Forms = () => {
   const [dispatch, navigate] = [useDispatch(), useNavigate()]
   const categories = useSelector(state => state.categories)
   const imgPreview = useSelector(state => state.tempState)
-  const { nombre, autor, idioma, editorial, edicion, tapa, año_de_pub, cant_pags, descripcion, price, file, colection, ilustrado, category } = useSelector(state => state.detail)
-  const detail = useSelector(state => state.detail)
-  console.log("🚀 ~ file: UpdateBook.jsx ~ line 21 ~ Forms ~ detail", detail)
   const { id } = useParams()
   const isAddMode = !id
 
@@ -31,14 +29,13 @@ const Forms = () => {
   useEffect(() => {
     dispatch(cleanData)
     dispatch(getCategories())
-    if (!isAddMode) { dispatch(detailsBook(id)) }
   }, [])
 
   return (
     <div className={s.formFondo}>
       <div>
         <NavBar />
-        <EditCard />
+        <EditCard id={id} />
         < Formik
           initialValues={{
             nombre: '',
