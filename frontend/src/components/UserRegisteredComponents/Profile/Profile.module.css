@@ -1,3 +1,36 @@
 .prueba{
-    color: red;
+    color: rgb(35, 34, 34);
+    text-align:center;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.prueba:hover{
+    text-decoration:underline;
+}
+.containerGral{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 10%;
+    
+}
+.container{
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 560px;
+    height: 300px;
+ 
+}
+
+.containerMini{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    min-height: 250px;
 }
