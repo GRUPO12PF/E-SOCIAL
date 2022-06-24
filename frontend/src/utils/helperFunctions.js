@@ -34,7 +34,7 @@ export function formValidators (values) {
     errors.idioma = 'Campo requerido'
   } else if (!/^\S.*$/.test(values.idioma)) {
     errors.idioma = 'El primer caracter no puede ser un espacio'
-  } else if (!/^([a-z]|[\u00f1\u00d1]|\s){1,20}$/i.test(values.idioma)) {
+  } else if (!/^([a-z]|[À-ÿ]|[\u00f1\u00d1]|\s){1,20}$/i.test(values.idioma)) {
     errors.idioma = 'Ingrese un idioma válido de hasta 40 caracteres'
   }
 
