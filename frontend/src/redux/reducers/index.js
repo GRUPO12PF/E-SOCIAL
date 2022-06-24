@@ -1,30 +1,30 @@
-import { GET_CATEGORIES, FILTER_BY_CATEGORY, SORT_BY, NAME_ASC, NAME_DESC, PRICE_ASC, PRICE_DESC, BUY_BOOK, GET_DETALLE_ORDER, GET_USUARIOS, GET_ORDERS, POST_ANSWER, POST_QUESTION, GET_QA, GET_ALL_QUESTIONS, GET_ALL_ANSWERS } from '../utils/constants'
+import { GET_CATEGORIES, FILTER_BY_CATEGORY, SORT_BY, NAME_ASC, NAME_DESC, PRICE_ASC, PRICE_DESC, BUY_BOOK, GET_DETALLE_ORDER, GET_USUARIOS, GET_ORDERS, POST_ANSWER, POST_QUESTION, GET_QA, GET_ALL_QUESTIONS, GET_ALL_ANSWERS, TEMP_STATE } from '../utils/constants'
 
 const initialState = {
-  books: [],
-  countBooks: [],
   allBooks: [],
-  categories: [],
-  usuario: [],
-  usuarioActual: [],
+  allOrders: [],
   allUsuarios: [],
+  answers: [],
+  books: [],
+  booksCreated: [],
+  buy: [],
+  categories: [],
   confirmacion: {},
+  countBooks: [],
+  delete: [],
+  detail: [],
   email: [],
   invalidToken: true,
   loginUser: false,
-  detail: [],
-  delete: [],
-  put: [],
-  buy: [],
-  allOrders: [],
   orders: [],
   order: [],
-  booksCreated: [],
-  usuarioProfile: [],
-  questionsAndAnswers: [],
+  put: [],
   questions: [],
-  answers: [],
-  review:[]
+  questionsAndAnswers: [],
+  tempState: [],
+  usuario: [],
+  usuarioActual: [],
+  usuarioProfile: [],
 }
 
 function rootReducer(state = initialState, action) {
@@ -122,6 +122,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         detail: [],
+        tempState: [],
       }
 
     case 'ACTUAL':
@@ -134,6 +135,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         categories: action.payload
+      }
+
+    case TEMP_STATE:
+      return {
+        ...state,
+        tempState: action.payload
       }
 
     // FILTERS

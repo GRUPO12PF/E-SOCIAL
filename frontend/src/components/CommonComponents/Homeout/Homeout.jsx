@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import Modal from "react-modal";
 import { autenticarUser } from "../../../redux/actions/actionUser.js";
 import s from "./Homeout.module.css";
-import image from "../../../assets/images/homeout.jpeg";
+import image from "../../../assets/images/homeout.jpeg"
 import Footer from "../Footer/Footer";
 
 Modal.setAppElement("#root");
