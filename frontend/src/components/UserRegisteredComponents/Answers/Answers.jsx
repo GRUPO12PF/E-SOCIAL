@@ -11,7 +11,8 @@ export default function Questions(){
     const answers = useSelector((state) => state.answers)
     const answersUser = answers.filter(ele => ele.idVendedor._id === id)  
 
-    console.log("a ver qué trae", answersUser)
+
+    console.log("a ver qué trae", answers.createdAt)
     
     
     useEffect(() => {   
@@ -28,6 +29,7 @@ export default function Questions(){
                           <AnswerDetail
                             mensaje= {e.mensaje}
                             book={e.book}
+                            createdAt={e.createdAt}
                           />
                     </div>
                   );
