@@ -197,7 +197,7 @@ const Forms = () => {
                     <ErrorMessage name='edicion' component={() => (<p className={s.error}>{errors.edicion}</p>)} />
                   </div>
 
-                  <label className={s.label} >Tipo de tapa</label>
+                  <label className={s.label} >Tipo de tapa</label> {/* HACERLO ENUM! */}
                   <div>
                     <Field
                       className={s.textarea}

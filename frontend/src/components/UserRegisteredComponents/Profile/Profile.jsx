@@ -60,7 +60,7 @@ function Profile() {
             </div>
 
             <div>
-              <Link to="/">MENSAJES</Link>
+              <Link to="/" className={estilos.prueba}>MENSAJES</Link>
             </div>
 
           </div>

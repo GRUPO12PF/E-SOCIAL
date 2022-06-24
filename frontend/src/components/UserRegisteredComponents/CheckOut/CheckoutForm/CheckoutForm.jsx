@@ -4,7 +4,7 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import s from './CheckoutForm.module.css'
 import { buyBook } from "../../../../redux/actions/actionBuy.js"
 import { orderPost } from "../../../../redux/actions/actionOrder"
-import { usuarioActual } from "../../../../redux/actions/actionUser";
+import { usuarioActual } from "../../../../redux/actions/actionUser"
 import { useNavigate } from "react-router"
 import { formatToCurrency } from "../../../../utils/helperFunctions.js"
 import swal from 'sweetalert'
@@ -21,8 +21,8 @@ const CheckoutForm = () => {
   const bookId = product._id
 
   useEffect(() => {
-    dispatch(usuarioActual());
-  }, []);
+    dispatch(usuarioActual())
+  }, [])
 
   const [loading, setLoading] = useState(false)
 
@@ -51,14 +51,14 @@ const CheckoutForm = () => {
             dispatch(orderPost({
               bookId: bookId
             }))
-            swal("¡Pago recibido!", "¡No olvides de confirmar tu e-mail, por favor!", "success")
+            swal("¡Pago recibido!", "No te olvides de confirmar tu mail por favor!", "success")
 
             setTimeout(() => {
               navigate("/confirmation")
             }, 1000)
 
           } else {
-            swal("¡Pago rechazado!", "You clicked the button!", "")
+            swal("¡Pago rechazado!", "Intente nuevamente con otra tarjeta por favor!", "")
 
           }
           elements.getElement(CardElement).clear()
@@ -78,8 +78,8 @@ const CheckoutForm = () => {
         <h3 className="text-center my-2">{product.nombre}</h3>
         <div className={s.flex}>
           <img
-            src={product.image}
-            alt="No encontrada"
+          src={product.image}
+          alt="No encontrada"
             className={s.productImg}
           />
           <h3 className="text-center my-2">{formatToCurrency(product.price)}</h3>
