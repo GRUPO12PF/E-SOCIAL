@@ -9,9 +9,10 @@ export default function Questions(){
     const dispatch = useDispatch()
     const { id } = useParams();
     const answers = useSelector((state) => state.answers)
-    // const question = questions.filter(ele => !ele.answers.length > 0)  
+    const answersUser = answers.filter(ele => ele.idVendedor._id === id)  
+
+    console.log("a ver qué trae", answersUser)
     
-    console.log("a ver qué trae", answers)
     
     useEffect(() => {   
          dispatch(allAnswers(id))
@@ -21,7 +22,7 @@ export default function Questions(){
         <div>
           <NavBar />
           <h3>HISTORIAL DE RESPUESTAS</h3>
-            {answers?.map((e, i)=>{
+            {answersUser?.map((e, i)=>{
                  return (
                     <div _id= {e._id} key={i}>
                           <AnswerDetail
