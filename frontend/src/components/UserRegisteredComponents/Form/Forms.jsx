@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 import { Formik, Field, ErrorMessage, Form } from 'formik'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { postCreate } from '../../../redux/actions/postProducts'
 import { getCategories } from '../../../redux/actions/actionCategories.js'
-import { cleanData, getBooks } from '../../../redux/actions/actionBooks'
+import { cleanData, getBooks, putBookBody } from '../../../redux/actions/actionBooks'
+import { detailsBook } from '../../../redux/actions/detailsBooks'
 import { subirFotos } from '../../../redux/actions/actionSubirFotos'
 import { currentYear } from '../../../utils/helperFunctions'
 import PreviewImage from './ImgPreview/ImgPreview'
@@ -15,6 +16,9 @@ const Forms = () => {
   const [dispatch, navigate] = [useDispatch(), useNavigate()]
   const categories = useSelector(state => state.categories)
   const imgPreview = useSelector(state => state.tempState)
+  const { nombre, autor, idioma, editorial, edicion, tapa, año_de_pub, cant_pags, descripcion, price, file, colection, ilustrado, category } = useSelector(state => state.detail)
+  const { id } = useParams()
+  const isAddMode = !id
 
   const fileRef = useRef(null)
 
@@ -23,17 +27,38 @@ const Forms = () => {
   }
 
   useEffect(() => {
-    dispatch(getCategories())
     dispatch(cleanData)
+    dispatch(getCategories())
+    if (!isAddMode) { dispatch(detailsBook(id)) }
   }, [])
 
   return (
     <div className={s.formFondo}>
       <div>
-        <div>
-          <NavBar />
-        </div>
-        <Formik
+        <NavBar />
+
+        <h1>{isAddMode ? 'Anunciar Producto' : `Editar ${nombre}`}</h1>
+        {isAddMode
+          ? (
+            <p>{nombre}</p>,
+            <p>{autor}</p>,
+            <p>{idioma}</p>,
+            <p>{editorial}</p>,
+            <p>{edicion}</p>,
+            <p>{tapa}</p>,
+            <p>{año_de_pub}</p>,
+            <p>{cant_pags}</p>,
+            <p>{descripcion}</p>,
+            <p>{price}</p>,
+            <p>{file}</p>,
+            <p>{colection}</p>,
+            <p>{ilustrado}</p>,
+            <p>{category}</p>
+          )
+          : null
+        }
+
+        < Formik
           initialValues={{
             nombre: '',
             autor: '',
@@ -122,12 +147,17 @@ const Forms = () => {
           onSubmit={(values, { resetForm }) => {
             values.image = imgPreview
             delete values.file
+            
+            if (isAddMode) { dispatch(postCreate(values)) }
+            else {
+              values.id = id    
+              dispatch(putBookBody(values))
+            }          
             console.log("🚀 ~ file: Forms.jsx ~ values", values)
-            dispatch(postCreate(values))
             dispatch(cleanData)
             resetForm()
             swal({
-              title: "¡Creado con éxito!",
+              title: "¡Realizado con éxito!",
               text: " ",
               icon: "success",
               button: "Ok!",
@@ -136,7 +166,7 @@ const Forms = () => {
             dispatch(getBooks())
           }}
         >
-          
+
           {({ errors, handleSubmit, values, setFieldValue }) => (
             <Form onSubmit={handleSubmit} className={s.formik} >
               <div className={s.form}>
@@ -331,7 +361,7 @@ const Forms = () => {
         <br />
         <Link className={s.back} to="/">BACK</Link>
       </div>
-    </div>
+    </div >
   )
 }
 

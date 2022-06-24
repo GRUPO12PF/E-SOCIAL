@@ -31,7 +31,7 @@ function Profile() {
         <div className={s.containerGral}>
           <div className={s.container}>
 
-            <div clasName={s.containerMini}>
+            <div className={s.containerMini}>
 
               <div onClick={() => handleOnClickBooks()}>
                 <Link to="/">
