@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { usuarioActual } from "../../../redux/actions/actionUser.js";
 import Chat from "../Chat/Chat.jsx";
+import NavBar from "../NavBar/NavBar.jsx";
+
 import io from "socket.io-client";
 let socket;
 
@@ -37,7 +39,9 @@ function homeChat() {
   },[]);
 
   return (
-    <div className="contentHome">
+    <>
+    <NavBar />
+    <div className="contentChat">
       {socket ? (
         <div className="contChat">
           <Chat usuario={usuario} socket={socket} />
@@ -46,6 +50,7 @@ function homeChat() {
         ""
       )}
       </div>
+      </>
   )
 }
 
