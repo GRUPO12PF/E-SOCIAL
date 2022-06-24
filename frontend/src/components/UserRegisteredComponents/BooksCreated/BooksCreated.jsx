@@ -1,24 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams, Link } from 'react-router-dom'
 import {usuarioCreated} from '../../../redux/actions/actionCreatedUser'
 import Books from './Books'
 import NavBar from '../../CommonComponents/NavBar/NavBar.jsx'
 import Footer from '../../CommonComponents/Footer/Footer'
-import { usuarioActual } from '../../../redux/actions/actionUser'
 import s from './BooksCreated.module.css'
 
 export default function BooksCreated() {
     const dispatch = useDispatch()
     const { id } = useParams();
 
-    // const usuarioActual  = useSelector ((state)=> state.usuario)
-    // const userId = usuarioActual._id
-    // console.log(userId)
     const allBooks = useSelector((state) => state.booksCreated);
+    console.log(allBooks)
     
     useEffect(() => {
-        //dispatch(usuarioActual())
         dispatch(usuarioCreated(id))
       }, [dispatch]);
 
@@ -33,6 +29,7 @@ export default function BooksCreated() {
           return (
             <div  key={i}>
                     <Books
+                      order = {e.order}
                       id={e._id}
                       nombre={e.nombre}
                       image={e.image}
@@ -43,6 +40,7 @@ export default function BooksCreated() {
           })
         }
         </div>
+        <Footer/>
         </div>
        
         </>
