@@ -276,7 +276,7 @@ const Forms = () => {
           )}
         </Formik>
         <br />
-        <Link className={s.back} to="/profile">Atrás</Link>
+        <Link className={s.back} to="/">Atrás</Link>
       </div>
     </div >
   )
