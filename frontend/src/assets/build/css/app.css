@@ -321,7 +321,7 @@ html {
 }
 
 body {
-  background-color: #c1c1c1;
+  background-color: #e8ddbd;
   font-family: "Roboto", sans-serif;
   font-size: 1.6rem;
 }
@@ -390,7 +390,7 @@ img {
 .footer {
   padding: 0.2rem;
   width: 100%;
-  background-color: #220901;
+  background-color: #9d1d36;
   text-align: center;
   width: 100%;
 }
@@ -610,7 +610,7 @@ img {
 
 .contentNav {
   display: block;
-  background: #220901;
+  background: #9d1d36;
   overflow: hidden;
   width: 100%;
   margin: 0 auto;
@@ -755,7 +755,7 @@ body::-webkit-scrollbar-thumb {
   text-align: center;
   cursor: pointer;
   padding: 4px 10px;
-  background: #BC3908;
+  background: #6f7769;
 }
 
 .num:hover {
@@ -773,7 +773,7 @@ body::-webkit-scrollbar-thumb {
   text-align: center;
   cursor: pointer;
   padding: 4px 10px;
-  background: #F6AA1C;
+  background: #a9b79e;
 }
 
 .num1:hover {
@@ -812,7 +812,7 @@ body::-webkit-scrollbar-thumb {
   flex-wrap: wrap;
   font-size: large;
   font-weight: bold;
-  background: #220901;
+  background: #9d1d36;
   justify-content: center;
   padding: 1rem;
 }
@@ -920,19 +920,11 @@ body::-webkit-scrollbar-thumb {
   width: calc(100% - var(--btn-width));
 }
 
-.inputB:not(:-ms-input-placeholder) {
-  border-radius: var(--rad) 0 0 var(--rad);
-  width: calc(100% - var(--btn-width));
-}
-
 .inputB:not(:placeholder-shown) {
   border-radius: var(--rad) 0 0 var(--rad);
   width: calc(100% - var(--btn-width));
 }
 .inputB:not(:-moz-placeholder-shown) + button {
-  display: block;
-}
-.inputB:not(:-ms-input-placeholder) + button {
   display: block;
 }
 .inputB:not(:placeholder-shown) + button {
