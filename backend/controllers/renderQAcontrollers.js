@@ -75,14 +75,18 @@ const getQuestion = async (req, res) => {
 //trae una respuesta por id
 const QAIdBook = async (req, res) => {
   const { id } = req.params
-  const qaId = await Question.find({ book: id }).populate("answers")
-
   try {
-    res.json(qaId)
+    if (id?.length === 24){
+      const qaId = await Question.find({ book: id }).populate("answers")
+      res.json(qaId)
+    }else {
+      res.json({msgError: "ID debe tener 24 caracteres."}).status(400)    
+    }
 
   } catch (error) {
     console.log(error)
   }
+
 
 }
 //elimina respuesta para admin
