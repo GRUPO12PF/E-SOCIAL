@@ -13,9 +13,10 @@
     border-radius: 10px;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    max-height: 450px;
+    max-height: 370px;
     max-width: 250px;
     margin: 0 auto;
+    position: relative;
   }
   .card-book:hover{
     box-shadow: 9px 13px 30px -9px rgba(0,0,0,0.56);
@@ -34,18 +35,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 20px;
+    padding: 40px 90px;
     min-height: 250px;
+    
   }
   
   .tagtagteal-book {
+   
     background-color: #BC3908;
     border-radius: 50px;
     font-size: 1.1rem;
-    margin: 0;
+    margin: 30px ;
     color: #f0f8ff;
-    padding: 0.2rem 1rem;
+    padding:1rem 1rem;
     text-transform: uppercase;
+    width: 200px;
+    text-align: center;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
   }
   
   
@@ -56,6 +64,9 @@
   .user-book {
     display: flex;
     margin-top: auto;
+    position: absolute;
+    left: 3px;
+    bottom: 105px;
   }
   
   .user-book img {
@@ -63,14 +74,21 @@
     width: 40px;
     height: 40px;
     margin-right: 10px;
+    
   }
   .userinfo-book h5 {
     margin: 0;
+    color: #1f2330;
   }
   .userinfo-book small {
     color: #1f2330;
   }
-  
+  .priceee{
+    color:#1f2330;
+    position: absolute;
+    bottom: 103px;
+    right: 13px;
+  }
   .parrafo-book{
     width: 220px;
     height: 70px;

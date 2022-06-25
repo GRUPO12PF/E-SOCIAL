@@ -158,35 +158,7 @@ const CheckoutForm = () => {
     </div>
   </div>
    </div>
-    // <div className={s.bigDiv}>
-    //   <form className={s.form} onSubmit={handleSubmit}>
-    //     <h3 className="text-center my-2">{product.nombre}</h3>
-    //     <div className={s.flex}>
-    //       <img
-    //         src={product.image} // TODO cambiar por imagen del libro
-    //         alt="not found" // TODO cambiar por texto acorde
-    //         className={s.productImg}
-    //       />
-    //       <h3 className="text-center my-2">{formatToCurrency(product.price)}</h3>
-    //     </div>
-    //     {/* User Card Input */}
-    //     <div className={s.flex2}>
-    //       <div className={s.cardElement}>
-    //         <CardElement />
-    //       </div>
-    //     </div>
-    //     <button disabled={!stripe} className={s.butones}>
-    //       {loading ? (
-    //         <div className="spinner-border text-light" role="status">
-    //           <span className="sr-only">Cargando...</span>
-    //         </div>
-    //       ) : (
-    //         "Comprar"
-    //       )}
-    //     </button>
-    //   </form>
-      //  { <ConfirmacionPago/> }
-    // </div>
+    
   )
 }
 
