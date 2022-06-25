@@ -10,36 +10,38 @@
   padding-bottom: 5rem;
 }
 .num {
-  width: 75px;
-  height: 45px;
-  margin: 3px;
+  width: 60px;
+  height: 40px;
+  margin: 2px;
   border-radius: 10px;
   font-size: 20px;
   text-align: center;
   cursor: pointer;
-  padding: 4px 13px;
+  padding: 4px 10px;
   background: #BC3908;
 }
 
 .num:hover {
+  transform: scale(1.05);
+  transition-duration: 300ms;
   outline-offset: 80px;
-  text-shadow: 1px 1px 6px #fff;
 }
 .num1 {
-  width: 75px;
-  height: 45px;
-  margin: 3px;
+  width: 60px;
+  height: 40px;
+  margin: 2px;
   border-radius: 10px;
   font-size: 20px;
   text-align: center;
   cursor: pointer;
-  padding: 4px 13px;
+  padding: 4px 10px;
   background: #F6AA1C;
 }
 
 .num1:hover {
+  transition-duration: 300ms;
+  transform: scale(1.05);
   outline-offset: 80px;
-  text-shadow: 1px 1px 6px #fff;
 }
 .pag {
   width: 100vw;

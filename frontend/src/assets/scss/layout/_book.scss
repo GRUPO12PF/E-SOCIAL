@@ -1,14 +1,11 @@
 @use "../base/variables" as v;
 @use "../base/mixins" as m;
 
-* {
-    box-sizing: border-box;
-  }
   
   .container {
     display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+    padding: 20px;
+    margin: 0 auto;
   }
   .card-book {
     margin: 10px;
@@ -16,12 +13,16 @@
     border-radius: 10px;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    width: 260px;
+    max-height: 450px;
+    max-width: 250px;
+    margin: 0 auto;
   }
   .card-book:hover{
     box-shadow: 9px 13px 30px -9px rgba(0,0,0,0.56);
     -webkit-box-shadow: 9px 13px 30px -9px rgba(0,0,0,0.56);
     -moz-box-shadow: 9px 13px 30px -9px rgba(0,0,0,0.56);
+    transform: translateY(-3%);
+    transition-duration: 300ms;
   }
   .cardheader-book img {
     width: 100%;
@@ -38,14 +39,13 @@
   }
   
   .tagtagteal-book {
-  background-color: #BC3908;
+    background-color: #BC3908;
     border-radius: 50px;
-    font-size: 12px;
+    font-size: 1.1rem;
     margin: 0;
     color: #f0f8ff;
-    padding: 2px 10px;
+    padding: 0.2rem 1rem;
     text-transform: uppercase;
-    cursor: pointer;
   }
   
   

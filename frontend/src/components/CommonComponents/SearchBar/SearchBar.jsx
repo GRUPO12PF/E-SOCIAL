@@ -53,10 +53,10 @@ export default function SearchBar() {
       <button className="btnR" onClick={(e) => handleOnClick(e)}>
         RECARGAR LIBROS
       </button>
-      <div className="divFilter">
+      {/* <div className="divFilter">
         <FilterCategories />
         <Sorter />
-      </div>
+      </div>*/}
     </div>
   )
 }
