@@ -57,20 +57,24 @@ const Details = () => {
   const handleSubmitSendQuestion = async (e) => {
     if (userAct !== usuarioVendedor) {
       e.preventDefault();
-      setInput({
-        mensaje: input.mensaje,
-      })
-      dispatch(postQuestion({
-        mensaje: input.mensaje,
-        idComprador: userComprador,
-        book: idBook,
-        idVendedor: usuarioVendedor
-      }))
-
-      setInput({
-        mensaje: ''
-      })
-      alert('¡Tu respuesta fue envia con exito!')
+      if(!input.mensaje.length){
+        alert("No puede enviar una pregunta vacía")
+      } else {
+        setInput({
+          mensaje: input.mensaje,
+        })
+        dispatch(postQuestion({
+          mensaje: input.mensaje,
+          idComprador: userComprador,
+          book: idBook,
+          idVendedor: usuarioVendedor
+        }))
+  
+        setInput({
+          mensaje: ''
+        })
+        alert('¡Tu respuesta fue envia con exito!')
+      }
     } else {
       e.preventDefault()
       alert('¡No podés preguntar por un libro que es tuyo!')
