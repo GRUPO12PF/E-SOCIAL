@@ -3,10 +3,17 @@
     text-align:center;
     font-size: 30px;
     margin-top: 10px;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; 
+    /* -webkit-font-smoothing: antialiased; */
+    font-weight: 200;
+    
+    
+    
 }
 
 .prueba:hover{
-    text-decoration:underline;
+    text-indent: 0.625rem;
+
 }
 .containerPadre{
     display: flex;
@@ -28,7 +35,7 @@
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     width: 560px;
-    height: 230px;
+    height: 480px;
  
 }
 
