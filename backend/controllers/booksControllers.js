@@ -43,19 +43,6 @@ const nuevoBook = async (req, res) => {
 const detailBook = async (req, res) => {
   try {
     const { id } = req.params || req.body
-<<<<<<< HEAD
-    if(id?.length === 24){
-      const book = await Book.findById(id, projection) 
-      console.log("desde el bookControllers", book)
-      if(book===null) {
-        res.json({msgError: "el libro no existe"}).status(404)
-      }else {
-        res.json(book)
-      }
-    }else {
-      res.json({msgError: "ID debe tener 24 caracteres."}).status(400)
-    }
-=======
     if (id?.length === 24) {
       const book = await Book.findById(id, projection)
       if (book === null) {
@@ -67,7 +54,6 @@ const detailBook = async (req, res) => {
       res.json({ msgError: "ID debe tener 24 caracteres." }).status(400)
     }
 
->>>>>>> 8093b2ad2884c25ce1419d9e125a3888c7586fad
   } catch (error) {
     console.log(error)
   }
