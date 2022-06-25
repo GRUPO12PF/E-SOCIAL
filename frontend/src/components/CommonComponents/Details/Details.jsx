@@ -99,10 +99,7 @@ const Details = () => {
               <div className="clip-detalle">
 
               </div>
-              <div> {/* ----- Acá tendríamos que hacer un carrusel de las imágenes que traemos de Cloudinary ----- */}
-                {/* image.map((e,i) => {
-              <img src={image || book} alt="not found" className="image-detalle" />          
-        }) */}
+              <div>
                 <img src={image || book} alt="No encontrado" className="image-detalle" />
               </div>
 
