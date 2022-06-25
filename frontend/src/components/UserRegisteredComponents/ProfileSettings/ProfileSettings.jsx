@@ -6,6 +6,7 @@ import Perfil from "../../../Iconos/Perfil"
 import Admin from "../../../Iconos/Admin"
 import Chat from "../../../Iconos/Chat"
 import About from "../../../Iconos/About"
+import Sales from "../../../Iconos/Sales"
 
 
 export default function ProfileSettings() {
@@ -37,6 +38,14 @@ export default function ProfileSettings() {
           <h3>Nosotros</h3>
         </Link>
       </div>
+
+      <div className="divModalPerfil">
+        <Link to="/create" >
+          <Sales />
+          <h3>Vender</h3>
+        </Link>
+      </div>
+
       <div className="divModalPerfil">
         <Link to="/user/setting" >
           <Settings />
