@@ -28,14 +28,14 @@ function Profile() {
   }
 
   return (
-    <div >
+    <div>
       <NavBar />
 
       <div className={s.containerPadre}>
         <div className={s.containerGral}>
           <div className={s.container}>
 
-            <div clasName={s.containerMini}>
+            <div className={s.containerMini}>
 
               <div onClick={() => handleOnClickBooks()}>
                 <Link to="/">
@@ -57,7 +57,6 @@ function Profile() {
 
               <div onClick={() => (handleOnClickAnswers())}>
                 <Link to="/"><p className={s.prueba}>RESPUESTAS</p></Link>
-
               </div>
 
               <div>
@@ -65,6 +64,7 @@ function Profile() {
               </div>
 
             </div>
+
           </div>
         </div>
         <Footer />

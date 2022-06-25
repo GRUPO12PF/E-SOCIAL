@@ -43,18 +43,16 @@ const nuevoBook = async (req, res) => {
 const detailBook = async (req, res) => {
   try {
     const { id } = req.params || req.body
-    const book = await Book.findById(id, projection) 
-    if(id?.length === 24){
-      console.log("desde el bookControllers", book)
-      if(book===null) {
-        res.json({msgError: "el libro no existe"}).status(404)
-      }else {
+    if (id?.length === 24) {
+      const book = await Book.findById(id, projection)
+      if (book === null) {
+        res.json({ msgError: "el libro no existe" }).status(404)
+      } else {
         res.json(book)
       }
+    } else {
+      res.json({ msgError: "ID debe tener 24 caracteres." }).status(400)
     }
-    // }else {
-    //   res.json({msgError: "ID debe tener 24 caracteres."}).status(400)
-    // }
 
   } catch (error) {
     console.log(error)
@@ -63,37 +61,37 @@ const detailBook = async (req, res) => {
 
 const editarBook = async (req, res) => {
   const id = req.params.id
+  const { nombre, autor, idioma, editorial, edicion, tapa, publicado, cant_pags, descripcion, price, image, colection, ilustrado, category } = req.body
 
   try {
-    const bookId = await Book.findByIdAndUpdate({ _id: id }, {
-      nombre: req.body.nombre,
-      autor: req.body.autor,
-      idioma: req.body.idioma,
-      editorial: req.body.editorial,
-      edicion: req.body.edicion,
-      tapa: req.body.tapa,
-      año_de_pub: req.body.año_de_pub,
-      cant_pags: req.body.cant_pags,
-      descripcion: req.body.descripcion,
-      price: req.body.price,
-      image: req.body.image,
-      colection: req.body.colection,
-      ilustrado: req.body.ilustrado,
-      category: req.body.category,
+    const bookEditado = await Book.findByIdAndUpdate({ _id: id }, {
+      nombre,
+      autor,
+      idioma,
+      editorial,
+      edicion,
+      tapa,
+      publicado,
+      cant_pags,
+      descripcion,
+      price,
+      image,
+      colection,
+      ilustrado,
+      category
     })
 
-    if (!bookId) {
-      const error = new Error("No Enctontrado el libro");
+    if (!bookEditado) {
+      const error = new Error("No encontrado el libro");
       return res.status(404).json({ msg: error.message });
     }
 
-    res.send(bookId).status(201)
+    res.json(bookEditado)
 
   } catch (error) {
     console.log(error)
   }
 }
-
 
 const eliminarBook = async (req, res) => {
   try {
