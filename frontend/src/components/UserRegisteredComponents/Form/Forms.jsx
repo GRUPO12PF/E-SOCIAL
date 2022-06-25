@@ -239,7 +239,7 @@ const Forms = () => {
                 </div>
                 <ErrorMessage name='category' className='ASIGNAR!' component={() => (<p className={s.error}>{errors.category}</p>)} />
 
-                <label className={s.label} >Fotografías del ejemplar</label>
+                <label className={s.label} >Fotografía del ejemplar</label>
                 <div>
                   <input
                     hidden
@@ -251,24 +251,26 @@ const Forms = () => {
                       setFieldValue("file", e.target.files[0])
                     }}
                   />
+
                   <button className={s.uploadButton} onClick={() => {
                     fileRef.current.click()
                   }}>
                     CARGAR IMAGEN
                   </button>
+
                   {values.file && <PreviewImage file={values.file} />}
                   {values.file && <button type="button"
                     onClick={() => {
                       handleImage(values.file)
                     }}>SUBIR IMAGEN</button>}
 
-                  <ErrorMessage name='image' component={() => (<p>{errors.image}</p>)} />{/* NO lo estamos validando */}
+                  <ErrorMessage name='image' component={() => (<p>{errors.file}</p>)} />
                 </div>
 
                 <button
                   className={s.sendMsg}
                   type="submit"
-                  disabled={errors.nombre || errors.autor || errors.idioma || errors.price || errors.category || errors.descripcion}
+                  disabled={errors.nombre || errors.autor || errors.idioma || errors.price || errors.category || errors.descripcion || values.file}
                 >ENVIAR</button>
 
               </div>

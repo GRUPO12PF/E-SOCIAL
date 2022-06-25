@@ -1,17 +1,25 @@
+// pasa (value) de centavos de dólar a número con coma
 export function formatToCurrency(value) {
-  let centsToDollars = value / 100
-  let finalPrice = `U$D ${centsToDollars}`
+  const centsToDollars = value / 100
+  const finalPrice = `U$D ${centsToDollars}`
   return finalPrice
 }
 
-export function currentYear(){
+// devuelve año actual
+export function currentYear() {
   const current = new Date()
   const result = `${current.getFullYear()}`
-
   return result
 }
 
-export function formValidators (values) {
+// chequea extensión del (file)
+function hasExtension(inputID, exts) {
+  var fileName = document.getElementById(inputID).value;
+  return (new RegExp('(' + exts.join('|').replace(/\./g, '\\.') + ')$')).test(fileName);
+}
+
+// validaciones del Form
+export function formValidators(values) {
   let errors = {}
 
   if (!values.nombre) {
@@ -76,20 +84,20 @@ export function formValidators (values) {
     errors.category = 'Elija al menos 1 categoría'
   }
 
-  return errors
+  if (values.file) {
+    errors.category = 'Elija al menos 1 categoría'
+  }
+
+  if (values.file && !hasExtension(values.file, ['.jpg', '.gif', '.png'])) {
+    errors.file = 'Elija una imagen con extensión .jpg, .gif o .png'
+    return errors
+  }
 }
 
 
-// export function validateTextName(name) { // tampoco lo pude usar
-//   if (!values[name]) {
-//     return errors[name] = 'Campo requerido.'
-//   } else if (!/^\S.*$/.test(values[name])) {
-//     return errors[name] = 'El primer caracter no puede ser un espacio'
-//   } else if (!/^(|[a-z]|[,.:;¡!¿?']|[À-ÿ]|\s){1,40}$/i.test(values[name])) {
-//     return errors[name] = 'No puede superar los 40 caracteres.'
-//   }
-// }
+
 
 // export function listedArray(value) { // no sé por qué no funca jaja
-//   value?.sort((a, b) => a.localeCompare(b)).join(', ')
-// }
+//   const res = value?.sort((a, b) => a.localeCompare(b)).join(', ')
+//   return res
+//
