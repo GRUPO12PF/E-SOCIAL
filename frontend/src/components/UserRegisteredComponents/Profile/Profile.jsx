@@ -13,7 +13,9 @@ function Profile() {
   function handleOnClickBooks() {
     navigate(`/bookCreated/${idUser}`)
   }
-
+  function handleOnClickCreate() {
+    navigate(`/create`)
+  }
   function handleOnClickOrders() {
     navigate(`/historyOrders/${idUser}`)
   }
@@ -39,6 +41,12 @@ function Profile() {
               <div onClick={() => handleOnClickBooks()}>
                 <Link to="/">
                   <p className={s.prueba}>LIBROS</p>
+                </Link>
+              </div>
+
+              <div onClick={() => (handleOnClickCreate())}>
+                <Link to="/">
+                  <p className={s.prueba}>ANUNCIA TU LIBRO</p>
                 </Link>
               </div>
 
