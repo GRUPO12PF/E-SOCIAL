@@ -10,7 +10,7 @@ export default function Sort() {
     dispatch(sortBy(e.target.value))
   }
   return (
-    <div>
+    <div className='ccc'>
       <select name='select' onChange={onSelectChange} className="select">
         <option value='Ordenar por nombre'>-Ordenar por nombre-</option>
         <option value={NAME_ASC}>A-Z</option>
