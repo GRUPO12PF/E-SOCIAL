@@ -2,12 +2,11 @@
 @use "../base/mixins" as m;
 
 .contenedorGral {
-	background-color: v.$fondo;
-	background-size: cover;
-	top: 0;
-	left: 0;
-	z-index: -1;
-	align-content: center;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+	gap: 4rem;
+	align-items: center;
+	margin: 0 auto;
 }
   
 .contenedorBooks {

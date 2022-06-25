@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
 import s from './Profile.module.css'
-import Footer from '../../CommonComponents/Footer/Footer'
 
 function Profile() {
   const navigate = useNavigate()
@@ -67,7 +66,6 @@ function Profile() {
 
           </div>
         </div>
-        <Footer />
       </div>
     </div>
   )

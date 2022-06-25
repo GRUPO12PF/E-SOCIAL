@@ -2,7 +2,18 @@
 @use "../base/mixins" as m;
 
 .footer {
-    margin: 0;
-    padding: 0;
-    border: 0;
+    padding: 0.2rem;
+    width: 100%;
+    background-color: v.$rojotinto;
+    text-align: center;
+    width:100%;
+  }
+.github{
+    width: 10%;
+}
+
+.leyenda {
+    text-align: center;
+    color: v.$blanco;
+    justify-content: center;
 }

@@ -7,7 +7,7 @@ import NavBar from '../NavBar/NavBar'
 import PaginadoUser from './PaginadoUser'
 import ProfileBook from './ProfileBooks'
 import ProfileReview from './ProfileReview'
-import s from './ProfileUsers.module.css'
+
 
 const ProfileUsers = () => {
   const { id } = useParams()

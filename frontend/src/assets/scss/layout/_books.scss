@@ -1,5 +1,7 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
 .botoness{
-    font-family: 'Roboto', sans-serif;
     display: flex;
     background-color:none;
     justify-content: end;

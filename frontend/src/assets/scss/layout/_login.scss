@@ -1,12 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0; 
-  font-family: Raleway, sans-serif;
-}
-
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
 
 .container-login {
   display: flex;
