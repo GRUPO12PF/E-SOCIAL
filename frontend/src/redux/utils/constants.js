@@ -3,7 +3,10 @@ export const GET_CATEGORIES = 'GET_CATEGORIES'
 
 export const BUY_BOOK = 'BUY_BOOK'
 
-export const FILTER_BY_CATEGORY = 'FILTER_BY_CATEGORY'
+export const GET_BOOKS = 'GET_BOOKS'
+export const SEARCH_BY_NAME = 'SEARCH_BY_NAME'
+export const CLEAN_DATA = 'CLEAN_DATA'
+export const PUT_BOOK_BODY = 'PUT_BOOK_BODY'
 
 // SORTER -----------------------------------------
 export const SORT_BY = 'SORT_BY'
@@ -11,6 +14,8 @@ export const NAME_ASC = 'NAME_ASC'
 export const NAME_DESC = 'NAME_DESC'
 export const PRICE_ASC = 'PRICE_ASC'
 export const PRICE_DESC = 'PRICE_DESC'
+
+export const FILTER_BY_CATEGORY = 'FILTER_BY_CATEGORY'
 
 // ORDER ------------------------------------------
 export const GET_DETALLE_ORDER = 'GET_DETALLE_ORDER'

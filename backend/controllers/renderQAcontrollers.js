@@ -76,11 +76,23 @@ const getQuestion = async (req, res) => {
 const QAIdBook = async (req, res) => {
   const { id } = req.params
   try {
+<<<<<<< HEAD
     if (id?.length === 24){
       const qaId = await Question.find({ book: id }).populate("answers")
       res.json(qaId)
     }else {
       res.json({msgError: "ID debe tener 24 caracteres."}).status(400)    
+=======
+    if (id?.length === 24) {
+      const qaId = await Question.find({ book: id }).populate("answers")
+      if (qaId === null) {
+        res.json({ msgError: "la QA no existen" }).status(404)
+      } else {
+        res.json(qaId)
+      }
+    } else {
+      res.json({ msgError: "ID debe tener 24 caracteres." }).status(400)
+>>>>>>> 8093b2ad2884c25ce1419d9e125a3888c7586fad
     }
 
   } catch (error) {
