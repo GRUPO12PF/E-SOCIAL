@@ -18,7 +18,7 @@ export default function FilterCategories() {
   }
 
   return (
-    <div>
+    <div className="ccc">
       <select className="filter"
        onChange={handleCategorySelect}>
         <option value={''}>TODAS LAS CATEGORÍAS</option>

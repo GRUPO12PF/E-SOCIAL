@@ -11,7 +11,6 @@ export default function Home() {
 
       <div className="contenedorTotal">
         <NavBar />
-        <SearchBar />
         <Carousell />
         <AllBooks />
       </div>

@@ -9,6 +9,9 @@ import io from "socket.io-client"
 let socket
 
 import ProfileSettings from "../../UserRegisteredComponents/ProfileSettings/ProfileSettings"
+import SearchBar from "../SearchBar/SearchBar"
+import FilterCategories from "../FilterCategories/FilterCategories"
+import Sorter from "../Sorter/Sorter"
 
 const customStyls = {
   overlay: {
@@ -46,6 +49,11 @@ export default function NavBar() {
       <Link to="/">
         <img className="logo" src={logo} alt="Logo Perfil" />
       </Link>
+      <div className="flex-sea">
+        <SearchBar className="flez"/>
+        <FilterCategories/>
+        <Sorter/>
+      </div>
         {/* {token ? (<Link to="/create" className="link">VENDER</Link>) : null}
         <Link to="/about" className="link">ABOUT</Link>*/}
         <div className="perfil">

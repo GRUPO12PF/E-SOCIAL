@@ -703,6 +703,40 @@ body::-webkit-scrollbar-thumb {
   height: 2px;
 }
 
+.flex-sea {
+  display: flex;
+  justify-content: center;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+.filter {
+  border: none;
+  outline: none;
+}
+
+.select {
+  border: none;
+  outline: none;
+}
+
+.ccc {
+  padding: 2rem;
+  margin: 4px;
+}
+
+.formbusqueda {
+  padding: 4px;
+}
+
+.botonRecarga {
+  position: absolute;
+  top: 1px;
+}
+
 .nav2 {
   display: flex;
   justify-content: center;
@@ -886,11 +920,19 @@ body::-webkit-scrollbar-thumb {
   width: calc(100% - var(--btn-width));
 }
 
+.inputB:not(:-ms-input-placeholder) {
+  border-radius: var(--rad) 0 0 var(--rad);
+  width: calc(100% - var(--btn-width));
+}
+
 .inputB:not(:placeholder-shown) {
   border-radius: var(--rad) 0 0 var(--rad);
   width: calc(100% - var(--btn-width));
 }
 .inputB:not(:-moz-placeholder-shown) + button {
+  display: block;
+}
+.inputB:not(:-ms-input-placeholder) + button {
   display: block;
 }
 .inputB:not(:placeholder-shown) + button {

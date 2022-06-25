@@ -82,3 +82,35 @@ body::-webkit-scrollbar-thumb {
     color: black;
     height: 2px;
 }
+
+.flex-sea{
+  display: flex;
+  justify-content: center;
+}
+
+.flex{
+  display: flex;
+  justify-content: center;
+}
+
+.filter{
+  border: none;
+  outline: none;
+}
+.select{
+  border: none;
+  outline: none;
+}
+.ccc{
+  padding: 2rem;
+  margin: 4px;
+}
+
+.formbusqueda{
+ padding: 4px;
+}
+
+.botonRecarga{
+  position: absolute;
+  top: 1px;
+}
