@@ -11,13 +11,13 @@ export default function Home() {
 
       <div className="contenedorTotal">
         <NavBar />
-        <SearchBar />
+        {/* <SearchBar /> */}
         <Carousell />
         <AllBooks />
       </div>
 
       <div className="footer">
-        <Footer />
+        {/* <Footer /> */}
       </div>
       
     </div>

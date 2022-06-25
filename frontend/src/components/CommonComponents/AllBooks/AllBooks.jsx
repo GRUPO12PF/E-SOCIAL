@@ -30,6 +30,7 @@ function AllBooks() {
   const currentBooks = allBooks?.slice(indexOfFirstBooks, indexOfLastBooks)
   const [loading, setLoading] = useState(true)
   const [chatbot, setChatbot] = useState(false)
+  console.log(currentBooks)
 
   if (allBooks?.length > 0 && loading) {
     setTimeout(() => {
@@ -59,7 +60,7 @@ function AllBooks() {
                       nombre={e.nombre}
                       image={e.image}
                       nameUser={e.creador.nombre}
-                      descripcion={e.descripcion}
+                      descripcion={e.category}
                       imageUser={e.creador.image.url}
                       price={formatToCurrency(e.price)}
                     />

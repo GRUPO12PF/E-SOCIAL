@@ -6,10 +6,11 @@
     display: flex;
     justify-content: space-evenly;
     padding-top: 3px;
-    background: v.$colorNav;
+    background: #120f0f;
     position: -webkit-sticky; /* Safari */
     position: sticky;
     top: 0;
+    height: 70px;
    }
 
 body::-webkit-scrollbar {
@@ -21,14 +22,16 @@ body::-webkit-scrollbar-thumb {
     border-radius: 18px;
     color: black;
 }
-
+.imgHome{
+    width: 5px;
+    height: 5px;
+}
 .link {
     align-items: center;
     justify-content: space-evenly;
     color: v.$letras;
     text-decoration: none;
     font-size: 20px;
-    font-weight: bold;
     margin-top: 25px;
 }
 

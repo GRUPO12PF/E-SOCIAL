@@ -7,12 +7,12 @@ function Book({ nombre, image, price, imageUser, nameUser, descripcion }) {
     <div className="container">
       <div className="card-book">
         <div className="cardheader-book">
-        <img className="book-book" src={image || book} alt='Imagen no encontrada' />
+        <img className="book" src={image || book} alt='Imagen no encontrada' />
         </div>
         <div className="cardbody-book">
           <span className="tagtagteal-book">{nombre}</span>
           <h4>{price}</h4>
-          <p className="parrafo-book">{descripcion + ""}</p>
+          <p className="parrafo-book">{descripcion.join(', ')}</p>
           <div className="user-book">
             <img src={imageUser} alt="user" />
             <div className="userinfo-book">
