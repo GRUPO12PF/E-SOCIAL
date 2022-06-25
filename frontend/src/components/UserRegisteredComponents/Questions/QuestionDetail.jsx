@@ -17,19 +17,24 @@ export default function QuestionDetail({ _id, mensaje, book, idComprador }) {
 
   const handleSubmitSendAnswer = async (e) => {
     e.preventDefault()
-    setInput({
-      mensaje: input.mensaje
-    })
-    dispatch(postAnswer({
-      mensaje: input.mensaje,
-      book: book?._id,
-      question: idQuestion
-    }))
-    alert('su respuesta ha sido enviada con exito!')
+    if(!input.mensaje.length){
+      alert("no puede enviar una respuesta vacía")
+    }else {
+      setInput({
+        mensaje: input.mensaje
+      })
+      dispatch(postAnswer({
+        mensaje: input.mensaje,
+        book: book?._id,
+        question: idQuestion
+      }))
+      alert('su respuesta ha sido enviada con exito!')
+  
+      setInput({
+        mensaje: ''
+      })
 
-    setInput({
-      mensaje: ''
-    })
+    }
   }
 
   const handleInputChange = function (e) {
