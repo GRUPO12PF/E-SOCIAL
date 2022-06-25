@@ -43,17 +43,16 @@ const nuevoBook = async (req, res) => {
 const detailBook = async (req, res) => {
   try {
     const { id } = req.params || req.body
-    const book = await Book.findById(id, projection)
     if (id?.length === 24) {
+      const book = await Book.findById(id, projection)
       if (book === null) {
         res.json({ msgError: "el libro no existe" }).status(404)
       } else {
         res.json(book)
       }
+    } else {
+      res.json({ msgError: "ID debe tener 24 caracteres." }).status(400)
     }
-    // }else {
-    //   res.json({msgError: "ID debe tener 24 caracteres."}).status(400)
-    // }
 
   } catch (error) {
     console.log(error)
@@ -63,7 +62,7 @@ const detailBook = async (req, res) => {
 const editarBook = async (req, res) => {
   const id = req.params.id
   const { nombre, autor, idioma, editorial, edicion, tapa, publicado, cant_pags, descripcion, price, image, colection, ilustrado, category } = req.body
-  
+
   try {
     const bookEditado = await Book.findByIdAndUpdate({ _id: id }, {
       nombre,
