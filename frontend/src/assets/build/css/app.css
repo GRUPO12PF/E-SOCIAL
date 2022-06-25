@@ -869,19 +869,11 @@ body::-webkit-scrollbar-thumb {
   width: calc(100% - var(--btn-width));
 }
 
-.inputB:not(:-ms-input-placeholder) {
-  border-radius: var(--rad) 0 0 var(--rad);
-  width: calc(100% - var(--btn-width));
-}
-
 .inputB:not(:placeholder-shown) {
   border-radius: var(--rad) 0 0 var(--rad);
   width: calc(100% - var(--btn-width));
 }
 .inputB:not(:-moz-placeholder-shown) + button {
-  display: block;
-}
-.inputB:not(:-ms-input-placeholder) + button {
   display: block;
 }
 .inputB:not(:placeholder-shown) + button {
@@ -973,7 +965,9 @@ body::-webkit-scrollbar-thumb {
   text-align: center;
   margin: 8rem auto;
   width: 1000px;
-  height: 440px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   background-color: #621708;
   position: relative;
   color: rgb(223, 210, 188);
@@ -1027,7 +1021,6 @@ body::-webkit-scrollbar-thumb {
   font-size: 17px;
   font-family: "Roboto", sans-serif;
   color: rgb(223, 210, 188);
-  padding: 1.5rem;
 }
 
 .che-detalle {
@@ -1046,6 +1039,64 @@ body::-webkit-scrollbar-thumb {
   border-radius: 15px;
 }
 
+.respuesta-detail {
+  display: flex;
+  justify-content: center;
+  background-color: #621708;
+  flex-direction: column-reverse;
+  text-align: center;
+  width: 1000px;
+  padding: 1rem;
+  margin: 0px auto;
+}
+
+.perfil-v {
+  position: absolute;
+  top: 10rem;
+  margin: 1rem;
+}
+
+.t {
+  font-size: 15px;
+}
+
+.msjes {
+  background-color: #621708;
+}
+
+@media screen and (max-width: 570px) {
+  .card-detalle {
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin: 0 auto;
+  }
+  .card-detalle .image-detalle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    padding: 2rem;
+  }
+  .card-detalle .parra-detalle {
+    width: 350px;
+  }
+  .card-detalle .clip-detalle {
+    display: none;
+  }
+  .card-detalle .pName-detalle {
+    font-size: 14px;
+  }
+  .card-detalle .price-detalle {
+    top: 10.3rem;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    font-size: 14px;
+  }
+}
 .info-about {
   padding: 7rem 0;
 }

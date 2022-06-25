@@ -113,13 +113,13 @@ const Details = () => {
 
                   <DetailsField
                     constant={autor}
-                    clase="h5-detalle"
+                    clasName="h5-detalle"
                     title='Autor'
                   />
 
                   <DetailsField
                     constant={idioma}
-                    clase="h5-detalle"
+                    clasName="h5-detalle"
                     title='Idioma'
                   />
 
@@ -140,31 +140,31 @@ const Details = () => {
                     : (<div>
                       <DetailsField
                         constant={editorial}
-                        clase="h5-detalle"
+                        clasName="h5-detalle"
                         title='Editorial'
                       />
 
                       <DetailsField
                         constant={edicion}
-                        clase="h5-detalle"
+                        clasName="h5-detalle"
                         title='Edición'
                       />
 
                       <DetailsField
                         constant={tapa}
-                        clase="h5-detalle"
+                        clasName="h5-detalle"
                         title='Tapa'
                       />
 
                       <DetailsField
                         constant={publicado}
-                        clase="h5-detalle"
+                        clasName="h5-detalle"
                         title='Año de publicación'
                       />
 
                       <DetailsField
                         constant={cant_pags}
-                        clase="h5-detalle"
+                        clasName="h5-detalle"
                         title='Páginas'
                       />
 
@@ -179,7 +179,7 @@ const Details = () => {
 
                       <DetailsField
                         constant={colection}
-                        clase="h5-detalle"
+                        clasName="h5-detalle"
                         title='Saga / Serie'
                       />
                     </div>)
@@ -202,21 +202,23 @@ const Details = () => {
                 </div>
               </div>
             </div>
+            
+            
+           
 
-            <div>
+            <div  className="respuesta-detail">
+            <div clasName="question">
               {
                 questionAnswered?.map((e, i) => {
                   return (
-                    <div >
-                      <div><h3>Pregunta: {e.mensaje}</h3></div>
-                      <div><h3>Respuesta: {e.answers[0]?.mensaje}</h3></div>
+                    <div className="msjes">
+                      <div><p className="t">Pregunta: {e.mensaje}</p></div>
+                      <div><p className="t">Respuesta: {e.answers[0]?.mensaje}</p></div>
                     </div>
                   )
                 })
               }
             </div>
-
-            <div>
 
               {
                 token ?
@@ -233,8 +235,8 @@ const Details = () => {
 
               {/* acá van las preguntas y respuestas */}
             </div>
-
-            <div>
+           
+            <div className="perfil-v">
 
               <button onClick={handle}>PERFIL DEL VENDEDOR</button>
 
