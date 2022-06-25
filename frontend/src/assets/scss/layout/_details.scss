@@ -8,7 +8,7 @@
     text-align: center;
     margin: 8rem auto;
     width: 1000px;
-    height: 440px;
+    height:fit-content;
     background-color: #621708;
     position: relative;
     color: rgb(223, 210, 188);
@@ -61,7 +61,6 @@
     font-size: 17px;
     font-family: 'Roboto', sans-serif;
     color: rgb(223, 210, 188);
-    padding: 1.5rem;
 }
 
 .che-detalle{
@@ -79,4 +78,63 @@
     color: black;
     padding: 3px;
     border-radius: 15px;
+}
+
+
+.respuesta-detail{
+    display: flex;
+    justify-content: center;
+    background-color:#621708;
+    flex-direction: column-reverse;
+    text-align: center;
+    width: 1000px;
+    padding: 1rem;
+    margin: 0px auto;
+}
+
+.perfil-v{
+    position: absolute;
+    top: 10rem;
+    margin: 1rem;
+}
+.t{
+    
+    font-size: 15px;
+}
+.msjes{
+    background-color:#621708;
+}
+@media screen and (max-width:570px){
+    .card-detalle{
+        width: 100%;
+        height: fit-content;
+        margin:0 auto;
+
+        .image-detalle{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            padding: 2rem;
+            
+            
+        }
+
+        .parra-detalle{
+            width: 350px;
+        }
+        .clip-detalle{
+            display: none;
+        }
+        .pName-detalle{
+            font-size: 14px;
+        }
+        .price-detalle{
+            top: 10.3rem;
+            height: fit-content;
+            font-size: 14px;
+        }
+        
+    }
+    
 }
