@@ -512,9 +512,10 @@ img {
   border-radius: 10px;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  max-height: 450px;
+  max-height: 370px;
   max-width: 250px;
   margin: 0 auto;
+  position: relative;
 }
 
 .card-book:hover {
@@ -537,7 +538,7 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 20px;
+  padding: 40px 90px;
   min-height: 250px;
 }
 
@@ -545,10 +546,15 @@ img {
   background-color: #BC3908;
   border-radius: 50px;
   font-size: 1.1rem;
-  margin: 0;
+  margin: 30px;
   color: #f0f8ff;
-  padding: 0.2rem 1rem;
+  padding: 1rem 1rem;
   text-transform: uppercase;
+  width: 200px;
+  text-align: center;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
 }
 
 .cardbody-book .parrafo-book {
@@ -559,6 +565,9 @@ img {
 .user-book {
   display: flex;
   margin-top: auto;
+  position: absolute;
+  left: 3px;
+  bottom: 105px;
 }
 
 .user-book img {
@@ -570,10 +579,18 @@ img {
 
 .userinfo-book h5 {
   margin: 0;
+  color: #1f2330;
 }
 
 .userinfo-book small {
   color: #1f2330;
+}
+
+.priceee {
+  color: #1f2330;
+  position: absolute;
+  bottom: 103px;
+  right: 13px;
 }
 
 .parrafo-book {
