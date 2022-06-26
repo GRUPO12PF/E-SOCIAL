@@ -155,11 +155,13 @@ const Forms = () => {
                   <div>
                     <Field
                       name="tapa"
-                      className={s.textarea}
+                      as="select"
                       type="text"
                       id="tapa"
-                      placeholder="Blanda, Dura..."
-                    />
+                    >
+                      <option value="Dura">Dura</option>
+                      <option value="Blanda">Blanda</option>
+                    </Field>
                     <ErrorMessage name='tapa' component={() => (<p className={s.error}>{errors.tapa}</p>)} />
                   </div>
 
