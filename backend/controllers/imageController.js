@@ -2,7 +2,7 @@ import { uploadImage } from "../libs/cloudinary.js"
 import fs from "fs-extra"
 
 const postBookImage = async (req, res) => {
-  const formatos = ["png", "jpg", , "jpeg", "webp", "gif"]
+  const formatos = ["png", "jpg", "jpeg", "webp", "gif"]
   if (
     !formatos.includes(
       req.files.image.name.split(".")[
