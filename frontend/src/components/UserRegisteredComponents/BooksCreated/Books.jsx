@@ -2,7 +2,6 @@ import React from 'react'
 import book from '../../../assets/images/book.svg'
 import { deleteBook } from "../../../redux/actions/actionBooks"
 import swal from 'sweetalert'
-import s from "./Books.module.css"
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router'
 
@@ -60,7 +59,7 @@ function Books({ nombre, image, price, id, order }) {
     <div class="bg-white rounded-md py-12 px-5 my-5 md:my-0 text-center shadow max-w-xs mx-auto md:mx-0 flex-grow transform md:scale-110">
     <img class=" w-24 h-24 object-cover shadow-lg mx-auto" src={image || book} alt="Img no encontrada"/>
     <div>
-    <div className={s.vendido}>{vendido ? vendido : null}</div>
+    <div>{vendido ? vendido : null}</div>
           <h1 class="capitalize font-semibold text-3xl  text-gray-900 mt-6">{nombre}</h1>
       <p class="text-gray-500 mt-1 text-2xl" >{price}</p>
       {token ? (
