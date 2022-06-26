@@ -151,18 +151,18 @@ const Forms = () => {
                     <ErrorMessage name='edicion' component={() => (<p className={s.error}>{errors.edicion}</p>)} />
                   </div>
 
-                  <label className={s.label} >Tipo de tapa</label> {/* HACERLO ENUM! */}
-                  <div>
+                  <div className={s.centro}>
                     <Field
                       name="tapa"
+                      className={s.textarea}
                       as="select"
-                      type="text"
                       id="tapa"
+                      value=''
                     >
-                      <option value="Dura">Dura</option>
+                      <option value=''>¿TIPO DE TAPA?</option>
                       <option value="Blanda">Blanda</option>
+                      <option value="Dura">Dura</option>
                     </Field>
-                    <ErrorMessage name='tapa' component={() => (<p className={s.error}>{errors.tapa}</p>)} />
                   </div>
 
                 </div>
@@ -225,16 +225,17 @@ const Forms = () => {
                   <ErrorMessage name='descripcion' component={() => (<p className={s.error}>{errors.descripcion}</p>)} />
                 </div>
 
-                <label className={s.label}>Ilustrado</label>
                 <div className={s.centro}>
                   <Field
                     name="ilustrado"
                     className={s.textarea}
                     as="select"
                     id="ilustrado"
+                    value=''
                   >
-                    <option value={false}>NO</option>
-                    <option value={true}>SI</option>
+                    <option value=''>¿ILUSTRADO?</option>
+                    <option value={false}>X</option>
+                    <option value={true}>✓</option>
                   </Field>
                 </div>
 
