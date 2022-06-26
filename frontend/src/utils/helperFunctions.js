@@ -57,10 +57,6 @@ export function formValidators(values) {
     errors.edicion = 'Ingrese un Nº de edición mayor a 0'
   }
 
-  if (!/^([a-z]|\s){0,15}$/i.test(values.tapa)) {
-    errors.tapa = 'Ingrese un tipo de tapa'
-  }
-
   if (values.publicado && (!/^[0-9]{0,4}$/.test(values.publicado) || values.publicado > currentYear())) {
     errors.publicado = 'Ingrese un año válido en formato AAAA'
   }
