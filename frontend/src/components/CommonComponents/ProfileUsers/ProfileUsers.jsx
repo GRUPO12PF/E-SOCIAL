@@ -31,7 +31,14 @@ const ProfileUsers = () => {
   const page = (pageNumber) => {
     setPageCurrent(pageNumber)
   }
-  const goToNextPage = () => setPageCurrent(pageCurrent + 1);
+
+  const goToNextPage = () => {
+    if(pageCurrent < book.length){
+      setPageCurrent(pageCurrent + 1);
+    }
+  
+  }
+  
   const goToPreviousPage = () => {
     if (pageCurrent > 1) setPageCurrent(pageCurrent - 1)
   }
