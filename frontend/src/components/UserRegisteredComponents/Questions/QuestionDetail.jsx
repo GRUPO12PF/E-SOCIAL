@@ -74,8 +74,12 @@ export default function QuestionDetail({ _id, mensaje, book, idComprador }) {
               <td className={s.price}><a onClick={(e) => handleLibro(e)}>{book?.nombre}</a></td>
               <td className={s.blocked}>{mensaje}</td>
               <td className={s.moderator}><div> <form onSubmit={(e) => handleSubmitSendAnswer(e)}>
-                <input type="text" placeholder='Acá va su respuesta' name="mensaje" value={input.mensaje} onChange={(e) => handleInputChange(e)} />
-                <button>enviar</button> </form></div> </td>
+                <div className={s.containerAnswer}>
+                <input className={s.input} type="text" placeholder='Acá va su respuesta' name="mensaje" value={input.mensaje} onChange={(e) => handleInputChange(e)} />
+                <button className={s.btn}>enviar</button> 
+
+                </div>
+                </form></div> </td>
             </tr>
           </tbody>
         </table>

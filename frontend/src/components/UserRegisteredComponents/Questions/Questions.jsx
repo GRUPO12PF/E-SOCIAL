@@ -29,7 +29,7 @@ export default function Questions() {
   return (
     <div className={s.containerTodo}>
       <NavBar />
-      <h3 className={s.titulo}>PREGUNTAS POR RESPONDER </h3>
+      <h3 className={s.titulo}>Preguntas por responder </h3>
       {question?.map((e, i) => {
         return (
 
@@ -44,7 +44,7 @@ export default function Questions() {
           </div>
         );
       })}
-      <h3 className={s.titulo}>PREGUNTAS YA RESPONDIDAS </h3>
+      <h3 className={s.titulo}>Preguntas ya respondidas </h3>
       {questionAnswer?.map((e, i) => {
         return (
 
@@ -59,7 +59,7 @@ export default function Questions() {
           </div>
         );
       })}
-      <h3 className={s.titulo}>PREGUNTAS REALIZADAS A OTROS USUARIOS</h3>
+      <h3 className={s.titulo}>Preguntas realizadas a otros usuarios</h3>
       {questionsComprador?.map((e, i) => {
         return (
 
