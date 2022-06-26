@@ -406,7 +406,7 @@ img {
 }
 
 .contSettings {
-  background-color: #e1e1e1;
+  background-color: #e8ddbd;
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -424,6 +424,8 @@ img {
 .contSettings-info button {
   width: 100%;
   margin: 4rem auto;
+  color: black;
+  font-weight: bold;
 }
 .contSettings-info .contProfile {
   position: relative;
