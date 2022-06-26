@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
+    extend: {
+      colors:{
+        'gris':'#E5E7EB'
+      }
+    },
     screens: {
       'tablet': '640px',
       // => @media (min-width: 640px) { ... }

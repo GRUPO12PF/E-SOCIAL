@@ -5,6 +5,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    background-color: #e8ddbd;
 }
 .titulo {
     display: flex;
@@ -26,12 +27,14 @@
     background-color: none;
     gap: 2rem;
     margin: 0 auto;
+    
 }
 .contenedorGral {
     margin:auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    
   }
   .contenedorBooks {
       width: 100%;
@@ -44,6 +47,7 @@
       margin: 0 auto;
       flex-wrap: wrap;
       flex-direction: row;
+     
     }
     .buttonPerfil{
       margin-top: 10px;
