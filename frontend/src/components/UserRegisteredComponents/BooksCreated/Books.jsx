@@ -54,19 +54,19 @@ function Books({ nombre, image, price, id, order }) {
 
   }
   return (
-    <div class="-300 p-5 md:grid">
-    <div class="md:flex items-center justify-center">
-    <div class="bg-white rounded-md py-12 px-5 my-5 md:my-0 text-center shadow max-w-xs mx-auto md:mx-0 flex-grow transform md:scale-110">
-    <img class=" w-24 h-24 object-cover shadow-lg mx-auto" src={image || book} alt="Img no encontrada"/>
+    <div className="-300 p-5 md:grid">
+    <div className="md:flex items-center justify-center">
+    <div className="bg-white rounded-md py-12 px-5 my-5 md:my-0 text-center shadow max-w-xs mx-auto md:mx-0 flex-grow transform md:scale-110">
+    <img className=" w-24 h-24 object-cover shadow-lg mx-auto" src={image || book} alt="Img no encontrada"/>
     <div>
     <div>{vendido ? vendido : null}</div>
-          <h1 class="capitalize font-semibold text-3xl  text-gray-900 mt-6">{nombre}</h1>
-      <p class="text-gray-500 mt-1 text-2xl" >{price}</p>
+          <h1 className="capitalize font-semibold text-3xl  text-gray-900 mt-6">{nombre}</h1>
+      <p className="text-gray-500 mt-1 text-2xl" >{price}</p>
       {token ? (
          <div >
-       <button id='delete' className={s.btn} onClick={(e) => handleDeleteBook(e)} class="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 font-semibold racking-wider">Borrar</button>
-       <button id='update' className={s.btn} onClick={(e) => handleUpdateBook(e)} class="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-2 mr-1 font-semibold racking-wider">Actualizar</button>
-       <button id='info' className={s.btn} onClick={(e) => handleInfoBook(e)} class="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-2 mr-1 font-semibold racking-wider">Info</button>
+       <button id='delete' onClick={(e) => handleDeleteBook(e)} className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 font-semibold racking-wider">Borrar</button>
+       <button id='update' onClick={(e) => handleUpdateBook(e)} className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-2 mr-1 font-semibold racking-wider">Actualizar</button>
+       <button id='info' onClick={(e) => handleInfoBook(e)} className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-2 mr-1 font-semibold racking-wider">Info</button>
        </div>
     ) : null}
     </div>
