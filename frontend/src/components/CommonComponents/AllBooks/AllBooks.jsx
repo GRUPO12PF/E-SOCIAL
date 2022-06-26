@@ -9,6 +9,7 @@ import { cleanData, getBooks } from "../../../redux/actions/actionBooks.js"
 import { formatToCurrency } from "../../../utils/helperFunctions"
 import Chat from "../ChatBot/ChatBot"
 import { TbRobot } from "react-icons/tb"
+import Footer from "../Footer/Footer"
 
 function AllBooks() {
   const dispatch = useDispatch()
@@ -41,6 +42,7 @@ function AllBooks() {
   }
 
   return (
+    <>
     <div className="contenedorGral">
       <div className="contenedorBooks">
         {loading ? (
@@ -90,7 +92,12 @@ function AllBooks() {
           page={page}
         />
       </div>
+
     </div>
+      <div className="footer">
+        <Footer />
+      </div>
+    </>
   )
 }
 
