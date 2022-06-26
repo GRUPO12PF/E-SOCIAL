@@ -41,7 +41,7 @@ const OrderDetail = () => {
       <NavBar />
       <div className={s.containerGral} >
       <Link to = '/profile'>
-        <button className={s.buttonPerfil}>VOLVER AL MENU</button>
+        <button class="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">VOLVER AL MENU</button>
       </Link>
         <div className={s.container}>
           <p className={s.texto}>{detalles.books?.nombre}</p>
