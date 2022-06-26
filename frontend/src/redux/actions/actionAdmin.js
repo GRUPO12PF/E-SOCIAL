@@ -1,6 +1,5 @@
 import clienteAxios from "../../config/clienteAxios";
-import { GET_USUARIOS } from "../utils/constants";
-import { GET_ORDERS } from "../utils/constants";
+import { GET_USUARIOS, GET_ORDERS, GET_REVIEW } from "../utils/constants";
 
 export function getAllUsers() {
     return async function (dispatch) {
@@ -19,6 +18,16 @@ export function getAllOrders() {
         //console.log(json.data)
         return dispatch({
             type: GET_ORDERS,
+            payload: json.data,
+        })
+    }
+}
+
+export function getAllReviews() {
+    return async function (dispatch) {
+        const json = await clienteAxios.get(`/review`);
+        return dispatch({
+            type: GET_REVIEW,
             payload: json.data,
         })
     }

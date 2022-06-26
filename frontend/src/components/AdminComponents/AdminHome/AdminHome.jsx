@@ -10,6 +10,7 @@ function AdminHome() {
       <div className={s.AdCont}>
       <Link to="/admin/users" className={s.linked}>TODOS LOS USUARIOS</Link>
       <Link to="/admin/allOrders" className={s.linked}>TODOS LAS ÓRDENES DE COMPRA</Link>
+      <Link to="/admin/allReviews" className={s.linked}>TODOS LAS OPINIONES</Link>
       </div>
     </div>
   )

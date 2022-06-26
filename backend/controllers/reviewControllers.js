@@ -40,10 +40,18 @@ const obtenerReview = async (req, res) => {
   }
 }
 
-
+const obtenerReviewAdmin = async (req, res) => {
+  try {
+    const review = await Review.find().populate('orden').populate('vendedor').populate('comprador')
+    res.json(review)
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 
 export {
   nuevaReview,
-  obtenerReview
+  obtenerReview,
+  obtenerReviewAdmin
 }
