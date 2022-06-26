@@ -1019,16 +1019,16 @@ body::-webkit-scrollbar-thumb {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  background-color: #621708;
+  background: #c02e2e;
   position: relative;
   color: rgb(223, 210, 188);
-  border: 1px solid #621708;
+  border: 1px solid #c02e2e;
 }
 
 .clip-detalle {
   -webkit-clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
           clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-  background-color: rgba(246, 170, 28, 0.662745098);
+  background-color: rgba(110, 144, 118, 0.184);
   width: 100%;
   height: 439px;
 }
@@ -1038,7 +1038,7 @@ body::-webkit-scrollbar-thumb {
   height: 439px;
   position: absolute;
   left: 0px;
-  border-bottom: 1px solid #621708;
+  border-bottom: 1px solid #c02e2e;
 }
 
 .parra-detalle {
@@ -1052,11 +1052,11 @@ body::-webkit-scrollbar-thumb {
 }
 
 .parra-detalle::-webkit-scrollbar {
-  background-color: #621708;
+  background-color: #c02e2e;
 }
 
 .parra-detalle::-webkit-scrollbar-corner {
-  background-color: #621708;
+  background-color: #c02e2e;
 }
 
 .pName-detalle {
@@ -1072,6 +1072,8 @@ body::-webkit-scrollbar-thumb {
   font-size: 17px;
   font-family: "Roboto", sans-serif;
   color: rgb(223, 210, 188);
+  padding: 1rem;
+  margin: 1rem;
 }
 
 .che-detalle {
@@ -1113,6 +1115,24 @@ body::-webkit-scrollbar-thumb {
 
 .msjes {
   background-color: #621708;
+}
+
+.au-tor {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem;
+  flex-wrap: wrap;
+}
+
+.edi-to {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.2rem;
+}
+
+.aa {
+  text-transform: uppercase;
+  border-bottom: 1px solid wheat;
 }
 
 @media screen and (max-width: 570px) {
