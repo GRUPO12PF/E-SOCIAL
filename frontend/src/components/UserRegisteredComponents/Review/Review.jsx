@@ -83,46 +83,57 @@ const Review = () => {
     <div className={s.papa}>
       <NavBar />
       <Link to = '/profile'>
-        <button className={s.buttonPerfil}>VOLVER AL MENU</button>
+        <button class="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">VOLVER AL MENU</button>
       </Link>
-<div className={s.containerGral}>
-</div>
-  <div className={s.containerForm}>
-      <form className={s.form} onSubmit={handleSubmit} >
-        <label className={s.label} htmlFor="">TÍTULO</label>
-        <div>
-          <input className={s.input}
-            type="text"
-            name="title"
-            value={input.title}
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-        <label className={s.label}
-        htmlFor="">DESCRIPCIÓN</label>
-        <div>
-          <input className={s.input}
-            type="text"
-            name="description"
-            value={input.description}
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-        <label className={s.label} 
-        htmlFor="">PUNTUACIÓN</label>
-        <div>
-          <input className={s.input}
-            type="number"
+      
+      <div class="bg-gray-50 rounded-lg max-w-7xl p-10 mt-10  flex justify-center lg:w-1/2 ml-60 " >
+  <div class="bg-white p-10 rounded-lg shadow md:w-3/4 lg:w-1/2 mx-auto">
+
+    <form action="" class="">
+
+      <div class="mb-5">
+        <label htmlFor="" class="block mb-2 font-bold text-gray-700 text-3xl">Título</label>
+        <input 
+           type="text"
+           name="title"
+           value={input.title}
+           onChange={(e) => handleChange(e)}
+        placeholder="Escribi el título" 
+        class="text-2xl border border-gray-300 shadow p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition duration-300"
+        />
+      </div>
+
+      <div class="mb-5">
+        <label htmlFor="" class="block mb-2 font-bold text-gray-700 text-3xl">Descripción</label>
+        <input 
+        type="text"
+        name="description"
+        value={input.description}
+        onChange={(e) => handleChange(e)} 
+        placeholder="..." 
+        class="text-4xl border border-red-300 shadow p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition duration-300"
+        />
+        <p class=" text-red-400 mt-2 text-xl">Twitter name is required</p>  
+      </div>
+      <div class="mb-10">
+        <label htmlFor="" class="block mb-2 font-bold text-gray-700 text-3xl">score</label>
+        <input type="number"
             name="score"
             value={input.score}
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-        <input className={s.input}
-        type="submit" value="enviar" />
-      </form>
+            onChange={(e) => handleChange(e)} 
+        class="border border-red-300 shadow p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition duration-300"
+        />
+      
+        <p class="text-xl text-red-400 mt-2">Twitter name is required</p>  
       </div>
-      <Footer/>
+      
+      <button type="submit" class="bg-blue-300 hover:bg-blue-400 w-full p-3 shadow-md font-bold text-3xl text-white rounded-lg transition duration-300">Submit</button>
+
+    </form>
+
+  </div>
+</div>
+      {/* <Footer/> */}
       </div>
     </>
   )
