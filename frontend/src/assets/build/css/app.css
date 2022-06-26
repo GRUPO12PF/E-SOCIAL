@@ -616,8 +616,6 @@ img {
   margin: 0 auto;
   box-shadow: 0px 4px 4px 0px rgb(11, 12, 41);
   z-index: 99999999;
-  position: fixed;
-  top: 0px;
 }
 @media (min-width: 768px) {
   .contentNav {
@@ -1311,7 +1309,6 @@ ul {
   box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
   height: 100px;
   margin: auto;
-  margin-top: 8rem;
   overflow: hidden;
   position: relative;
   width: 100%;
