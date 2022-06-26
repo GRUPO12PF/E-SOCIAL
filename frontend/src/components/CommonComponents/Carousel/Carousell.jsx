@@ -6,6 +6,9 @@ import banner2 from "../../../assets/images/Banners2.jpg"
 const Carousell = () => {
 
   return (
+
+
+  
     <Carousel>
       <div>
         <img className="imag" src={banner1} />
@@ -13,7 +16,7 @@ const Carousell = () => {
       </div>
       <div>
         <img className="imag" src={banner2} />
-        {/* <p className="legend"></p>*/}
+       
       </div>
 
     </Carousel>
