@@ -1,5 +1,6 @@
 
 import React from 'react'
+import { GrCaretNext,GrCaretPrevious} from "react-icons/gr";
 
 export default function PaginadoUser({ allBooks, pageSize, page, goToPreviousPage, goToNextPage }) {
   const pageNumbers = []
@@ -10,7 +11,7 @@ export default function PaginadoUser({ allBooks, pageSize, page, goToPreviousPag
   return (
     <nav>
       <div className="paginado-f">
-        <button onClick={goToPreviousPage} > {"<"} </button>
+        <button onClick={goToPreviousPage} ><GrCaretPrevious/></button>
         {pageNumbers && pageNumbers.map(number => {
           return (
             <ul className='number' key={number}>
@@ -18,7 +19,7 @@ export default function PaginadoUser({ allBooks, pageSize, page, goToPreviousPag
             </ul>
           )
         })}
-        <button onClick={goToNextPage} > {">"} </button>
+        <button onClick={goToNextPage} > <GrCaretNext/> </button>
       </div>
     </nav>
   )
