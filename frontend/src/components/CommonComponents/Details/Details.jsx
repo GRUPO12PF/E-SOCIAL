@@ -108,67 +108,74 @@ const Details = () => {
               </div>
 
               <div>
-                <h3 className="pName-detalle">{nombre}</h3>
+                <h3 className="pName-detalle aa">{nombre}</h3>
                 <div className="price-detalle">
                   {formatToCurrency(price)}
                 </div>
 
                 <div className="description-detalle">
 
+                  <div className="au-tor">
                   <DetailsField
                     constant={autor}
-                    clasName="h5-detalle"
+                    clasName="h5-detalle "
                     title='Autor'
                   />
 
                   <DetailsField
                     constant={idioma}
-                    clasName="h5-detalle"
+                    clasName="h5-detalle "
                     title='Idioma'
                   />
 
-                  <h5 className="h5-detalle">Categoría</h5>
+
+                  <div>
+                  <h5 className="h5-detalle  ">Categoría</h5> 
                   {category?.sort((a, b) => a.localeCompare(b)).join(', ')}
+                  </div>
+                  </div>
+
+                  
 
                   <h5 className="h5-detalle">Descripción</h5>
                   <p className="parra-detalle">
                     {descripcion}
                   </p>
 
-                  <button onClick={() => setVerMas(!verMas)}>
+                  <button className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider" onClick={() => setVerMas(!verMas)}>
                     {verMas ? "Ver menos" : "Ver más"}
                   </button>
 
                   {!verMas
                     ? null
-                    : (<div>
+                    : (<div className="edi-to">
                       <DetailsField
                         constant={editorial}
-                        clasName="h5-detalle"
+                        clasName="h5-detalle aa"
                         title='Editorial'
                       />
 
                       <DetailsField
                         constant={edicion}
-                        clasName="h5-detalle"
+                        clasName="h5-detalle aa"
                         title='Edición'
                       />
 
                       <DetailsField
                         constant={tapa}
-                        clasName="h5-detalle"
+                        clasName="h5-detalle aa"
                         title='Tapa'
                       />
 
                       <DetailsField
                         constant={publicado}
-                        clasName="h5-detalle"
+                        clasName="h5-detalle aa"
                         title='Año de publicación'
                       />
 
                       <DetailsField
                         constant={cant_pags}
-                        clasName="h5-detalle"
+                        clasName="h5-detalle aa"
                         title='Páginas'
                       />
 
@@ -195,11 +202,11 @@ const Details = () => {
                     detail.order?.length < 1 ?
                       token ?
                         <Link to="/checkout">
-                          <button className="btnn-detalle">COMPRAR</button>
+                          <button className="btnn-detalle bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">COMPRAR</button>
                         </Link>
                         :
                         <Link to="/registrar">
-                          <button className="btnn-detalle">COMPRAR</button>
+                          <button className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider btnn-detalle">COMPRAR</button>
                         </Link>
                       : null
                   }
@@ -229,11 +236,11 @@ const Details = () => {
                   <form onSubmit={(e) => handleSubmitSendQuestion(e)}>
                     <input type="text" placeholder="Acá va su pregunta, señor" name="mensaje" value={input.mensaje} onChange={e => handleInputChange(e)} />
                     {/* <input type="text" placeholder="Acá va su pregunta, señor" name={input.mensaje} />  */}
-                    <button>ENVIAR</button>
+                    <button className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">ENVIAR</button>
                   </form>
                   :
                   <Link to="/homeout">
-                    <button className="btnn-detalle">PREGUNTAR</button>
+                    <button className="btnn-detalle bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">PREGUNTAR</button>
                   </Link>
               }
 
@@ -242,7 +249,7 @@ const Details = () => {
            
             <div className="perfil-v">
 
-              <button onClick={handle}>PERFIL DEL VENDEDOR</button>
+              <button onClick={handle} className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">PERFIL DEL VENDEDOR</button>
 
             </div>
 
