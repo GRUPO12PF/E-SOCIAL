@@ -14,6 +14,7 @@ const Review = () => {
   const vendedor = detalles.books?.creador
   const orderId = detalles._id
 
+  const [errors, setErrors] = useState({})
   const [input, setInput] = useState({
     title: "",
     vendedor: vendedor,
@@ -25,25 +26,56 @@ const Review = () => {
     dispatch(getDetalleOrder(id));
   }, [])
 
+  function validate(input){
+    let errors = {};
+
+    if(!input.title){
+      errors.title = "Debe haber un titulo"
+    }
+    if(!input.description){
+      errors.description = "Debe haber una descripción"
+    }
+
+    if(!input.score){
+      errors.score= "Debes colocar un puntaje"
+    } else if(input.score > 5 || input.score <= 1 ){
+      errors.score = "El puntaje debe estar comprendido entre 1 y 5"
+    }
+
+    return errors
+  }
+
   function handleChange(e) {
     setInput({
       ...input,
       [e.target.name]: e.target.value
     });
+    setErrors(validate({
+      ...input, 
+      [e.target.name]: e.target.value
+    }))
   };
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch(review(input))
-    alert("ok")
-    setInput({
-      title: "",
-      vendedor: "",
-      description: "",
-      score: "",
-      orden: ""
-    })
-    Navigate("/")
+    if(input.description && input.score && input.title){
+      if(input.score > 5 || input.score <= 1){
+        alert("El score debe ser entre 1 y 5")
+      } else {
+        dispatch(review(input))
+        alert("ok")
+        setInput({
+          title: "",
+          vendedor: "",
+          description: "",
+          score: "",
+          orden: ""
+        })
+        Navigate("/")
+      }
+    } else {
+      alert("Faltan campos por completar")
+    }
   }
 
   return (
