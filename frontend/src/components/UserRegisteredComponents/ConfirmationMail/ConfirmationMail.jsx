@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import emailjs from '@emailjs/browser'
+import * as Yup from 'yup'
 
 const ConfirmationEmail = () => {
   const [formEnv, setForm] = useState(false)
@@ -16,6 +17,7 @@ const ConfirmationEmail = () => {
           email: '',
         }}
         
+        
         validate={(valores) => {
           let errors = {}
 
@@ -24,7 +26,7 @@ const ConfirmationEmail = () => {
           } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.name)) {
             errors.name = 'Solo nombre'
           }
-          if (!valores.email) {
+          if (!valores.email === "") {
             errors.email = 'Campo requerido'
           } else if (!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.email)) {
             errors.email = 'Solo e-mail'
@@ -45,12 +47,13 @@ const ConfirmationEmail = () => {
           setTimeout(() => setForm(false), 5000)
         }}
       >
-        {({ errors }) => (<Form ref={form}>
-          <label>Name</label>
+        {({ errors ,values}) => (<Form ref={form}>
+          <label>Nombre</label>
           <div>
             <Field
               type="text"
               name="name"
+              values={values.name}
               id="name"
             />
             <ErrorMessage name='name' component={() => (<p className='errors'>{errors.name}</p>)} />
@@ -62,6 +65,7 @@ const ConfirmationEmail = () => {
               type="email"
               name="email"
               id="email"
+              values={values.email}
             />
 
             <ErrorMessage name='email' component={() => (<p className='errors'>{errors.email}</p>)} />
@@ -77,3 +81,8 @@ const ConfirmationEmail = () => {
 }
 
 export default ConfirmationEmail
+
+
+
+
+
