@@ -1,5 +1,4 @@
 import clienteAxios from '../../config/clienteAxios'
-// import { toast } from 'react-toastify'
 
 export const postCreate = (payload) => {
   return async function () {
@@ -13,8 +12,6 @@ export const postCreate = (payload) => {
 
     try {
       const postResponse = await clienteAxios.post(`/books`, payload, config)
-      console.log("🚀 ~ file: postProducts.js ~ line 16 ~ payload", payload)
-      console.log("🚀 ~ file: postProducts.js ~ line 16 ~ postResponse", postResponse.data) // por alguna razón, publicado NO LLEGA en la respuesta
       return postResponse
 
     } catch (error) {
