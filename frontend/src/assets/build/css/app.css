@@ -1935,7 +1935,7 @@ hr {
 }
 
 .text-box {
-  background: rgba(95, 121, 134, 0.8);
+  background: #a9b79e;
   width: 100%;
   padding: 1rem 2rem;
   position: absolute;
@@ -1944,7 +1944,7 @@ hr {
 
 /* Left container text */
 .home-heading {
-  color: #e8e8e1;
+  color: black;
   font-size: 3.2rem;
   font-weight: 700;
   line-height: 1;
@@ -1952,7 +1952,7 @@ hr {
 }
 
 .home-price {
-  color: #cfcfc8;
+  color: #080806;
   font-size: 2rem;
   margin-bottom: 1.2rem;
   text-align: center;
@@ -2052,10 +2052,10 @@ hr {
 }
 
 .btn {
-  background-color: #4c616b;
+  background-color: #a9b79e;
   border: none;
   border-radius: 8px;
-  color: #eff2f3;
+  color: #000000;
   font-size: 1.6rem;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -2065,7 +2065,7 @@ hr {
 }
 
 .btn:hover {
-  background-color: #5f7986;
+  background-color: #8aa377;
   transition: ease-out 0.1s;
 }
 
