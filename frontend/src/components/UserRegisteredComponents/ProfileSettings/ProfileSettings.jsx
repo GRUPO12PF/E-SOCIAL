@@ -5,7 +5,6 @@ import Settings from "../../../Iconos/Settings"
 import Perfil from "../../../Iconos/Perfil"
 import Admin from "../../../Iconos/Admin"
 import Chat from "../../../Iconos/Chat"
-import About from "../../../Iconos/About"
 import Sales from "../../../Iconos/Sales"
 
 
@@ -29,13 +28,6 @@ export default function ProfileSettings() {
         <Link to="/profile" >
           <Perfil />
           <h3>Perfil</h3>
-        </Link>
-      </div>
-
-      <div className="divModalPerfil">
-        <Link to="/about" >
-          <About />
-          <h3>Nosotros</h3>
         </Link>
       </div>
 
