@@ -47,7 +47,7 @@ export default function NavBar() {
     <div className="fullnav">
       <div className="contentNav" onClick={closeModal}>
       <Link to="/">
-        <img className="logo" src={logo} alt="Logo Perfil" />
+        <img className="logo " src={logo} alt="Logo Perfil" />
       </Link>
       <div className="flex-sea">
         <SearchBar className="flez"/>

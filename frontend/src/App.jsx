@@ -35,11 +35,11 @@ import HomeChat from './components/CommonComponents/Chat/HomeChat'
 //----------------------------------ADMIN---------------------------------------------
 import AllUsers from "./components/AdminComponents/AllUsers/AllUsers"
 import AdminHome from "./components/AdminComponents/AdminHome/AdminHome"
+import AllReviews from './components/AdminComponents/AllReviews/AllReviews'
 import AllOrders from "./components/AdminComponents/AllOrders/AllOrders"
 import ConfirmacionPago from "./components/UserRegisteredComponents/CheckOut/ConfirmacionPago/ConfirmacionPago"
 import Questions from "./components/UserRegisteredComponents/Questions/Questions.jsx"
 import Profile from "./components/UserRegisteredComponents/Profile/Profile"
-import Answers from "./components/UserRegisteredComponents/Answers/Answers"
 
 
 export default function App() {
@@ -49,8 +49,6 @@ export default function App() {
         <Route path="/" element={<AuthLayout />}>
           <Route index element={<Home />} />
           <Route path="homeout" element={<Homeout />} />
-          <Route path="login" element={<Login />} />
-          <Route path="registrar" element={<Register />} />
           <Route path="olvide-password" element={<ForgotPassword />} />
           <Route path="olvide-password/:token" element={<NewPassword />} />
           <Route path="confirmar/:id" element={<ConfirmAccount />} />
@@ -67,7 +65,6 @@ export default function App() {
           <Route path="/create" element={<Forms />} />
           <Route path="/confirmation" element={<ConfirmacionPago />}/>
           <Route path="/questions/:id" element={<Questions />}/>
-          <Route path="/answers/:id" element={<Answers />}/>
           <Route path="/profile" element={<Profile />}/>
           <Route path="/details/update/:id" element={<Forms />} />
           <Route path="/details/:id" element={<Details />} />
@@ -79,6 +76,7 @@ export default function App() {
           <Route path="/admin/users" element={<AllUsers/>}/>
           <Route path="/admin" element={<AdminHome/>}/>
           <Route path="/admin/allOrders" element={<AllOrders/>}/>
+          <Route path="/admin/allReviews" element={<AllReviews/>}/>
           <Route path="/review/:id" element={<Review />} />
           <Route path="/chat" element={<HomeChat />} />
           </Route>

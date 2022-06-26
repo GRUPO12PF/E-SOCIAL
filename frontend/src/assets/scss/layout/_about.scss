@@ -70,3 +70,54 @@
   }
 }
 
+.todopersonas{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.personitas{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+.personitas2{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.persona{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  display: flex;
+}
+
+.img{
+  display: flex;
+  justify-content: center;
+  height: 150px;  
+  width: 150px;
+  margin-bottom: 15px;
+  border-radius: 100%;
+}
+
+.linkgit{
+  display: flex;
+  flex-direction: row;
+}
+
+.eachLink{
+  margin-right: 15px;
+  margin-right: 15px;
+}
+
+.equipo{
+  display: flex;
+  justify-content: center;
+}

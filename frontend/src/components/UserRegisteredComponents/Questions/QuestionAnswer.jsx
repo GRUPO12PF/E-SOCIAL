@@ -23,7 +23,7 @@ export default function QuestionAnswer({ mensaje, book, idComprador, answers }) 
       <div className={s.flex}>
         <table className={s.usersTable}>
           <thead>
-            <tr>
+            <tr className={s.containerInfo}>
               <th className={s.no}>IMAGEN</th>
               <th className={s.no}>COMPRADOR</th>
               <th className={s.no}>IMAGEN</th>

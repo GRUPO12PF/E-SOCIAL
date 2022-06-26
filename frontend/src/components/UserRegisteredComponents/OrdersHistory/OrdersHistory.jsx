@@ -21,12 +21,15 @@ export default function OrdersHistory() {
   return (
     <>
       <NavBar />
+      <div className={s.papa}>
       <Link to = '/profile'>
         <button className={s.buttonPerfil}>VOLVER AL MENU</button>
       </Link>
+      
       <h3 className={s.titulo}>HISTORIAL DE COMPRAS</h3>
+      
       <div className="contenedorGral">
-
+      </div>
         <div className="contenedorBooks">
           {allOrders?.map((e, i) => {
             return (
@@ -42,6 +45,7 @@ export default function OrdersHistory() {
             )
           })}
         </div>
+  {/* <Footer/> */}
       </div>
     </>
   )

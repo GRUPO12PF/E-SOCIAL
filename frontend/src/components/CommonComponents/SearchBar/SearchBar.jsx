@@ -20,10 +20,6 @@ export default function SearchBar() {
     dispatch(cleanData())
   }
 
-  function handleOnClick() {
-    window.location.reload()
-  }
-
   return (
     <div className="searchBar">
       <form
@@ -50,9 +46,7 @@ export default function SearchBar() {
           GO!
         </button>
       </form>
-      <button className="btnR" onClick={(e) => handleOnClick(e)}>
-        RECARGAR LIBROS
-      </button>
+
       {/* <div className="divFilter">
         <FilterCategories />
         <Sorter />

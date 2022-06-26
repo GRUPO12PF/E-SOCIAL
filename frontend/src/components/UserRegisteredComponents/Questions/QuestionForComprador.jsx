@@ -21,7 +21,7 @@ export default function QuestionForComprado({ mensaje, book, idComprador, idVend
     <div className={s.flex}>
       <table className={s.usersTable}>
         <thead>
-          <tr>
+          <tr className={s.containerInfo}>
             <th className={s.no}>IMAGEN</th>
             <th className={s.no}>VENDEDOR</th>
             <th className={s.no}>IMAGEN</th>
@@ -33,11 +33,11 @@ export default function QuestionForComprado({ mensaje, book, idComprador, idVend
         <tbody>
           <tr className={s.containerInfo}>
             <td className={s.imageR}><img src={idVendedor?.image.url} alt="No disponible" height={50} width={50} /></td>
-            <td className={s.name}><a onClick={(e) => handlePerfilVendedor(e)}>{idVendedor?.nombre}</a></td>
+            <td className={s.name}><a onClick={(e) => handlePerfilVendedor(e)} className={s.moderator}>{idVendedor?.nombre}</a></td>
             <td className={s.imageR}><img src={book?.image} alt="No disponible" height={50} width={50} /></td>
             <td className={s.price}><a onClick={(e) => handleLibro(e)}>{book?.nombre}</a></td>
             <td className={s.blocked}>{mensaje}</td>
-            <td className={s.moderator}><p>{answers.length > 0 ? answers[0].mensaje : 'EL VENDEDOR TODAVIA NO RESPONDIO SU CONSULTA'} </p> </td>
+            <td className={s.moderator}><p>{answers.length > 0 ? answers[0].mensaje : <p className={s.moderator}>El vendedor todavía no ha respondido su consulta</p>} </p> </td>
           </tr>
         </tbody>
       </table>

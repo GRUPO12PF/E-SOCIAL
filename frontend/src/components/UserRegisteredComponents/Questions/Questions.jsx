@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import QuestionDetail from './QuestionDetail';
 import QuestionAnswer from './QuestionAnswer';
 import QuestionForComprador from './QuestionForComprador';
+import s from './questionDetail.module.css';
 import NavBar from '../../CommonComponents/NavBar/NavBar';
 
 export default function Questions() {
@@ -26,9 +27,9 @@ export default function Questions() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={s.containerTodo}>
       <NavBar />
-      <h3>PREGUNTAS POR RESPONDER </h3>
+      <h3 className={s.titulo}>Preguntas por responder </h3>
       {question?.map((e, i) => {
         return (
 
@@ -43,7 +44,7 @@ export default function Questions() {
           </div>
         );
       })}
-      <h3>PREGUNTAS YA RESPONDIDAS </h3>
+      <h3 className={s.titulo}>Preguntas ya respondidas </h3>
       {questionAnswer?.map((e, i) => {
         return (
 
@@ -58,7 +59,7 @@ export default function Questions() {
           </div>
         );
       })}
-      <h3>PREGUNTAS REALIZADAS A OTROS USUARIOS</h3>
+      <h3 className={s.titulo}>Preguntas realizadas a otros usuarios</h3>
       {questionsComprador?.map((e, i) => {
         return (
 
