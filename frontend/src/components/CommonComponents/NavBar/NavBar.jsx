@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux"
 import logo from "../../../assets/images/logo.png"
 import profile from "../../../assets/images/avatar2.png"
 import io from "socket.io-client"
+import 'animate.css';
 let socket
 
 import ProfileSettings from "../../UserRegisteredComponents/ProfileSettings/ProfileSettings"
@@ -46,8 +47,8 @@ export default function NavBar() {
   return (
     <div className="fullnav">
       <div className="contentNav" onClick={closeModal}>
-      <Link to="/">
-        <img className="logo" src={logo} alt="Logo Perfil" />
+      <Link to="/" className="animate__bounceInLeft">
+        <img className="logo " src={logo} alt="Logo Perfil" />
       </Link>
       <div className="flex-sea">
         <SearchBar className="flez"/>
