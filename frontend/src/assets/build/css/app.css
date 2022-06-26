@@ -1950,9 +1950,10 @@ hr {
 }
 
 .home-price {
-  color: #aeae97;
+  color: #cfcfc8;
   font-size: 2rem;
   margin-bottom: 1.2rem;
+  text-align: center;
 }
 
 .home-desc {
@@ -1977,7 +1978,7 @@ hr {
 }
 
 .receipt-heading {
-  font-size: 1.6rem;
+  font-size: 3rem;
   text-align: left;
 }
 
