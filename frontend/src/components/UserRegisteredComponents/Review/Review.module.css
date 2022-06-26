@@ -1,8 +1,8 @@
 .containerGral{
-    background-color: #212529;
+    background-color: #e8ddbd;
 }
 .containerForm{
-    background-color: #0D0F10;
+    background-color: white;
     padding-bottom: 2rem;
     width: 20%;
     border-radius: 18px;
@@ -45,5 +45,5 @@ label{
   }
 
   .papa{
-      background-color: #212529;
+      background-color: #e8ddbd;
   }
