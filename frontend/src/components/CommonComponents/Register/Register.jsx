@@ -4,7 +4,6 @@ import { registroUsuario } from "../../../redux/actions/actionUser"
 import { useNavigate } from "react-router"
 import validarEmail from "../../../middleware/validarEmail"
 import validatePassword from "../../../middleware/validarPassword"
-import { Link } from "react-router-dom"
 import s from './Register.module.css'
 import { FaRegEye,FaRegEyeSlash} from 'react-icons/fa'
 
@@ -68,76 +67,74 @@ export default function Register() {
 
   return (
     <div className={s.contRegister}>
-      <Link to="/" className={s.link}>
-        <button className={s.btn}>HOME</button>
-      </Link>
-      <div>
-        <div>
-          <div className={s.backg}>
-            <h3 className={s.register}>REGISTRARSE</h3>
-            <p className={s.parrafo}>
-            ¿Ya tienes una cuenta?
-              
-            </p>
-            <Link to="/login">
-                <button className={s.login}>LOGIN</button>
-              </Link>
-            <form onSubmit={handleSubmit} className={s.form}>
-              
-              <div>
-              <input
-                name="nombre"
-                value={estado.username}
-                onChange={handleChange}
-                id="user"
-                type="text"
-                placeholder="Tu nombre de usuario"
-                className={s.inp}
-              />
+<div className='container-login'>
+        <div className='screen'>
+          <div className='screen__content'>
+            <form onSubmit={handleSubmit} className='login-login'>
+              <div className='login__field'>
+                <i className='login__icon fas fa-user'></i>
+                <input
+                  className='input-login'
+                  name="nombre"
+                  value={estado.username}
+                  onChange={handleChange}
+                  id="user"
+                  type="text"
+                  placeholder="Tu nombre de usuario"
+                />
               </div>
-              
-              <div>
-              <input
-                name="email"
-                value={estado.email}
-                onChange={handleChange}
-                id="email"
-                type="text"
-                placeholder="Tu e-mail"
-                className={s.inp}
-              />
+              <div className='login__field'>
+                <i className='login__icon fas fa-user'></i>
+                <input
+                  className='input-login'
+                  name="email"
+                  value={estado.email}
+                  onChange={handleChange}
+                  id="email"
+                  type="text"
+                  placeholder="Tu e-mail"
+                />
               </div>
-              
-             <div>
-             <input
-                name="password1"
-                value={estado.password1}
-                onChange={handleChange}
-                id="password1"
-                type={state ? "text" : "password"}
-                placeholder="Tu password"
-                className={s.inp}
-              />
-              <span className={s.bot} onClick={handleToggle}>{state ? <FaRegEye/> : <FaRegEyeSlash/> }</span>
-             </div>
-              
-              <div>
-              <input
-                name="password2"
-                value={estado.password2}
-                onChange={handleChange}
-                id="password2"
-                type={statee ? "text" : "password"}
-                placeholder="Ingrese password de nuevo"
-                className={s.inp}
-              />
-                 <span className={s.bot} onClick={handleTogglee}>{statee ? <FaRegEye/> : <FaRegEyeSlash/>  }</span>
+              <div className='login__field'>
+                <i className='login__icon fas fa-lock'></i>
+                <input
+                  className='input-login'
+                  name="password1"
+                  value={estado.password1}
+                  onChange={handleChange}
+                  id="password1"
+                  type={state ? "text" : "password"}
+                  placeholder="Tu password"
+                />
+
+                <span className={s.bot} onClick={handleToggle}>{state ? <FaRegEye /> : <FaRegEyeSlash />}</span>
               </div>
+              <div className='login__field'>
+                <i className='login__icon fas fa-lock'></i>
+                <input
+                  className='input-login'
+                  name="password2"
+                  value={estado.password2}
+                  onChange={handleChange}
+                  id="password2"
+                  type={statee ? "text" : "password"}
+                  placeholder="Ingrese password de nuevo"
+                />
+                <span className={s.bot} onClick={handleTogglee}>{statee ? <FaRegEye /> : <FaRegEyeSlash />}</span>
+              </div>
+
               {errores.length !== 0 && <p>{errores[1]}</p>}
-              <button type="submit" className={s.btnRes}>
-                REGISTRARSE
+              <button type="submit" className='button login__submit'>
+                <span className='button__text'>Registrate</span>
+                <i className='button__icon fas fa-chevron-right'></i>
               </button>
             </form>
+          </div>
+          <div className='screen__background'>
+            <span className='screen__background__shape screen__background__shape4'></span>
+            <span className='screen__background__shape screen__background__shape3'></span>
+            <span className='screen__background__shape screen__background__shape2'></span>
+            <span className='screen__background__shape screen__background__shape1'></span>
           </div>
         </div>
       </div>

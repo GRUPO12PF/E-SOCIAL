@@ -113,7 +113,7 @@ const Review = () => {
         placeholder="..." 
         class="text-4xl border border-red-300 shadow p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition duration-300"
         />
-        <p class=" text-red-400 mt-2 text-xl">Twitter name is required</p>  
+        <p class=" text-red-400 mt-2 text-xl">Descripción name is required</p>  
       </div>
       <div class="mb-10">
         <label htmlFor="" class="block mb-2 font-bold text-gray-700 text-3xl">score</label>
@@ -124,7 +124,7 @@ const Review = () => {
         class="border border-red-300 shadow p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition duration-300"
         />
       
-        <p class="text-xl text-red-400 mt-2">Twitter name is required</p>  
+        <p class="text-xl text-red-400 mt-2">Score name is required</p>  
       </div>
       
       <button type="submit" class="bg-blue-300 hover:bg-blue-400 w-full p-3 shadow-md font-bold text-3xl text-white rounded-lg transition duration-300">Submit</button>
