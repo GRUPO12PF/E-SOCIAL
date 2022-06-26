@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Formik, Field, ErrorMessage, Form } from 'formik'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -21,6 +21,7 @@ const Forms = () => {
   const isAddMode = !id
 
   const fileRef = useRef(null)
+  const [uploadImg, setUploadImg] = useState(false)
 
   function handleImage(images) {
     dispatch(subirFotos(images))
@@ -51,7 +52,8 @@ const Forms = () => {
             cant_pags: '',
             descripcion: '',
             price: '',
-            file: '', // acá va a ir la imagen, se pasa a values.image desp
+            image: '', // probar borrando esto...
+            file: '', // ... y esto, y creando la propiedad según se use 
             colection: '',
             ilustrado: false,
             category: []
@@ -84,7 +86,7 @@ const Forms = () => {
 
           {/* acá arranca el ------------- FORM ------------- */}
           {({ errors, values, handleSubmit, setFieldValue }) => (
-            <Form onSubmit={handleSubmit} className={s.formik} >
+            <Form className={s.formik} onSubmit={handleSubmit} >
               <div className={s.form}>
 
                 <div className={s.subdi}>
@@ -92,9 +94,9 @@ const Forms = () => {
                   <label className={s.label} >Nombre*</label>
                   <div>
                     <Field
+                      name="nombre"
                       className={s.input}
                       type="text"
-                      name="nombre"
                       id="nombre"
                     />
                     <ErrorMessage name='nombre' component={() => (<p className={s.error}>{errors.nombre}</p>)} />
@@ -103,9 +105,9 @@ const Forms = () => {
                   <label className={s.label} >Autor*</label>
                   <div>
                     <Field
+                      name="autor"
                       className={s.input}
                       type="text"
-                      name="autor"
                       id="autor"
                     />
                     <ErrorMessage name='autor' component={() => (<p className={s.error}>{errors.autor}</p>)} />
@@ -114,9 +116,9 @@ const Forms = () => {
                   <label className={s.label} >Idioma*</label>
                   <div>
                     <Field
+                      name="idioma"
                       className={s.textarea}
                       type="text"
-                      name="idioma"
                       id="idioma"
                     />
                     <ErrorMessage name='idioma' component={() => (<p className={s.error}>{errors.idioma}</p>)} />
@@ -125,9 +127,9 @@ const Forms = () => {
                   <label className={s.label} >Editorial</label>
                   <div>
                     <Field
+                      name="editorial"
                       className={s.textarea}
                       type="text"
-                      name="editorial"
                       id="editorial"
                     />
                     <ErrorMessage name='editorial' component={() => (<p className={s.error}>{errors.editorial}</p>)} />
@@ -136,9 +138,9 @@ const Forms = () => {
                   <label className={s.label} >Edición</label>
                   <div>
                     <Field
+                      name="edicion"
                       className={s.input}
                       type="number"
-                      name="edicion"
                       id="edicion"
                     />
                     <ErrorMessage name='edicion' component={() => (<p className={s.error}>{errors.edicion}</p>)} />
@@ -147,9 +149,9 @@ const Forms = () => {
                   <label className={s.label} >Tipo de tapa</label> {/* HACERLO ENUM! */}
                   <div>
                     <Field
+                      name="tapa"
                       className={s.textarea}
                       type="text"
-                      name="tapa"
                       id="tapa"
                       placeholder="Blanda, Dura..."
                     />
@@ -161,9 +163,9 @@ const Forms = () => {
                 <label className={s.label} >Año de publicación</label>
                 <div>
                   <Field
+                    name="publicado"
                     className={s.input}
                     type="number"
-                    name="publicado"
                     id="publicado"
                     placeholder="AAAA..."
                   />
@@ -173,9 +175,9 @@ const Forms = () => {
                 <label className={s.label} >Páginas</label>
                 <div>
                   <Field
+                    name="cant_pags"
                     className={s.input}
                     type="number"
-                    name="cant_pags"
                     id="cant_pags"
                   />
                   <ErrorMessage name='cant_pags' component={() => (<p className={s.error}>{errors.cant_pags}</p>)} />
@@ -184,9 +186,9 @@ const Forms = () => {
                 <label className={s.label} >Saga / Serie</label>
                 <div>
                   <Field
+                    name="colection"
                     className={s.input}
                     type="text"
-                    name="colection"
                     id="colection"
                   />
                   <ErrorMessage name='colection' component={() => (<p className={s.error}>{errors.colection}</p>)} />
@@ -195,9 +197,9 @@ const Forms = () => {
                 <label className={s.label} >Precio*</label>
                 <div>
                   <Field
+                    name="price"
                     className={s.input}
                     type="number"
-                    name="price"
                     id="price"
                     placeholder="en centavos de USD..."
                   />
@@ -207,9 +209,9 @@ const Forms = () => {
                 <label className={s.label} >Descripción*</label>
                 <div>
                   <Field
+                    name="descripcion"
                     className={s.textarea}
                     type="text"
-                    name="descripcion"
                     id="descripcion"
                     as="textarea"
                   />
@@ -219,10 +221,10 @@ const Forms = () => {
                 <label className={s.label}>Ilustrado</label>
                 <div className={s.centro}>
                   <Field
+                    name="ilustrado"
                     className={s.textarea}
                     as="select"
                     id="ilustrado"
-                    name="ilustrado"
                   >
                     <option value={false}>NO</option>
                     <option value={true}>SI</option>
@@ -236,49 +238,81 @@ const Forms = () => {
                       <div key={i} > <Field type="checkbox" name="category" value={`${e}`} /> {e} </div>
                     )}
                   </div>
+                  <ErrorMessage name='category' component={() => (<p className={s.error}>{errors.category}</p>)} />
                 </div>
-                <ErrorMessage name='category' className='ASIGNAR!' component={() => (<p className={s.error}>{errors.category}</p>)} />
 
                 <label className={s.label} >Fotografía del ejemplar</label>
                 <div>
-                  <input
-                    hidden
-                    ref={fileRef}
-                    className={s.input}
-                    type="file"
-                    id="file"
-                    onChange={e => {
-                      setFieldValue("file", e.target.files[0])
-                    }}
-                  />
+                  {uploadImg
+                    ? <button type="button"
+                      onClick={() => {
+                        setUploadImg(false)
+                      }}>PASAR URL</button>
 
-                  <button className={s.uploadButton} onClick={() => {
-                    fileRef.current.click()
-                  }}>
-                    CARGAR IMAGEN
-                  </button>
-
-                  {values.file && <PreviewImage file={values.file} />}
-                  {values.file && <button type="button"
-                    onClick={() => {
-                      handleImage(values.file)
-                    }}>SUBIR IMAGEN</button>}
-
-                  <ErrorMessage name='image' component={() => (<p>{errors.file}</p>)} />
+                    : <button type="button"
+                      onClick={() => {
+                        setUploadImg(true)
+                      }}>SUBIR IMAGEN</button>
+                  }
                 </div>
+                <div>
+                  {uploadImg
+                    /* Subir Img a Cloudinary */
+                    ? (<div>
+                      <input
+                        hidden
+                        name='file'
+                        ref={fileRef}
+                        className={s.input}
+                        type="file"
+                        id="file"
+                        onChange={e => {
+                          setFieldValue("file", e.target.files[0])
+                        }}
+                      />
 
-                <button
-                  className={s.sendMsg}
-                  type="submit"
-                  disabled={errors.nombre || errors.autor || errors.idioma || errors.price || errors.category || errors.descripcion || values.file}
-                >ENVIAR</button>
+                      <button className={s.uploadButton} type="button" onClick={() => {
+                        fileRef.current.click()
+                      }}>
+                        CARGAR IMAGEN
+                      </button>
+
+                      {values.file && <PreviewImage file={values.file} />}
+                      {values.file && <button type="button"
+                        onClick={() => {
+                          handleImage(values.file)
+                        }}>CONFIRMAR IMAGEN</button>}
+
+                    </div>)
+
+                    /* Pasar Img por URL */
+                    : (<div>
+                      <Field
+                        name="image"
+                        className={s.input}
+                        type="text"
+                        id="image"
+                      />
+                    </div>)
+                  }
+
+                </div>
+                <ErrorMessage name='file' component={() => (<p>{errors.file}</p>)} />
 
               </div>
+
+              <button
+                className={s.sendMsg}
+                type="submit"
+                disabled={errors.nombre || errors.autor || errors.idioma || errors.price || errors.category || errors.descripcion || values.file}
+              >ENVIAR</button>
+
+              {console.log("🚀 ~ file: Forms.jsx ~ line 276 ~ Forms ~ values.file", values.file.name)}
+              {console.log("🚀 ~ file: Forms.jsx ~ line 276 ~ Forms ~ values.file", values.file)}
+              {console.log("🚀 ~ file: Forms.jsx ~ line 268 ~ Forms ~ errors.file", errors.file)}
             </Form>
           )}
         </Formik>
-        <br />
-        <Link className={s.back} to="/profile">Atrás</Link>
       </div>
     </div >
   )

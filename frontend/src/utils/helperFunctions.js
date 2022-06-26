@@ -14,8 +14,9 @@ export function currentYear() {
 
 // chequea extensión del (file)
 function hasExtension(inputID, exts) {
-  var fileName = document.getElementById(inputID).value;
-  return (new RegExp('(' + exts.join('|').replace(/\./g, '\\.') + ')$')).test(fileName);
+  const fileName = document.getElementsByName(inputID).value
+  const res = (new RegExp('(' + exts.join('|').replace(/\./g, '\\.') + ')$')).test(fileName)
+  return res
 }
 
 // validaciones del Form
@@ -88,8 +89,8 @@ export function formValidators(values) {
     errors.category = 'Elija al menos 1 categoría'
   }
 
-  if (values.file && !hasExtension(values.file, ['.jpg', '.gif', '.png'])) {
-    errors.file = 'Elija una imagen con extensión .jpg, .gif o .png'
+  if (values.file.name && !hasExtension('file', ['.jpg', '.jpeg', '.gif', '.png'])) {
+    errors.file = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
     return errors
   }
 }
