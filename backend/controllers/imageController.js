@@ -2,7 +2,7 @@ import { uploadImage } from "../libs/cloudinary.js"
 import fs from "fs-extra"
 
 const postBookImage = async (req, res) => {
-  const formatos = ["png", "jpg", "webp", "gif"]
+  const formatos = ["png", "jpg", "jpeg", "webp", "gif"]
   if (
     !formatos.includes(
       req.files.image.name.split(".")[
@@ -10,7 +10,7 @@ const postBookImage = async (req, res) => {
       ]
     )
   ) {
-    return res.status(400).send({ msg: "Invalid image format (jpg, png, webp or gif)" })
+    return res.status(400).send({ msgError: "Solo se aceptan los sgtes. formatos: jpg, jpeg, png, webp or gif" })
   }
 
   try {

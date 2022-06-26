@@ -1,17 +1,26 @@
+// pasa (value) de centavos de dólar a número con coma
 export function formatToCurrency(value) {
-  let centsToDollars = value / 100
-  let finalPrice = `U$D ${centsToDollars}`
+  const centsToDollars = value / 100
+  const finalPrice = `U$D ${centsToDollars}`
   return finalPrice
 }
 
-export function currentYear(){
+// devuelve año actual
+export function currentYear() {
   const current = new Date()
   const result = `${current.getFullYear()}`
-
   return result
 }
 
-export function formValidators (values) {
+// chequea extensión del (file)
+function hasExtension(input) {
+  // const fileName = document.getElementsByName(inputID).value
+  const res = /\.(gif|jpe?g|png)$/i.test(input)
+  return res
+}
+
+// validaciones del Form
+export function formValidators(values) {
   let errors = {}
 
   if (!values.nombre) {
@@ -44,12 +53,8 @@ export function formValidators (values) {
     errors.editorial = 'Ingrese un nombre válido de hasta 40 caracteres'
   }
 
-  if (/(\D)/.test(values.edicion) || values.edicion < 1 && values.edicion.toString().length > 0) {
+  if (/(\D)/.test(values.edicion) || values.edicion < 1 && values.edicion.toString()?.length > 0) {
     errors.edicion = 'Ingrese un Nº de edición mayor a 0'
-  }
-
-  if (!/^([a-z]|\s){0,15}$/i.test(values.tapa)) {
-    errors.tapa = 'Ingrese un tipo de tapa'
   }
 
   if (values.publicado && (!/^[0-9]{0,4}$/.test(values.publicado) || values.publicado > currentYear())) {
@@ -60,9 +65,9 @@ export function formValidators (values) {
     errors.cant_pags = 'Ingrese un número de págs. válido'
   }
 
-  if (values.descripcion.length < 6) {
+  if (values.descripcion?.length < 6) {
     errors.descripcion = 'La descripción debe contar con al menos 6 caracteres'
-  } else if (values.descripcion.length > 1500) {
+  } else if (values.descripcion?.length > 1500) {
     errors.descripcion = 'La descripción debe contar con un máximo de 1500 caracteres'
   }
 
@@ -72,24 +77,25 @@ export function formValidators (values) {
     errors.price = 'Ingrese un precio válido mayor a 50 centavos'
   }
 
-  if (values.category.length < 1) {
+  if (values.category?.length < 1) {
     errors.category = 'Elija al menos 1 categoría'
+  }
+
+  if (values.file?.name && !hasExtension(values.file.name)) {
+    errors.file = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
+  }
+  
+  if (values.image && !hasExtension(values.image)) {
+    errors.image = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
   }
 
   return errors
 }
 
 
-// export function validateTextName(name) { // tampoco lo pude usar
-//   if (!values[name]) {
-//     return errors[name] = 'Campo requerido.'
-//   } else if (!/^\S.*$/.test(values[name])) {
-//     return errors[name] = 'El primer caracter no puede ser un espacio'
-//   } else if (!/^(|[a-z]|[,.:;¡!¿?']|[À-ÿ]|\s){1,40}$/i.test(values[name])) {
-//     return errors[name] = 'No puede superar los 40 caracteres.'
-//   }
-// }
+
 
 // export function listedArray(value) { // no sé por qué no funca jaja
-//   value?.sort((a, b) => a.localeCompare(b)).join(', ')
-// }
+//   const res = value?.sort((a, b) => a.localeCompare(b)).join(', ')
+//   return res
+//
