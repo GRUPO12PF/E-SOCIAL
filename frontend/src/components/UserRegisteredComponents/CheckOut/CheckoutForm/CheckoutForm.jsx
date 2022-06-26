@@ -87,7 +87,7 @@ const CheckoutForm = () => {
         <hr className="left-hr" />
         <p className="home-desc"><em> </em><em></em></p>
         <p className="home-desc">
-          <em> </em> <em></em>
+          <em> </em> <em></em> 
         </p>
       </div>
     </div>
