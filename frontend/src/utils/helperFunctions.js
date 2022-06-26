@@ -13,9 +13,9 @@ export function currentYear() {
 }
 
 // chequea extensión del (file)
-function hasExtension(inputID, exts) {
-  const fileName = document.getElementsByName(inputID).value
-  const res = (new RegExp('(' + exts.join('|').replace(/\./g, '\\.') + ')$')).test(fileName)
+function hasExtension(inputID) {
+  const fileName = document.getElementsByID(inputID).value
+  const res = /\.(gif|jpe?g|png|gif|bmp)$/i.test(fileName)
   return res
 }
 
@@ -85,14 +85,15 @@ export function formValidators(values) {
     errors.category = 'Elija al menos 1 categoría'
   }
 
-  if (values.file) {
-    errors.category = 'Elija al menos 1 categoría'
-  }
+  // if (values.file.name && !hasExtension('file')) {
+  //   errors.file = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
+  // }
+  
+  // if (values.image && !hasExtension('image')) {
+  //   errors.image = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
+  // }
 
-  if (values.file.name && !hasExtension('file', ['.jpg', '.jpeg', '.gif', '.png'])) {
-    errors.file = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
-    return errors
-  }
+  return errors
 }
 
 

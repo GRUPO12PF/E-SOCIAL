@@ -1,25 +1,26 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Formik, Field, ErrorMessage, Form } from 'formik'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { postCreate } from '../../../redux/actions/postProducts'
 import { getCategories } from '../../../redux/actions/actionCategories.js'
 import { cleanData, getBooks, putBookBody } from '../../../redux/actions/actionBooks'
 import { detailsBook } from '../../../redux/actions/detailsBooks'
 import { subirFotos } from '../../../redux/actions/actionSubirFotos'
+import { formValidators } from '../../../utils/helperFunctions.js'
 import PreviewImage from './ImgPreview/ImgPreview'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
 import s from '../Form/Form.module.css'
 import EditCard from './EditCard/EditCard'
-import { formValidators } from '../../../utils/helperFunctions.js'
 
 const Forms = () => {
   const [dispatch, navigate] = [useDispatch(), useNavigate()]
   const categories = useSelector(state => state.categories)
-  const imgPreview = useSelector(state => state.tempState)
+
   const { id } = useParams()
   const isAddMode = !id
 
+  const imgPreview = useSelector(state => state.tempState)
   const fileRef = useRef(null)
   const [uploadImg, setUploadImg] = useState(false)
 
@@ -53,7 +54,7 @@ const Forms = () => {
             descripcion: '',
             price: '',
             image: '', // probar borrando esto...
-            file: '', // ... y esto, y creando la propiedad según se use 
+            file: '', // probar borrando esto y ver si se asigna por ID
             colection: '',
             ilustrado: false,
             category: []
@@ -62,11 +63,14 @@ const Forms = () => {
           validate={values => formValidators(values)}
 
           onSubmit={(values, { resetForm }) => {
-            values.image = imgPreview
+            if (uploadImg) {
+              values.image = imgPreview
+            }
             delete values.file
 
-            if (isAddMode) { dispatch(postCreate(values)) }
-            else {
+            if (isAddMode) {
+              dispatch(postCreate(values))
+            } else {
               values._id = id
               dispatch(putBookBody(values))
             }
@@ -297,19 +301,19 @@ const Forms = () => {
                   }
 
                 </div>
-                <ErrorMessage name='file' component={() => (<p>{errors.file}</p>)} />
+                <ErrorMessage name='image' component={() => (<p className={s.error}>{errors.image}</p>)} />
+                <ErrorMessage name='file' component={() => (<p className={s.error}>{errors.file}</p>)} />
 
               </div>
 
               <button
                 className={s.sendMsg}
                 type="submit"
-                disabled={errors.nombre || errors.autor || errors.idioma || errors.price || errors.category || errors.descripcion || values.file}
+                disabled={errors.nombre || errors.autor || errors.idioma || errors.price || errors.category || errors.descripcion || errors.file || errors.image}
               >ENVIAR</button>
 
               {console.log("🚀 ~ file: Forms.jsx ~ line 276 ~ Forms ~ values.file", values.file.name)}
-              {console.log("🚀 ~ file: Forms.jsx ~ line 276 ~ Forms ~ values.file", values.file)}
-              {console.log("🚀 ~ file: Forms.jsx ~ line 268 ~ Forms ~ errors.file", errors.file)}
+              {console.log("🚀 ~ file: Forms.jsx ~ line 268 ~ Forms ~ errors.file", errors)}
             </Form>
           )}
         </Formik>
