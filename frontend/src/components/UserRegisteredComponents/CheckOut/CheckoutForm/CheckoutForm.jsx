@@ -85,34 +85,31 @@ const CheckoutForm = () => {
         <h1 className="home-heading">{product.nombre}</h1>
         <p className="home-price"><em>{formatToCurrency(product.price)} USD </em></p>
         <hr className="left-hr" />
-        <p className="home-desc"><em>Entire home </em>for <em>2 guest</em></p>
+        <p className="home-desc"><em> </em><em></em></p>
         <p className="home-desc">
-          <em>Tue, July 23, 2022 </em>to <em>Thu, July 25, 2022</em>
+          <em> </em> <em></em> 
         </p>
       </div>
     </div>
 
     <div className="right-side">
       <div className="receipt">
-        <h2 className="receipt-heading">Receipt Summary</h2>
+        <h2 className="receipt-heading">Resumen de tu compra</h2>
         <div>
           <table className="table">
             <tr>
-              <td>249.50 x 2 nights</td>
-              <td className="price">499.00 USD</td>
+              <td>{product.nombre}</td>
+              <td className="price">{product.price} USD</td>
             </tr>
             <tr>
-              <td>Discount</td>
+              <td>Descuento</td>
               <td className="price">0.00 USD</td>
             </tr>
             <tr>
               <td>Subtotal</td>
-              <td className="price">499.00 USD</td>
+              <td className="price">{product.price} USD</td>
             </tr>
-            <tr>
-              <td>Tax</td>
-              <td className="price">47.41 USD</td>
-            </tr>
+            
             <tr className="total">
               <td>Total</td>
               <td class="price">{formatToCurrency(product.price)}</td>
@@ -122,7 +119,7 @@ const CheckoutForm = () => {
       </div>
 
       <div className="payment-info">
-        <h3 classNAme="payment-heading">Payment Information</h3>
+        <h3 classNAme="payment-heading">Informacion de Pago</h3>
         <form
           onSubmit={handleSubmit}
           className="form-box"
@@ -152,7 +149,7 @@ const CheckoutForm = () => {
         </form>
         <p className="footer-text">
           <i className="fa-solid fa-lock"></i>
-          Your credit card infomration is encrypted
+         la información de tu tarjeta de crédito esta encriptada
         </p>
       </div>
     </div>

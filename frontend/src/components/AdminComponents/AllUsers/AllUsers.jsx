@@ -6,6 +6,9 @@ import NavBar from '../../CommonComponents/NavBar/NavBar'
 import profile from '../../../assets/images/avatar2.png'
 import Pagination from '../../CommonComponents/Pagination/Pagination'
 import s from './AllUsers.module.css'
+import Remove from '../../../Iconos/remove'
+import Edit from '../../../Iconos/Edit'
+
 
 function AllUsers() {
   const dispatch = useDispatch()
@@ -54,7 +57,7 @@ function AllUsers() {
                 <th >VERIFICADO</th>
                 <th >BLOQUEADO</th>
                 <th >MODERADOR</th>
-					<th colspan="2"><h1>Opciones</h1></th>
+					<th colspan="2">OPCIONES</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -73,18 +76,18 @@ function AllUsers() {
                     <td className={s.actions}>
                       <button
                         onClick={(e) => handleEdit(e, u.id)}
-                        className={s.editBtn}
+                        className="btn-edita"
                       >
-                        EDITAR
+                        <Edit/>
                       </button>
-                      {u.moderador === "admin" && (
+
                         <button
                           onClick={(e) => handleDelete(e, u.id)}
                           // className={s.deleteBtn}
                         >
-                          ELIMINAR
+                          <Remove/>
                         </button>
-                      )}
+                    
                     </td>
                   </tr>
                 )
