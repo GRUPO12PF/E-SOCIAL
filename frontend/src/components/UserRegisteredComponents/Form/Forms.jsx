@@ -20,19 +20,21 @@ const Forms = () => {
   const { id } = useParams()
   const isAddMode = !id
 
-  const imgPreview = useSelector(state => state.tempState)
   const fileRef = useRef(null)
+  const imgPreview = useSelector(state => state.tempState)
   const [uploadImg, setUploadImg] = useState(false)
+  const [confirmImg, setConfirmImg] = useState(true)
 
   function handleImage(images) {
     dispatch(subirFotos(images))
+    setConfirmImg(false)
   }
 
   useEffect(() => {
     dispatch(cleanData)
     dispatch(getCategories())
     if (!isAddMode) { dispatch(detailsBook(id)) }
-  }, [])
+  }, [dispatch])
 
   return (
     <div className={s.formFondo}>
@@ -53,8 +55,7 @@ const Forms = () => {
             cant_pags: '',
             descripcion: '',
             price: '',
-            image: '', // probar borrando esto...
-            file: '', // probar borrando esto y ver si se asigna por ID
+            image: '',
             colection: '',
             ilustrado: false,
             category: []
@@ -248,15 +249,26 @@ const Forms = () => {
                 <label className={s.label} >Fotografía del ejemplar</label>
                 <div>
                   {uploadImg
-                    ? <button type="button"
-                      onClick={() => {
-                        setUploadImg(false)
-                      }}>PASAR URL</button>
+                    /* cambiar a Pasar Img por URL */
+                    ? <div>
+                      <button type="button"
+                        onClick={() => {
+                          setUploadImg(false)
+                        }}>PASAR URL
+                      </button>
+                      <p>Cargue el archivo de su imagen</p>
+                    </div>
 
-                    : <button type="button"
-                      onClick={() => {
-                        setUploadImg(true)
-                      }}>SUBIR IMAGEN</button>
+                    /* cambiar a Img a Cloudinary */
+                    : <div>
+                      <button type="button"
+                        onClick={() => {
+                          setUploadImg(true)
+                        }}>SUBIR IMAGEN
+                      </button>
+                      <p>Ingrese la URL de su imagen</p>
+                    </div>
+
                   }
                 </div>
                 <div>
@@ -282,7 +294,8 @@ const Forms = () => {
                       </button>
 
                       {values.file && <PreviewImage file={values.file} />}
-                      {values.file && <button type="button"
+                      {values.file && confirmImg && <button type="button"
+                        disabled={errors.file}
                         onClick={() => {
                           handleImage(values.file)
                         }}>CONFIRMAR IMAGEN</button>}
@@ -301,8 +314,8 @@ const Forms = () => {
                   }
 
                 </div>
+                <p className={s.error}>{errors.file}</p>
                 <ErrorMessage name='image' component={() => (<p className={s.error}>{errors.image}</p>)} />
-                <ErrorMessage name='file' component={() => (<p className={s.error}>{errors.file}</p>)} />
 
               </div>
 
@@ -312,8 +325,6 @@ const Forms = () => {
                 disabled={errors.nombre || errors.autor || errors.idioma || errors.price || errors.category || errors.descripcion || errors.file || errors.image}
               >ENVIAR</button>
 
-              {console.log("🚀 ~ file: Forms.jsx ~ line 276 ~ Forms ~ values.file", values.file.name)}
-              {console.log("🚀 ~ file: Forms.jsx ~ line 268 ~ Forms ~ errors.file", errors)}
             </Form>
           )}
         </Formik>

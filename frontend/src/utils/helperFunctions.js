@@ -13,9 +13,9 @@ export function currentYear() {
 }
 
 // chequea extensión del (file)
-function hasExtension(inputID) {
-  const fileName = document.getElementsByID(inputID).value
-  const res = /\.(gif|jpe?g|png|gif|bmp)$/i.test(fileName)
+function hasExtension(input) {
+  // const fileName = document.getElementsByName(inputID).value
+  const res = /\.(gif|jpe?g|png)$/i.test(input)
   return res
 }
 
@@ -53,7 +53,7 @@ export function formValidators(values) {
     errors.editorial = 'Ingrese un nombre válido de hasta 40 caracteres'
   }
 
-  if (/(\D)/.test(values.edicion) || values.edicion < 1 && values.edicion.toString().length > 0) {
+  if (/(\D)/.test(values.edicion) || values.edicion < 1 && values.edicion.toString()?.length > 0) {
     errors.edicion = 'Ingrese un Nº de edición mayor a 0'
   }
 
@@ -69,9 +69,9 @@ export function formValidators(values) {
     errors.cant_pags = 'Ingrese un número de págs. válido'
   }
 
-  if (values.descripcion.length < 6) {
+  if (values.descripcion?.length < 6) {
     errors.descripcion = 'La descripción debe contar con al menos 6 caracteres'
-  } else if (values.descripcion.length > 1500) {
+  } else if (values.descripcion?.length > 1500) {
     errors.descripcion = 'La descripción debe contar con un máximo de 1500 caracteres'
   }
 
@@ -81,17 +81,17 @@ export function formValidators(values) {
     errors.price = 'Ingrese un precio válido mayor a 50 centavos'
   }
 
-  if (values.category.length < 1) {
+  if (values.category?.length < 1) {
     errors.category = 'Elija al menos 1 categoría'
   }
 
-  // if (values.file.name && !hasExtension('file')) {
-  //   errors.file = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
-  // }
+  if (values.file?.name && !hasExtension(values.file.name)) {
+    errors.file = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
+  }
   
-  // if (values.image && !hasExtension('image')) {
-  //   errors.image = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
-  // }
+  if (values.image && !hasExtension(values.image)) {
+    errors.image = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
+  }
 
   return errors
 }
