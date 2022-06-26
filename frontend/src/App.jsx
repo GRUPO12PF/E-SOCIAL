@@ -49,8 +49,6 @@ export default function App() {
         <Route path="/" element={<AuthLayout />}>
           <Route index element={<Home />} />
           <Route path="homeout" element={<Homeout />} />
-          <Route path="login" element={<Login />} />
-          <Route path="registrar" element={<Register />} />
           <Route path="olvide-password" element={<ForgotPassword />} />
           <Route path="olvide-password/:token" element={<NewPassword />} />
           <Route path="confirmar/:id" element={<ConfirmAccount />} />
