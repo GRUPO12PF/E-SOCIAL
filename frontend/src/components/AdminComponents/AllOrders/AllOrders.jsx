@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
 import { getAllOrders } from '../../../redux/actions/actionAdmin'
-import profile from '../../../assets/images/avatar2.png'
+import book from '../../../assets/images/book.svg'
 import s from './AllOrders.module.css'
 
 function AllOrders() {
@@ -42,7 +42,7 @@ function AllOrders() {
                   >
                     <td className={s.id}>{u._id}</td>
                     <td className={s.name}>{u.books?.nombre}</td>
-                    <td className={s.image}><img src={u.books?.image || profile} alt="No disponible" height={50} width={50} /></td>
+                    <td className={s.image}><img src={u.books?.image || book} alt="No disponible" height={50} width={50} /></td>
                     <td className={s.price}>{u.books?.price}</td>
                     <td className={s.blocked}>{u.comprador?.nombre}</td>
                     <td className={s.moderator}>{u.comprador?.email}</td>
