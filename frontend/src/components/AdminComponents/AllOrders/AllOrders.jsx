@@ -22,7 +22,7 @@ function AllOrders() {
           <table className={s.usersTable}>
           
             <thead>
-              <tr>
+              <tr className={s.titulos}>
                 <th className={s.no}>ID</th>
                 <th className={s.no}>LIBRO</th>
                 <th className={s.no}>IMAGEN</th>

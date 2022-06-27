@@ -8,39 +8,56 @@
 }
 .container{
     width: 95%;
-    max-width: 120rem;
+    max-width: 220rem;
     margin: 2rem auto;
+    margin-top: 60px;
+    padding: 50px;
+    padding-left: 20px;
+    padding-top: 20px;
 }
 
 .usersTable{
-    background-color: rgba(0, 0, 0, 0.171);
-    color: #381c1c;
+    background-color: white;
+    color: black;
     font-size: 17px;
     width: 60%;
     padding:2rem 25px;
+    padding-left: 30px;
+    margin: 20px;
     
 }
 
 .flex{
     display: flex;
     justify-content: center;
+    padding: 20px;
 }
 
 .containerInfo{
     padding: 20px;
     margin: 20px;
     border-bottom: 1px solid black;
+    text-align: center;
 }
 
 .name{
     font-family: 'Lato', sans-serif;
     font-size: 25px;
     padding: 2rem;
-    
+    text-align: center;
 }
 
 .id{
     font-family: 'Lato', sans-serif;
     font-size: 25px;
     padding: 2rem;
+    text-align: center;
+}
+.no{
+    margin-top: 10px;
+    text-align: center;
+}
+.titulos{
+    margin-top: 10px;
+    text-align: center;
 }
