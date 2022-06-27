@@ -75,7 +75,7 @@ export default function QuestionDetail({ _id, mensaje, book, idComprador }) {
               <td className={s.blocked}>{mensaje}</td>
               <td className={s.moderator}><div> <form onSubmit={(e) => handleSubmitSendAnswer(e)}>
                 <div className={s.containerAnswer}>
-                <input className={s.input} type="text" placeholder='Acá va su respuesta' name="mensaje" value={input.mensaje} onChange={(e) => handleInputChange(e)} />
+                <input className={s.input} type="text" placeholder='...' name="mensaje" value={input.mensaje} onChange={(e) => handleInputChange(e)} />
                 <button className={s.btn}>enviar</button> 
 
                 </div>
