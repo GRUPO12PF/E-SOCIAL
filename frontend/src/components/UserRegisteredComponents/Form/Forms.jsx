@@ -46,42 +46,25 @@ const Forms = () => {
 
         <Formik
           initialValues={
-            isAddMode
-              ? {
-                nombre: '',
-                autor: '',
-                idioma: '',
-                editorial: '',
-                edicion: '',
-                tapa: '',
-                publicado: '',
-                cant_pags: '',
-                descripcion: '',
-                price: '',
-                image: '',
-                colection: '',
-                ilustrado: false,
-                category: []
-              }
-              : {
-                nombre,
-                autor,
-                idioma,
-                editorial,
-                edicion,
-                tapa,
-                publicado,
-                cant_pags,
-                descripcion,
-                price,
-                image,
-                colection,
-                ilustrado,
-                category
-              }
+            {
+              nombre: '',
+              autor: '',
+              idioma: '',
+              editorial: '',
+              edicion: '',
+              tapa: '',
+              publicado: '',
+              cant_pags: '',
+              descripcion: '',
+              price: '',
+              image: '',
+              colection: '',
+              ilustrado: false,
+              category: []
+            }
           }
 
-          validate={values => formValidators(values, isAddMode)}
+          validate={values => formValidators(values)}
 
           onSubmit={(values, { resetForm }) => {
             if (uploadImg) {
@@ -117,7 +100,7 @@ const Forms = () => {
                 <div className={s.subdi}>
 
                   <label className={s.label} >Nombre*</label>
-                  {!isAddMode ? <p className={s.centro}>({nombre})</p> : null}
+                  {!isAddMode ? <p className={s.centro}>({nombre})</p> : null} {/* solo en modo Update */}
                   <div>
                     <Field
                       name="nombre"
@@ -358,7 +341,6 @@ const Forms = () => {
                 type="submit"
                 disabled={errors.nombre || errors.autor || errors.idioma || errors.price || errors.category || errors.descripcion || errors.file || errors.image}
               >ENVIAR</button>
-              {console.log(values)}
             </Form>
           )}
         </Formik>
