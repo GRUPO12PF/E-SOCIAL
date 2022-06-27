@@ -1,10 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-
-
-
-button {
+.btnLoginRegister{
   border-radius: 20px;
   border: 1px solid #9d1d36;
   background-color: #9d1d36;
@@ -17,20 +14,20 @@ button {
   transition: transform 80ms ease-in;
 }
 
-button:active {
+.btnLoginRegister:active {
   transform: scale(0.95);
 }
 
-button:focus {
+.btnLoginRegister:focus {
   outline: none;
 }
 
-button.ghost {
+.btnGhost{
   background-color: transparent;
   border-color: #FFFFFF;
 }
 
-form {
+.formLoginRegister {
   background-color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -41,7 +38,7 @@ form {
   text-align: center;
 }
 
-input {
+.inputLoginRegister {
   background-color: #eee;
   border: none;
   padding: 12px 15px;

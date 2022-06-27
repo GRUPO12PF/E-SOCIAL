@@ -50,9 +50,10 @@ export default function Register() {
 
   return (
     <>
-      <form onSubmit={handleSubmitR}>
+      <form className="formLoginRegister" onSubmit={handleSubmitR}>
         <h1>Registrarse</h1>
         <input
+          className="inputLoginRegister"
           name="nombre"
           value={estado?.nombre}
           onChange={handleChange}
@@ -60,6 +61,7 @@ export default function Register() {
           type="text"
           placeholder="Tu nombre" />
         <input
+          className="inputLoginRegister"
           name="email"
           value={estado?.email}
           onChange={handleChange}
@@ -67,6 +69,7 @@ export default function Register() {
           type="text"
           placeholder="Tu e-mail" />
         <input
+          className="inputLoginRegister"
           name="password1"
           value={estado?.password1}
           onChange={handleChange}
@@ -74,7 +77,7 @@ export default function Register() {
           type={state ? "text" : "password"}
           placeholder="Tu contraseña" />
         {errores.length !== 0 && <p>{errores[1]}</p>}
-        <button>Registrarse</button>
+        <button className="btnLoginRegister">Registrarse</button>
       </form>
     </>
   )
