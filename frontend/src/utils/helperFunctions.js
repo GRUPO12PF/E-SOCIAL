@@ -1,10 +1,3 @@
-// pasa (value) de centavos de dólar a número con coma
-export function formatToCurrency(value) {
-  const centsToDollars = value / 100
-  const finalPrice = `U$D ${centsToDollars}`
-  return finalPrice
-}
-
 // devuelve año actual
 export function currentYear() {
   const current = new Date()
@@ -17,6 +10,13 @@ function hasExtension(input) {
   // const fileName = document.getElementsByName(inputID).value
   const res = /\.(gif|jpe?g|png)$/i.test(input)
   return res
+}
+
+// pasa (value) de centavos de dólar a número con coma
+export function formatToCurrency(value) {
+  const centsToDollars = value / 100
+  const finalPrice = `U$D ${centsToDollars}`
+  return finalPrice
 }
 
 // validaciones del Form
@@ -92,10 +92,13 @@ export function formValidators(values) {
   return errors
 }
 
-
-
-
-// export function listedArray(value) { // no sé por qué no funca jaja
-//   const res = value?.sort((a, b) => a.localeCompare(b)).join(', ')
-//   return res
-//
+export function sortArray(value, reverse) { // toma value y lo ordena si es array, invertido si el segundo arg es TRUE
+  let res 
+  Array.isArray(value)
+    ? value.sort(
+      isNaN(value[0])
+        ? (a, b) => a.localeCompare(b)
+        : (a, b) => a - b)
+    : res = "NOT AN ARRAY!" // aclara si no es un array; así no rompe
+  return res ? res : reverse ? value.reverse() : value
+}

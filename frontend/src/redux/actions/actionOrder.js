@@ -74,7 +74,7 @@ export const orderPost = (payload) => {
   export const getReview = (payload)=>{
     return  async function (dispatch){
         const json = await clienteAxios.get(`/review/${payload}`)
-
+        console.log(payload)
            return dispatch({
             type:"GET_REVIEW",
             payload:json.data
