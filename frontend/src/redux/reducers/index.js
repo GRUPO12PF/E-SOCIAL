@@ -26,8 +26,8 @@ const initialState = {
   usuario: [],
   usuarioActual: [],
   usuarioProfile: [],
-  allReviews: []
-
+  allReviews: [],
+  review : []
 }
 
 function rootReducer(state = initialState, action) {
@@ -297,7 +297,7 @@ function rootReducer(state = initialState, action) {
       case "GET_REVIEW":
         return{
           ...state,
-          review:action.payload
+          review :action.payload
         }
     default:
       return state
