@@ -20,26 +20,22 @@ export function formatToCurrency(value) {
 }
 
 // validaciones del Form
-export function formValidators(values) {
+export function formValidators(values, isAddMode) {
   let errors = {}
 
-  if (!values.nombre) {
+  if (!values.nombre && isAddMode) {
     errors.nombre = 'Campo requerido'
-  } else if (!/^\S.*$/.test(values.nombre)) {
-    errors.nombre = 'El primer caracter no puede ser un espacio'
   } else if (!/^(\d|[a-z]|[\u00f1\u00d1]|[,.:¡!¿?']|[À-ÿ]|\s){1,40}$/i.test(values.nombre)) {
     errors.nombre = 'Ingrese un nombre válido de hasta 40 caracteres'
   }
 
-  if (!values.autor) {
+  if (!values.autor && isAddMode) {
     errors.autor = 'Campo requerido'
-  } else if (!/^\S.*$/.test(values.autor)) {
-    errors.autor = 'El primer caracter no puede ser un espacio'
   } else if (!/^(|[a-z]|[()']|[À-ÿ]|[\u00f1\u00d1]|\s){1,40}$/i.test(values.autor)) {
     errors.autor = 'Ingrese un autor válido de hasta 40 caracteres'
   }
 
-  if (!values.idioma) {
+  if (!values.idioma && isAddMode) {
     errors.idioma = 'Campo requerido'
   } else if (!/^\S.*$/.test(values.idioma)) {
     errors.idioma = 'El primer caracter no puede ser un espacio'
@@ -61,7 +57,7 @@ export function formValidators(values) {
     errors.publicado = 'Ingrese un año válido en formato AAAA'
   }
 
-  if (/(\D|^0|[-])/.test(values.cant_pags)) { // NO tira error si solo se le pasa "-"
+  if (values.cant_pags && /(\D|^0|[-])/.test(values.cant_pags)) { // NO tira error si solo se le pasa "-"
     errors.cant_pags = 'Ingrese un número de págs. válido'
   }
 
@@ -73,11 +69,11 @@ export function formValidators(values) {
 
   if (/(\D)/.test(values.price)) {
     errors.price = 'Ingrese el precio en centavos de USD'
-  } else if (!values.price || values.price < 50) {
+  } else if (isAddMode && (!values.price || values.price < 50)) {
     errors.price = 'Ingrese un precio válido mayor a 50 centavos'
   }
 
-  if (values.category?.length < 1) {
+  if (values.category?.length < 1 && isAddMode) {
     errors.category = 'Elija al menos 1 categoría'
   }
 

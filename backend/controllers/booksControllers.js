@@ -65,20 +65,20 @@ const editarBook = async (req, res) => {
 
   try {
     const bookEditado = await Book.findByIdAndUpdate({ _id: id }, {
-      nombre,
-      autor,
-      idioma,
-      editorial,
-      edicion,
-      tapa,
-      publicado,
-      cant_pags,
-      descripcion,
-      price,
-      image,
-      colection,
-      ilustrado,
-      category
+      nombre: nombre ? nombre : null,
+      autor: autor ? autor : null,
+      idioma: idioma ? idioma : null,
+      editorial: editorial ? editorial : null,
+      edicion: edicion ? edicion : null,
+      tapa: tapa ? tapa : null,
+      publicado: publicado ? publicado : null,
+      cant_pags: cant_pags ? cant_pags : null,
+      descripcion: descripcion ? descripcion : null,
+      price: price ? price : null,
+      image: image ? image : null,
+      colection: colection ? colection : null,
+      ilustrado: ilustrado ? ilustrado : null,
+      category: category ? category : null
     })
 
     if (!bookEditado) {

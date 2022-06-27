@@ -16,6 +16,7 @@ import EditCard from './EditCard/EditCard'
 const Forms = () => {
   const [dispatch, navigate] = [useDispatch(), useNavigate()]
   const categories = useSelector(state => state.categories)
+  const { nombre, autor, idioma, editorial, edicion, tapa, publicado, cant_pags, descripcion, price, image, colection, ilustrado, category } = useSelector(state => state.detail)
 
   const { id } = useParams()
   const isAddMode = !id
@@ -44,24 +45,43 @@ const Forms = () => {
         <EditCard id={id} addMode={isAddMode} />
 
         <Formik
-          initialValues={{
-            nombre: '',
-            autor: '',
-            idioma: '',
-            editorial: '',
-            edicion: '',
-            tapa: '',
-            publicado: '',
-            cant_pags: '',
-            descripcion: '',
-            price: '',
-            image: '',
-            colection: '',
-            ilustrado: false,
-            category: []
-          }}
+          initialValues={
+            isAddMode
+              ? {
+                nombre: '',
+                autor: '',
+                idioma: '',
+                editorial: '',
+                edicion: '',
+                tapa: '',
+                publicado: '',
+                cant_pags: '',
+                descripcion: '',
+                price: '',
+                image: '',
+                colection: '',
+                ilustrado: false,
+                category: []
+              }
+              : {
+                nombre,
+                autor,
+                idioma,
+                editorial,
+                edicion,
+                tapa,
+                publicado,
+                cant_pags,
+                descripcion,
+                price,
+                image,
+                colection,
+                ilustrado,
+                category
+              }
+          }
 
-          validate={values => formValidators(values)}
+          validate={values => formValidators(values, isAddMode)}
 
           onSubmit={(values, { resetForm }) => {
             if (uploadImg) {
@@ -97,6 +117,7 @@ const Forms = () => {
                 <div className={s.subdi}>
 
                   <label className={s.label} >Nombre*</label>
+                  {!isAddMode ? <p className={s.centro}>({nombre})</p> : null}
                   <div>
                     <Field
                       name="nombre"
@@ -108,6 +129,7 @@ const Forms = () => {
                   </div>
 
                   <label className={s.label} >Autor*</label>
+                  {!isAddMode ? <p className={s.centro}>({autor})</p> : null}
                   <div>
                     <Field
                       name="autor"
@@ -119,6 +141,7 @@ const Forms = () => {
                   </div>
 
                   <label className={s.label} >Idioma*</label>
+                  {!isAddMode ? <p className={s.centro}>({idioma})</p> : null}
                   <div>
                     <Field
                       name="idioma"
@@ -130,6 +153,7 @@ const Forms = () => {
                   </div>
 
                   <label className={s.label} >Editorial</label>
+                  {!isAddMode ? <p className={s.centro}>({editorial})</p> : null}
                   <div>
                     <Field
                       name="editorial"
@@ -141,6 +165,7 @@ const Forms = () => {
                   </div>
 
                   <label className={s.label} >Edición</label>
+                  {!isAddMode ? <p className={s.centro}>({edicion})</p> : null}
                   <div>
                     <Field
                       name="edicion"
@@ -152,12 +177,13 @@ const Forms = () => {
                   </div>
 
                   <div className={s.centro}>
+                    {!isAddMode ? <p className={s.centro}>({tapa})</p> : null}
                     <Field
                       name="tapa"
                       className={s.textarea}
                       as="select"
                       id="tapa"
-                      value=''
+                      value={values.tapa?.defaultValue}
                     >
                       <option value=''>¿TIPO DE TAPA?</option>
                       <option value="Blanda">Blanda</option>
@@ -168,6 +194,7 @@ const Forms = () => {
                 </div>
 
                 <label className={s.label} >Año de publicación</label>
+                {!isAddMode ? <p className={s.centro}>({publicado})</p> : null}
                 <div>
                   <Field
                     name="publicado"
@@ -180,6 +207,7 @@ const Forms = () => {
                 </div>
 
                 <label className={s.label} >Páginas</label>
+                {!isAddMode ? <p className={s.centro}>({cant_pags})</p> : null}
                 <div>
                   <Field
                     name="cant_pags"
@@ -191,6 +219,7 @@ const Forms = () => {
                 </div>
 
                 <label className={s.label} >Saga / Serie</label>
+                {!isAddMode ? <p className={s.centro}>({colection})</p> : null}
                 <div>
                   <Field
                     name="colection"
@@ -225,15 +254,16 @@ const Forms = () => {
                   <ErrorMessage name='descripcion' component={() => (<p className={s.error}>{errors.descripcion}</p>)} />
                 </div>
 
+                {!isAddMode ? <p className={s.centro}>({ilustrado})</p> : null}
                 <div className={s.centro}>
                   <Field
                     name="ilustrado"
                     className={s.textarea}
                     as="select"
                     id="ilustrado"
-                    value=''
+                    value={values.ilustrado?.defaultValue}
                   >
-                    <option value=''>¿ILUSTRADO?</option>
+                    <option value={false}>¿ILUSTRADO?</option>
                     <option value={false}>X</option>
                     <option value={true}>✓</option>
                   </Field>
@@ -248,6 +278,7 @@ const Forms = () => {
                   </div>
                   <ErrorMessage name='category' component={() => (<p className={s.error}>{errors.category}</p>)} />
                 </div>
+                {!isAddMode ? <p className={s.centro}>({category})</p> : null}
 
                 <label className={s.label} >Fotografía del ejemplar</label>
                 <div>
@@ -327,7 +358,7 @@ const Forms = () => {
                 type="submit"
                 disabled={errors.nombre || errors.autor || errors.idioma || errors.price || errors.category || errors.descripcion || errors.file || errors.image}
               >ENVIAR</button>
-
+              {console.log(values)}
             </Form>
           )}
         </Formik>
