@@ -59,6 +59,7 @@ const Review = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if(input.description && input.score && input.title){
+      console.log("acá están todos los inputs", input)
       if(input.score > 5 || input.score <= 1){
         alert("El score debe ser entre 1 y 5")
       } else {
@@ -89,7 +90,7 @@ const Review = () => {
       <div class="bg-gray-50 rounded-lg max-w-7xl p-10 mt-10  flex justify-center lg:w-1/2 ml-60 " >
   <div class="bg-white p-10 rounded-lg shadow md:w-3/4 lg:w-1/2 mx-auto">
 
-    <form action="" class="">
+    <form action="" class="" onSubmit={(e)=>handleSubmit(e)}>
 
       <div class="mb-5">
         <label htmlFor="" class="block mb-2 font-bold text-gray-700 text-3xl">Título</label>

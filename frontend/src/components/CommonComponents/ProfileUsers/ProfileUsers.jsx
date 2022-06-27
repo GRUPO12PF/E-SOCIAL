@@ -14,7 +14,8 @@ const ProfileUsers = () => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.usuarioProfile)
   const book = useSelector(state => state.booksCreated)
-  const review = useSelector(state => state.review)
+  const review = useSelector(state => state.allReviews)
+  console.log("a ver qué trae de acá...", review)
 
   useEffect(() => {
     dispatch(usuarioCreated(id))
