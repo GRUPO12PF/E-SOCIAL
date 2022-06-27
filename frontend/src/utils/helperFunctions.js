@@ -80,6 +80,11 @@ export function formValidators(values) {
         ? errors.price = 'Ingrese el precio sin puntos ni comas'
         : null
 
+  // saga o serie
+  !/^(\d|[a-z]|[\u00f1\u00d1]|[,\.:¡!¿?()'\-]|[À-ÿ]|\s){0,60}$/i.test(values.colection)
+    ? errors.colection = 'Ingrese un idioma válido de hasta 30 caracteres'
+    : null
+
   // categorías
   values.category?.length < 1
     ? errors.category = 'Elija al menos 1 categoría'

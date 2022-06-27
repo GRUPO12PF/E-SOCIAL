@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Formik, Field, ErrorMessage, Form } from 'formik'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -8,13 +8,13 @@ import { cleanData, getBooks, putBookBody } from '../../../redux/actions/actionB
 import { detailsBook } from '../../../redux/actions/detailsBooks'
 import { subirFotos } from '../../../redux/actions/actionSubirFotos'
 import { formValidators } from '../../../utils/helperFunctions.js'
+import { formInitialValues } from './formInitialValues'
 import PreviewImage from './ImgPreview/ImgPreview'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
-import s from '../Form/Form.module.css'
 import EditCard from './EditCard/EditCard'
-import { formInitialValues } from './formInitialValues'
 import CampoInput from './CampoInput/CampoInput'
 import CampoSelect from './CampoInput/CampoSelect'
+import s from '../Form/Form.module.css'
 
 const Forms = () => {
   const [dispatch, navigate] = [useDispatch(), useNavigate()]
@@ -129,26 +129,23 @@ const Forms = () => {
                     errors={errors}
                   />
 
-                  <div className={s.centro}>
-                    <div className={s.tapas}>
-                      <label className={s.label}>Tapa</label>
-                      {!isCreate ? <p className={s.centro}>({tapa})</p> : null}
-                      <Field
-                        name="tapa"
-                        className={s.textarea}
-                        as="select"
-                        id="tapa"
-                        value={values.tapa?.defaultValue}
-                      >
-                        <option value=''>¿Tipo de Tapa?</option>
-                        <option value="Blanda">Blanda</option>
-                        <option value="Dura">Dura</option>
-                      </Field>
+                  <div className={s.tapas}>
+                    <div className={s.centro}>
+                      <CampoSelect
+                        name='tapa'
+                        input={tapa}
+                        isCreate={isCreate}
+                        errors={errors}
+                        values={values}
+                        option2={'Blanda'}
+                        option3={'Dura'}
+                      />
                     </div>
                   </div>
 
                   <CampoInput
-                    name='año de publicación'
+                    text='año de publicación'
+                    name='publicado'
                     type="number"
                     input={publicado}
                     isCreate={isCreate}
@@ -157,34 +154,32 @@ const Forms = () => {
                   />
 
                   <CampoInput
-                    name='páginas'
+                    text='páginas'
+                    name='cant_pags'
                     type="number"
                     input={cant_pags}
                     isCreate={isCreate}
                     errors={errors}
                   />
 
-                  <label className={s.label} >Saga / Serie</label>
-                  {!isCreate ? <p className={s.centro}>({colection})</p> : null}
-                  <div>
-                    <Field
-                      name="colection"
-                      className={s.input}
-                      type="text"
-                    />
-                  </div>
-                  <ErrorMessage name='colection' component={() => (<p className={s.error}>{errors.colection}</p>)} />
+                  <CampoInput
+                    text='Saga / Serie'
+                    name='colection'
+                    type="text"
+                    input={colection}
+                    isCreate={isCreate}
+                    errors={errors}
+                  />
 
-                  <label className={s.label} >Precio*</label>
-                  <div>
-                    <Field
-                      name="price"
-                      className={s.input}
-                      type="number"
-                      placeholder="en centavos de USD..."
-                    />
-                  </div>
-                  <ErrorMessage name='price' component={() => (<p className={s.error} >{errors.price}</p>)} />
+                  <CampoInput
+                    text='precio'
+                    name='price'
+                    type="number"
+                    isCreate={isCreate}
+                    errors={errors}
+                    placeholder='en centavos de USD...'
+                    req={'*'}
+                  />
 
                   <CampoInput
                     name='descripcion'
@@ -199,16 +194,20 @@ const Forms = () => {
                 </div>
 
                 <div className={s.centro}>
+
                   <CampoSelect
                     name='ilustrado'
                     input={ilustrado}
                     isCreate={isCreate}
                     errors={errors}
                     values={values}
+                    option2={'X'}
+                    option3={'✓'}
                   />
 
                   <div className={s.categoriasF}>
                     <label className={s.label}>Categorías*</label>
+
                     <div className={s.check}>
                       <div role="group" aria-labelledby="checkbox-group" >
                         {categories?.map((e, i) =>
@@ -216,9 +215,10 @@ const Forms = () => {
                         )}
                       </div>
                     </div>
+
                   </div>
                   <ErrorMessage name='category' component={() => (<p className={s.error}>{errors.category}</p>)} />
-                  {!isCreate ? <p className={s.centro}>({category})</p> : null}
+                  {!isCreate ? <p className={s.centro}>({category?.sort((a, b) => a.localeCompare(b)).join(', ')})</p> : null}
                 </div>
 
                 <div className={s.fotoF1}>
