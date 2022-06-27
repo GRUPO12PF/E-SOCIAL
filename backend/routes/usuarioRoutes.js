@@ -12,6 +12,7 @@ import {
     traerUsuarios,
     obtenerOrdersUsuarios,
     cambiarImage,
+    deleteUsuario
 } from "../controllers/usuarioControllers.js";
 
 import checkAuth from "../middleware/checkAuth.js";
@@ -32,4 +33,7 @@ router.get("/traer-orders", obtenerOrdersUsuarios);
 router.get("/actual", checkAuth, usuario);
 router.put("/imagen", checkAuth, cambiarImage);//Cambiar imagen de perfil
 
+router.delete("/delete", deleteUsuario) //borrar users as admin
 export default router;
+
+//   /api/usuarios/delete
