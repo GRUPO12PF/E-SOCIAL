@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Formik, Field, ErrorMessage, Form } from 'formik'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
@@ -6,35 +6,25 @@ import { postCreate } from '../../../redux/actions/postProducts'
 import { getCategories } from '../../../redux/actions/actionCategories.js'
 import { cleanData, getBooks, putBookBody } from '../../../redux/actions/actionBooks'
 import { detailsBook } from '../../../redux/actions/detailsBooks'
-import { subirFotos } from '../../../redux/actions/actionSubirFotos'
 import { formValidators } from '../../../utils/helperFunctions.js'
-import PreviewImage from './ImgPreview/ImgPreview'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
-import s from '../Form/Form.module.css'
 import EditCard from './EditCard/EditCard'
+import ValueImage from './ValueImage/ValueImage'
+import s from '../Form/Form.module.css'
 
 const Forms = () => {
   const [dispatch, navigate] = [useDispatch(), useNavigate()]
   const categories = useSelector(state => state.categories)
-  const { nombre, autor, idioma, editorial, edicion, tapa, publicado, cant_pags, descripcion, price, image, colection, ilustrado, category } = useSelector(state => state.detail)
+  const oldBook = useSelector(state => state.detail)
+  const imgPreview = useSelector(state => state.tempState)
 
   const { id } = useParams()
-  const isAddMode = !id
-
-  const fileRef = useRef(null)
-  const imgPreview = useSelector(state => state.tempState)
-  const [uploadImg, setUploadImg] = useState(false)
-  const [confirmImg, setConfirmImg] = useState(true)
-
-  function handleImage(images) {
-    dispatch(subirFotos(images))
-    setConfirmImg(false)
-  }
+  const isCreate = !id // sin ID es VENDER, con ID es UPDATE
 
   useEffect(() => {
     dispatch(cleanData)
     dispatch(getCategories())
-    if (!isAddMode) { dispatch(detailsBook(id)) }
+    if (!isCreate) { dispatch(detailsBook(id)) }
   }, [dispatch])
 
   return (
@@ -42,7 +32,7 @@ const Forms = () => {
       <div>
         <NavBar />
 
-        <EditCard id={id} addMode={isAddMode} />
+        <EditCard id={id} isCreate={isCreate} />
 
         <Formik
           initialValues={
@@ -72,7 +62,7 @@ const Forms = () => {
             }
             delete values.file
 
-            if (isAddMode) {
+            if (isCreate) {
               dispatch(postCreate(values))
             } else {
               values._id = id
@@ -100,67 +90,66 @@ const Forms = () => {
                 <div className={s.subdi}>
 
                   <label className={s.label} >Nombre*</label>
-                  {!isAddMode ? <p className={s.centro}>({nombre})</p> : null} {/* solo en modo Update */}
                   <div>
                     <Field
                       name="nombre"
                       className={s.input}
                       type="text"
                       id="nombre"
+                      placeholder={!isCreate ? oldBook.nombre : ''}
                     />
                     <ErrorMessage name='nombre' component={() => (<p className={s.error}>{errors.nombre}</p>)} />
                   </div>
 
                   <label className={s.label} >Autor*</label>
-                  {!isAddMode ? <p className={s.centro}>({autor})</p> : null}
                   <div>
                     <Field
                       name="autor"
                       className={s.input}
                       type="text"
                       id="autor"
+                      placeholder={!isCreate ? oldBook.autor : ''}
                     />
                     <ErrorMessage name='autor' component={() => (<p className={s.error}>{errors.autor}</p>)} />
                   </div>
 
                   <label className={s.label} >Idioma*</label>
-                  {!isAddMode ? <p className={s.centro}>({idioma})</p> : null}
                   <div>
                     <Field
                       name="idioma"
                       className={s.textarea}
                       type="text"
                       id="idioma"
+                      placeholder={!isCreate ? oldBook.idioma : ''}
                     />
                     <ErrorMessage name='idioma' component={() => (<p className={s.error}>{errors.idioma}</p>)} />
                   </div>
 
                   <label className={s.label} >Editorial</label>
-                  {!isAddMode ? <p className={s.centro}>({editorial})</p> : null}
                   <div>
                     <Field
                       name="editorial"
                       className={s.textarea}
                       type="text"
                       id="editorial"
+                      placeholder={!isCreate ? oldBook.editorial : ''}
                     />
                     <ErrorMessage name='editorial' component={() => (<p className={s.error}>{errors.editorial}</p>)} />
                   </div>
 
                   <label className={s.label} >Edición</label>
-                  {!isAddMode ? <p className={s.centro}>({edicion})</p> : null}
                   <div>
                     <Field
                       name="edicion"
                       className={s.input}
                       type="number"
                       id="edicion"
+                      placeholder={!isCreate ? oldBook.edicion : ''}
                     />
                     <ErrorMessage name='edicion' component={() => (<p className={s.error}>{errors.edicion}</p>)} />
                   </div>
 
                   <div className={s.centro}>
-                    {!isAddMode ? <p className={s.centro}>({tapa})</p> : null}
                     <Field
                       name="tapa"
                       className={s.textarea}
@@ -172,43 +161,43 @@ const Forms = () => {
                       <option value="Blanda">Blanda</option>
                       <option value="Dura">Dura</option>
                     </Field>
+                    {!isCreate ? <p>{oldBook.tapa}</p> : ''}
                   </div>
 
                 </div>
 
                 <label className={s.label} >Año de publicación</label>
-                {!isAddMode ? <p className={s.centro}>({publicado})</p> : null}
                 <div>
                   <Field
                     name="publicado"
                     className={s.input}
                     type="number"
                     id="publicado"
-                    placeholder="AAAA..."
+                    placeholder={oldBook.publicado || "AAAA..."}
                   />
                   <ErrorMessage name='publicado' component={() => (<p className={s.error}>{errors.publicado}</p>)} />
                 </div>
 
                 <label className={s.label} >Páginas</label>
-                {!isAddMode ? <p className={s.centro}>({cant_pags})</p> : null}
                 <div>
                   <Field
                     name="cant_pags"
                     className={s.input}
                     type="number"
                     id="cant_pags"
+                    placeholder={oldBook.cant_pags || ''}
                   />
                   <ErrorMessage name='cant_pags' component={() => (<p className={s.error}>{errors.cant_pags}</p>)} />
                 </div>
 
                 <label className={s.label} >Saga / Serie</label>
-                {!isAddMode ? <p className={s.centro}>({colection})</p> : null}
                 <div>
                   <Field
                     name="colection"
                     className={s.input}
                     type="text"
                     id="colection"
+                    placeholder={oldBook.colection || ''}
                   />
                   <ErrorMessage name='colection' component={() => (<p className={s.error}>{errors.colection}</p>)} />
                 </div>
@@ -237,7 +226,6 @@ const Forms = () => {
                   <ErrorMessage name='descripcion' component={() => (<p className={s.error}>{errors.descripcion}</p>)} />
                 </div>
 
-                {!isAddMode ? <p className={s.centro}>({ilustrado})</p> : null}
                 <div className={s.centro}>
                   <Field
                     name="ilustrado"
@@ -250,6 +238,7 @@ const Forms = () => {
                     <option value={false}>X</option>
                     <option value={true}>✓</option>
                   </Field>
+                  {!isCreate ? <p>{oldBook.ilustrado}</p> : ''}
                 </div>
 
                 <label className={s.label}>Categorías*</label>
@@ -261,78 +250,14 @@ const Forms = () => {
                   </div>
                   <ErrorMessage name='category' component={() => (<p className={s.error}>{errors.category}</p>)} />
                 </div>
-                {!isAddMode ? <p className={s.centro}>({category})</p> : null}
+                {!isCreate ? <p className={s.centro}>({oldBook.category})</p> : null}
 
                 <label className={s.label} >Fotografía del ejemplar</label>
-                <div>
-                  {uploadImg
-                    /* cambiar a Pasar Img por URL */
-                    ? <div>
-                      <button type="button"
-                        onClick={() => {
-                          setUploadImg(false)
-                        }}>PASAR URL
-                      </button>
-                      <p>Cargue el archivo de su imagen</p>
-                    </div>
-
-                    /* cambiar a Img a Cloudinary */
-                    : <div>
-                      <button type="button"
-                        onClick={() => {
-                          setUploadImg(true)
-                        }}>SUBIR IMAGEN
-                      </button>
-                      <p>Ingrese la URL de su imagen</p>
-                    </div>
-
-                  }
-                </div>
-                <div>
-                  {uploadImg
-                    /* Subir Img a Cloudinary */
-                    ? (<div>
-                      <input
-                        hidden
-                        name='file'
-                        ref={fileRef}
-                        className={s.input}
-                        type="file"
-                        id="file"
-                        onChange={e => {
-                          setFieldValue("file", e.target.files[0])
-                        }}
-                      />
-
-                      <button className={s.uploadButton} type="button" onClick={() => {
-                        fileRef.current.click()
-                      }}>
-                        CARGAR IMAGEN
-                      </button>
-
-                      {values.file && <PreviewImage file={values.file} />}
-                      {values.file && confirmImg && <button type="button"
-                        disabled={errors.file}
-                        onClick={() => {
-                          handleImage(values.file)
-                        }}>CONFIRMAR IMAGEN</button>}
-
-                    </div>)
-
-                    /* Pasar Img por URL */
-                    : (<div>
-                      <Field
-                        name="image"
-                        className={s.input}
-                        type="text"
-                        id="image"
-                      />
-                    </div>)
-                  }
-
-                </div>
-                <p className={s.error}>{errors.file}</p>
-                <ErrorMessage name='image' component={() => (<p className={s.error}>{errors.image}</p>)} />
+                <ValueImage
+                  values={values}
+                  errors={errors}
+                  setFieldValue={setFieldValue}
+                />
 
               </div>
 

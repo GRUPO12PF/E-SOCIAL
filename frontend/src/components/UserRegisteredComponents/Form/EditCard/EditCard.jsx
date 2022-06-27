@@ -4,27 +4,29 @@ import { detailsBook } from "../../../../redux/actions/detailsBooks"
 import { formatToCurrency } from "../../../../utils/helperFunctions"
 import s from '../Form.module.css'
 
-const EditCard = ({ id, addMode }) => {
+const EditCard = ({ id, isCreate }) => {
   const dispatch = useDispatch()
   const { nombre, descripcion, price, image } = useSelector(state => state.detail)
-  
+
   const priceShow = formatToCurrency(price)
 
   const [verMas, setVerMas] = useState(false)
 
   useEffect(() => {
-    if (!addMode) { dispatch(detailsBook(id)) }
+    if (!isCreate) { dispatch(detailsBook(id)) }
   }, [])
 
   return (
     <div>
-      <h1>{addMode ? 'Anunciar Producto' : `Editar: ${nombre}`}</h1>
+      <h1>{isCreate ? 'Anunciar Producto' : `Editar: ${nombre}`}</h1>
       {
-        addMode
+        isCreate
           ? null
           : (
             <div className={s.centro}>
-              <img src={image} alt='portada anterior' style={{maxWidth: "300px"}}/>
+              <img src={image}
+                alt='portada anterior'
+                style={{ maxWidth: "300px" }} />
               {priceShow}<br />
 
               <button onClick={() => setVerMas(!verMas)}>
