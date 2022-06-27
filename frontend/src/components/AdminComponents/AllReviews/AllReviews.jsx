@@ -44,11 +44,11 @@ function AllReviews() {
                                         <td className={s.id}><img src={u.vendedor?.image.url}/></td>
                                         <td className={s.price}>
                                         {
-                                u.score === 1 ? <p>⭐</p> :
-                                u.score === 2 ? <p>⭐⭐</p>:
-                                u.score === 3 ? <p>⭐⭐⭐</p>:
-                                u.score === 4 ? <p>⭐⭐⭐⭐</p>:
-                                        <p>⭐⭐⭐⭐⭐</p>
+                                u.score === 1 ? <p className={s.star}>⭐</p> :
+                                u.score === 2 ? <p className={s.star}>⭐⭐</p>:
+                                u.score === 3 ? <p className={s.star}>⭐⭐⭐</p>:
+                                u.score === 4 ? <p className={s.star}>⭐⭐⭐⭐</p>:
+                                        <p className={s.star}>⭐⭐⭐⭐⭐</p>
                                 }</td>
                                         <td className={s.blocked}>{u.description}</td>
                                     </tr>

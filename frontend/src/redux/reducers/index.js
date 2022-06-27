@@ -1,4 +1,4 @@
-import { GET_CATEGORIES, GET_REVIEW, FILTER_BY_CATEGORY, SORT_BY, NAME_ASC, NAME_DESC, PRICE_ASC, PRICE_DESC, BUY_BOOK, GET_DETALLE_ORDER, GET_USUARIOS, GET_ORDERS, POST_ANSWER, POST_QUESTION, GET_QA, GET_ALL_QUESTIONS, GET_ALL_ANSWERS, GET_ALL_QUESTIONS_COMPRADOR, TEMP_STATE, DELETE_USER } from '../utils/constants'
+import { GET_CATEGORIES, GET_REVIEW, FILTER_BY_CATEGORY, SORT_BY, NAME_ASC, NAME_DESC, PRICE_ASC, PRICE_DESC, BUY_BOOK, GET_DETALLE_ORDER, GET_USUARIOS, GET_ORDERS, POST_ANSWER, POST_QUESTION, GET_QA, GET_ALL_QUESTIONS, GET_ALL_ANSWERS, GET_ALL_QUESTIONS_COMPRADOR, TEMP_STATE, NEW_FIRST } from '../utils/constants'
 
 const initialState = {
   allBooks: [],
@@ -28,7 +28,7 @@ const initialState = {
   usuarioActual: [],
   usuarioProfile: [],
   allReviews: [],
-  review : []
+  review: []
 }
 
 function rootReducer(state = initialState, action) {
@@ -158,12 +158,18 @@ function rootReducer(state = initialState, action) {
     case SORT_BY:
       let sortedBooks = [...state.books]
 
+      if (action.payload === NEW_FIRST) {
+        sortedBooks.sort((a, b) => a.createdAt.localeCompare(b.createdAt))
+      }
+
       if (action.payload === NAME_ASC) {
         sortedBooks.sort((a, b) => a.nombre.localeCompare(b.nombre))
       }
+
       if (action.payload === NAME_DESC) {
         sortedBooks.sort((a, b) => b.nombre.localeCompare(a.nombre))
       }
+
       if (action.payload === PRICE_ASC) {
         sortedBooks.sort((a, b) =>
           a.price !== b.price
@@ -171,6 +177,7 @@ function rootReducer(state = initialState, action) {
             : a.nombre.localeCompare(b.nombre)
         )
       }
+
       if (action.payload === PRICE_DESC) {
         sortedBooks.sort((a, b) =>
           a.price !== b.price
@@ -178,6 +185,7 @@ function rootReducer(state = initialState, action) {
             : b.nombre.localeCompare(a.nombre)
         )
       }
+
       return {
         ...state,
         books: sortedBooks
@@ -254,16 +262,12 @@ function rootReducer(state = initialState, action) {
         allOrders: action.payload
       }
 
-    case DELETE_USER:
-    return{
-      ...state,
-      deleteUserAsAdmin: action.payload
-    }
-      case GET_REVIEW:
-        return{
-          ...state,
-          allReviews: action.payload
-        }
+
+    case GET_REVIEW:
+      return {
+        ...state,
+        allReviews: action.payload
+      }
     //----------------------QA---------------
     case POST_ANSWER:
       return {
@@ -283,27 +287,27 @@ function rootReducer(state = initialState, action) {
         ...state,
         questions: action.payload
       }
-      case GET_ALL_ANSWERS:
-        return {
-          ...state,
-          answers: action.payload
-        }
-        case GET_ALL_QUESTIONS_COMPRADOR:
-          return {
-            ...state,
-            questionsComprador: action.payload
-          }
-// -------------------- REVIEW --------------------- 
-      case "POST_REVIEW":
-        return{
-          ...state
-        }
+    case GET_ALL_ANSWERS:
+      return {
+        ...state,
+        answers: action.payload
+      }
+    case GET_ALL_QUESTIONS_COMPRADOR:
+      return {
+        ...state,
+        questionsComprador: action.payload
+      }
+    // -------------------- REVIEW --------------------- 
+    case "POST_REVIEW":
+      return {
+        ...state
+      }
 
-      case "GET_REVIEW":
-        return{
-          ...state,
-          review :action.payload
-        }
+    case "GET_REVIEW":
+      return {
+        ...state,
+        review: action.payload
+      }
     default:
       return state
   }

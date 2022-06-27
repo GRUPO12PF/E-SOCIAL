@@ -45,7 +45,7 @@ export default function BooksCreated() {
         </div>
         </div>
        
-        <Footer />
+        {/* <Footer /> */}
       
   
       
