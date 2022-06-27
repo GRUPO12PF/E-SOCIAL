@@ -15,6 +15,7 @@ import EditCard from './EditCard/EditCard'
 import CampoInput from './CampoInput/CampoInput'
 import CampoSelect from './CampoInput/CampoSelect'
 import s from '../Form/Form.module.css'
+// import { BackButton } from '../../CommonComponents/Buttons/BackButton'
 
 const Forms = () => {
   const [dispatch, navigate] = [useDispatch(), useNavigate()]
@@ -301,10 +302,11 @@ const Forms = () => {
                 type="submit"
                 disabled={Object.keys(errors).length > 0}
               >ENVIAR</button>
-              {console.log(errors)}
+
+              {/* <BackButton /> */}
+
             </Form>
           )}
-
         </Formik>
       </div>
     </div >
