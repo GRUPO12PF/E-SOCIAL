@@ -11,7 +11,7 @@ export default function Home() {
 
       <div className="contenedorTotal">
         <NavBar />
-        <Carousell />
+                <Carousell />
         <AllBooks />
       </div>
 
