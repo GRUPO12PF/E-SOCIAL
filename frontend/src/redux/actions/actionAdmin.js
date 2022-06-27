@@ -43,7 +43,7 @@ export function deleteUser(payload){
     // }
     console.log("desde las actions", payload)
     return async function (dispatch) {
-        const json = await clienteAxios.delete(`/usuarios/delete/`, payload)
+        const json = await clienteAxios.delete(`/usuarios/delete/${payload}`)
         console.log("veamos el json",json)
         return dispatch({
             type: DELETE_USER,
