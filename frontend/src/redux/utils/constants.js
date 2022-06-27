@@ -10,6 +10,7 @@ export const PUT_BOOK_BODY = 'PUT_BOOK_BODY'
 
 // SORTER -----------------------------------------
 export const SORT_BY = 'SORT_BY'
+export const NEW_FIRST = 'NEW_FIRST'
 export const NAME_ASC = 'NAME_ASC'
 export const NAME_DESC = 'NAME_DESC'
 export const PRICE_ASC = 'PRICE_ASC'

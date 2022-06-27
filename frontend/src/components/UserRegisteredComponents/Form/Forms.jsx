@@ -13,7 +13,7 @@ import NavBar from '../../CommonComponents/NavBar/NavBar'
 import s from '../Form/Form.module.css'
 import EditCard from './EditCard/EditCard'
 import { formInitialValues } from './formInitialValues'
-import { BackButton } from '../../CommonComponents/Buttons/BackButton'
+// import { BackButton } from '../../CommonComponents/Buttons/BackButton'
 
 const Forms = () => {
   const [dispatch, navigate] = [useDispatch(), useNavigate()]
@@ -336,7 +336,7 @@ const Forms = () => {
                 disabled={Object.keys(errors).length > 0}
               >ENVIAR</button>
 
-              <BackButton />
+              {/* <BackButton /> */}
 
             </Form>
           )}
