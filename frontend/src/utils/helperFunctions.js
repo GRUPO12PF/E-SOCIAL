@@ -1,10 +1,3 @@
-// pasa (value) de centavos de dólar a número con coma
-export function formatToCurrency(value) {
-  const centsToDollars = value / 100
-  const finalPrice = `U$D ${centsToDollars}`
-  return finalPrice
-}
-
 // devuelve año actual
 export function currentYear() {
   const current = new Date()
@@ -17,6 +10,13 @@ function hasExtension(input) {
   // const fileName = document.getElementsByName(inputID).value
   const res = /\.(gif|jpe?g|png)$/i.test(input)
   return res
+}
+
+// pasa (value) de centavos de dólar a número con coma
+export function formatToCurrency(value) {
+  const centsToDollars = value / 100
+  const finalPrice = `U$D ${centsToDollars}`
+  return finalPrice
 }
 
 // validaciones del Form
