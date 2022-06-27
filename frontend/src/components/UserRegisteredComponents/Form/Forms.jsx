@@ -13,6 +13,7 @@ import NavBar from '../../CommonComponents/NavBar/NavBar'
 import s from '../Form/Form.module.css'
 import EditCard from './EditCard/EditCard'
 import { formInitialValues } from './formInitialValues'
+import { BackButton } from '../../CommonComponents/Buttons/BackButton'
 
 const Forms = () => {
   const [dispatch, navigate] = [useDispatch(), useNavigate()]
@@ -326,7 +327,7 @@ const Forms = () => {
                   <p className={s.error}>{errors.file}</p>
 
                 </div>
-                  <ErrorMessage name='image' component={() => (<p className={s.error}>{errors.image}</p>)} />
+                <ErrorMessage name='image' component={() => (<p className={s.error}>{errors.image}</p>)} />
               </div>
 
               <button
@@ -334,10 +335,11 @@ const Forms = () => {
                 type="submit"
                 disabled={Object.keys(errors).length > 0}
               >ENVIAR</button>
-              {console.log(errors)}
+
+              <BackButton />
+
             </Form>
           )}
-
         </Formik>
       </div>
     </div >
