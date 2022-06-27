@@ -9,6 +9,9 @@ import { useNavigate } from "react-router"
 import validarEmail from "../../../middleware/validarEmail"
 import validatePassword from "../../../middleware/validarPassword"
 
+import { GoogleOAuthProvider } from "@react-oauth/google"
+import { GoogleLogin } from "@react-oauth/google"
+
 export default function Login() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -83,6 +86,14 @@ export default function Login() {
         } else setErrors(val)
     }
 
+    function responseGoogle(el) {
+        dispatch(registroGoogle(el))
+    
+        setTimeout(function () {
+          window.location.reload(1)
+        }, 1500) // After 2,5 secs
+      }
+
     return (
         <>
             <form className="formLoginRegister" onSubmit={handleSubmit}>
@@ -124,6 +135,12 @@ export default function Login() {
                     <a>Olvido su contraseña?</a>
                 </Link>
                 <button className="btnLoginRegister">Ingresar</button>
+                <div class="padBoton">
+
+                <GoogleOAuthProvider class="btnLoginRegister" clientId={`${import.meta.env.VITE_URL_CLIENT_ID}`} >
+                    <GoogleLogin  login_uri="" onSuccess={responseGoogle} />
+                </GoogleOAuthProvider> 
+                </div>
             </form>
         </>
 
