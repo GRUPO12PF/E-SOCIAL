@@ -22,7 +22,7 @@ export default function BooksCreated() {
       <NavBar />
       
       <Link to = '/profile'>
-        <button className="text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">VOLVER AL MENU</button>
+        <button className="text-white bg-gray-600 py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">VOLVER AL MENU</button>
       </Link>
       <div className="text-center w-full">
    <h3 className={s.titulo}>MIS LIBROS</h3>
@@ -45,7 +45,7 @@ export default function BooksCreated() {
         </div>
         </div>
        
-        <Footer />
+        {/* <Footer /> */}
       
   
       

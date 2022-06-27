@@ -107,14 +107,13 @@ export function mayúsculaInicial(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-
-export function sortArray(value, reverse) {
-  let res
-  Array.isArray(value) // si value es array...
-    ? value.sort( // ... ordena...
-      isNaN(value[0])
-        ? (a, b) => a.localeCompare(b) // ... alfabéticamente si es string...
-        : (a, b) => a - b) // ... o de menor a mayor si es número
-    : res = "NOT AN ARRAY!" // aclara en caso de que value no sea array
-  return res ? res : reverse ? value.reverse() : value // reverse == TRUE ? orderna invertido
-}
+// export function sortArray(value, reverse) {
+//   let res
+//   Array.isArray(value) // si value es array...
+//     ? value.sort( // ... ordena...
+//       isNaN(value[0])
+//         ? (a, b) => a.localeCompare(b) // ... alfabéticamente si es string...
+//         : (a, b) => a - b) // ... o de menor a mayor si es número
+//     : res = "NOT AN ARRAY!" // aclara en caso de que value no sea array
+//   return res ? res : reverse ? value.reverse() : value // reverse == TRUE ? orderna invertido
+// }
