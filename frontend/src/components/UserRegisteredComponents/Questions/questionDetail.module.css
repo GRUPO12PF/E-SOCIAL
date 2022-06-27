@@ -27,13 +27,13 @@ h3{
 }
 
 .usersTable{
-    background-color: rgba(0, 0, 0, 0.171);
+    background-color: white;
     color: #000000;
     font-size: 17px;
     width: 60%;
     /* padding:2rem 25px; */
-    padding-right: 90px;
-    padding-left: 90px;
+    padding-right: 100px;
+    padding-left: 100px;
     width: 100vh;
     
     
@@ -62,7 +62,7 @@ h3{
     font-family: 'Lato', sans-serif;
     font-size: 17px;
     padding: 2rem;
-   
+   text-align: center;
 }
 
 .id{
@@ -80,6 +80,7 @@ h3{
     background-color: #6f7769;
     border-radius: 8px;
     margin: 5px;
+    padding: 10px;
 }
 
 .btn{
@@ -88,6 +89,8 @@ h3{
     color: black;
     border-radius: 8px;
     margin: 5px;
+    margin-left: 2px;
+    padding: 10px;
 }
 
 .containerAnswer{
@@ -98,7 +101,8 @@ h3{
 }
 
 .no{
-    padding: 40px;
+    padding: 60px;
+    
 }
 
 .moderator{
