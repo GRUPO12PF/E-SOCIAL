@@ -57,13 +57,13 @@ function AllBooks() {
                 ) : (
                   <Link id="detail" to={"/details/" + e._id}>
                     <Book
-                      id={e._id}
-                      nombre={e.nombre}
-                      image={e.image}
-                      nameUser={e.creador.nombre}
-                      descripcion={e.descripcion}
-                      imageUser={e.creador.image.url}
-                      price={formatToCurrency(e.price)}
+                      id={e?._id}
+                      nombre={e?.nombre}
+                      image={e?.image}
+                      nameUser={e.creador?.nombre}
+                      descripcion={e?.descripcion}
+                      imageUser={e.creador?.image.url}
+                      price={formatToCurrency(e?.price)}
                     />
                   </Link>
                 )}
