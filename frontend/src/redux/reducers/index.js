@@ -12,6 +12,7 @@ const initialState = {
   confirmacion: {},
   countBooks: [],
   delete: [],
+  deleteUserAsAdmin: [],
   detail: [],
   email: [],
   invalidToken: true,

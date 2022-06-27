@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { getAllUsers } from '../../../redux/actions/actionAdmin'
+import { getAllUsers, deleteUser } from '../../../redux/actions/actionAdmin'
 import { useDispatch, useSelector } from 'react-redux'
 import { cleanData, getBooks } from '../../../redux/actions/actionBooks'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
@@ -10,9 +10,11 @@ import Remove from '../../../Iconos/remove'
 import Edit from '../../../Iconos/Edit'
 
 
-function AllUsers() {
+
+function AllUsers() { 
   const dispatch = useDispatch()
   const allUsers = useSelector(state => state.allUsuarios)
+  console.log(allUsers)
 
   useEffect(() => {
     dispatch(getAllUsers())
@@ -32,14 +34,13 @@ function AllUsers() {
     setCurrentUser(id)
   }
 
-  const handleDelete = (e, id) => {
+  const handleDelete = async (e, id) => {
     e.preventDefault()
-    if (
-      window.confirm("¿Esta seguro que quiere eliminar este usuario?") === true
-    ) {
+     if (window.confirm("¿Esta seguro que quiere eliminar este usuario?") === true) {
       dispatch(deleteUser(id))
       alert("Usuario eliminado correctamente.")
-      window.location.reload()
+      
+      // window.location.reload()
     }
   }
   return (
@@ -62,6 +63,7 @@ function AllUsers() {
 			</thead>
 			<tbody>
       {allUsers?.map((u, i) => {
+        console.log("estoy en el map", u.id)
                 return (
                   <tr
                     key={i}
