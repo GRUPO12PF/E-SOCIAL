@@ -1,65 +1,103 @@
 .formFondo{
-    background-color: #f7ede2;
-    width: 100%;
-    height: 110vh;
-    background-repeat: no-repeat;
-    background-size: cover;
+    display: flex;
+    flex-wrap:wrap;
+  }
+
+.fotoF1 {
+    padding: 20px;
+    margin-right: 20px;
+
 }
 
-.formik{
+.btnF {
+    background-color: #a9b79e;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 20px;
+    
+}
+.confirmP{
+    background-color: #a9b79e;
+    padding: 5px;
+    border-radius: 5px;
+    
+}
+.uploadButton{
+    background-color: #a9b79e;
+    padding: 5px;
+    border-radius: 5px;
+    
+}
+
+.tapas {
+    margin-top: 20px;
+   }
+
+.ilustrado {
+    margin-top: 20px;
+
+}
+
+.formik {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     flex: 1;
 
 }
 
-.form{
-    background-color: rgba(20, 25, 32, 0.351);
+.form {
+    background-color: rgba(110, 144, 118, 0.184);
     margin-top: 1rem;
     border-radius: 20px;
     padding: 40px 400px;
-    font-family: 'Roboto', sans-serif; 
+    font-family: 'Roboto', sans-serif;
     position: relative;
     right: 4rem;
-  
+    height: fit-content;
+    padding-bottom:130px;
+ 
 }
 
-.input{
-    outline: none;
+.input {
+    outline: solid 1px black;
     background: white;
     border: none;
     padding: 3px 60px;
     color: rgb(0, 0, 0);
     border-radius: 6px;
 }
-.textarea{
+
+.textarea {
     outline: none;
     background: white;
     padding: 3px 60px;
     color: rgb(0, 0, 0);
     border-radius: 5px;
 }
-.label{
+
+.label {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     text-align: center;
     color: black;
     font-family: 'Roboto', sans-serif;
+    font-size: 20px;
 }
 
-.range{
+.range {
     display: flex;
     align-items: center;
     justify-content: center;
     color: black;
 }
 
-select{
-    background: rgba(0, 0, 0, 0.484);
+select {
+    background: rgba(183, 203, 187, 0.184);
 }
-.back{
+
+.back {
     font-family: 'Roboto', sans-serif;
     color: black;
     font-size: 20px;
@@ -68,90 +106,105 @@ select{
     align-items: center;
     flex-direction: column;
 }
-.back:hover{
-    color:rgb(218, 8, 8)
+
+.back:hover {
+    color: rgb(105, 138, 105)
 }
-.sendMsg{
+
+.sendMsg {
     border-radius: 5px;
     font-family: 'Roboto', sans-serif;
     margin-top: 5px;
     z-index: 999;
     cursor: pointer;
+    background-color: #a9b79e;
+    padding: 5px;
 }
 
-.botonFle{
+.botonFle {
     display: flex;
     justify-content: center;
 
 }
-.sp{
-    background:rgba(128, 128, 128, 0.63) ;
+
+.sp {
+    background: rgba(128, 128, 128, 0.63);
     border-radius: 7px;
     font-family: 'Roboto', sans-serif;
     padding: 3px 10px;
-    
+
 }
 
-.el{
+.el {
     margin: 3px;
 }
 
-.btt{
+.btt {
     border: none;
-    background-color: rgba(128, 128, 128, 0.63) ;
+    background-color: rgba(128, 128, 128, 0.63);
     padding: 4px;
     border-radius: 7px;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
     z-index: 99;
-    
+
 }
 
-.chek{
-    display: grid;
+.categoriasF {
+    padding-top: 20px;
+    display: flex;
     justify-content: center;
-    background-color: rgba(128, 128, 128, 0.63) ;
-    width:300px;
-    height: 250px; 
+    flex-direction: column;
+}
+.previewF{
+    width: 150px;
+    height: 150px;
+}
+.check {
+    justify-content: center;
+    background-color: rgba(125, 127, 125, 0.184);
+    width: 300px;
+    height: 250px;
     overflow: scroll;
     padding: 30px;
     gap: 2rem;
-    position: absolute;
     top: 7rem;
     right: 5rem;
-    
-    
+
 }
 
-.chek::-webkit-scrollbar{
+.check::-webkit-scrollbar {
     background: none;
 }
-.chek::-webkit-scrollbar-corner{
-    background: none ;
+
+.check::-webkit-scrollbar-corner {
+    background: none;
 }
 
- input[type=checkbox]{
-    display:block;
-    /* padding: 100px; */
-  
-   
-}
-/* input[type=checkbox]+ label{
-    cursor: pointer;
-}  */
+input[type=checkbox] {
+    display: block;
+    }
 
-.subdi{
+.pF {
+    font-size: 14px;
+    padding: 20px;
+}
+
+.subdi {
     position: absolute;
     left: 3rem;
+   
 }
 
-.error{
+.error {
     color: rgba(255, 0, 0, 0.699);
     font-size: 12px;
     text-align: center;
 }
-.centro{
+
+.centro {
     justify-content: center;
-    text-align: center;
+
 }
+
