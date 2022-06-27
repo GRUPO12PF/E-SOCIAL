@@ -11,7 +11,7 @@ h3{
     width: 50px;
     border-radius: 50%;
     height: 50px;
-    margin-left: 10px;
+    margin: 5px;
   }
 
 .container{
@@ -35,7 +35,7 @@ h3{
     padding-right: 100px;
     padding-left: 100px;
     width: 100vh;
-    
+    border-radius: 10px;
     
 }
 
@@ -56,6 +56,7 @@ h3{
     margin-bottom: 25px;
     height: fit-content;
     font-size: 17px;
+    text-align: center;
 }
 
 .name{
@@ -69,6 +70,7 @@ h3{
     font-family: 'Lato', sans-serif;
     font-size: 17px;
     padding: 2rem;
+    text-align: center;
 }
 .titulo{
     text-align: center;
@@ -77,15 +79,20 @@ h3{
 
 .input{
     max-width: 250px;
-    background-color: #6f7769;
+    background-color: #E5E7EB;
+    border-color: #E5E7EB;
     border-radius: 8px;
     margin: 5px;
     padding: 10px;
+    text-align: center;
+    color: black;
+    font-size: 15px;
 }
 
 .btn{
     float: right;
-    background-color: #6f7769;
+    background-color: #E5E7EB;
+    border-color: #E5E7EB;
     color: black;
     border-radius: 8px;
     margin: 5px;
@@ -96,12 +103,13 @@ h3{
 .containerAnswer{
     display: flex;
     flex-direction: row;
-    
+    text-align: center;
 
 }
 
 .no{
     padding: 60px;
+    text-align: center;
     
 }
 
