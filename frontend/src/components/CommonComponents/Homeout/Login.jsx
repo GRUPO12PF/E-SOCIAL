@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import {
     login,
     resetErrorLoginUser,
-  } from "../../../redux/actions/actionUser"
+} from "../../../redux/actions/actionUser"
 import { useNavigate } from "react-router"
 import validarEmail from "../../../middleware/validarEmail"
 import validatePassword from "../../../middleware/validarPassword"
@@ -85,10 +85,11 @@ export default function Login() {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form className="formLoginRegister" onSubmit={handleSubmit}>
                 <h1>Ingresar</h1>
                 <div>
                     <input
+                        className="inputLoginRegister"
                         id="email"
                         type="email"
                         name="email"
@@ -103,6 +104,7 @@ export default function Login() {
                 </div>
                 <div>
                     <input
+                        className="inputLoginRegister"
                         id="password"
                         name="password"
                         onChange={handleChangePassword}
@@ -121,7 +123,7 @@ export default function Login() {
                 <Link to="/olvide-password/" >
                     <a>Olvido su contraseña?</a>
                 </Link>
-                <button>Ingresar</button>
+                <button className="btnLoginRegister">Ingresar</button>
             </form>
         </>
 
