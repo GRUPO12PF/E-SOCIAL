@@ -23,82 +23,92 @@ export function formatToCurrency(value) {
 export function formValidators(values) {
   let errors = {}
 
-  if (!values.nombre) {
-    errors.nombre = 'Campo requerido'
-  } else if (!/^\S.*$/.test(values.nombre)) {
-    errors.nombre = 'El primer caracter no puede ser un espacio'
-  } else if (!/^(\d|[a-z]|[\u00f1\u00d1]|[,.:¡!¿?']|[À-ÿ]|\s){1,40}$/i.test(values.nombre)) {
-    errors.nombre = 'Ingrese un nombre válido de hasta 40 caracteres'
-  }
+  // nombre
+  !values.nombre
+    ? errors.nombre = 'Campo requerido'
+    : !/^(\d|[a-z]|[\u00f1\u00d1]|[,\.:¡!¿?()'\-]|[À-ÿ]|\s){0,60}$/i.test(values.nombre)
+      ? errors.nombre = 'Ingrese un nombre válido de hasta 60 caracteres'
+      : null
 
-  if (!values.autor) {
-    errors.autor = 'Campo requerido'
-  } else if (!/^\S.*$/.test(values.autor)) {
-    errors.autor = 'El primer caracter no puede ser un espacio'
-  } else if (!/^(|[a-z]|[()']|[À-ÿ]|[\u00f1\u00d1]|\s){1,40}$/i.test(values.autor)) {
-    errors.autor = 'Ingrese un autor válido de hasta 40 caracteres'
-  }
+  // autor
+  !values.autor
+    ? errors.autor = 'Campo requerido'
+    : !/^([a-z]|[()']|[À-ÿ]|[\u00f1\u00d1]|[,\.:¡!¿?()'\-]|\s){0,40}$/i.test(values.autor)
+      ? errors.autor = 'Ingrese un nombre válido de hasta 40 caracteres'
+      : null
 
-  if (!values.idioma) {
-    errors.idioma = 'Campo requerido'
-  } else if (!/^\S.*$/.test(values.idioma)) {
-    errors.idioma = 'El primer caracter no puede ser un espacio'
-  } else if (!/^([a-z]|[\u00f1\u00d1]|\s){1,20}$/i.test(values.idioma)) {
-    errors.idioma = 'Ingrese un idioma válido de hasta 40 caracteres'
-  }
+  // idioma
+  !values.idioma
+    ? errors.idioma = 'Campo requerido'
+    : !/^([a-z]|[À-ÿ]|[\u00f1\u00d1]|\s){0,20}$/i.test(values.idioma)
+      ? errors.idioma = 'Ingrese un idioma válido de hasta 40 caracteres'
+      : null
 
-  if (/^\s(.)*$/.test(values.editorial)) {
-    errors.editorial = 'El primer caracter no puede ser un espacio'
-  } else if (!/^(\d|[a-z]|[\u00f1\u00d1]|[,.:¡!¿?']|[À-ÿ]|\s){0,40}$/i.test(values.editorial)) {
-    errors.editorial = 'Ingrese un nombre válido de hasta 40 caracteres'
-  }
+  // editorial
+  !/^(\d|[a-z]|[\u00f1\u00d1]|[,.:¡!¿?()']|[À-ÿ]|\s){0,40}$/i.test(values.editorial)
+    ? errors.editorial = 'Ingrese un nombre válido de hasta 40 caracteres'
+    : null
 
-  if (/(\D)/.test(values.edicion) || values.edicion < 1 && values.edicion.toString()?.length > 0) {
-    errors.edicion = 'Ingrese un Nº de edición mayor a 0'
-  }
+  // edición
+  !/^[1-9][0-9]?$/.test(values.edicion) && (/^./.test(values.edicion))
+    ? errors.edicion = 'Ingrese un Nº de edición válido'
+    : null
 
-  if (values.publicado && (!/^[0-9]{0,4}$/.test(values.publicado) || values.publicado > currentYear())) {
-    errors.publicado = 'Ingrese un año válido en formato AAAA'
-  }
+  // año de pub.
+  !/^[0-9]{0,4}$/.test(values.publicado) || values.publicado > currentYear()
+    ? errors.publicado = 'Ingrese un año válido'
+    : null
 
-  if (/(\D|^0|[-])/.test(values.cant_pags)) { // NO tira error si solo se le pasa "-"
-    errors.cant_pags = 'Ingrese un número de págs. válido'
-  }
+  // págians
+  !/^[1-9][0-9]{0,4}$/.test(values.cant_pags) && (/^./.test(values.cant_pags))
+    ? errors.cant_pags = 'Ingrese un número de págs. válido'
+    : null
 
-  if (values.descripcion?.length < 6) {
-    errors.descripcion = 'La descripción debe contar con al menos 6 caracteres'
-  } else if (values.descripcion?.length > 1500) {
-    errors.descripcion = 'La descripción debe contar con un máximo de 1500 caracteres'
-  }
+  // descripción
+  !values.descripcion || values.descripcion?.length < 6
+    ? errors.descripcion = 'La descripción debe contar con al menos 6 caracteres'
+    : values.descripcion?.length > 1500
+      ? errors.descripcion = 'La descripción debe contar con un máximo de 1500 caracteres'
+      : null
 
-  if (/(\D)/.test(values.price)) {
-    errors.price = 'Ingrese el precio en centavos de USD'
-  } else if (!values.price || values.price < 50) {
-    errors.price = 'Ingrese un precio válido mayor a 50 centavos'
-  }
+  // precio
+  !values.price
+    ? errors.price = 'Campo requerido'
+    : values.price && values.price < 50
+      ? errors.price = 'Ingrese un precio mayor a 50 centavos'
+      : /([.,])/.test(values.price)
+        ? errors.price = 'Ingrese el precio sin puntos ni comas'
+        : null
 
-  if (values.category?.length < 1) {
-    errors.category = 'Elija al menos 1 categoría'
-  }
+  // categorías
+  values.category?.length < 1
+    ? errors.category = 'Elija al menos 1 categoría'
+    : null
 
-  if (values.file?.name && !hasExtension(values.file.name)) {
-    errors.file = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
-  }
-  
-  if (values.image && !hasExtension(values.image)) {
-    errors.image = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
-  }
+  // image por file
+  values.file?.name && !hasExtension(values.file.name)
+    ? errors.file = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
+    : null
+
+  // image por URL
+  values.image && !hasExtension(values.image)
+    ? errors.image = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
+    : null
 
   return errors
 }
 
-export function sortArray(value, reverse) { // toma value y lo ordena si es array, invertido si el segundo arg es TRUE
-  let res 
-  Array.isArray(value)
-    ? value.sort(
+export function mayúsculaInicial(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
+export function sortArray(value, reverse) {
+  let res
+  Array.isArray(value) // si value es array...
+    ? value.sort( // ... ordena...
       isNaN(value[0])
-        ? (a, b) => a.localeCompare(b)
-        : (a, b) => a - b)
-    : res = "NOT AN ARRAY!" // aclara si no es un array; así no rompe
-  return res ? res : reverse ? value.reverse() : value
+        ? (a, b) => a.localeCompare(b) // ... alfabéticamente si es string...
+        : (a, b) => a - b) // ... o de menor a mayor si es número
+    : res = "NOT AN ARRAY!" // aclara en caso de que value no sea array
+  return res ? res : reverse ? value.reverse() : value // reverse == TRUE ? orderna invertido
 }

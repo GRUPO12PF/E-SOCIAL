@@ -4,6 +4,8 @@ import sebas from "../../../assets/images/Sebas.jpg"
 import caro from "../../../assets/images/Caro.jpg"
 import malu from "../../../assets/images/Malu.jpg"
 import manu from "../../../assets/images/Manu.jpg"
+import yona from "../../../assets/images/yona.jpeg"; 
+import  mati from "../../../assets/images/mati.jpeg"
 import avatar2 from "../../../assets/images/avatar2.png"
 import LinkedIn from "../../../Iconos/LinkedIn"
 import GitHubAbout from "../../../Iconos/GitHubAbout"
@@ -67,7 +69,7 @@ export default function About() {
             </div>
           </span>
           <span className="persona">
-            <img className="img" src={avatar2} alt="" />
+            <img className="img" src={mati} alt="" />
             <h3>Matías Yosia</h3>
             <div className="linkgit">
             <a className="eachLink" target="_blank" href="https://www.linkedin.com/in/matias-yosia-a32266201/">
@@ -94,7 +96,7 @@ export default function About() {
             </div>
           </span >
           <span className="persona">
-            <img className="img" src={avatar2} alt="" />
+            <img className="img" src={yona} alt="" />
             <h3>Jonathan Pelinski</h3>
             <div className="linkgit">
             <a className="eachLink" target="_blank" href="https://www.linkedin.com/in/jonathan-pelinski-70817b211/">

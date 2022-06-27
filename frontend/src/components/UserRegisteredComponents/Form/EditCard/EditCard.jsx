@@ -2,10 +2,11 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { detailsBook } from "../../../../redux/actions/detailsBooks"
 import { formatToCurrency } from "../../../../utils/helperFunctions"
+import s from '../Form.module.css'
 
 const EditCard = ({ id, addMode }) => {
   const dispatch = useDispatch()
-  const { nombre, autor, idioma, editorial, edicion, tapa, publicado, cant_pags, descripcion, price, image, colection, ilustrado, category } = useSelector(state => state.detail)
+  const { nombre, descripcion, price, image } = useSelector(state => state.detail)
   
   const priceShow = formatToCurrency(price)
 
@@ -22,9 +23,8 @@ const EditCard = ({ id, addMode }) => {
         addMode
           ? null
           : (
-            <div>
-              <p>{nombre}, {autor}, {idioma}, {category}</p><br />
-              {image}<br />
+            <div className={s.centro}>
+              <img src={image} alt='portada anterior' style={{maxWidth: "300px"}}/>
               {priceShow}<br />
 
               <button onClick={() => setVerMas(!verMas)}>
@@ -33,8 +33,8 @@ const EditCard = ({ id, addMode }) => {
               <br />
 
               {!verMas
-                ? `${descripcion?.substring(0, 100)}...`
-                : <p>{descripcion}, {editorial}, {edicion}, {tapa}, {publicado}, {cant_pags}, {colection}, {ilustrado}</p>}
+                ? `Desc: ${descripcion?.substring(0, 100)}...`
+                : <p>Desc: {descripcion}</p>}
               <br />
             </div>)
       }

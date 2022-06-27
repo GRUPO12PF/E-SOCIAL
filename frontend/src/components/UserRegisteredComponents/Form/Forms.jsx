@@ -12,13 +12,15 @@ import PreviewImage from './ImgPreview/ImgPreview'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
 import s from '../Form/Form.module.css'
 import EditCard from './EditCard/EditCard'
+import { formInitialValues } from './formInitialValues'
 
 const Forms = () => {
   const [dispatch, navigate] = [useDispatch(), useNavigate()]
   const categories = useSelector(state => state.categories)
+  const { nombre, autor, idioma, editorial, edicion, tapa, publicado, cant_pags, colection, ilustrado, category } = useSelector(state => state.detail)
 
   const { id } = useParams()
-  const isAddMode = !id
+  const isCreate = !id
 
   const fileRef = useRef(null)
   const imgPreview = useSelector(state => state.tempState)
@@ -33,7 +35,7 @@ const Forms = () => {
   useEffect(() => {
     dispatch(cleanData)
     dispatch(getCategories())
-    if (!isAddMode) { dispatch(detailsBook(id)) }
+    if (!isCreate) { dispatch(detailsBook(id)) }
   }, [dispatch])
 
   return (
@@ -41,25 +43,10 @@ const Forms = () => {
       <div>
         <NavBar />
 
-        <EditCard id={id} addMode={isAddMode} />
+        <EditCard id={id} addMode={isCreate} />
 
         <Formik
-          initialValues={{
-            nombre: '',
-            autor: '',
-            idioma: '',
-            editorial: '',
-            edicion: '',
-            tapa: '',
-            publicado: '',
-            cant_pags: '',
-            descripcion: '',
-            price: '',
-            image: '',
-            colection: '',
-            ilustrado: false,
-            category: []
-          }}
+          initialValues={formInitialValues}
 
           validate={values => formValidators(values)}
 
@@ -69,7 +56,7 @@ const Forms = () => {
             }
             delete values.file
 
-            if (isAddMode) {
+            if (isCreate) {
               dispatch(postCreate(values))
             } else {
               values._id = id
@@ -93,10 +80,12 @@ const Forms = () => {
           {({ errors, values, handleSubmit, setFieldValue }) => (
             <Form className={s.formik} onSubmit={handleSubmit} >
               <div className={s.form}>
+                {console.log(values)}
 
                 <div className={s.subdi}>
 
                   <label className={s.label} >Nombre*</label>
+                  {!isCreate ? <p className={s.centro}>({nombre})</p> : null} {/* solo en modo Update */}
                   <div>
                     <Field
                       name="nombre"
@@ -108,6 +97,7 @@ const Forms = () => {
                   </div>
 
                   <label className={s.label} >Autor*</label>
+                  {!isCreate ? <p className={s.centro}>({autor})</p> : null}
                   <div>
                     <Field
                       name="autor"
@@ -115,10 +105,11 @@ const Forms = () => {
                       type="text"
                       id="autor"
                     />
-                    <ErrorMessage name='autor' component={() => (<p className={s.error}>{errors.autor}</p>)} />
                   </div>
+                  <ErrorMessage name='autor' component={() => (<p className={s.error}>{errors.autor}</p>)} />
 
                   <label className={s.label} >Idioma*</label>
+                  {!isCreate ? <p className={s.centro}>({idioma})</p> : null}
                   <div>
                     <Field
                       name="idioma"
@@ -126,10 +117,11 @@ const Forms = () => {
                       type="text"
                       id="idioma"
                     />
-                    <ErrorMessage name='idioma' component={() => (<p className={s.error}>{errors.idioma}</p>)} />
                   </div>
+                  <ErrorMessage name='idioma' component={() => (<p className={s.error}>{errors.idioma}</p>)} />
 
                   <label className={s.label} >Editorial</label>
+                  {!isCreate ? <p className={s.centro}>({editorial})</p> : null}
                   <div>
                     <Field
                       name="editorial"
@@ -137,10 +129,11 @@ const Forms = () => {
                       type="text"
                       id="editorial"
                     />
-                    <ErrorMessage name='editorial' component={() => (<p className={s.error}>{errors.editorial}</p>)} />
                   </div>
+                  <ErrorMessage name='editorial' component={() => (<p className={s.error}>{errors.editorial}</p>)} />
 
                   <label className={s.label} >Edición</label>
+                  {!isCreate ? <p className={s.centro}>({edicion})</p> : null}
                   <div>
                     <Field
                       name="edicion"
@@ -148,17 +141,19 @@ const Forms = () => {
                       type="number"
                       id="edicion"
                     />
-                    <ErrorMessage name='edicion' component={() => (<p className={s.error}>{errors.edicion}</p>)} />
                   </div>
+                  <ErrorMessage name='edicion' component={() => (<p className={s.error}>{errors.edicion}</p>)} />
 
                   <div className={s.centro}>
                     <div className={s.tapas}>
+                      <label className={s.label}>Tapa</label>
+                      {!isCreate ? <p className={s.centro}>({tapa})</p> : null}
                       <Field
                         name="tapa"
                         className={s.textarea}
                         as="select"
                         id="tapa"
-                        value=''
+                        value={values.tapa?.defaultValue}
                       >
                         <option value=''>¿Tipo de Tapa?</option>
                         <option value="Blanda">Blanda</option>
@@ -166,7 +161,9 @@ const Forms = () => {
                       </Field>
                     </div>
                   </div>
+
                   <label className={s.label} >Año de publicación</label>
+                  {!isCreate ? <p className={s.centro}>({publicado})</p> : null}
                   <div>
                     <Field
                       name="publicado"
@@ -175,10 +172,11 @@ const Forms = () => {
                       id="publicado"
                       placeholder="AAAA..."
                     />
-                    <ErrorMessage name='publicado' component={() => (<p className={s.error}>{errors.publicado}</p>)} />
                   </div>
+                  <ErrorMessage name='publicado' component={() => (<p className={s.error}>{errors.publicado}</p>)} />
 
                   <label className={s.label} >Páginas</label>
+                  {!isCreate ? <p className={s.centro}>({cant_pags})</p> : null}
                   <div>
                     <Field
                       name="cant_pags"
@@ -186,10 +184,11 @@ const Forms = () => {
                       type="number"
                       id="cant_pags"
                     />
-                    <ErrorMessage name='cant_pags' component={() => (<p className={s.error}>{errors.cant_pags}</p>)} />
                   </div>
+                  <ErrorMessage name='cant_pags' component={() => (<p className={s.error}>{errors.cant_pags}</p>)} />
 
                   <label className={s.label} >Saga / Serie</label>
+                  {!isCreate ? <p className={s.centro}>({colection})</p> : null}
                   <div>
                     <Field
                       name="colection"
@@ -197,8 +196,8 @@ const Forms = () => {
                       type="text"
                       id="colection"
                     />
-                    <ErrorMessage name='colection' component={() => (<p className={s.error}>{errors.colection}</p>)} />
                   </div>
+                  <ErrorMessage name='colection' component={() => (<p className={s.error}>{errors.colection}</p>)} />
 
                   <label className={s.label} >Precio*</label>
                   <div>
@@ -209,8 +208,9 @@ const Forms = () => {
                       id="price"
                       placeholder="en centavos de USD..."
                     />
-                    <ErrorMessage name='price' component={() => (<p className={s.error} >{errors.price}</p>)} />
                   </div>
+                  <ErrorMessage name='price' component={() => (<p className={s.error} >{errors.price}</p>)} />
+
                   <label className={s.label} >Descripción*</label>
                   <div>
                     <Field
@@ -220,26 +220,26 @@ const Forms = () => {
                       id="descripcion"
                       as="textarea"
                     />
-                    <ErrorMessage name='descripcion' component={() => (<p className={s.error}>{errors.descripcion}</p>)} />
                   </div>
+                  <ErrorMessage name='descripcion' component={() => (<p className={s.error}>{errors.descripcion}</p>)} />
 
                 </div>
 
-
-
                 <div className={s.centro}>
-                <label className={s.label}>Ilustraciones</label>
+                  <label className={s.label}>Ilustraciones</label>
+                  {!isCreate ? <p className={s.centro}>({ilustrado})</p> : null}
                   <Field
                     name="ilustrado"
                     className={s.textarea}
                     as="select"
                     id="ilustrado"
-                    value=''
+                    value={values.ilustrado?.defaultValue}
                   >
-                    <option value=''>¿Ilustrado?</option>
+                    <option value={false}>¿Ilustrado?</option>
                     <option value={false}>X</option>
                     <option value={true}>✓</option>
                   </Field>
+
                   <div className={s.categoriasF}>
                     <label className={s.label}>Categorías*</label>
                     <div className={s.check}>
@@ -248,12 +248,14 @@ const Forms = () => {
                           <div key={i} > <Field type="checkbox" name="category" value={`${e}`} /> {e} </div>
                         )}
                       </div>
-                      <ErrorMessage name='category' component={() => (<p className={s.error}>{errors.category}</p>)} />
                     </div>
                   </div>
+                  <ErrorMessage name='category' component={() => (<p className={s.error}>{errors.category}</p>)} />
+                  {!isCreate ? <p className={s.centro}>({category})</p> : null}
                 </div>
+
                 <div className={s.fotoF1}>
-                  <div >
+                  <div>
                     <label className={s.label} >Fotografía del ejemplar</label>
                     {uploadImg
                       /* cambiar a Pasar Img por URL */
@@ -301,7 +303,7 @@ const Forms = () => {
                         </button>
 
                         {values.file && <PreviewImage file={values.file} />}
-                        {values.file && confirmImg && <button className={s.confirmP}type="button"
+                        {values.file && confirmImg && <button className={s.confirmP} type="button"
                           disabled={errors.file}
                           onClick={() => {
                             handleImage(values.file)
@@ -322,20 +324,20 @@ const Forms = () => {
 
                   </div>
                   <p className={s.error}>{errors.file}</p>
-                  <ErrorMessage name='image' component={() => (<p className={s.error}>{errors.image}</p>)} />
 
                 </div>
+                  <ErrorMessage name='image' component={() => (<p className={s.error}>{errors.image}</p>)} />
               </div>
-
 
               <button
                 className={s.sendMsg}
                 type="submit"
-                disabled={errors.nombre || errors.autor || errors.idioma || errors.price || errors.category || errors.descripcion || errors.file || errors.image}
+                disabled={Object.keys(errors).length > 0}
               >ENVIAR</button>
-
+              {console.log(errors)}
             </Form>
           )}
+
         </Formik>
       </div>
     </div >
