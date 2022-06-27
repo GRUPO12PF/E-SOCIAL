@@ -3,6 +3,7 @@ import NavBar from "../NavBar/NavBar"
 import sebas from "../../../assets/images/Sebas.jpg"
 import caro from "../../../assets/images/Caro.jpg"
 import malu from "../../../assets/images/Malu.jpg"
+import manu from "../../../assets/images/Manu.jpg"
 import avatar2 from "../../../assets/images/avatar2.png"
 import LinkedIn from "../../../Iconos/LinkedIn"
 import GitHubAbout from "../../../Iconos/GitHubAbout"
@@ -81,7 +82,7 @@ export default function About() {
 
         <div className="personitas2">
           <span className="persona">
-            <img className="img" src={avatar2} alt="" />
+            <img className="img" src={manu} alt="" />
             <h3>Manuel Kloster</h3>
             <div className="linkgit">
             <a className="eachLink" target="_blank" href="https://www.linkedin.com/in/manuel-kloster/">

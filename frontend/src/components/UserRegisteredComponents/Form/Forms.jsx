@@ -160,85 +160,88 @@ const Forms = () => {
                   </div>
 
                   <div className={s.centro}>
-                    {!isAddMode ? <p className={s.centro}>({tapa})</p> : null}
+                    <div className={s.tapas}>
+                      <label className={s.label}>Tapa</label>
+                      {!isAddMode ? <p className={s.centro}>({tapa})</p> : null}
+                      <Field
+                        name="tapa"
+                        className={s.textarea}
+                        as="select"
+                        id="tapa"
+                        value={values.tapa?.defaultValue}
+                      >
+                        <option value=''>¿Tipo de Tapa?</option>
+                        <option value="Blanda">Blanda</option>
+                        <option value="Dura">Dura</option>
+                      </Field>
+                    </div>
+                  </div>
+
+                  <label className={s.label} >Año de publicación</label>
+                  {!isAddMode ? <p className={s.centro}>({publicado})</p> : null}
+                  <div>
                     <Field
-                      name="tapa"
+                      name="publicado"
+                      className={s.input}
+                      type="number"
+                      id="publicado"
+                      placeholder="AAAA..."
+                    />
+                    <ErrorMessage name='publicado' component={() => (<p className={s.error}>{errors.publicado}</p>)} />
+                  </div>
+
+                  <label className={s.label} >Páginas</label>
+                  {!isAddMode ? <p className={s.centro}>({cant_pags})</p> : null}
+                  <div>
+                    <Field
+                      name="cant_pags"
+                      className={s.input}
+                      type="number"
+                      id="cant_pags"
+                    />
+                    <ErrorMessage name='cant_pags' component={() => (<p className={s.error}>{errors.cant_pags}</p>)} />
+                  </div>
+
+                  <label className={s.label} >Saga / Serie</label>
+                  {!isAddMode ? <p className={s.centro}>({colection})</p> : null}
+                  <div>
+                    <Field
+                      name="colection"
+                      className={s.input}
+                      type="text"
+                      id="colection"
+                    />
+                    <ErrorMessage name='colection' component={() => (<p className={s.error}>{errors.colection}</p>)} />
+                  </div>
+
+                  <label className={s.label} >Precio*</label>
+                  <div>
+                    <Field
+                      name="price"
+                      className={s.input}
+                      type="number"
+                      id="price"
+                      placeholder="en centavos de USD..."
+                    />
+                    <ErrorMessage name='price' component={() => (<p className={s.error} >{errors.price}</p>)} />
+                  </div>
+                  <label className={s.label} >Descripción*</label>
+                  <div>
+                    <Field
+                      name="descripcion"
                       className={s.textarea}
-                      as="select"
-                      id="tapa"
-                      value={values.tapa?.defaultValue}
-                    >
-                      <option value=''>¿TIPO DE TAPA?</option>
-                      <option value="Blanda">Blanda</option>
-                      <option value="Dura">Dura</option>
-                    </Field>
+                      type="text"
+                      id="descripcion"
+                      as="textarea"
+                    />
+                    <ErrorMessage name='descripcion' component={() => (<p className={s.error}>{errors.descripcion}</p>)} />
                   </div>
 
                 </div>
 
-                <label className={s.label} >Año de publicación</label>
-                {!isAddMode ? <p className={s.centro}>({publicado})</p> : null}
-                <div>
-                  <Field
-                    name="publicado"
-                    className={s.input}
-                    type="number"
-                    id="publicado"
-                    placeholder="AAAA..."
-                  />
-                  <ErrorMessage name='publicado' component={() => (<p className={s.error}>{errors.publicado}</p>)} />
-                </div>
-
-                <label className={s.label} >Páginas</label>
-                {!isAddMode ? <p className={s.centro}>({cant_pags})</p> : null}
-                <div>
-                  <Field
-                    name="cant_pags"
-                    className={s.input}
-                    type="number"
-                    id="cant_pags"
-                  />
-                  <ErrorMessage name='cant_pags' component={() => (<p className={s.error}>{errors.cant_pags}</p>)} />
-                </div>
-
-                <label className={s.label} >Saga / Serie</label>
-                {!isAddMode ? <p className={s.centro}>({colection})</p> : null}
-                <div>
-                  <Field
-                    name="colection"
-                    className={s.input}
-                    type="text"
-                    id="colection"
-                  />
-                  <ErrorMessage name='colection' component={() => (<p className={s.error}>{errors.colection}</p>)} />
-                </div>
-
-                <label className={s.label} >Precio*</label>
-                <div>
-                  <Field
-                    name="price"
-                    className={s.input}
-                    type="number"
-                    id="price"
-                    placeholder="en centavos de USD..."
-                  />
-                  <ErrorMessage name='price' component={() => (<p className={s.error} >{errors.price}</p>)} />
-                </div>
-
-                <label className={s.label} >Descripción*</label>
-                <div>
-                  <Field
-                    name="descripcion"
-                    className={s.textarea}
-                    type="text"
-                    id="descripcion"
-                    as="textarea"
-                  />
-                  <ErrorMessage name='descripcion' component={() => (<p className={s.error}>{errors.descripcion}</p>)} />
-                </div>
-
-                {!isAddMode ? <p className={s.centro}>({ilustrado})</p> : null}
                 <div className={s.centro}>
+                  <label className={s.label}>Ilustraciones</label>
+                  {!isAddMode ? <p className={s.centro}>({ilustrado})</p> : null}
                   <Field
                     name="ilustrado"
                     className={s.textarea}
@@ -246,94 +249,98 @@ const Forms = () => {
                     id="ilustrado"
                     value={values.ilustrado?.defaultValue}
                   >
-                    <option value={false}>¿ILUSTRADO?</option>
+                    <option value={false}>¿Ilustrado?</option>
                     <option value={false}>X</option>
                     <option value={true}>✓</option>
                   </Field>
-                </div>
 
-                <label className={s.label}>Categorías*</label>
-                <div className={s.chek}>
-                  <div role="group" aria-labelledby="checkbox-group" >
-                    {categories?.map((e, i) =>
-                      <div key={i} > <Field type="checkbox" name="category" value={`${e}`} /> {e} </div>
-                    )}
+                  <div className={s.categoriasF}>
+                    <label className={s.label}>Categorías*</label>
+                    <div className={s.check}>
+                      <div role="group" aria-labelledby="checkbox-group" >
+                        {categories?.map((e, i) =>
+                          <div key={i} > <Field type="checkbox" name="category" value={`${e}`} /> {e} </div>
+                        )}
+                      </div>
+                      <ErrorMessage name='category' component={() => (<p className={s.error}>{errors.category}</p>)} />
+                    </div>
+                    {!isAddMode ? <p className={s.centro}>({category})</p> : null}
                   </div>
-                  <ErrorMessage name='category' component={() => (<p className={s.error}>{errors.category}</p>)} />
                 </div>
-                {!isAddMode ? <p className={s.centro}>({category})</p> : null}
 
-                <label className={s.label} >Fotografía del ejemplar</label>
-                <div>
-                  {uploadImg
-                    /* cambiar a Pasar Img por URL */
-                    ? <div>
-                      <button type="button"
-                        onClick={() => {
-                          setUploadImg(false)
-                        }}>PASAR URL
-                      </button>
-                      <p>Cargue el archivo de su imagen</p>
-                    </div>
+                <div className={s.fotoF1}>
+                  <div>
+                    <label className={s.label} >Fotografía del ejemplar</label>
+                    {uploadImg
+                      /* cambiar a Pasar Img por URL */
+                      ? <div >
+                        <button className={s.btnF} type="button"
+                          onClick={() => {
+                            setUploadImg(false)
+                          }}>PASAR URL
+                        </button>
+                        <p className={s.pF}>Cargue el archivo de su imagen</p>
+                      </div>
 
-                    /* cambiar a Img a Cloudinary */
-                    : <div>
-                      <button type="button"
-                        onClick={() => {
-                          setUploadImg(true)
-                        }}>SUBIR IMAGEN
-                      </button>
-                      <p>Ingrese la URL de su imagen</p>
-                    </div>
+                      /* cambiar a Img a Cloudinary */
+                      : <div>
+                        <button className={s.btnF} type="button"
+                          onClick={() => {
+                            setUploadImg(true)
+                          }}>SUBIR IMAGEN
+                        </button>
+                        <p className={s.pF}>Ingrese la URL de su imagen</p>
+                      </div>
 
-                  }
+                    }
+                  </div>
+                  <div>
+                    {uploadImg
+                      /* Subir Img a Cloudinary */
+                      ? (<div>
+                        <input
+                          hidden
+                          name='file'
+                          ref={fileRef}
+                          className={s.input}
+                          type="file"
+                          id="file"
+                          onChange={e => {
+                            setFieldValue("file", e.target.files[0])
+                          }}
+                        />
+
+                        <button className={s.uploadButton} type="button" onClick={() => {
+                          fileRef.current.click()
+                        }}>
+                          CARGAR IMAGEN
+                        </button>
+
+                        {values.file && <PreviewImage file={values.file} />}
+                        {values.file && confirmImg && <button className={s.confirmP} type="button"
+                          disabled={errors.file}
+                          onClick={() => {
+                            handleImage(values.file)
+                          }}>CONFIRMAR IMAGEN</button>}
+
+                      </div>)
+
+                      /* Pasar Img por URL */
+                      : (<div>
+                        <Field
+                          name="image"
+                          className={s.input}
+                          type="text"
+                          id="image"
+                        />
+                      </div>)
+                    }
+
+                  </div>
+                  <p className={s.error}>{errors.file}</p>
+                  <ErrorMessage name='image' component={() => (<p className={s.error}>{errors.image}</p>)} />
+
                 </div>
-                <div>
-                  {uploadImg
-                    /* Subir Img a Cloudinary */
-                    ? (<div>
-                      <input
-                        hidden
-                        name='file'
-                        ref={fileRef}
-                        className={s.input}
-                        type="file"
-                        id="file"
-                        onChange={e => {
-                          setFieldValue("file", e.target.files[0])
-                        }}
-                      />
-
-                      <button className={s.uploadButton} type="button" onClick={() => {
-                        fileRef.current.click()
-                      }}>
-                        CARGAR IMAGEN
-                      </button>
-
-                      {values.file && <PreviewImage file={values.file} />}
-                      {values.file && confirmImg && <button type="button"
-                        disabled={errors.file}
-                        onClick={() => {
-                          handleImage(values.file)
-                        }}>CONFIRMAR IMAGEN</button>}
-
-                    </div>)
-
-                    /* Pasar Img por URL */
-                    : (<div>
-                      <Field
-                        name="image"
-                        className={s.input}
-                        type="text"
-                        id="image"
-                      />
-                    </div>)
-                  }
-
-                </div>
-                <p className={s.error}>{errors.file}</p>
-                <ErrorMessage name='image' component={() => (<p className={s.error}>{errors.image}</p>)} />
-
               </div>
 
               <button
@@ -341,8 +348,10 @@ const Forms = () => {
                 type="submit"
                 disabled={errors.nombre || errors.autor || errors.idioma || errors.price || errors.category || errors.descripcion || errors.file || errors.image}
               >ENVIAR</button>
-            </Form>
+
+            </Form>        
           )}
+          
         </Formik>
       </div>
     </div >
