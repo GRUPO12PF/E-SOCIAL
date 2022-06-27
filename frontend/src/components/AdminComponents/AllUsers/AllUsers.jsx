@@ -39,8 +39,8 @@ function AllUsers() {
      if (window.confirm("¿Esta seguro que quiere eliminar este usuario?") === true) {
       dispatch(deleteUser(id))
       alert("Usuario eliminado correctamente.")
-      
-      // window.location.reload()
+
+      window.location.reload()
     }
   }
   return (

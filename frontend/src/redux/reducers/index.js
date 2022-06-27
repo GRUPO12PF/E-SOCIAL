@@ -1,4 +1,4 @@
-import { GET_CATEGORIES, GET_REVIEW, FILTER_BY_CATEGORY, SORT_BY, NAME_ASC, NAME_DESC, PRICE_ASC, PRICE_DESC, BUY_BOOK, GET_DETALLE_ORDER, GET_USUARIOS, GET_ORDERS, POST_ANSWER, POST_QUESTION, GET_QA, GET_ALL_QUESTIONS, GET_ALL_ANSWERS, GET_ALL_QUESTIONS_COMPRADOR, TEMP_STATE, NEW_FIRST } from '../utils/constants'
+import { GET_CATEGORIES, GET_REVIEW, FILTER_BY_CATEGORY, SORT_BY, NAME_ASC, NAME_DESC, DELETE_USER, PRICE_ASC, PRICE_DESC, BUY_BOOK, GET_DETALLE_ORDER, GET_USUARIOS, GET_ORDERS, POST_ANSWER, POST_QUESTION, GET_QA, GET_ALL_QUESTIONS, GET_ALL_ANSWERS, GET_ALL_QUESTIONS_COMPRADOR, TEMP_STATE, NEW_FIRST } from '../utils/constants'
 
 const initialState = {
   allBooks: [],
@@ -267,6 +267,12 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         allReviews: action.payload
+      }
+
+    case DELETE_USER:
+      return{
+        ...state,
+        deleteUserAsAdmin: action.payload
       }
     //----------------------QA---------------
     case POST_ANSWER:

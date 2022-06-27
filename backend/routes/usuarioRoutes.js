@@ -33,7 +33,11 @@ router.get("/traer-orders", obtenerOrdersUsuarios);
 router.get("/actual", checkAuth, usuario);
 router.put("/imagen", checkAuth, cambiarImage);//Cambiar imagen de perfil
 
-router.delete("/delete", deleteUsuario) //borrar users as admin
+
+router
+  .route('/delete/:id')
+  .delete(deleteUsuario);
+
 export default router;
 
 //   /api/usuarios/delete
