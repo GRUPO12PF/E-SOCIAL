@@ -2,7 +2,7 @@ import React from "react"
 import AllBooks from "../AllBooks/AllBooks.jsx"
 import NavBar from "../NavBar/NavBar"
 import SearchBar from "../SearchBar/SearchBar.jsx"
-import Footer from "../Footer/Footer.jsx"
+
 import Carousell from "../Carousel/Carousell.jsx"
 
 export default function Home() {
@@ -15,10 +15,6 @@ export default function Home() {
         <AllBooks />
       </div>
 
-      <div className="footer">
-        <Footer />
-      </div>
-      
     </div>
   )
 }
