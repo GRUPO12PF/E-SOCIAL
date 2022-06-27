@@ -57,11 +57,11 @@ export default function NavBar() {
         {/* {token ? (<Link to="/create" className="link">VENDER</Link>) : null}
         <Link to="/about" className="link">ABOUT</Link>*/}
         <div className="perfil">
-          {token ? <p className="nameUser">{`¡Hola ${usuarioAct.nombre}!`}</p> : null}
+          {token ? <p className="nameUser">{`¡Hola ${usuarioAct?.nombre}!`}</p> : null}
           {usuarioAct.length !== 0 ? (
             <div className="image-click">
               <img
-                src={usuarioAct.image.url ? usuarioAct.image.url : profile}
+                src={usuarioAct.image.url ? usuarioAct?.image.url : profile}
                 alt="Perfil de usuario"
                 onClick={handleButton}
               />
