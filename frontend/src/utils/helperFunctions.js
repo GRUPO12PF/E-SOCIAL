@@ -80,6 +80,11 @@ export function formValidators(values) {
         ? errors.price = 'Ingrese el precio sin puntos ni comas'
         : null
 
+  // saga o serie
+  !/^(\d|[a-z]|[\u00f1\u00d1]|[,\.:¡!¿?()'\-]|[À-ÿ]|\s){0,60}$/i.test(values.colection)
+    ? errors.colection = 'Ingrese un idioma válido de hasta 30 caracteres'
+    : null
+
   // categorías
   values.category?.length < 1
     ? errors.category = 'Elija al menos 1 categoría'
@@ -102,13 +107,13 @@ export function mayúsculaInicial(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
-export function sortArray(value, reverse) {
-  let res
-  Array.isArray(value) // si value es array...
-    ? value.sort( // ... ordena...
-      isNaN(value[0])
-        ? (a, b) => a.localeCompare(b) // ... alfabéticamente si es string...
-        : (a, b) => a - b) // ... o de menor a mayor si es número
-    : res = "NOT AN ARRAY!" // aclara en caso de que value no sea array
-  return res ? res : reverse ? value.reverse() : value // reverse == TRUE ? orderna invertido
-}
+// export function sortArray(array, value, reverse) { // NO está funcionando por las particularidades de los sorts!
+//   let res
+//   Array.isArray(array) // si array es array...
+//     ? array.sort( // ... ordena...
+//       isNaN(array[0])
+//         ? (a, b) => a.localeCompare(b) // ... alfabéticamente si es string...
+//         : (a, b) => a - b) // ... o de menor a mayor si es número
+//     : res = "NOT AN ARRAY!" // aclara en caso de que array no sea array
+//   return res ? res : reverse ? array.reverse() : array // reverse == TRUE ? orderna invertido
+// }

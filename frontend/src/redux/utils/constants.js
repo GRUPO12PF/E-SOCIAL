@@ -10,6 +10,7 @@ export const PUT_BOOK_BODY = 'PUT_BOOK_BODY'
 
 // SORTER -----------------------------------------
 export const SORT_BY = 'SORT_BY'
+export const NEW_FIRST = 'NEW_FIRST'
 export const NAME_ASC = 'NAME_ASC'
 export const NAME_DESC = 'NAME_DESC'
 export const PRICE_ASC = 'PRICE_ASC'
@@ -25,6 +26,7 @@ export const GET_DETALLE_ORDER = 'GET_DETALLE_ORDER'
 export const GET_USUARIOS = 'GET_USUARIOS'
 export const GET_ORDERS = 'GET_ORDERS'
 export const GET_REVIEW = 'GET_REVIEW'
+export const DELETE_USER = 'DELETE_USER'
 
 
 // QUESTIONS AND ANSWERS FROM DETAILS OF EACH BOOK 

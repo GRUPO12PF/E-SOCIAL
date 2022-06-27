@@ -276,6 +276,15 @@ const cambiarImage = async (req, res) => {
     }
 };
 
+const deleteUsuario = async (req, res) => {
+    try {
+        const id = req.body.id
+        const deletedUser = await Usuario.findOneAndDelete({ _id: id})
+        res.json(deletedUser)
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 export {
     registrar,
@@ -290,4 +299,5 @@ export {
     obtenerOrdersUsuarios,
     cambiarImage,
     googleLogin,
+    deleteUsuario
 };
