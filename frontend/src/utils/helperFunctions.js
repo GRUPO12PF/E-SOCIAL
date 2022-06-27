@@ -50,7 +50,7 @@ export function formValidators(values) {
     : null
 
   // edición
-  !/^[1-9][0-9]*$/.test(values.edicion) && (/^./.test(values.edicion))
+  !/^[1-9][0-9]?$/.test(values.edicion) && (/^./.test(values.edicion))
     ? errors.edicion = 'Ingrese un Nº de edición válido'
     : null
 
@@ -60,7 +60,7 @@ export function formValidators(values) {
     : null
 
   // págians
-  !/^[1-9][0-9]*$/.test(values.cant_pags) && (/^./.test(values.cant_pags))
+  !/^[1-9][0-9]{0,4}$/.test(values.cant_pags) && (/^./.test(values.cant_pags))
     ? errors.cant_pags = 'Ingrese un número de págs. válido'
     : null
 
@@ -97,6 +97,11 @@ export function formValidators(values) {
 
   return errors
 }
+
+export function mayúsculaInicial(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
 
 export function sortArray(value, reverse) {
   let res

@@ -13,6 +13,8 @@ import NavBar from '../../CommonComponents/NavBar/NavBar'
 import s from '../Form/Form.module.css'
 import EditCard from './EditCard/EditCard'
 import { formInitialValues } from './formInitialValues'
+import CampoInput from './CampoInput/CampoInput'
+import CampoSelect from './CampoInput/CampoSelect'
 
 const Forms = () => {
   const [dispatch, navigate] = [useDispatch(), useNavigate()]
@@ -84,65 +86,48 @@ const Forms = () => {
 
                 <div className={s.subdi}>
 
-                  <label className={s.label} >Nombre*</label>
-                  {!isCreate ? <p className={s.centro}>({nombre})</p> : null} {/* solo en modo Update */}
-                  <div>
-                    <Field
-                      name="nombre"
-                      className={s.input}
-                      type="text"
-                      id="nombre"
-                    />
-                    <ErrorMessage name='nombre' component={() => (<p className={s.error}>{errors.nombre}</p>)} />
-                  </div>
+                  <CampoInput
+                    name='nombre'
+                    type="text"
+                    input={nombre}
+                    isCreate={isCreate}
+                    errors={errors}
+                    req={'*'}
+                  />
 
-                  <label className={s.label} >Autor*</label>
-                  {!isCreate ? <p className={s.centro}>({autor})</p> : null}
-                  <div>
-                    <Field
-                      name="autor"
-                      className={s.input}
-                      type="text"
-                      id="autor"
-                    />
-                  </div>
-                  <ErrorMessage name='autor' component={() => (<p className={s.error}>{errors.autor}</p>)} />
+                  <CampoInput
+                    name='autor'
+                    type="text"
+                    input={autor}
+                    isCreate={isCreate}
+                    errors={errors}
+                    req={'*'}
+                  />
 
-                  <label className={s.label} >Idioma*</label>
-                  {!isCreate ? <p className={s.centro}>({idioma})</p> : null}
-                  <div>
-                    <Field
-                      name="idioma"
-                      className={s.textarea}
-                      type="text"
-                      id="idioma"
-                    />
-                  </div>
-                  <ErrorMessage name='idioma' component={() => (<p className={s.error}>{errors.idioma}</p>)} />
+                  <CampoInput
+                    name='idioma'
+                    type="text"
+                    input={idioma}
+                    isCreate={isCreate}
+                    errors={errors}
+                    req={'*'}
+                  />
 
-                  <label className={s.label} >Editorial</label>
-                  {!isCreate ? <p className={s.centro}>({editorial})</p> : null}
-                  <div>
-                    <Field
-                      name="editorial"
-                      className={s.textarea}
-                      type="text"
-                      id="editorial"
-                    />
-                  </div>
-                  <ErrorMessage name='editorial' component={() => (<p className={s.error}>{errors.editorial}</p>)} />
+                  <CampoInput
+                    name='editorial'
+                    type="text"
+                    input={editorial}
+                    isCreate={isCreate}
+                    errors={errors}
+                  />
 
-                  <label className={s.label} >Edición</label>
-                  {!isCreate ? <p className={s.centro}>({edicion})</p> : null}
-                  <div>
-                    <Field
-                      name="edicion"
-                      className={s.input}
-                      type="number"
-                      id="edicion"
-                    />
-                  </div>
-                  <ErrorMessage name='edicion' component={() => (<p className={s.error}>{errors.edicion}</p>)} />
+                  <CampoInput
+                    name='edicion'
+                    type="number"
+                    input={edicion}
+                    isCreate={isCreate}
+                    errors={errors}
+                  />
 
                   <div className={s.centro}>
                     <div className={s.tapas}>
@@ -162,30 +147,22 @@ const Forms = () => {
                     </div>
                   </div>
 
-                  <label className={s.label} >Año de publicación</label>
-                  {!isCreate ? <p className={s.centro}>({publicado})</p> : null}
-                  <div>
-                    <Field
-                      name="publicado"
-                      className={s.input}
-                      type="number"
-                      id="publicado"
-                      placeholder="AAAA..."
-                    />
-                  </div>
-                  <ErrorMessage name='publicado' component={() => (<p className={s.error}>{errors.publicado}</p>)} />
+                  <CampoInput
+                    name='año de publicación'
+                    type="number"
+                    input={publicado}
+                    isCreate={isCreate}
+                    errors={errors}
+                    placeholder={'AAAA...'}
+                  />
 
-                  <label className={s.label} >Páginas</label>
-                  {!isCreate ? <p className={s.centro}>({cant_pags})</p> : null}
-                  <div>
-                    <Field
-                      name="cant_pags"
-                      className={s.input}
-                      type="number"
-                      id="cant_pags"
-                    />
-                  </div>
-                  <ErrorMessage name='cant_pags' component={() => (<p className={s.error}>{errors.cant_pags}</p>)} />
+                  <CampoInput
+                    name='páginas'
+                    type="number"
+                    input={cant_pags}
+                    isCreate={isCreate}
+                    errors={errors}
+                  />
 
                   <label className={s.label} >Saga / Serie</label>
                   {!isCreate ? <p className={s.centro}>({colection})</p> : null}
@@ -194,7 +171,6 @@ const Forms = () => {
                       name="colection"
                       className={s.input}
                       type="text"
-                      id="colection"
                     />
                   </div>
                   <ErrorMessage name='colection' component={() => (<p className={s.error}>{errors.colection}</p>)} />
@@ -205,40 +181,31 @@ const Forms = () => {
                       name="price"
                       className={s.input}
                       type="number"
-                      id="price"
                       placeholder="en centavos de USD..."
                     />
                   </div>
                   <ErrorMessage name='price' component={() => (<p className={s.error} >{errors.price}</p>)} />
 
-                  <label className={s.label} >Descripción*</label>
-                  <div>
-                    <Field
-                      name="descripcion"
-                      className={s.textarea}
-                      type="text"
-                      id="descripcion"
-                      as="textarea"
-                    />
-                  </div>
-                  <ErrorMessage name='descripcion' component={() => (<p className={s.error}>{errors.descripcion}</p>)} />
+                  <CampoInput
+                    name='descripcion'
+                    type="text"
+                    as="textarea"
+                    input={cant_pags}
+                    isCreate={isCreate}
+                    errors={errors}
+                    req={'*'}
+                  />
 
                 </div>
 
                 <div className={s.centro}>
-                  <label className={s.label}>Ilustraciones</label>
-                  {!isCreate ? <p className={s.centro}>({ilustrado})</p> : null}
-                  <Field
-                    name="ilustrado"
-                    className={s.textarea}
-                    as="select"
-                    id="ilustrado"
-                    value={values.ilustrado?.defaultValue}
-                  >
-                    <option value={false}>¿Ilustrado?</option>
-                    <option value={false}>X</option>
-                    <option value={true}>✓</option>
-                  </Field>
+                  <CampoSelect
+                    name='ilustrado'
+                    input={ilustrado}
+                    isCreate={isCreate}
+                    errors={errors}
+                    values={values}
+                  />
 
                   <div className={s.categoriasF}>
                     <label className={s.label}>Categorías*</label>
@@ -326,7 +293,7 @@ const Forms = () => {
                   <p className={s.error}>{errors.file}</p>
 
                 </div>
-                  <ErrorMessage name='image' component={() => (<p className={s.error}>{errors.image}</p>)} />
+                <ErrorMessage name='image' component={() => (<p className={s.error}>{errors.image}</p>)} />
               </div>
 
               <button
