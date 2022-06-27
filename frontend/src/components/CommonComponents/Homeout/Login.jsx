@@ -1,0 +1,129 @@
+import React, { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { Link } from "react-router-dom"
+import {
+    login,
+    resetErrorLoginUser,
+  } from "../../../redux/actions/actionUser"
+import { useNavigate } from "react-router"
+import validarEmail from "../../../middleware/validarEmail"
+import validatePassword from "../../../middleware/validarPassword"
+
+export default function Login() {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const errorEmail = useSelector((state) => state.errorEmail)
+    const [state, setEstate] = useState(false)
+    const [usuario, setUsuario] = useState({
+        email: "",
+        password: "",
+    })
+    const [errors, setErrors] = useState({
+        email: "",
+        password: "",
+    })
+
+    function handleChangeEmail(e) {
+        setUsuario({
+            ...usuario,
+            [e.target.name]: e.target.value,
+        })
+        setErrors({
+            ...errors,
+            email: "",
+        })
+    }
+
+    const handleChangePassword = (e) => {
+        setUsuario({
+            ...usuario,
+            [e.target.name]: e.target.value,
+        })
+        setErrors({
+            ...errors,
+            password: "",
+        })
+    }
+    function validate(email, password) {
+        let objeto = {}
+        if (email === "") objeto = { ...objeto, email: "Campo requerido" }
+        else if (validarEmail(email))
+            email.length > 40
+                ? (objeto = { ...objeto, email: "Longitud inválida" })
+                : (objeto = { ...objeto, email: "Formato inválido" })
+
+        if (password === "")
+            objeto = { ...objeto, password: "Campo requerido" }
+        else if (validatePassword(password))
+            objeto = {
+                ...objeto,
+                password: "Su password debe tener al menos 8 caracteres",
+            }
+        return objeto
+    }
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        let val = validate(usuario.email, usuario.password)
+        if (Object.keys(val).length === 0) {
+            const loginData = await dispatch(login(usuario))
+            console.log(loginData.payload)
+            setUsuario({
+                email: "",
+                password: "",
+            })
+
+            if (errorEmail) {
+                e.preventDefault()
+
+            } else {
+                dispatch(resetErrorLoginUser())
+                loginData.payload.token ? navigate("/") : null
+            }
+        } else setErrors(val)
+    }
+
+    return (
+        <>
+            <form onSubmit={handleSubmit}>
+                <h1>Ingresar</h1>
+                <div>
+                    <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        onChange={handleChangeEmail}
+                        placeholder="Email"
+                        value={usuario.email} />
+                    {errors.email && (
+                        <div>
+                            <p>{errors.email}</p>
+                        </div>
+                    )}
+                </div>
+                <div>
+                    <input
+                        id="password"
+                        name="password"
+                        onChange={handleChangePassword}
+                        value={usuario.password}
+                        type={state ? "text" : "password"}
+                        placeholder="Contraseña" />
+                    {errors.password && (
+                        <div>
+                            <p>{errors.password}</p>
+                        </div>
+                    )}
+                </div>
+                {errorEmail && !usuario.email && !usuario.password ? (
+                    <p>{errorEmail} </p>
+                ) : null}
+                <Link to="/olvide-password/" >
+                    <a>Olvido su contraseña?</a>
+                </Link>
+                <button>Ingresar</button>
+            </form>
+        </>
+
+    )
+}
