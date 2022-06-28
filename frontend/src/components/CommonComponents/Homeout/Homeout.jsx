@@ -32,7 +32,7 @@ export default function Homeout() {
   return (
     <div class="padre">
       <div>
-        <div class="container" id="container" >
+        <div className="container" id="container" >
           <div class="form-container sign-up-container">
             <Login/>
             </div> 
@@ -56,21 +56,6 @@ export default function Homeout() {
           </div>
         </div>
       </div>
-
-      {/* <div class="loggPadre">
-
-        <div class="logg">
-          <GoogleOAuthProvider
-            clientId={`${import.meta.env.VITE_URL_CLIENT_ID}`}
-          >
-            <GoogleLogin login_uri="" onSuccess={responseGoogle} />
-
-          </GoogleOAuthProvider>
-        </div>
-      </div> */}
-
-
-      
       </div>
   )
 }
