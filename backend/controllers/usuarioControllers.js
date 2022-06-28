@@ -276,11 +276,33 @@ const cambiarImage = async (req, res) => {
     }
 };
 
-const deleteUsuario = async (req, res) => {
+const deleteUsuario = async (req, res) => {  //admin
     try {
         const id = req.params.id
         const deletedUser = await Usuario.findOneAndDelete({ _id: id})
         res.json(deletedUser)
+    } catch (error) {
+        console.log(error)
+    }
+}
+const deleteUser = async (req, res) => {
+    try {
+        const id = req.params.id
+        const deletedUser = await Usuario.findOneAndDelete({ _id: id})
+        res.json(deletedUser)
+    } catch (error) {
+        console.log(error)
+    }
+}
+const changeName = async (req, res) => {
+    try {
+        const id = req.params.id
+        const nombre = req.body
+        const editarNombre = await Usuario.findOneAndUpdate(
+            { _id: id},
+            nombre
+            )
+        res.json(editarNombre)
     } catch (error) {
         console.log(error)
     }
@@ -321,5 +343,7 @@ export {
     cambiarImage,
     googleLogin,
     deleteUsuario,
-    getUsersList
+    getUsersList,
+    deleteUser,
+    changeName
 };
