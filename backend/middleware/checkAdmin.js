@@ -35,7 +35,7 @@ const checkAdmin = async (req, res, next) => {
         );
     console.log("usuario por decoded",user)
 
-    if (!user.moderador) {
+    if (user.moderador === 'false') {
         // //   const users = await Usuario.findByUsers(user._id)
           
            res.status(200).json({ msg: "no eres admin" }) 

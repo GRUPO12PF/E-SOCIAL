@@ -293,23 +293,18 @@ const getUsersList = async (req, res) => {
             );
         console.log("usuario pa veeeeeer",user)
 
-        if (user.moderador) {
-            // //   const users = await Usuario.findByUsers(user._id)
-               user ? res.status(200).json({ data: user }) : res.status(400).json({ error: 'no podes realizar esta acción' })
-            } else {
-               res.status(400).json({ error: 'No sos administrador' })
-         }
+        // if (user.moderador) {
+        //     // const users = await Usuario.findById(usuario._id)
+        //     // //   const users = await Usuario.findByUsers(user._id)
+        //        user ? res.status(200).json({ data: user }) : res.status(400).json({ error: 'no podes realizar esta acción' })
+        //     } else {
+        //        res.status(400).json({ error: 'No sos administrador' })
+        //  }
 
     } catch (error) {
         console.log(error)    
     }
 
-    // if (user.moderador) {
-    //   const users = await Usuario.findByUsers(user._id)
-    //   users ? res.status(200).json({ data: users }) : res.status(400).json({ error: 'no podes realizar esta acción' })
-    // } else {
-    //   res.status(400).json({ error: 'No sos administrador' })
-    // }
   }
 
 export {
