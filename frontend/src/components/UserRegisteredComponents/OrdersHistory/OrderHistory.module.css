@@ -1,11 +1,15 @@
 .titulo {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    color: black;
-    margin-top: 20px;
-    
-  }
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  color: #e8ddbd;
+  height: 50px;
+  width: 500px;
+  padding-top: 7px;
+  margin-top: 20px;
+  background-color: #9d1d36;
+  margin: 0px auto;
+}
 
 .contenedorGral {
   margin:auto;
@@ -44,4 +48,11 @@
 .buttonPerfil:hover{
 text-decoration: underline;
 
+}
+
+.btnBook {
+  background-color: #9d1d36;
+  color: #e8ddbd;
+  margin: 20px 2.5px 0px 0px;
+  padding: 7px 15px;
 }

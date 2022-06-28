@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { usuarioCreated } from '../../../redux/actions/actionCreatedUser'
 import Books from './Books'
 import NavBar from '../../CommonComponents/NavBar/NavBar.jsx'
-import Footer from '../../CommonComponents/Footer/Footer'
 import s from './BooksCreated.module.css'
 import { useParams, Link } from 'react-router-dom'
 
@@ -22,13 +21,15 @@ export default function BooksCreated() {
       <NavBar />
       
       <Link to = '/profile'>
-        <button className="text-white bg-gray-600 py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">VOLVER AL MENU</button>
+        <button className={s.btnBook}>VOLVER AL MENU</button>
       </Link>
+      <div className={s.container}>
       <div className="text-center w-full">
    <h3 className={s.titulo}>MIS LIBROS</h3>
       <div className={s.contenedorGral}>
         <div className={s.contenedorBooks}>
-          {allBooks?.map((e, i) => {
+          {allBooks.length > 0 ? (
+          allBooks?.map((e, i) => {
             return (
               <div key={i}>
                 <Books
@@ -40,7 +41,12 @@ export default function BooksCreated() {
                 />
               </div>
             )
-          })}
+          })
+          ):(
+            <h3>TODAVIA NO TIENES LIBROS PUBLICADOS</h3>
+          )
+}
+</div>
         </div>
         </div>
         </div>

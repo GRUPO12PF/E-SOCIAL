@@ -12,7 +12,6 @@ export default function OrdersHistory() {
   const { id } = useParams()
 
   const allOrders = useSelector((state) => state.orders)
-  console.log(allOrders)
 
   useEffect(() => {
     dispatch(historyOrders(id))
@@ -21,17 +20,18 @@ export default function OrdersHistory() {
   return (
     <>
       <NavBar />
-      <div className={s.papa}>
+      <div>
       <Link to = '/profile'>
-        <button class="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">VOLVER AL MENU</button>
+        <button className={s.btnBook}>VOLVER AL MENU</button>
       </Link>
       
       <h3 className={s.titulo}>HISTORIAL DE COMPRAS</h3>
-      
+      <br /><br />
       <div className="contenedorGral">
       </div>
         <div className="contenedorBooks">
-          {allOrders?.map((e, i) => {
+          {allOrders.length > 0 ? (
+          allOrders?.map((e, i) => {
             return (
               <Link to={"/order/" + e._id}>
                 <div key={i}>
@@ -43,7 +43,11 @@ export default function OrdersHistory() {
                 </div>
               </Link>
             )
-          })}
+          })
+        ):(
+          <h3>TODAVIA NO HAY NINGUN LIBRO COMPRADO...</h3>
+        )
+        }
         </div>
   {/* <Footer/> */}
       </div>
