@@ -26,3 +26,123 @@
         width: auto;
     }
   }
+
+
+
+
+//   card nueva //  
+
+a {
+	color: initial;
+	text-decoration: initial;
+  }
+  
+  .box {
+	width: 329px;
+	background-color: #fff;
+	box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.6);
+	transition: .5s;
+	margin-top: 4rem;
+  }
+  .box:hover {
+	box-shadow: 5px 5px 70px rgba(0, 0, 0, 0.3);
+	transform: translate(-5px, -5px);
+  }
+  .imagen-atras{
+	height: 330px;
+	
+  }
+  
+  .top {
+	height: 330px;
+	position: relative;
+	background-size: cover;
+	
+  }
+  
+  .top .name {
+	position: absolute;
+	margin: 0;
+	left: 0;
+	bottom: 0;
+	padding: 5px 15px;
+	letter-spacing: 2px;
+	color: #d6d6d6;
+	font-weight: 300;
+	background: linear-gradient(to right, transparent 0%, #000 100%);
+	width: 100%;
+	box-sizing: border-box;
+	padding-top: 30px;
+	padding-bottom: 15px;
+  }
+  
+  .top .tab {
+	width: 25px;
+	height: 50px;
+	float: right;
+	margin-right: 25px;
+  }
+  
+  .cirBtn {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: #46532d75;
+	position: absolute;
+	right: 30px;
+	bottom: -25px;
+  }
+  .redonda-q{
+	border-radius: 50%;
+	width: 100px;
+	height: 50px;
+  }
+  .bottom {
+	padding: 10px 20px 20px 20px;
+  }
+  .bottom ul {
+	padding-left: 0;
+  }
+  .bottom li {
+	list-style: none;
+  }
+  .bottom h3 {
+	display: inline-block;
+	margin: 0;
+  }
+  
+  .buttons {
+	margin-top: 30px;
+  }
+  
+  .buttons .btn {
+	display: inline-block;
+	padding: 10px 30px;
+	text-align: center;
+	letter-spacing: 2px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+  }
+  
+  .btnWebsite {
+	background-color: #46532d75;
+	transition: .5s;
+	width: 160px;
+	height: 45px;
+	box-sizing: border-box;
+  }
+  .btnWebsite:hover {
+	background-color: #eee;
+  }
+  .btnNews {
+	float: right;
+	border: solid 1px #ff7526;
+	transition: .5s;
+  }
+  .btnNews:hover {
+	background-color: #ff7526
+  }
+  
+  
+  
+  
