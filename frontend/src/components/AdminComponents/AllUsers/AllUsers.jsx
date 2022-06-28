@@ -6,8 +6,8 @@ import NavBar from '../../CommonComponents/NavBar/NavBar'
 import profile from '../../../assets/images/avatar2.png'
 import Pagination from '../../CommonComponents/Pagination/Pagination'
 import s from './AllUsers.module.css'
-import Remove from '../../../Iconos/remove'
-import Edit from '../../../Iconos/Edit'
+import Remove from '../../../Iconos/Remove.jsx'
+import Edit from '../../../Iconos/Edit.jsx'
 
 
 
