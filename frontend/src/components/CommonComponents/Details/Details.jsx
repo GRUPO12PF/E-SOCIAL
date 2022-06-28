@@ -9,6 +9,8 @@ import { usuarioActual } from "../../../redux/actions/actionUser";
 import { getQA, postQuestion } from "../../../redux/actions/actionQA"
 import DetailsField from "./DetailsField/DetailsField"
 import NotFound from "../../CommonComponents/NotFound/NotFound.jsx"
+import Fle from "../../../Iconos/Fle"
+import Vuelta from "../../../Iconos/Vuelta"
 
 const Details = () => {
   const navigate = useNavigate()
@@ -246,12 +248,19 @@ const Details = () => {
                     title='Autor'
                   />
           </p>
-         
+          <div className="abs">
+                 <Fle  />
+          </div>
+           
+
          
         </div>
       </div>
       <div className="book__page-back">
         <div className="page__content"><h1>Descripción</h1>
+        <div className="vuelt">
+                  <Vuelta/>
+                 </div>
           <div className="page__content-table">
          
 
@@ -265,6 +274,7 @@ const Details = () => {
                  <p className="parra-detalle">
                    {descripcion}
                  </p>
+                 
 
 
 
@@ -304,166 +314,3 @@ const Details = () => {
 export default Details
 
 
- {/* {
-        detail.msgError ? <NotFound /> :
-          <div>
-
-
-            <div className="card-detalle">
-              <div className="clip-detalle">
-
-              </div>
-              <div>
-                <img src={image || book} alt="No encontrado" className="image-detalle" />
-              </div>
-
-              <div>
-                <h3 className="pName-detalle aa">{nombre}</h3>
-                <div className="price-detalle">
-                  {formatToCurrency(price)}
-                </div>
-
-                <div className="description-detalle">
-
-                  <div className="au-tor">
-                  <DetailsField
-                    constant={autor}
-                    clasName="h5-detalle "
-                    title='Autor'
-                  />
-
-                  <DetailsField
-                    constant={idioma}
-                    clasName="h5-detalle "
-                    title='Idioma'
-                  />
-
-
-                  <div>
-                  <h5 className="h5-detalle  ">Categoría</h5> 
-                  {category?.sort((a, b) => a.localeCompare(b)).join(', ')}
-                  </div>
-                  </div>
-
-                  
-
-                  <h5 className="h5-detalle">Descripción</h5>
-                  <p className="parra-detalle">
-                    {descripcion}
-                  </p>
-
-                  <button className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider" onClick={() => setVerMas(!verMas)}>
-                    {verMas ? "Ver menos" : "Ver más"}
-                  </button>
-
-                  {!verMas
-                    ? null
-                    : (<div className="edi-to">
-                      <DetailsField
-                        constant={editorial}
-                        clasName="h5-detalle aa"
-                        title='Editorial'
-                      />
-
-                      <DetailsField
-                        constant={edicion}
-                        clasName="h5-detalle aa"
-                        title='Edición'
-                      />
-
-                      <DetailsField
-                        constant={tapa}
-                        clasName="h5-detalle aa"
-                        title='Tapa'
-                      />
-
-                      <DetailsField
-                        constant={publicado}
-                        clasName="h5-detalle aa"
-                        title='Año de publicación'
-                      />
-
-                      <DetailsField
-                        constant={cant_pags}
-                        clasName="h5-detalle aa"
-                        title='Páginas'
-                      />
-
-                      {ilustrado ?
-                        (<>
-                          <h5 className="h5-detalle">Ilustrado</h5> ✓
-                        </>)
-                        : (<>
-                          <h5 className="h5-detalle">Ilustrado</h5> X
-                        </>)
-                      }
-
-                      <DetailsField
-                        constant={colection}
-                        clasName="h5-detalle"
-                        title='Saga / Serie'
-                      />
-                    </div>)
-                  }
-
-                </div>
-                <div className="che-detalle">
-                  {
-                    detail.order?.length < 1 ?
-                      token ?
-                        <Link to="/checkout">
-                          <button className="btnn-detalle bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">COMPRAR</button>
-                        </Link>
-                        :
-                        <Link to="/registrar">
-                          <button className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider btnn-detalle">COMPRAR</button>
-                        </Link>
-                      : null
-                  }
-                </div>
-              </div>
-            </div>
-            
-            
-           
-
-            <div  className="respuesta-detail">
-            <div clasName="question">
-              {
-                questionAnswered?.map((e, i) => {
-                  return (
-                    <div className="msjes">
-                      <div><p className="t">Pregunta: {e.mensaje}</p></div>
-                      <div><p className="t">Respuesta: {e.answers[0]?.mensaje}</p></div>
-                    </div>
-                  )
-                })
-              }
-            </div>
-
-              {
-                token ?
-                  <form onSubmit={(e) => handleSubmitSendQuestion(e)}>
-                    <input type="text" placeholder="Acá va su pregunta, señor" name="mensaje" value={input.mensaje} onChange={e => handleInputChange(e)} />
-                    
-                    <button className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">ENVIAR</button>
-                  </form>
-                  :
-                  <Link to="/homeout">
-                    <button className="btnn-detalle bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">PREGUNTAR</button>
-                  </Link>
-              }
-
-              
-            </div>
-           
-            <div className="perfil-v">
-
-              <button onClick={handle} className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">PERFIL DEL VENDEDOR</button>
-
-            </div>
-
-
-          </div>
-      }
-  */}
