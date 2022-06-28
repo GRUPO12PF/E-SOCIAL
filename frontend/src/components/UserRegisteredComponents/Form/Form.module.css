@@ -1,7 +1,15 @@
-.formFondo{
+input[type=checkbox] {
+    display: block;
+}
+
+select {
+    background: rgba(183, 203, 187, 0.184);
+}
+
+.formFondo {
     display: flex;
-    flex-wrap:wrap;
-  }
+    flex-wrap: wrap;
+}
 
 .fotoF1 {
     padding: 20px;
@@ -14,53 +22,101 @@
     padding: 5px;
     border-radius: 5px;
     margin-top: 20px;
-    
+
 }
-.confirmP{
+
+.confirmP {
     background-color: #a9b79e;
     padding: 5px;
     border-radius: 5px;
-    
+
 }
-.uploadButton{
+
+.uploadButton {
     background-color: #a9b79e;
     padding: 5px;
     border-radius: 5px;
-    
+
 }
 
 .tapas {
-    margin-top: 20px;
-   }
+    margin: 10px auto;
+}
 
 .ilustrado {
     margin-top: 20px;
 
 }
 
-.formik {
+.formikContainer {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
-    flex-direction: row;
-    flex: 1;
-
+    flex: 2;
 }
 
-.form {
+.formContents {
     background-color: rgba(110, 144, 118, 0.184);
-    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    margin: auto;
     border-radius: 20px;
-    padding: 40px 400px;
     font-family: 'Roboto', sans-serif;
     position: relative;
-    right: 4rem;
     height: fit-content;
-    padding-bottom:300px;
- 
+    max-width: 720px;
+}
+
+.formContents2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    padding: 5%;
+}
+
+.formContents3 {
+    background-color: rgba(110, 144, 118, 0.184);
+    margin: 1%;
+    padding: 2%;
+    border-radius: 20px;
+    max-width: 100%;
+}
+
+.requeridos {
+    margin: 5%;
+    align-items: center; /* NO FUNCA MALDITO BASTARDO jaja */
+}
+
+.opcionales { /* se podría borrar si se aplica el mismo estilo que a Requeridos */
+    /* margin: 5%; */
+    align-items: center;
 }
 
 .input {
+    outline: solid 1px black;
+    background: white;
+    border: none;
+    padding: 3px 60px;
+    color: rgb(0, 0, 0);
+    border-radius: 6px;
+    /* width: 100%; */
+}
+
+.imgInput {
+    outline: solid 1px black;
+    background: white;
+    border: none;
+    padding: 3px 60px;
+    color: rgb(0, 0, 0);
+    border-radius: 6px;
+    width: 120%;
+}
+
+.selector {
     outline: solid 1px black;
     background: white;
     border: none;
@@ -86,6 +142,15 @@
     font-size: 20px;
 }
 
+.titleSelect {
+    display: flex;
+    justify-content: left;
+    text-align: center;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
 .range {
     display: flex;
     align-items: center;
@@ -93,9 +158,6 @@
     color: black;
 }
 
-select {
-    background: rgba(183, 203, 187, 0.184);
-}
 
 .back {
     font-family: 'Roboto', sans-serif;
@@ -148,7 +210,6 @@ select {
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
     z-index: 99;
-
 }
 
 .categoriasF {
@@ -157,10 +218,12 @@ select {
     justify-content: center;
     flex-direction: column;
 }
-.previewF{
+
+.previewF {
     width: 150px;
     height: 150px;
 }
+
 .check {
     justify-content: center;
     background-color: rgba(125, 127, 125, 0.184);
@@ -171,7 +234,6 @@ select {
     gap: 2rem;
     top: 7rem;
     right: 5rem;
-
 }
 
 .check::-webkit-scrollbar {
@@ -182,19 +244,15 @@ select {
     background: none;
 }
 
-input[type=checkbox] {
-    display: block;
-    }
-
 .pF {
     font-size: 14px;
     padding: 20px;
 }
 
 .subdi {
-    position: absolute;
-    left: 3rem;
-   
+    margin: auto;
+    /* position: absolute; */
+    /* left: 3rem;    */
 }
 
 .error {
@@ -205,6 +263,4 @@ input[type=checkbox] {
 
 .centro {
     justify-content: center;
-
 }
-
