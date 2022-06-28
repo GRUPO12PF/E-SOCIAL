@@ -285,6 +285,17 @@ const deleteUsuario = async (req, res) => {
         console.log(error)
     }
 }
+const getUsersList = async (req, res) => {
+    // const user = await Usuario.findByEmail(req.usuario.email)
+    const users = await Usuario.findOne({  email: req.usuario.email })
+    // if (users.moderador) {
+    // //   const users = await Usuario.findByUsers(user._id)
+    //   users ? res.status(200).json({ data: users }) : res.status(400).json({ error: 'no podes realizar esta acción' })
+    // } else {
+    //   res.status(400).json({ error: 'No sos administrador' })
+    // }
+    console.log(users)
+  }
 
 export {
     registrar,
@@ -299,5 +310,6 @@ export {
     obtenerOrdersUsuarios,
     cambiarImage,
     googleLogin,
-    deleteUsuario
+    deleteUsuario,
+    getUsersList
 };
