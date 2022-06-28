@@ -43,60 +43,58 @@ function AllBooks() {
 
   return (
     <>
-    <div className="contenedorGral">
-      <div className="contenedorBooks">
-        {loading ? (
-          <Loading />
-        ) : currentBooks?.length > 0 && !loading ? (
-          currentBooks &&
-          currentBooks?.map((e, i) => {
-            return (
-              <div key={i}>
-                {e.error ? (
-                  <h1>¡ERROR!</h1>
-                ) : (
-                  <Link id="detail" to={"/details/" + e._id}>
-                    <Book
-                      id={e?._id}
-                      nombre={e?.nombre}
-                      image={e?.image}
-                      nameUser={e.creador?.nombre}
-                      descripcion={e?.descripcion}
-                      imageUser={e.creador?.image.url}
-                      price={formatToCurrency(e?.price)}
-                    />
-                  </Link>
-                )}
-              </div>
-            )
-          })
-        ) : (
-          <NotFound />
-        )}
-        <div className='contanedorChat'>
-          {
-            chatbot ?
-              <div className='visible'><Chat setChatbot={setChatbot} chatbot={chatbot} /></div> : null
-          }
+      <div className="contenedorGral">
+        <div className="contenedorBooks">
+          {loading ? (
+            <Loading />
+          ) : currentBooks?.length > 0 && !loading ? (
+            currentBooks &&
+            currentBooks?.map((e, i) => {
+              return (
+                <div key={i}>
+                  {e.error ? (
+                    <h1>¡ERROR!</h1>
+                  ) : (
+                    <Link id="detail" to={"/details/" + e._id}>
+                      <Book
+                        id={e?._id}
+                        nombre={e?.nombre}
+                        image={e?.image}
+                        nameUser={e.creador?.nombre}
+                        descripcion={e?.descripcion}
+                        imageUser={e.creador?.image.url}
+                        price={formatToCurrency(e?.price)}
+                      />
+                    </Link>
+                  )}
+                </div>
+              )
+            })
+          ) : (
+            <NotFound />
+          )}
+          <div className='contanedorChat'>
+            {
+              chatbot ?
+                <div className='visible'><Chat setChatbot={setChatbot} chatbot={chatbot} /></div> : null
+            }
 
-          <abbr title="NECESITAS AYUDA..">
-            <button onClick={() => setChatbot(!chatbot)}
-              className="link-chatbot"><TbRobot className="robot" />
-            </button></abbr>.
+            <abbr title="NECESITAS AYUDA..">
+              <button onClick={() => setChatbot(!chatbot)}
+                className="link-chatbot"><TbRobot className="robot" />
+              </button></abbr>.
 
+          </div>
+          <Pagination
+            pageSize={pageSize}
+            pageCurrent={pageCurrent}
+            allBooks={allBooks?.length}
+            page={page}
+          />
         </div>
-        <Pagination
-          pageSize={pageSize}
-          pageCurrent={pageCurrent}
-          allBooks={allBooks?.length}
-          page={page}
-        />
-      </div>
 
-    </div>
-      <div className="footer">
-        <Footer />
       </div>
+      <Footer />
     </>
   )
 }
