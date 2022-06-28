@@ -37,7 +37,7 @@ router.put("/imagen", checkAuth, cambiarImage);//Cambiar imagen de perfil
 //ADMIN
 router
   .route("/list")
-  .get(checkAdmin, getUsersList)
+  .get(checkAuth, checkAdmin, getUsersList)
 
 router
 .route('/delete/:id')

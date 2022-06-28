@@ -27,7 +27,7 @@ export const GET_USUARIOS = 'GET_USUARIOS'
 export const GET_ORDERS = 'GET_ORDERS'
 export const GET_REVIEW = 'GET_REVIEW'
 export const DELETE_USER = 'DELETE_USER'
-
+export const IS_ADMIN = "IS_ADMIN"
 
 // QUESTIONS AND ANSWERS FROM DETAILS OF EACH BOOK 
 
