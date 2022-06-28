@@ -12,9 +12,10 @@ import {
     traerUsuarios,
     obtenerOrdersUsuarios,
     cambiarImage,
-    deleteUsuario
+    deleteUsuario,
+    getUsersList
 } from "../controllers/usuarioControllers.js";
-
+import checkAdmin from "../middleware/checkAdmin.js";
 import checkAuth from "../middleware/checkAuth.js";
 
 const router = express.Router();
@@ -33,6 +34,8 @@ router.get("/traer-orders", obtenerOrdersUsuarios);
 router.get("/actual", checkAuth, usuario);
 router.put("/imagen", checkAuth, cambiarImage);//Cambiar imagen de perfil
 
+//ADMIN
+router.get('/list',checkAdmin, getUsersList)
 
 router
   .route('/delete/:id')
