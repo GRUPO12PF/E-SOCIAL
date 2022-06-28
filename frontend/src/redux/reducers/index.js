@@ -1,8 +1,9 @@
-import { GET_CATEGORIES, GET_REVIEW, FILTER_BY_CATEGORY, SORT_BY, NAME_ASC, NAME_DESC, DELETE_USER, PRICE_ASC, PRICE_DESC, BUY_BOOK, GET_DETALLE_ORDER, GET_USUARIOS, GET_ORDERS, POST_ANSWER, POST_QUESTION, GET_QA, GET_ALL_QUESTIONS, GET_ALL_ANSWERS, GET_ALL_QUESTIONS_COMPRADOR, TEMP_STATE, NEW_FIRST } from '../utils/constants'
+import { GET_CATEGORIES, GET_REVIEW, FILTER_BY_CATEGORY, SORT_BY, NAME_ASC, NAME_DESC, DELETE_USER, PRICE_ASC, PRICE_DESC, BUY_BOOK, GET_DETALLE_ORDER, GET_USUARIOS, GET_ORDERS, POST_ANSWER, POST_QUESTION, GET_QA, GET_ALL_QUESTIONS, GET_ALL_ANSWERS, GET_ALL_QUESTIONS_COMPRADOR, TEMP_STATE, NEW_FIRST, IS_ADMIN } from '../utils/constants'
 
 const initialState = {
   allBooks: [],
   allOrders: [],
+  allReviews: [],
   allUsuarios: [],
   answers: [],
   books: [],
@@ -15,6 +16,7 @@ const initialState = {
   deleteUserAsAdmin: [],
   detail: [],
   email: [],
+  isAdmin: false,
   invalidToken: true,
   loginUser: false,
   orders: [],
@@ -23,12 +25,11 @@ const initialState = {
   questions: [],
   questionsAndAnswers: [],
   questionsComprador: [],
+  review: [],
   tempState: [],
   usuario: [],
   usuarioActual: [],
   usuarioProfile: [],
-  allReviews: [],
-  review: []
 }
 
 function rootReducer(state = initialState, action) {
@@ -98,14 +99,19 @@ function rootReducer(state = initialState, action) {
         email: [],
       }
 
+    case IS_ADMIN:
+      return {
+        ...state,
+        isAdmin: action.payload,
+      }
+
+    //---------------------BOOKS----------------------------------------
     case 'GET_BOOKS':
       return {
         ...state,
         books: action.payload,
         allBooks: action.payload,
       }
-
-    //---------------------BOOKS----------------------------------------
     case 'POST_CREATE':
       return {
         ...state,
@@ -270,7 +276,7 @@ function rootReducer(state = initialState, action) {
       }
 
     case DELETE_USER:
-      return{
+      return {
         ...state,
         deleteUserAsAdmin: action.payload
       }
