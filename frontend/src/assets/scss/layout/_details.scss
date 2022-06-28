@@ -199,7 +199,7 @@
   width: calc(var(--baseline) * 60);
   height: calc(var(--baseline) * 42.6);
   box-shadow: 0 0 100px rgba(0, 0, 0, .3);
-  margin: 0 auto;
+  margin: 4rem auto;
 
 }
 
@@ -421,4 +421,15 @@
     position: absolute;
     top: 8rem;
     left: 2rem;
+}
+
+.abs{
+    position: absolute;
+    bottom: 10rem;
+    left: 32rem;
+}
+
+.vuelt{
+    position: absolute;
+    bottom: 12rem;
 }
