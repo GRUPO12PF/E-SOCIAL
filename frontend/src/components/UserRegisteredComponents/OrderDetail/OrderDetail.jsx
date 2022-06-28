@@ -1,17 +1,19 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getDetalleOrder } from '../../../redux/actions/actionOrder'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
-import Footer from '../../CommonComponents/Footer/Footer'
+import Modal from 'react-modal';
 import s from './OrderDetail.module.css'
 import {  Link } from 'react-router-dom'
+import Review from '../Review/Review'
 
 
 const OrderDetail = () => {
   const navigate = useNavigate()
   const { id } = useParams()
-
+  const [showModal, setShowModal] = useState(false)
+  const [showModalNotification, setShowModalNotification] = useState(false)
   const detalles = useSelector(state => state.order)
   const review = detalles?.reviews
   console.log(review)
@@ -26,14 +28,20 @@ const OrderDetail = () => {
     dispatch(getDetalleOrder(id));
   }, [dispatch]);
 
-  const handleClick = () => {
+
+  function handleButton() {
     if (review?. length === 0) {
-      navigate(`/review/${id}`)
+      setShowModal(true)
     } else {
       const btnReview = document.getElementById('review');
       btnReview.disabled = true;
 
     }
+  
+  }
+  function closeModal() {
+    showModalNotification && setShowModalNotification(false)
+    showModal && setShowModal(false)
   }
 
   return (
@@ -55,8 +63,14 @@ const OrderDetail = () => {
           <p className={s.items}>{detalles.books?.category}</p>
         </div> 
         <div className={s.response}>{response ? response : null}</div>
-        <button id="review" className={s.button} onClick={handleClick}>OPINAR SOBRE EL VENDEDOR</button>
+        <button id="review" className={s.button} onClick={handleButton}>OPINAR SOBRE EL VENDEDOR</button>
       </div>
+      <Modal isOpen={showModal} ariaHideApp={false}>
+          <Review
+            closeModal={closeModal}
+            id= {id}
+          />
+        </Modal>
     </div>
   )
 }

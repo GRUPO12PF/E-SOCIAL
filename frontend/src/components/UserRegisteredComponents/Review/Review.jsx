@@ -1,14 +1,12 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
 import { useDispatch, useSelector } from 'react-redux'
 import { getDetalleOrder, review } from '../../../redux/actions/actionOrder'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import Footer from '../../CommonComponents/Footer/Footer'
 import s from './Review.module.css'
-const Review = () => {
+const Review = ({id, closeModal}) => {
   const Navigate = useNavigate()
-  const { id } = useParams()
   const dispatch = useDispatch()
   const detalles = useSelector(state => state.order)
   const vendedor = detalles.books?.creador
@@ -81,13 +79,9 @@ const Review = () => {
 
   return (
     <>
-    <div className={s.papa}>
-      <NavBar />
-      <Link to = '/profile'>
-        <button class="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">VOLVER AL MENU</button>
-      </Link>
-      
-      <div class="bg-gray-50 rounded-lg max-w-7xl p-10 mt-10  flex justify-center lg:w-1/2 ml-60 " >
+    <div>
+    <button onClick={closeModal}  >X</button>
+
   <div class="bg-white p-10 rounded-lg shadow md:w-3/4 lg:w-1/2 mx-auto">
 
     <form action="" class="" onSubmit={(e)=>handleSubmit(e)}>
@@ -134,8 +128,7 @@ const Review = () => {
 
   </div>
 </div>
-      {/* <Footer/> */}
-      </div>
+
     </>
   )
 }
