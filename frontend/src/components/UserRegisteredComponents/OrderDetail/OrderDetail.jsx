@@ -1,22 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { getDetalleOrder } from '../../../redux/actions/actionOrder'
-import NavBar from '../../CommonComponents/NavBar/NavBar'
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getDetalleOrder } from '../../../redux/actions/actionOrder';
+import NavBar from '../../CommonComponents/NavBar/NavBar';
 import Modal from 'react-modal';
-import s from './OrderDetail.module.css'
-import {  Link } from 'react-router-dom'
-import Review from '../Review/Review'
+import s from './OrderDetail.module.css';
+import { Link } from 'react-router-dom';
+import Review from '../Review/Review';
 
 
 const OrderDetail = () => {
-  const navigate = useNavigate()
   const { id } = useParams()
   const [showModal, setShowModal] = useState(false)
   const [showModalNotification, setShowModalNotification] = useState(false)
   const detalles = useSelector(state => state.order)
   const review = detalles?.reviews
-  console.log(review)
 
   const dispatch = useDispatch()
 
@@ -30,15 +28,14 @@ const OrderDetail = () => {
 
 
   function handleButton() {
-    if (review?. length === 0) {
+    if (review?.length === 0) {
       setShowModal(true)
     } else {
       const btnReview = document.getElementById('review');
       btnReview.disabled = true;
-
     }
-  
   }
+
   function closeModal() {
     showModalNotification && setShowModalNotification(false)
     showModal && setShowModal(false)
@@ -48,9 +45,9 @@ const OrderDetail = () => {
     <div>
       <NavBar />
       <div className={s.containerGral} >
-      <Link to = '/profile'>
-        <button className={s.btnHome}>VOLVER AL MENU</button>
-      </Link>
+        <Link to='/profile'>
+          <button className={s.btnHome}>VOLVER AL MENU</button>
+        </Link>
         <div className={s.container}>
           <p className={s.texto}>{detalles.books?.nombre}</p>
           <img className={s.image} src={detalles.books?.image} />
@@ -61,16 +58,16 @@ const OrderDetail = () => {
           <p className={s.items}>{detalles.books?.price}</p>
           <p className={s.items}>{detalles.books?.descripcion}</p>
           <p className={s.items}>{detalles.books?.category}</p>
-        </div> 
+        </div>
         <div className={s.response}>{response ? response : null}</div>
-        <button id="review" className={s.button} onClick={handleButton}>OPINAR SOBRE EL VENDEDOR</button>
+        <button id='review' className={s.button} onClick={handleButton}>OPINAR SOBRE EL VENDEDOR</button>
       </div>
       <Modal isOpen={showModal} ariaHideApp={false}>
-          <Review
-            closeModal={closeModal}
-            id= {id}
-          />
-        </Modal>
+        <Review
+          closeModal={closeModal}
+          id={id}
+        />
+      </Modal>
     </div>
   )
 }

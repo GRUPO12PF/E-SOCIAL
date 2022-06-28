@@ -1,6 +1,5 @@
   .container {
     text-align: center;
-
   }
 
   .titulo {
@@ -23,7 +22,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
   }
 
   .contenedorBooks {
@@ -33,11 +31,9 @@
     align-items: center;
     gap: 2rem;
     align-items: center;
-    /* max-width: 120rem; */
     margin: 0 auto;
     flex-wrap: wrap;
     flex-direction: row;
-
   }
 
   .buttonPerfil {
@@ -48,7 +44,6 @@
     background: white;
     font-size: 17px;
     border-color: white;
-
   }
 
   .buttonPerfil:hover {
@@ -63,7 +58,7 @@
     margin: 20px 2.5px 0px 0px;
     padding: 7px 15px;
   }
-  .vendido{
+
+  .vendido {
     color: red;
-    
   }
