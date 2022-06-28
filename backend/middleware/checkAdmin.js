@@ -29,14 +29,14 @@ const checkAdmin = async (req, res, next) => {
         // console.log('🚀 — file: checkAdmin.js — line 30 — checkAdmin — token', token)
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         
-        console.log("desde acáaaaaa", decoded)
+        // console.log("desde acáaaaaa", decoded)
 
         const user = await Usuario.findById(decoded.id).select(
             "-password -confirmado -token -createdAt -updatedAt -__v"
         );
-        console.log("usuario por decoded", user)
+        // console.log("usuario por decoded", user)
 
-        if (user.moderador === 'false') {
+        if (user.moderador === false) {
             // //   const users = await Usuario.findByUsers(user._id)
 
             //    res.status(200).json({ msg: "no eres admin" }) 
