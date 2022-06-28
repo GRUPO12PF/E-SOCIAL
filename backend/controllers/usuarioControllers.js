@@ -286,15 +286,30 @@ const deleteUsuario = async (req, res) => {
     }
 }
 const getUsersList = async (req, res) => {
-    // const user = await Usuario.findByEmail(req.usuario.email)
-    const users = await Usuario.findOne({  email: req.usuario.email })
-    // if (users.moderador) {
-    // //   const users = await Usuario.findByUsers(user._id)
+    const {id} = req.body
+    try {   
+        const user = await Usuario.findById({_id: id}).select(
+            "-password -confirmado -token -createdAt -updatedAt -__v"
+            );
+        console.log("usuario pa veeeeeer",user)
+
+        if (user.moderador) {
+            // //   const users = await Usuario.findByUsers(user._id)
+               user ? res.status(200).json({ data: user }) : res.status(400).json({ error: 'no podes realizar esta acción' })
+            } else {
+               res.status(400).json({ error: 'No sos administrador' })
+         }
+
+    } catch (error) {
+        console.log(error)    
+    }
+
+    // if (user.moderador) {
+    //   const users = await Usuario.findByUsers(user._id)
     //   users ? res.status(200).json({ data: users }) : res.status(400).json({ error: 'no podes realizar esta acción' })
     // } else {
     //   res.status(400).json({ error: 'No sos administrador' })
     // }
-    console.log(users)
   }
 
 export {

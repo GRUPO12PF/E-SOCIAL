@@ -35,11 +35,13 @@ router.get("/actual", checkAuth, usuario);
 router.put("/imagen", checkAuth, cambiarImage);//Cambiar imagen de perfil
 
 //ADMIN
-router.get('/list',checkAdmin, getUsersList)
+router
+  .route("/list")
+  .get(checkAdmin, getUsersList)
 
 router
-  .route('/delete/:id')
-  .delete(deleteUsuario);
+.route('/delete/:id')
+.delete(deleteUsuario);
 
 export default router;
 
