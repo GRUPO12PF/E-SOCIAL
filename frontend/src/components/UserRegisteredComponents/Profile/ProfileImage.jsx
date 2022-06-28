@@ -1,7 +1,7 @@
 import React from 'react';
 import { cambiarImagen } from '../../../redux/actions/actionUser';
 import { useDispatch } from 'react-redux';
-
+import s from './Profile.module.css';
 export default function ProfileImage({ closeModalImage }) {
   const dispatch = useDispatch()
 
@@ -11,16 +11,16 @@ export default function ProfileImage({ closeModalImage }) {
   }
 
   return (
-    <div >
-      <div>
-        <button onClick={closeModalImage}  >X</button>
+    <div className={s.containerGeneral}>
+      <div className={s.containerImagen}>
+        <button  onClick={closeModalImage}  >X</button>
         <div className='contFile'>
           <label className='labelmiinput' htmlFor='mifile'>
           </label>
-          <input
+          <input 
             type='file'
             name='image'
-            className='file'
+            className={s.input}
             id='mifile'
             onChange={(e) => handleImage(e.target.files[0])}
           />

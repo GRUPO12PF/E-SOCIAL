@@ -6,6 +6,7 @@ import {
   setStateEmail,
 } from "../../../redux/actions/actionUser"
 import validarEmail from "../../../middleware/validarEmail"
+import s from './Profile.module.css'
 
 export default function ProfilePassword({closeModalPassword}) {
   const [email, setEmail] = useState("")
@@ -53,14 +54,15 @@ export default function ProfilePassword({closeModalPassword}) {
   }
 
   return (
-    <div>
-      <div>
+    <div className={s.containerGeneral}>
+      <div className={s.containerImagen}>
       <button onClick={closeModalPassword}  >X</button>
         <div>
-          <h3>Ingresa tu e-mail para cambiar tu password</h3>
+          <p>Ingresa tu e-mail para cambiar tu password</p>
           <form onSubmit={handleSubmit}>
             <label htmlFor="email">e-mail</label>
             <input
+             className={s.input}
               name="email"
               value={email}
               onChange={handleChange}
@@ -81,7 +83,7 @@ export default function ProfilePassword({closeModalPassword}) {
                 </button>{" "}
               </Link>
             ) : (
-              <button type="submit">
+              <button className={s.buttonPsw} type="submit">
                 RESETTEAR PASSWORD
               </button>
             )}
