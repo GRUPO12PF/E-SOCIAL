@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router"
 import { Link } from "react-router-dom"
 import IconsLogout from "../../../Iconos/IconsLogout"
-import Settings from "../../../Iconos/Settings"
 import Perfil from "../../../Iconos/Perfil"
 import Admin from "../../../Iconos/Admin"
 import Chat from "../../../Iconos/Chat"
@@ -10,7 +9,6 @@ import Sales from "../../../Iconos/Sales"
 
 export default function ProfileSettings() {
   const navigate = useNavigate()
-
   const token = localStorage.getItem("token")
   if (!token) {
     navigate("/")
@@ -35,13 +33,6 @@ export default function ProfileSettings() {
         <Link to="/create" >
           <Sales />
           <h3>Vender</h3>
-        </Link>
-      </div>
-
-      <div className="divModalPerfil">
-        <Link to="/user/setting" >
-          <Settings />
-          <h3>Ajustes</h3>
         </Link>
       </div>
 

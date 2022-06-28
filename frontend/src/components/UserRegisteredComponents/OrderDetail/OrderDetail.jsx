@@ -1,20 +1,20 @@
-import React, { useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { getDetalleOrder } from '../../../redux/actions/actionOrder'
-import NavBar from '../../CommonComponents/NavBar/NavBar'
-import Footer from '../../CommonComponents/Footer/Footer'
-import s from './OrderDetail.module.css'
-import {  Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getDetalleOrder } from '../../../redux/actions/actionOrder';
+import NavBar from '../../CommonComponents/NavBar/NavBar';
+import Modal from 'react-modal';
+import s from './OrderDetail.module.css';
+import { Link } from 'react-router-dom';
+import Review from '../Review/Review';
 
 
 const OrderDetail = () => {
-  const navigate = useNavigate()
   const { id } = useParams()
-
+  const [showModal, setShowModal] = useState(false)
+  const [showModalNotification, setShowModalNotification] = useState(false)
   const detalles = useSelector(state => state.order)
   const review = detalles?.reviews
-  console.log(review)
 
   const dispatch = useDispatch()
 
@@ -26,23 +26,28 @@ const OrderDetail = () => {
     dispatch(getDetalleOrder(id));
   }, [dispatch]);
 
-  const handleClick = () => {
-    if (review?. length === 0) {
-      navigate(`/review/${id}`)
+
+  function handleButton() {
+    if (review?.length === 0) {
+      setShowModal(true)
     } else {
       const btnReview = document.getElementById('review');
       btnReview.disabled = true;
-
     }
+  }
+
+  function closeModal() {
+    showModalNotification && setShowModalNotification(false)
+    showModal && setShowModal(false)
   }
 
   return (
     <div>
       <NavBar />
       <div className={s.containerGral} >
-      <Link to = '/profile'>
-        <button class="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">VOLVER AL MENU</button>
-      </Link>
+        <Link to='/profile'>
+          <button className={s.btnHome}>VOLVER AL MENU</button>
+        </Link>
         <div className={s.container}>
           <p className={s.texto}>{detalles.books?.nombre}</p>
           <img className={s.image} src={detalles.books?.image} />
@@ -53,14 +58,16 @@ const OrderDetail = () => {
           <p className={s.items}>{detalles.books?.price}</p>
           <p className={s.items}>{detalles.books?.descripcion}</p>
           <p className={s.items}>{detalles.books?.category}</p>
-          {/* <p>{detalles.comprador.nombre}</p>
-               <img src={detalles.comprador.image.url}/> */}
-         
-        </div> 
+        </div>
         <div className={s.response}>{response ? response : null}</div>
-        <button id="review" className={s.button} onClick={handleClick}>OPINAR SOBRE EL VENDEDOR</button>
+        <button id='review' className={s.button} onClick={handleButton}>OPINAR SOBRE EL VENDEDOR</button>
       </div>
-      {/* <Footer/> */}
+      <Modal isOpen={showModal} ariaHideApp={false}>
+        <Review
+          closeModal={closeModal}
+          id={id}
+        />
+      </Modal>
     </div>
   )
 }

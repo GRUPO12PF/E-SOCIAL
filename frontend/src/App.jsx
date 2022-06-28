@@ -63,7 +63,6 @@ export default function App() {
           <Route path="/profile" element={<Profile />}/>
           <Route path="/details/update/:id" element={<Forms />} />
           <Route path="/details/:id" element={<Details />} />
-          <Route path="/user/setting" element={<Settings />} />
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/historyOrders/:id" element={<OrdersHistory/>}/>
           <Route path="/order/:id" element={<OrderDetail/>}/>

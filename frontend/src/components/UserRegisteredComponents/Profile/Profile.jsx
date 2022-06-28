@@ -1,55 +1,89 @@
-import React from 'react'
-import NavBar from '../../CommonComponents/NavBar/NavBar'
-import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router'
-import { useSelector } from 'react-redux'
-import s from './Profile.module.css'
+import React, { useState } from 'react';
+import NavBar from '../../CommonComponents/NavBar/NavBar';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router';
+import { useSelector } from 'react-redux';
+import Modal from 'react-modal';
+import profile from '../../../assets/images/avatar.png';
+import s from './Profile.module.css';
+import ProfileImage from './ProfileImage';
+import ProfilePassword from './ProfilePassword';
 
 function Profile() {
   const navigate = useNavigate()
+  const [showModal, setShowModal] = useState(false)
+  const [showModalNotification, setShowModalNotification] = useState(false)
+  const [showModalP, setShowModalP] = useState(false)
+  const [showModalNotificationP, setShowModalNotificationP] = useState(false)
   const user = useSelector(state => state.usuarioActual)
   const idUser = user._id
-  console.log(idUser)
+
+
+  function handleButtonImage() {
+    setShowModal(true)
+  }
+  function closeModalImage() {
+    showModalNotification && setShowModalNotification(false)
+    showModal && setShowModal(false)
+  }
+  function handleButtonPassword() {
+    setShowModalP(true)
+  }
+  function closeModalPassword() {
+    showModalNotificationP && setShowModalNotificationP(false)
+    showModalP && setShowModalP(false)
+  }
   function handleOnClickBooks() {
     navigate(`/bookCreated/${idUser}`)
   }
-
   function handleOnClickOrders() {
     navigate(`/historyOrders/${idUser}`)
   }
-
   function handleOnClickQuestions() {
     navigate(`/questions/${idUser}`)
   }
 
-
-
   return (
     <div>
       <NavBar />
-
-      <div className={s.containerPadre}>
-        <div className={s.containerGral}>
-          <div className={s.container}>
-            <div className={s.containerMini}>
-              <div onClick={() => handleOnClickBooks()}>
-                <Link to="/">
-                  <p className={s.prueba}>LIBROS</p>
-                </Link>
-              </div>
-              <div onClick={() => (handleOnClickOrders())}>
-                <Link to="/">
-                  <p className={s.prueba}>ÓRDENES</p>
-                </Link>
-              </div>
-              <div onClick={() => (handleOnClickQuestions())}>
-                <Link to="/">
-                  <p className={s.prueba}>PREGUNTAS</p>
-                </Link>
-              </div>
-            </div>
+      <div className={s.todo}>
+        <div className={s.container}>
+          <img className={s.img} src={user?.image?.url ? user?.image?.url : profile} alt='Imagen de usuario' />
+          <h1 className={s.h1}>{user.nombre}</h1>
+          <p>{user?.email}</p>
+          <div className={s.btn}><button onClick={handleButtonImage}>CAMBIAR IMAGEN</button></div>
+          <div className={s.btn}><button onClick={handleButtonPassword}>CAMBIAR CONTRASEÑA</button></div>
+          <div className={s.btn}><button onClick={handleButtonPassword}>CAMBIAR NOMBRE</button></div>
+          <div className={s.btn}><button onClick={handleButtonPassword}>ELIMINAR CUENTA</button></div>
+        </div>
+        <br />
+        <div className={s.container}>
+          <div onClick={() => handleOnClickBooks()}>
+            <Link to='/'>
+              <p className={s.prueba}>MIS VENTAS</p>
+            </Link>
+          </div>
+          <div onClick={() => (handleOnClickOrders())}>
+            <Link to='/'>
+              <p className={s.prueba}>MIS COMPRAS</p>
+            </Link>
+          </div>
+          <div onClick={() => (handleOnClickQuestions())}>
+            <Link to='/'>
+              <p className={s.prueba}>PREGUNTAS Y RESPUESTAS</p>
+            </Link>
           </div>
         </div>
+        <Modal isOpen={showModal} ariaHideApp={false}>
+          <ProfileImage
+            closeModalImage={closeModalImage}
+          />
+        </Modal>
+        <Modal isOpen={showModalP} ariaHideApp={false}>
+          <ProfilePassword
+            closeModalPassword={closeModalPassword}
+          />
+        </Modal>
       </div>
     </div>
   )

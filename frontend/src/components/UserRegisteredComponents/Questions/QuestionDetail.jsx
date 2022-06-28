@@ -26,7 +26,7 @@ export default function QuestionDetail({ _id, mensaje, book, idComprador }) {
       question: idQuestion
     }))
     alert('su respuesta ha sido enviada con exito!')
-
+    window.location.reload()
     setInput({
       mensaje: ''
     })
@@ -75,11 +75,12 @@ export default function QuestionDetail({ _id, mensaje, book, idComprador }) {
               <td className={s.blocked}>{mensaje}</td>
               <td className={s.moderator}><div> <form onSubmit={(e) => handleSubmitSendAnswer(e)}>
                 <div className={s.containerAnswer}>
-                <input className={s.input} type="text" placeholder='...' name="mensaje" value={input.mensaje} onChange={(e) => handleInputChange(e)} />
-                <button className={s.btn}>enviar</button> 
-
+                  <input className={s.input} type="text" placeholder='...' name="mensaje" value={input.mensaje} onChange={(e) => handleInputChange(e)} />
+                  <button className={s.btn}>enviar</button>
                 </div>
-                </form></div> </td>
+              </form>
+              </div>
+              </td>
             </tr>
           </tbody>
         </table>

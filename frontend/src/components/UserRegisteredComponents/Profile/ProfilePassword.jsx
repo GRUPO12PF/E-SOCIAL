@@ -1,4 +1,4 @@
-/*import React, { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import {
@@ -7,7 +7,7 @@ import {
 } from "../../../redux/actions/actionUser"
 import validarEmail from "../../../middleware/validarEmail"
 
-export default function OlvidePassword() {
+export default function ProfilePassword({closeModalPassword}) {
   const [email, setEmail] = useState("")
   const [errors, setErrors] = useState({})
   const respuesta = useSelector((state) => state.errorEmail)
@@ -48,11 +48,14 @@ export default function OlvidePassword() {
       dispatch(setToResetPassword(email))
       setEmail("")
     }
+    alert('Te enviamos al correo las instruciones para el cambio de contraseña')
+    window.location.reload()
   }
 
   return (
     <div>
-      <div >
+      <div>
+      <button onClick={closeModalPassword}  >X</button>
         <div>
           <h3>Ingresa tu e-mail para cambiar tu password</h3>
           <form onSubmit={handleSubmit}>
@@ -65,22 +68,20 @@ export default function OlvidePassword() {
               type="email"
               placeholder="Reset email"
             />
-
-            {errors.email && (
+            {errors?.email && (
               <div>
-                <p className="error">{errors.email}</p>
+                <p >{errors.email}</p>
               </div>
             )}
-
-            {respuesta.msg ? (
+            {respuesta?.msg ? (
               <Link to="/">
                 {" "}
-                <button type="submit" className="buttonMorado">
+                <button type="submit" >
                   HOME
                 </button>{" "}
               </Link>
             ) : (
-              <button type="submit" className="buttonPrimary">
+              <button type="submit">
                 RESETTEAR PASSWORD
               </button>
             )}
@@ -90,4 +91,3 @@ export default function OlvidePassword() {
     </div>
   )
 }
-*/

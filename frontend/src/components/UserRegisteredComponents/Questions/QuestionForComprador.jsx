@@ -20,16 +20,6 @@ export default function QuestionForComprado({ mensaje, book, idComprador, idVend
     <div className={s.container}>
     <div className={s.flex}>
       <table className={s.usersTable}>
-        <thead>
-          <tr className={s.containerInfo}>
-            <th className={s.no}>IMAGEN</th>
-            <th className={s.no}>VENDEDOR</th>
-            <th className={s.no}>IMAGEN</th>
-            <th className={s.no}>LIBRO</th>
-            <th className={s.no}>PREGUNTA</th>
-            <th className={s.no}>RESPUESTA</th>
-          </tr>
-        </thead>
         <tbody>
           <tr className={s.containerInfo}>
             <td className={s.imageR}><img src={idVendedor?.image.url} alt="No disponible" height={50} width={50} /></td>
