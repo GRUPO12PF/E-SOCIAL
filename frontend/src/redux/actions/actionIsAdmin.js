@@ -3,7 +3,14 @@ import { IS_ADMIN } from "../utils/constants"
 
 export function isAdmin() {
   return async function (dispatch) {
-    const response = clienteAxios.get('/usuarios/list') // chequear URL!
+    const id = localStorage.getItem("token");
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${id}`,
+      },
+    };
+    const response = await clienteAxios.get('/usuarios/list', config) // chequear URL!
     console.log('🚀 — file: actionIsAdmin.js — line 7 — response', response)
     const data = response.data
 
