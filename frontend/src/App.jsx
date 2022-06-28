@@ -7,7 +7,6 @@ import {
 
 //----------------------------------GUEST---------------------------------------------
 import AuthLayout from "./layouts/AuthLayout"
-import LandingPage from "./components/CommonComponents/LandingPage/LandingPage.jsx"
 import ForgotPassword from "./components/CommonComponents/ForgotPassword/ForgotPassword.jsx"
 import NewPassword from "./components/CommonComponents/NewPassword/NewPassword.jsx"
 import ConfirmAccount from "./components/CommonComponents/ConfirmAccount/ConfirmAccount.jsx"
