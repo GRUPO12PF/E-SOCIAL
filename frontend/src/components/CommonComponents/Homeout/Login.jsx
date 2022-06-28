@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import {
     login,
     resetErrorLoginUser,
+    registroGoogle
 } from "../../../redux/actions/actionUser"
 import { useNavigate } from "react-router"
 import validarEmail from "../../../middleware/validarEmail"
