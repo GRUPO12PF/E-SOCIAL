@@ -58,10 +58,13 @@
   width: 768px;
   max-width: 100%;
   min-height: 480px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .padre{
   padding-top: 10%;
+  justify-content: center;
 }
 .form-container {
   position: absolute;
