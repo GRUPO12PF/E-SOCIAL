@@ -18,7 +18,7 @@ const EditCard = ({ id, addMode }) => {
 
   return (
     <div>
-      <h1>{addMode ? 'Anunciar Producto' : `Editar: ${nombre}`}</h1>
+      <h1 className={s.titleForm}>{addMode ? 'Anunciar Producto' : `Editar: ${nombre}`}</h1>
       {
         addMode
           ? null
