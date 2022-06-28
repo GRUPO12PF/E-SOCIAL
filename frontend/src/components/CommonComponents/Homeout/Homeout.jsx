@@ -9,7 +9,6 @@ import Register from "./Login"
 
 
 export default function Homeout() {
- const dispatch = useDispatch();
  const navigate = useNavigate()
  const token = localStorage.getItem("token")
 
@@ -19,13 +18,6 @@ export default function Homeout() {
 
 }, [token])
 
-  function responseGoogle(el) {
-    dispatch(registroGoogle(el))
-
-    setTimeout(function () {
-      window.location.reload(1)
-    }, 1500) // After 2,5 secs
-  }
  
   //let container = document?.getElementById('container');
 
