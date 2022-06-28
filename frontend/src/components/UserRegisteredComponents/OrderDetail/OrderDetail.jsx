@@ -41,7 +41,7 @@ const OrderDetail = () => {
       <NavBar />
       <div className={s.containerGral} >
       <Link to = '/profile'>
-        <button class="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">VOLVER AL MENU</button>
+        <button className={s.btnHome}>VOLVER AL MENU</button>
       </Link>
         <div className={s.container}>
           <p className={s.texto}>{detalles.books?.nombre}</p>
@@ -53,14 +53,10 @@ const OrderDetail = () => {
           <p className={s.items}>{detalles.books?.price}</p>
           <p className={s.items}>{detalles.books?.descripcion}</p>
           <p className={s.items}>{detalles.books?.category}</p>
-          {/* <p>{detalles.comprador.nombre}</p>
-               <img src={detalles.comprador.image.url}/> */}
-         
         </div> 
         <div className={s.response}>{response ? response : null}</div>
         <button id="review" className={s.button} onClick={handleClick}>OPINAR SOBRE EL VENDEDOR</button>
       </div>
-      {/* <Footer/> */}
     </div>
   )
 }

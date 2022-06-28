@@ -49,7 +49,6 @@ export default function OrdersHistory() {
         )
         }
         </div>
-  {/* <Footer/> */}
       </div>
     </>
   )

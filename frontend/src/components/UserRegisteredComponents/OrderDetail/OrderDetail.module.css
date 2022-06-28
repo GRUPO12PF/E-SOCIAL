@@ -96,3 +96,9 @@
   text-decoration: underline;
   
   }
+  .btnHome{
+    background-color: #9d1d36;
+    color: #e8ddbd;
+    margin: 20px 2.5px 0px 0px;
+    padding: 7px 15px;
+  }
