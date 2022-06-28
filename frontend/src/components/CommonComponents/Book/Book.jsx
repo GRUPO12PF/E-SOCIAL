@@ -1,13 +1,13 @@
 import React from "react"
 import book from "../../../assets/images/book.svg"
-import s from "./Book.module.css"
+
 
 function Book({ nombre, image, price, imageUser, nameUser}) {
   return (
 
     <div class="box">
   <div class="top">
-    <img className="imagen-atras" src={image} alt="" />
+    <img className="imagen-atras" src={image || book} alt="" />
     <h2 class="name">{price}</h2>
     <div class="tab"></div>
     <div class="cirBtn"><img className="redonda-q" src={imageUser} alt="" /></div>

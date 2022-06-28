@@ -286,12 +286,12 @@ const deleteUsuario = async (req, res) => {
     }
 }
 const getUsersList = async (req, res) => {
-    const {id} = req.body
+    // const {id} = req.body
     try {   
-        const user = await Usuario.findById({_id: id}).select(
-            "-password -confirmado -token -createdAt -updatedAt -__v"
-            );
-        console.log("usuario pa veeeeeer",user)
+        // const user = await Usuario.findById({_id: id}).select(
+        //     "-password -confirmado -token -createdAt -updatedAt -__v"
+        //     );
+        // console.log("usuario pa veeeeeer",user)
 
         // if (user.moderador) {
         //     // const users = await Usuario.findById(usuario._id)
