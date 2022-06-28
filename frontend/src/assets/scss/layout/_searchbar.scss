@@ -8,7 +8,6 @@
     font-weight: bold;
     background: v.$colorNav;
     justify-content: center;
-    padding: 1rem
   }
 .select{
     display: flex;
@@ -67,6 +66,10 @@
     width: 25rem;
     background: var(--color-brand);
     border-radius: var(--rad);
+    margin-top: 2.5rem;
+    margin-bottom: 2rem;
+    margin-left: 1.5rem;
+    justify-content: space-evenly;
   }
 
   .inputB, .buttonB {
@@ -77,6 +80,7 @@
     font-size: 1.5rem;
   }
   .buttonB {
+    margin-top: 0.3rem;
     color: #f0f8ff;
   }
 
