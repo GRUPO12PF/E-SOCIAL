@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useDispatch} from "react-redux"
 import { Outlet, Navigate } from "react-router-dom"
 import { autenticarUser } from "../../../redux/actions/actionUser.js"
+import { isAdmin } from "../../../redux/actions/actionIsAdmin.js"
 
 export default function VerificationAdmin() {
   const dispatch = useDispatch()
@@ -16,9 +17,9 @@ export default function VerificationAdmin() {
         Authorization: `Bearer ${token}`,
       },
     }
-    dispatch(autenticarUser(config))
+    dispatch(isAdmin(config))
   }, [])
-  if (!token) "Cargando..."
+  if (!token) "No eres admin pillin >.< "
 
   return <>{token ? <Outlet /> : <Navigate to="/" />}</>
 }
