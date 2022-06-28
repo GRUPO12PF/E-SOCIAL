@@ -18,7 +18,7 @@ const CampoInput = ({ name, text, type, input, isCreate, errors, req, placeholde
       <div>
         <Field
           name={name}
-          className={s.input}
+          className={s.inputAdicional}
           type={type}
           id={name}
           placeholder={placeholder}

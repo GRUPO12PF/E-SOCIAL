@@ -139,88 +139,85 @@ const Forms = () => {
                     <ErrorMessage name='category' component={() => (<p className={s.error}>{errors.category}</p>)} />
                     {!isCreate ? <p className={s.centro}>({category?.sort((a, b) => a.localeCompare(b)).join(', ')})</p> : null}
                   </div>
+                  <div className={s.fotoF1}>
+                    <div id='Selector para subir Img'>
+                      <label className={s.label} >Fotografía del ejemplar</label>
+                      {uploadImg
+                        /* cambiar a Pasar Img por URL */
+                        ? <div >
+                          <button className={s.btnF} type="button"
+                            onClick={() => {
+                              setUploadImg(false)
+                            }}>PASAR URL
+                          </button>
+                          <p className={s.pF}>Cargue el archivo de su imagen</p>
+                        </div>
 
-                </div> {/* FIN-Requeridos */}
+                        /* cambiar a Img a Cloudinary */
+                        : <div>
+                          <button className={s.btnF} type="button"
+                            onClick={() => {
+                              setUploadImg(true)
+                            }}>SUBIR IMAGEN
+                          </button>
+                          <p className={s.pF}>Ingrese la URL de su imagen</p>
+                        </div>
+                      }
+                    </div>
 
-                <div className={s.fotoF1}>
-                  <div id='Selector para subir Img'>
-                    <label className={s.label} >Fotografía del ejemplar</label>
-                    {uploadImg
-                      /* cambiar a Pasar Img por URL */
-                      ? <div >
-                        <button className={s.btnF} type="button"
-                          onClick={() => {
-                            setUploadImg(false)
-                          }}>PASAR URL
-                        </button>
-                        <p className={s.pF}>Cargue el archivo de su imagen</p>
-                      </div>
+                    <div>
+                      {uploadImg
+                        /* Subir Img a Cloudinary */
+                        ? (<div>
+                          <input
+                            hidden
+                            name='file'
+                            ref={fileRef}
+                            className={s.input}
+                            type="file"
+                            id="file"
+                            onChange={e => {
+                              setFieldValue("file", e.target.files[0])
+                            }}
+                          />
 
-                      /* cambiar a Img a Cloudinary */
-                      : <div>
-                        <button className={s.btnF} type="button"
-                          onClick={() => {
-                            setUploadImg(true)
-                          }}>SUBIR IMAGEN
-                        </button>
-                        <p className={s.pF}>Ingrese la URL de su imagen</p>
-                      </div>
-                    }
+                          <button className={s.uploadButton} type="button" onClick={() => {
+                            fileRef.current.click()
+                          }}>
+                            CARGAR IMAGEN
+                          </button>
+
+                          {values.file && <PreviewImage file={values.file} />}
+                          {values.file && confirmImg && <button className={s.confirmP} type="button"
+                            disabled={errors.file}
+                            onClick={() => {
+                              handleImage(values.file)
+                            }}>CONFIRMAR IMAGEN</button>}
+
+                        </div>)
+
+                        /* Pasar Img por URL */
+                        : (<div>
+                          <Field
+                            name="image"
+                            className={s.imgInput}
+                            type="text"
+                            id="image"
+                          />
+                        </div>)
+                      }
+
+                    </div>
+                    <p className={s.error}>{errors.file}</p>
+                    <ErrorMessage name='image' component={() => (<p className={s.error}>{errors.image}</p>)} />
                   </div>
 
-                  <div>
-                    {uploadImg
-                      /* Subir Img a Cloudinary */
-                      ? (<div>
-                        <input
-                          hidden
-                          name='file'
-                          ref={fileRef}
-                          className={s.input}
-                          type="file"
-                          id="file"
-                          onChange={e => {
-                            setFieldValue("file", e.target.files[0])
-                          }}
-                        />
-
-                        <button className={s.uploadButton} type="button" onClick={() => {
-                          fileRef.current.click()
-                        }}>
-                          CARGAR IMAGEN
-                        </button>
-
-                        {values.file && <PreviewImage file={values.file} />}
-                        {values.file && confirmImg && <button className={s.confirmP} type="button"
-                          disabled={errors.file}
-                          onClick={() => {
-                            handleImage(values.file)
-                          }}>CONFIRMAR IMAGEN</button>}
-
-                      </div>)
-
-                      /* Pasar Img por URL */
-                      : (<div>
-                        <Field
-                          name="image"
-                          className={s.imgInput}
-                          type="text"
-                          id="image"
-                        />
-                      </div>)
-                    }
-
-                  </div>
-                  <p className={s.error}>{errors.file}</p>
 
                 </div>
-                <ErrorMessage name='image' component={() => (<p className={s.error}>{errors.image}</p>)} />
-
-              </div>
-
-
+              </div> {/* FIN-Requeridos */}
+              <br />
               <div id='OPCIONALES' className={s.formContents3}>
-                <button onClick={() => setVerMas(!verMas)}>
+                <button className={s.adicional}onClick={() => setVerMas(!verMas)}>
                   {verMas ? "Quitar" : "Opcionales"}
                 </button>
 
@@ -305,7 +302,7 @@ const Forms = () => {
                 }
 
               </div> {/* FIN-Opcionales */}
-
+              <br />
               <button
                 className={s.sendMsg}
                 type="submit"

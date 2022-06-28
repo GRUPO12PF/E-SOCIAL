@@ -1,8 +1,14 @@
 input[type=checkbox] {
-    display: block;
-}
+    display: inline-block;
+    }
 
-select {
+.titleForm{
+    margin-top: 1rem;
+    padding: 2rem;
+    text-align: center;
+
+}
+.select {
     background: rgba(183, 203, 187, 0.184);
 }
 
@@ -38,10 +44,25 @@ select {
     border-radius: 5px;
 
 }
+.adicional{
+    background-color: #a9b79e;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-left: 60%;
+    font-size: 20px;
 
+}
+.inputAdicional{
+    padding: 1rem;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    justify-content: center;
+    
+}
 .tapas {
     margin: 10px auto;
-}
+   }
 
 .ilustrado {
     margin-top: 20px;
@@ -52,20 +73,20 @@ select {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    align-items: center;
-    flex: 2;
+    justify-content: center;
+    
 }
 
 .formContents {
     background-color: rgba(110, 144, 118, 0.184);
     display: flex;
-    align-items: center;
+    justify-content: center;
     margin: auto;
     border-radius: 20px;
     font-family: 'Roboto', sans-serif;
     position: relative;
     height: fit-content;
-    max-width: 720px;
+    width: 45%;
 }
 
 .formContents2 {
@@ -79,50 +100,54 @@ select {
 }
 
 .formContents3 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
     background-color: rgba(110, 144, 118, 0.184);
-    margin: 1%;
+    margin: auto;
     padding: 2%;
     border-radius: 20px;
-    max-width: 100%;
+    width: 45%;
+    
 }
 
 .requeridos {
     margin: 5%;
-    align-items: center; /* NO FUNCA MALDITO BASTARDO jaja */
+    justify-content: center; 
 }
 
-.opcionales { /* se podría borrar si se aplica el mismo estilo que a Requeridos */
-    /* margin: 5%; */
+.opcionales { 
+    margin: 5%;
     align-items: center;
 }
 
 .input {
-    outline: solid 1px black;
+    width: 100%;
     background: white;
-    border: none;
-    padding: 3px 60px;
+    padding: 1rem;
     color: rgb(0, 0, 0);
     border-radius: 6px;
-    /* width: 100%; */
+    width: 100%;
 }
 
 .imgInput {
-    outline: solid 1px black;
     background: white;
     border: none;
-    padding: 3px 60px;
+    padding: 1rem;
     color: rgb(0, 0, 0);
     border-radius: 6px;
-    width: 120%;
+    width: 100%;
 }
 
 .selector {
-    outline: solid 1px black;
     background: white;
     border: none;
-    padding: 3px 60px;
+    padding: 1renm;
     color: rgb(0, 0, 0);
     border-radius: 6px;
+    width: 100%;
 }
 
 .textarea {
@@ -131,6 +156,7 @@ select {
     padding: 3px 60px;
     color: rgb(0, 0, 0);
     border-radius: 5px;
+    width: 100%;
 }
 
 .label {
@@ -140,6 +166,7 @@ select {
     color: black;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
+    width: 100%;
 }
 
 .titleSelect {
@@ -181,6 +208,8 @@ select {
     cursor: pointer;
     background-color: #a9b79e;
     padding: 5px;
+    width: 15%;
+    margin: auto;
 }
 
 .botonFle {
@@ -223,6 +252,7 @@ select {
     width: 150px;
     height: 150px;
 }
+
 
 .check {
     justify-content: center;
