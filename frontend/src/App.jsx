@@ -35,7 +35,7 @@ import AllOrders from "./components/AdminComponents/AllOrders/AllOrders"
 import ConfirmacionPago from "./components/UserRegisteredComponents/CheckOut/ConfirmacionPago/ConfirmacionPago"
 import Questions from "./components/UserRegisteredComponents/Questions/Questions.jsx"
 import Profile from "./components/UserRegisteredComponents/Profile/Profile"
-
+import VerificationAdmin from "./components/AdminComponents/VerificationAdmin/VerificationAdmin"
 
 export default function App() {
   return (
@@ -64,18 +64,16 @@ export default function App() {
           <Route path="/historyOrders/:id" element={<OrdersHistory/>}/>
           <Route path="/order/:id" element={<OrderDetail/>}/>
           <Route path="/bookCreated/:id" element={<BooksCreated/>}/>
-          <Route path="/admin/users" element={<AllUsers/>}/>
-          <Route path="/admin" element={<AdminHome/>}/>
-          <Route path="/admin/allOrders" element={<AllOrders/>}/>
-          <Route path="/admin/allReviews" element={<AllReviews/>}/>
           <Route path="/review/:id" element={<Review />} />
           <Route path="/chat" element={<HomeChat />} />
         </Route>
 
-
-   {/*  <Route path="/" element={<VerificationAdmin />}>
-
-        </Route>*/}
+        <Route path="/" element={<VerificationAdmin/>}>
+          <Route path="/admin" element={<AdminHome/>}/>
+          <Route path="/admin/users" element={<AllUsers/>}/>
+          <Route path="/admin/allOrders" element={<AllOrders/>}/>
+          <Route path="/admin/allReviews" element={<AllReviews/>}/>
+        </Route>
 
         
         <Route path="*" element={<NotFound />} />
