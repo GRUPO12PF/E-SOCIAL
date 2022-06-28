@@ -9,8 +9,8 @@ import s from './AdminHome.module.css'
 function AdminHome() {
   const dispatch = useDispatch()
   
-  // const adminState = useSelector(state => state.isAdmin)
-  const adminState = true
+  const adminState = useSelector(state => state.isAdmin)
+  // const adminState = true
   // const adminState = false
 
   useEffect(() => {
