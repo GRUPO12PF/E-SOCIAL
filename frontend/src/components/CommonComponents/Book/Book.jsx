@@ -11,10 +11,13 @@ function Book({ nombre, image, price, imageUser, nameUser}) {
     <h2 class="name">{price}</h2>
     <div class="tab"></div>
     <div class="cirBtn"><img className="redonda-q" src={imageUser} alt="" /></div>
-    <p className="perq">{nameUser}</p>
   </div>
   <div class="bottom">
-    
+    <ul>
+      <il><h3>Address: </h3>1245 W Adams Blvd.</il>
+      <il><h3>Telephone: </h3>(213) 803-3928</il>
+      <il><h3>Opening Hours: </h3>M - F, 9am - 8pm</il>
+    </ul>
     <div class="buttons">
       <a class="btn btnWebsite" target="_blank">{nombre}</a>
      
