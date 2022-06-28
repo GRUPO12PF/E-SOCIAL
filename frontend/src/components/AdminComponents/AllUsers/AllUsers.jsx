@@ -14,7 +14,9 @@ import Edit from '../../../Iconos/Edit'
 function AllUsers() { 
   const dispatch = useDispatch()
   const allUsers = useSelector(state => state.allUsuarios)
-  console.log(allUsers)
+  const userActu = useSelector(state => state.usuarioActual)
+
+  console.log("soy el usuario actuaaaaal", userActu)
 
   useEffect(() => {
     dispatch(getAllUsers())
@@ -36,11 +38,16 @@ function AllUsers() {
 
   const handleDelete = async (e, id) => {
     e.preventDefault()
-     if (window.confirm("¿Esta seguro que quiere eliminar este usuario?") === true) {
-      dispatch(deleteUser(id))
-      alert("Usuario eliminado correctamente.")
-
-      window.location.reload()
+    if(userActu._id === id){
+      alert("No puedes eliminarte a ti mismo")
+    } else {
+      if (window.confirm("¿Esta seguro que quiere eliminar este usuario?") === true) {
+       dispatch(deleteUser(id))
+       alert("Usuario eliminado correctamente.")
+ 
+       window.location.reload()
+     }
+      
     }
   }
   return (
@@ -63,7 +70,6 @@ function AllUsers() {
 			</thead>
 			<tbody>
       {allUsers?.map((u, i) => {
-        console.log("estoy en el map", u.id)
                 return (
                   <tr
                     key={i}
