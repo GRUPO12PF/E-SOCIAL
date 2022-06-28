@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+/*import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
 import { cambiarImagen, usuarioActual } from "../../../redux/actions/actionUser"
 import { useDispatch, useSelector } from "react-redux"
@@ -21,7 +21,6 @@ export default function Settings() {
 
   useEffect(() => {
     dispatch(usuarioActual())
-    //recibir la respuesta del back
     socket.on("userSettings", () => {
       dispatch(usuarioActual())
     })
@@ -42,7 +41,7 @@ export default function Settings() {
             <span>Extensiones soportadas: jpg / png</span>
 
             <div className="contFile">
-              <label className="labelmiinput" htmlFor="mifile"> {/* ¡AGREGAR UN ESTILO QUE PERMITA VER LA LETRA! */}
+              <label className="labelmiinput" htmlFor="mifile">
                 CAMBIAR IMAGEN
               </label>
               <input
@@ -68,3 +67,4 @@ export default function Settings() {
       : <Loading />
   )
 }
+*/
