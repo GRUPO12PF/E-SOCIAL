@@ -532,6 +532,12 @@ a {
   background-size: cover;
 }
 
+.perq {
+  position: absolute;
+  right: 4rem;
+  bottom: -5rem;
+}
+
 .top .name {
   position: absolute;
   margin: 0;
