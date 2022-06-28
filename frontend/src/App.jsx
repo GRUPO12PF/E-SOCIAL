@@ -55,8 +55,6 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/seller" element={<UserCard />} />
           <Route path="/profile/:id" element={<ProfileUsers/>}/>
-
-
         </Route>
 
          <Route path="/" element={<VerificationUser />}>
@@ -77,8 +75,14 @@ export default function App() {
           <Route path="/admin/allReviews" element={<AllReviews/>}/>
           <Route path="/review/:id" element={<Review />} />
           <Route path="/chat" element={<HomeChat />} />
-          </Route>
+        </Route>
 
+
+   {/*  <Route path="/" element={<VerificationAdmin />}>
+
+        </Route>*/}
+
+        
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

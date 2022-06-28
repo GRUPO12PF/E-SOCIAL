@@ -4,7 +4,7 @@ import s from "./Book.module.css"
 
 function Book({ nombre, image, price, imageUser, nameUser}) {
   return (
-    <div className="container">
+    <div className="container-book">
       <div className="card-book">
         <div className="cardheader-book">
         <img className="book-book" src={image || book} alt='Imagen no encontrada' />
