@@ -2,11 +2,11 @@ import { ErrorMessage, Field } from "formik"
 import { mayúsculaInicial } from "../../../../utils/helperFunctions"
 import s from '../Form.module.css'
 
-const CampoSelect = ({ name, input, isCreate, values, errors, value1, value2, option2, value3, option3 }) => {
+const CampoSelect = ({ name, input, isCreate, values, errors, value1, option1, value2, option2 }) => {
 
   return (
     <>
-      <label className={s.label} >{mayúsculaInicial(name)}</label>
+      <label className={s.titleSelect} >{mayúsculaInicial(name)}</label>
 
       {/* valor anterior solo en modo Update */}
       {!isCreate
@@ -16,14 +16,14 @@ const CampoSelect = ({ name, input, isCreate, values, errors, value1, value2, op
       <div>
         <Field
           name={name}
-          className={s.input}
+          className={s.selector}
           id={name}
           as='select'
           value={values[input]?.defaultValue}
         >
-          <option value={value1}>¿{mayúsculaInicial(name)}?</option>
+          <option value={''}>¿{mayúsculaInicial(name)}?</option>
+          <option value={value1}>{option1}</option>
           <option value={value2}>{option2}</option>
-          <option value={value3}>{option3}</option>
         </Field>
 
         <ErrorMessage name={name} component={() => (<p className={s.error}>{errors[name]}</p>)} />

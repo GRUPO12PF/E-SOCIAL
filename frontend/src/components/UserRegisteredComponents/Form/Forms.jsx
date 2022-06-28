@@ -30,6 +30,8 @@ const Forms = () => {
   const [uploadImg, setUploadImg] = useState(false)
   const [confirmImg, setConfirmImg] = useState(true)
 
+  const [verMas, setVerMas] = useState(false)
+
   function handleImage(images) {
     dispatch(subirFotos(images))
     setConfirmImg(false)
@@ -81,11 +83,11 @@ const Forms = () => {
 
           {/* acá arranca el ------------- FORM ------------- */}
           {({ errors, values, handleSubmit, setFieldValue }) => (
-            <Form className={s.formik} onSubmit={handleSubmit} >
-              <div className={s.form}>
-                {console.log(values)}
+            <Form className={s.formikContainer} onSubmit={handleSubmit} >
 
-                <div className={s.subdi}>
+              <div className={s.formContents}>
+
+                <div id='REQUERIDOS' className={s.requeridos}>
 
                   <CampoInput
                     name='nombre'
@@ -115,64 +117,6 @@ const Forms = () => {
                   />
 
                   <CampoInput
-                    name='editorial'
-                    type="text"
-                    input={editorial}
-                    isCreate={isCreate}
-                    errors={errors}
-                  />
-
-                  <CampoInput
-                    name='edicion'
-                    type="number"
-                    input={edicion}
-                    isCreate={isCreate}
-                    errors={errors}
-                  />
-
-                  <div className={s.tapas}>
-                    <div className={s.centro}>
-                      <CampoSelect
-                        name='tapa'
-                        input={tapa}
-                        isCreate={isCreate}
-                        errors={errors}
-                        values={values}
-                        option2={'Blanda'}
-                        option3={'Dura'}
-                      />
-                    </div>
-                  </div>
-
-                  <CampoInput
-                    text='año de publicación'
-                    name='publicado'
-                    type="number"
-                    input={publicado}
-                    isCreate={isCreate}
-                    errors={errors}
-                    placeholder={'AAAA...'}
-                  />
-
-                  <CampoInput
-                    text='páginas'
-                    name='cant_pags'
-                    type="number"
-                    input={cant_pags}
-                    isCreate={isCreate}
-                    errors={errors}
-                  />
-
-                  <CampoInput
-                    text='Saga / Serie'
-                    name='colection'
-                    type="text"
-                    input={colection}
-                    isCreate={isCreate}
-                    errors={errors}
-                  />
-
-                  <CampoInput
                     text='precio'
                     name='price'
                     type="number"
@@ -182,33 +126,8 @@ const Forms = () => {
                     req={'*'}
                   />
 
-                  <CampoInput
-                    name='descripcion'
-                    type="text"
-                    as="textarea"
-                    input={cant_pags}
-                    isCreate={isCreate}
-                    errors={errors}
-                    req={'*'}
-                  />
-
-                </div>
-
-                <div className={s.centro}>
-
-                  <CampoSelect
-                    name='ilustrado'
-                    input={ilustrado}
-                    isCreate={isCreate}
-                    errors={errors}
-                    values={values}
-                    option2={'X'}
-                    option3={'✓'}
-                  />
-
-                  <div className={s.categoriasF}>
+                  <div className={s.formContents2}>
                     <label className={s.label}>Categorías*</label>
-
                     <div className={s.check}>
                       <div role="group" aria-labelledby="checkbox-group" >
                         {categories?.map((e, i) =>
@@ -217,13 +136,14 @@ const Forms = () => {
                       </div>
                     </div>
 
+                    <ErrorMessage name='category' component={() => (<p className={s.error}>{errors.category}</p>)} />
+                    {!isCreate ? <p className={s.centro}>({category?.sort((a, b) => a.localeCompare(b)).join(', ')})</p> : null}
                   </div>
-                  <ErrorMessage name='category' component={() => (<p className={s.error}>{errors.category}</p>)} />
-                  {!isCreate ? <p className={s.centro}>({category?.sort((a, b) => a.localeCompare(b)).join(', ')})</p> : null}
-                </div>
+
+                </div> {/* FIN-Requeridos */}
 
                 <div className={s.fotoF1}>
-                  <div>
+                  <div id='Selector para subir Img'>
                     <label className={s.label} >Fotografía del ejemplar</label>
                     {uploadImg
                       /* cambiar a Pasar Img por URL */
@@ -245,9 +165,9 @@ const Forms = () => {
                         </button>
                         <p className={s.pF}>Ingrese la URL de su imagen</p>
                       </div>
-
                     }
                   </div>
+
                   <div>
                     {uploadImg
                       /* Subir Img a Cloudinary */
@@ -283,7 +203,7 @@ const Forms = () => {
                       : (<div>
                         <Field
                           name="image"
-                          className={s.input}
+                          className={s.imgInput}
                           type="text"
                           id="image"
                         />
@@ -295,13 +215,102 @@ const Forms = () => {
 
                 </div>
                 <ErrorMessage name='image' component={() => (<p className={s.error}>{errors.image}</p>)} />
+
               </div>
+
+
+              <div id='OPCIONALES' className={s.formContents3}>
+                <button onClick={() => setVerMas(!verMas)}>
+                  {verMas ? "Quitar" : "Opcionales"}
+                </button>
+
+                {!verMas
+                  ? <>{null}</>
+
+                  : (<div className={s.opcionales}>
+
+                    <CampoInput
+                      name='editorial'
+                      type="text"
+                      input={editorial}
+                      isCreate={isCreate}
+                      errors={errors}
+                    />
+
+                    <CampoInput
+                      name='edicion'
+                      type="number"
+                      input={edicion}
+                      isCreate={isCreate}
+                      errors={errors}
+                    />
+
+                    <div className={s.tapas}>
+                      <CampoSelect
+                        name='tapa'
+                        input={tapa}
+                        isCreate={isCreate}
+                        errors={errors}
+                        values={values}
+                        option1={'Blanda'}
+                        value1={'Blanda'}
+                        option2={'Dura'}
+                        value2={'Dura'}
+                      />
+                    </div>
+
+                    <CampoInput
+                      text='año de publicación'
+                      name='publicado'
+                      type="number"
+                      input={publicado}
+                      isCreate={isCreate}
+                      errors={errors}
+                      placeholder={'AAAA...'}
+                    />
+
+                    <CampoInput
+                      text='páginas'
+                      name='cant_pags'
+                      type="number"
+                      input={cant_pags}
+                      isCreate={isCreate}
+                      errors={errors}
+                    />
+
+                    <CampoInput
+                      text='Saga / Serie'
+                      name='colection'
+                      type="text"
+                      input={colection}
+                      isCreate={isCreate}
+                      errors={errors}
+                    />
+
+                    <div className={s.tapas}>
+                      <CampoSelect
+                        name='ilustrado'
+                        input={ilustrado}
+                        isCreate={isCreate}
+                        errors={errors}
+                        values={values}
+                        option1={'X'}
+                        value1={false}
+                        option2={'✓'}
+                        value2={true}
+                      />
+                    </div>
+
+                  </div>)
+                }
+
+              </div> {/* FIN-Opcionales */}
 
               <button
                 className={s.sendMsg}
                 type="submit"
                 disabled={Object.keys(errors).length > 0}
-              >ENVIAR</button>
+              >ENVIAR FORMULARIO</button>
 
               {/* <BackButton /> */}
 
