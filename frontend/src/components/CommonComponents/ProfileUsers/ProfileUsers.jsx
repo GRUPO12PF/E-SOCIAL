@@ -61,9 +61,9 @@ const ProfileUsers = () => {
         </div>
         <div className="right_col">
           <h2 className="name">{user.nombre}</h2>
-          <h3 className="location arre">{user.email}</h3>
+          <h3 className="location ">{user.email}</h3>
         
-          <h3 className='location arre'>Ver Reviews</h3>
+          <h3 className='location '>Ver Reviews</h3>
           <div>
             {
               review?.map((i, u) => {
