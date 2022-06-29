@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import { postAnswer } from '../../../redux/actions/actionQA';
 import s from './questionDetail.module.css';
+import swal from 'sweetalert';
+
 
 export default function QuestionDetail({ _id, mensaje, book, idComprador }) {
   const { id } = useParams(); //id del vendedor 
@@ -17,19 +19,27 @@ export default function QuestionDetail({ _id, mensaje, book, idComprador }) {
 
   const handleSubmitSendAnswer = async (e) => {
     e.preventDefault()
-    setInput({
-      mensaje: input.mensaje
-    })
-    dispatch(postAnswer({
-      mensaje: input.mensaje,
-      book: book?._id,
-      question: idQuestion
-    }))
-    alert('su respuesta ha sido enviada con exito!')
-    window.location.reload()
-    setInput({
-      mensaje: ''
-    })
+    if(!input.mensaje){
+      swal({
+        title: 'No puedes enviar respuestas vacías.',
+      });
+    } else {
+      setInput({
+        mensaje: input.mensaje
+      })
+      dispatch(postAnswer({
+        mensaje: input.mensaje,
+        book: book?._id,
+        question: idQuestion
+      }))
+      swal({
+        title: 'Su respuesta ha sido enviada con éxito',
+      });
+      
+      setInput({
+        mensaje: ''
+      })
+    }
   }
 
   const handleInputChange = function (e) {
@@ -44,7 +54,10 @@ export default function QuestionDetail({ _id, mensaje, book, idComprador }) {
     if (!book?.order.length > 0) {
       navigate(`/details/${book?._id}`)
     } else {
-      alert('Lo siento este libro ya fue comprado!')
+      swal({
+        title: 'Lo siento este libro ya fue comprado!',
+      });
+      
     }
   }
 

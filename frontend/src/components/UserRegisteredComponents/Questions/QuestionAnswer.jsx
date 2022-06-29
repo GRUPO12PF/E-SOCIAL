@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
 import s from './questionDetail.module.css';
+import swal from 'sweetalert'
 
 export default function QuestionAnswer({ mensaje, book, idComprador, answers }) {
 
@@ -10,7 +11,10 @@ export default function QuestionAnswer({ mensaje, book, idComprador, answers }) 
     if (!book?.order.length > 0) {
       navigate(`/details/${book?._id}`)
     } else {
-      alert('Lo siento este libro ya fue comprado!')
+      swal({
+        title: "Lo siento este libro ya fue comprado!",
+      });
+      
     }
   }
 
