@@ -15,13 +15,13 @@ const ProfileReview = ({title,description,score}) => {
     
     <div className="accordion">
       <div className="accordion-item">
-        <button onClick={() => setIsActive(!isActive)} id="accordion-button-1" >
+        <button className="accordion-button" onClick={() => setIsActive(!isActive)} id="accordion-button-1" >
           {isActive ? "Ver Menos" : "Ver Mas"}
           <span className="icon" ></span>
         </button>
-        
+        <div className="condicion">
           {!isActive ? <>{null}</>:
-            (<p>
+            (<p className="condicionTexto">
               {title}
               {description}
               {
@@ -33,7 +33,7 @@ const ProfileReview = ({title,description,score}) => {
                                 }
     </p>)
               }
-        
+        </div>
       </div>
       
      

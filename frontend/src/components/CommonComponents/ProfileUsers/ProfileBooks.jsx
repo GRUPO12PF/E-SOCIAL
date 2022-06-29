@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
-import s from '../ProfileUsers/ProfileBook.module.css'
+
 
 function ProfileBook({ nombre, autor, image, order, id }) {
     const navigate = useNavigate()
@@ -19,7 +19,7 @@ function ProfileBook({ nombre, autor, image, order, id }) {
     }
     return (
         <div className="container-profile">
-            <div className="card">
+            <div className="cardP">
                 <div className="cardbody">
                     <div className="vendido">{vendido ? vendido : null}</div>
                     <p className="texto">{nombre}</p>
