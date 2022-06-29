@@ -30,7 +30,9 @@ const initialState = {
   usuario: [],
   usuarioActual: [],
   usuarioProfile: [],
-  adminAnUser: []
+  adminAnUser: [],
+  updateNombre: []
+
 }
 
 function rootReducer(state = initialState, action) {
@@ -105,7 +107,11 @@ function rootReducer(state = initialState, action) {
         ...state,
         isAdmin: action.payload,
       }
-
+    case 'UPDATE_NOMBRE':
+      return {
+        ...state,
+        updateNombre: action.payload
+      }
     //---------------------BOOKS----------------------------------------
     case 'GET_BOOKS':
       return {
@@ -283,7 +289,7 @@ function rootReducer(state = initialState, action) {
       }
     case ADMIN_AN_USER:
       return {
-        ...state, 
+        ...state,
         adminAnUser: action.payload
       }
     //----------------------QA---------------

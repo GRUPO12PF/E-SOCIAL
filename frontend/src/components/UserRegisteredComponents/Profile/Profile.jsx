@@ -8,6 +8,8 @@ import profile from '../../../assets/images/avatar.png';
 import s from './Profile.module.css';
 import ProfileImage from './ProfileImage';
 import ProfilePassword from './ProfilePassword';
+import Footer from '../../CommonComponents/Footer/Footer';
+import ProfileChangeName from './ProfileChangeName';
 
 function Profile() {
   const navigate = useNavigate()
@@ -15,9 +17,16 @@ function Profile() {
   const [showModalNotification, setShowModalNotification] = useState(false)
   const [showModalP, setShowModalP] = useState(false)
   const [showModalNotificationP, setShowModalNotificationP] = useState(false)
+  const [showModalN, setShowModalN] = useState(false)
+  const [showModalNotificationN, setShowModalNotificationN] = useState(false)
   const user = useSelector(state => state.usuarioActual)
   const idUser = user._id
 
+  const customStyls = {
+    overlay: {
+      backgroundColor: "rgba(11,12,41,0.48)",
+    },
+  }
 
   function handleButtonImage() {
     setShowModal(true)
@@ -42,22 +51,29 @@ function Profile() {
   function handleOnClickQuestions() {
     navigate(`/questions/${idUser}`)
   }
+  function handleButtonNombre() {
+    setShowModalN(true)
+  }
+  function closeModalNombre() {
+    showModalNotificationN && setShowModalNotificationN(false)
+    showModalN && setShowModalN(false)
+  }
 
   return (
     <div>
       <NavBar />
       <div className={s.todo}>
-        <div className={s.container}>
+        <div className={s.containerPerfil}>
           <img className={s.img} src={user?.image?.url ? user?.image?.url : profile} alt='Imagen de usuario' />
           <h1 className={s.h1}>{user.nombre}</h1>
           <p>{user?.email}</p>
           <div className={s.btn}><button onClick={handleButtonImage}>CAMBIAR IMAGEN</button></div>
           <div className={s.btn}><button onClick={handleButtonPassword}>CAMBIAR CONTRASEÑA</button></div>
-          <div className={s.btn}><button onClick={handleButtonPassword}>CAMBIAR NOMBRE</button></div>
+          <div className={s.btn}><button onClick={handleButtonNombre}>CAMBIAR NOMBRE</button></div>
           <div className={s.btn}><button onClick={handleButtonPassword}>ELIMINAR CUENTA</button></div>
         </div>
         <br />
-        <div className={s.container}>
+        <div className={s.containerPerfil}>
           <div onClick={() => handleOnClickBooks()}>
             <Link to='/'>
               <p className={s.prueba}>MIS LIBROS</p>
@@ -74,14 +90,20 @@ function Profile() {
             </Link>
           </div>
         </div>
-        <Modal isOpen={showModal} ariaHideApp={false} className={s.probando}>
-          <ProfileImage 
+        <Modal isOpen={showModal} style={customStyls} ariaHideApp={false} className={s.probando}>
+          <ProfileImage
             closeModalImage={closeModalImage}
           />
         </Modal>
-        <Modal isOpen={showModalP} ariaHideApp={false} className={s.probando}>
+        <Modal isOpen={showModalP} style={customStyls} ariaHideApp={false} className={s.probando}>
           <ProfilePassword
             closeModalPassword={closeModalPassword}
+          />
+        </Modal>
+        <Modal style={customStyls} isOpen={showModalN} ariaHideApp={false} className={s.probando}>
+          <ProfileChangeName
+            closeModalNombre={closeModalNombre}
+            idUser={idUser}
           />
         </Modal>
       </div>

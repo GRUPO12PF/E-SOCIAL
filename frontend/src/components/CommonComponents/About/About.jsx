@@ -4,6 +4,7 @@ import sebas from "../../../assets/images/Sebas.jpg"
 import caro from "../../../assets/images/Caro.jpg"
 import malu from "../../../assets/images/Malu.jpg"
 import manu from "../../../assets/images/Manu.jpg"
+import ceci from "../../../assets/images/ceci.jpeg"
 import yona from "../../../assets/images/yona.jpeg"; 
 import  mati from "../../../assets/images/mati.jpeg"
 import avatar2 from "../../../assets/images/avatar2.png"
@@ -45,7 +46,7 @@ export default function About() {
             </div>
           </span>
           <span className="persona">
-            <img className="img" src={avatar2} alt="" />
+            <img className="img" src={ceci} alt="" />
             <h3>Cecilia Acevedo</h3>
             <div className="linkgit">
             <a className="eachLink" target="_blank" href="https://www.linkedin.com/in/ceecisool/">
