@@ -205,8 +205,8 @@ export function usuarioActual() {
 export function cambiarNombre(payload) {
   return async function (dispatch) { 
    try {
-      const json = await clienteAxios.put(`/usuarios/updateNombre/${payload.id}` , payload.nombre);
-      console.log(json.data)
+      const json = await clienteAxios.put(`/usuarios/updateNombre/${payload.id}` , payload);
+      console.log(json)
       return dispatch({
         type: "UPDATE_NOMBRE",
         payload: json.data,
