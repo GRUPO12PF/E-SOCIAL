@@ -20,7 +20,7 @@ console.log(idUser)
         nombre: nombre
     })) 
      console.log(hola)
-    alert('Tu nombre se modifico correctamente')
+    swal('Tu nombre se modifico correctamente')
     window.location.reload()
   }
 
