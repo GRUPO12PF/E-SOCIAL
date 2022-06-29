@@ -74,12 +74,12 @@ function Profile() {
             </Link>
           </div>
         </div>
-        <Modal isOpen={showModal} ariaHideApp={false}>
-          <ProfileImage
+        <Modal isOpen={showModal} ariaHideApp={false} className={s.probando}>
+          <ProfileImage 
             closeModalImage={closeModalImage}
           />
         </Modal>
-        <Modal isOpen={showModalP} ariaHideApp={false}>
+        <Modal isOpen={showModalP} ariaHideApp={false} className={s.probando}>
           <ProfilePassword
             closeModalPassword={closeModalPassword}
           />
