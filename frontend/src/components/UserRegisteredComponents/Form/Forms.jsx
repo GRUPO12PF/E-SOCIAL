@@ -84,9 +84,9 @@ const Forms = () => {
           {({ errors, values, handleSubmit, setFieldValue }) => (
             <Form className={s.formikContainer} onSubmit={handleSubmit} >
 
-              <div className={s.formContents}>
+              <div className={s.formReqContents}>
 
-                <div id='REQUERIDOS' className={s.requeridos}>
+                <div id='REQUERIDOS' className={s.formBody}>
 
                   <CampoInput
                     name='nombre'
@@ -135,7 +135,7 @@ const Forms = () => {
                     req={'*'}
                   />
 
-                  <div className={s.formContents2}>
+                  <div className={s.formCategories}>
                     <label className={s.labelCenter}>Categorías*</label>
                     <div className={s.check}>
                       <div role="group" aria-labelledby="checkbox-group" >
@@ -233,15 +233,15 @@ const Forms = () => {
                 </div>
               </div> {/* FIN-Requeridos */}
               <br />
-              <div id='OPCIONALES' className={s.formContents3}>
-                <button className={s.adicional} onClick={() => setVerMas(!verMas)} type="button">
-                  {verMas ? "Quitar" : "Opcionales"}
+              <div id='OPCIONALES' className={s.formOpcionales}>
+                <button className={s.btnAdicional} onClick={() => setVerMas(!verMas)} type="button">
+                  {verMas ? ". . ." : "OPCIONALES"}
                 </button>
 
                 {!verMas
                   ? <>{null}</>
 
-                  : (<div className={s.opcionales}>
+                  : (<div className={s.formBody}>
 
                     <CampoInput
                       name='editorial'
