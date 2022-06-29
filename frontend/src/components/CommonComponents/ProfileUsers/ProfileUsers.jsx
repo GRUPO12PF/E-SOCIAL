@@ -51,18 +51,19 @@ const ProfileUsers = () => {
         <div className="profile_picture"><img className="imageR" src={user.image?.url} alt="" /></div>
         <div className="left_col">
           <div className="followers">
-            <div className="follow_count">18,541</div>
-            Followers
+            <div className="follow_count"></div>
+          
           </div>
           <div className="following">
-            <div className="follow_count">181</div>
-            Following
+            <div className="follow_count"></div>
+          
           </div>
         </div>
         <div className="right_col">
           <h2 className="name">{user.nombre}</h2>
-          <h3 className="location">San Francisco, CA</h3>
-          <p>{user.email}</p>
+          <h3 className="location arre">{user.email}</h3>
+        
+          <h3 className='location arre'>Ver Reviews</h3>
           <div>
             {
               review?.map((i, u) => {

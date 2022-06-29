@@ -5,6 +5,8 @@ import { getDetalleOrder, review } from '../../../redux/actions/actionOrder'
 import { useNavigate, useParams, Link } from 'react-router-dom'
 import Footer from '../../CommonComponents/Footer/Footer'
 import s from './Review.module.css'
+import swal from 'sweetalert';
+
 const Review = ({id, closeModal}) => {
   const Navigate = useNavigate()
   const dispatch = useDispatch()
@@ -59,7 +61,10 @@ const Review = ({id, closeModal}) => {
     if(input.description && input.score && input.title){
       console.log("acá están todos los inputs", input)
       if(input.score > 5 || input.score <= 1){
-        alert("El score debe ser entre 1 y 5")
+        swal({
+          title: "El score debe ser entre 1 y 5!",
+        });
+
       } else {
         dispatch(review(input))
         alert("ok")
@@ -72,8 +77,11 @@ const Review = ({id, closeModal}) => {
         })
         Navigate("/")
       }
-    } else {
-      alert("Faltan campos por completar")
+    }else{
+    swal({
+      title: "Faltan campos por completar",
+    });
+     
     }
   }
 

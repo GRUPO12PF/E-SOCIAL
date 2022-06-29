@@ -9,7 +9,7 @@
       position:relative;
       height:600px;
       width:900px;
-      background:rgba(255,255,255,1);
+      background:rgba(110, 144, 118, 0.184);
       border:1px solid rgba(0,0,0,0.7);
       box-shadow:0px -1px 3px rgba(0,0,0,0.1),
          0px 2px 6px rgba(0,0,0,0.5);
@@ -41,11 +41,13 @@
   }
   div.portfoliocard div.right_col{
       width:60%;
-      background:rgba(245,245,245,1);
-      border-left:1px solid rgba(230,230,230,1);
+      height: fit-content;
+      background:rgba(110, 144, 118, 0.034);
+      // border-left:1px solid rgba(230,230,230,1);
       box-shadow:inset 0px 1px 1px rgba(255,255,255,0.7);
       margin-left:-1px;
       border-bottom-right-radius:5px;
+      
   }
   div.portfoliocard div.profile_picture{
       width:110px;
@@ -70,7 +72,7 @@
   div.portfoliocard div.right_col h3.location{
       font-size:15px;
       font-weight:300;
-      color:rgba(170,170,170,1);
+      color:rgb(10, 4, 4);
       padding:0;
       margin:-5px 10px 10px 30px;
   }
@@ -258,3 +260,69 @@
   margin: 2em 0;
 }
 
+
+
+.container-profile{
+  position: absolute;
+  display: block;
+  top: 30rem;
+  left: 32rem;
+  z-index: 9999;
+}
+
+.paginado-f{
+  position: absolute;
+  top: 57rem;
+  left: 45rem;
+  z-index: 9999;
+}
+
+.right_col{
+  text-align: center;
+}
+
+
+
+.im {
+  width: 100px;
+  height: 100px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.vendido {
+  background-color: rgba(255, 0, 0, 0.74);
+  color: white;
+  padding: 3px;
+  text-align: center;
+}
+
+.card {
+  margin: 10px;
+  background-color: rgba(231, 235, 232, 0.418);
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 260px;
+}
+
+.cardbody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: 250px;
+}
+
+.texto {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  color: gray;
+}
