@@ -52,7 +52,7 @@ const Forms = () => {
         <Formik
           initialValues={formInitialValues}
 
-          validate={values => formValidators(values)}
+          validate={values => formValidators(values, uploadImg)}
 
           onSubmit={(values, { resetForm }) => {
             if (uploadImg) {
@@ -153,6 +153,7 @@ const Forms = () => {
                       ? <p className={s.centro}>({category?.sort((a, b) => a.localeCompare(b)).join(', ')})</p>
                       : null}
                   </div>
+
                   <div className={s.fotoF1}>
                     <div id='Selector para subir Img'>
                       <label className={s.labelCenter} >Fotografía del ejemplar*</label>
@@ -162,6 +163,7 @@ const Forms = () => {
                           <button className={s.btnF} type="button"
                             onClick={() => {
                               setUploadImg(false)
+                              setFieldValue("image", '')
                             }}>PASAR URL
                           </button>
                           <p className={s.textoFile}>Cargue el archivo de su imagen</p>
@@ -172,6 +174,7 @@ const Forms = () => {
                           <button className={s.btnF} type="button"
                             onClick={() => {
                               setUploadImg(true)
+                              setFieldValue("file", '')
                             }}>SUBIR IMAGEN
                           </button>
                           <p className={s.textoFile}>Ingrese la URL de su imagen</p>
@@ -207,7 +210,6 @@ const Forms = () => {
                             onClick={() => {
                               handleImage(values.file)
                             }}>CONFIRMAR IMAGEN</button>}
-
                         </div>)
 
                         /* Pasar Img por URL */
@@ -322,7 +324,7 @@ const Forms = () => {
                 disabled={Object.keys(errors).length > 0}
               >ENVIAR FORMULARIO</button>
 
-              {console.log('🚀 — file: Forms.jsx — line 319 — Forms — errors', errors)}
+              {console.log('🚀 — Forms.jsx — errors', errors)}
             </Form>
 
           )}
