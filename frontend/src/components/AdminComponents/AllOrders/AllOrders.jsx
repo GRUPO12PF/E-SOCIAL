@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
 import { getAllOrders } from '../../../redux/actions/actionAdmin'
 import book from '../../../assets/images/book.svg'
@@ -17,9 +18,12 @@ function AllOrders() {
     <div>
       <NavBar />
       <div className={s.container}>
+      <Link to="/Admin">
+                    <button className={s.btnAtras}>Atrás</button>
+                  </Link>
         <div className={s.flex}>
           
-          <table className={s.usersTable}>
+          <table className={s.listado}>
           
             <thead>
               <tr className={s.titulos}>
@@ -42,7 +46,7 @@ function AllOrders() {
                   >
                     <td className={s.id}>{u._id}</td>
                     <td className={s.name}>{u.books?.nombre}</td>
-                    <td className={s.image}><img src={u.books?.image || book} alt="No disponible" height={50} width={50} /></td>
+                    <td className={s.image}><img className={s.foto} src={u.books?.image || book} alt="No disponible" height={50} width={50} /></td>
                     <td className={s.price}>{u.books?.price}</td>
                     <td className={s.blocked}>{u.comprador?.nombre}</td>
                     <td className={s.moderator}>{u.comprador?.email}</td>

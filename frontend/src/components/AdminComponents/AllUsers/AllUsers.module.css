@@ -64,4 +64,12 @@
     font-family: 'Lato', sans-serif;
     border-bottom: 2px solid black;
     padding: 2rem;
-}
+   }
+
+   .btnAtras {
+    background-color: #9d1d36;
+    color: #e8ddbd;
+    margin: 20px 2.5px 3px 5px;
+    padding: 7px 15px;
+    border-radius: 5px;
+  }
