@@ -18,6 +18,11 @@ function Profile() {
   const user = useSelector(state => state.usuarioActual)
   const idUser = user._id
 
+  const customStyls = {
+    overlay: {
+      backgroundColor: "rgba(11,12,41,0.48)",
+    },
+  }
 
   function handleButtonImage() {
     setShowModal(true)
@@ -74,12 +79,12 @@ function Profile() {
             </Link>
           </div>
         </div>
-        <Modal isOpen={showModal} ariaHideApp={false} className={s.probando}>
+        <Modal isOpen={showModal} style={customStyls} ariaHideApp={false} className={s.probando}>
           <ProfileImage 
             closeModalImage={closeModalImage}
           />
         </Modal>
-        <Modal isOpen={showModalP} ariaHideApp={false} className={s.probando}>
+        <Modal isOpen={showModalP} style={customStyls} ariaHideApp={false} className={s.probando}>
           <ProfilePassword
             closeModalPassword={closeModalPassword}
           />
