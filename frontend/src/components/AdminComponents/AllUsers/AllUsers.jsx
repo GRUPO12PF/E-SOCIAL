@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { getAllUsers, deleteUser } from '../../../redux/actions/actionAdmin'
 import { useDispatch, useSelector } from 'react-redux'
 import { cleanData, getBooks } from '../../../redux/actions/actionBooks'
+import { Link } from 'react-router-dom'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
 import profile from '../../../assets/images/avatar2.png'
 import Pagination from '../../CommonComponents/Pagination/Pagination'
@@ -58,11 +59,15 @@ function AllUsers() {
   return (
     <div>
       <NavBar />
+
       {adminState ? (
         <div>
+          <Link to="/Admin">
+                    <button className="btnAtras">Atrás</button>
+                  </Link>
           <div className={s.container}>
             <table class="listado">
-              <thead>
+              <thead className="tituloTabla">
                 <tr>
                   <th>NOMBRE</th>
                   <th>IMAGEN</th>
