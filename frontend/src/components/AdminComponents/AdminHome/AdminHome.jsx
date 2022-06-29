@@ -20,7 +20,7 @@ function AdminHome() {
   return (
     <div>
       <NavBar />
-      <div >
+      <div className={s.container}>
         
       <div className={s.AdCont} >
         <h1 className={s.saludoAdmin}>Bienvenido Administrador</h1>
