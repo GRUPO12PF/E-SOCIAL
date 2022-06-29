@@ -1819,66 +1819,124 @@ a.nostyle {
   margin: 0;
 }
 
-div.portfoliocard {
+.portfoliocard {
+  display: block;
+  width: 100%;
   position: relative;
-  height: 600px;
-  width: 900px;
-  background: rgba(110, 144, 118, 0.184);
-  border: 1px solid rgba(0, 0, 0, 0.7);
-  box-shadow: 0px -1px 3px rgba(0, 0, 0, 0.1), 0px 2px 6px rgba(0, 0, 0, 0.5);
-  border-radius: 6px;
-  margin: 2% auto;
-  overflow: hidden;
 }
 
-div.portfoliocard div.coverphoto {
-  width: 100%;
-  height: 120px;
+@media (min-width: 768px) {
+  .portfoliocard {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: 900px;
+    background: rgba(110, 144, 118, 0.184);
+    border: 1px solid rgba(0, 0, 0, 0.7);
+    box-shadow: 0px -1px 3px rgba(0, 0, 0, 0.1), 0px 2px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    margin: 2% auto;
+    overflow: hidden;
+  }
+}
+.coverphoto {
   background: url("http://farm8.staticflickr.com/7149/6484148411_baf8d2e934_z.jpg");
   background-position: center center;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: inset 0px 3px 20px rgba(255, 255, 255, 0.3), 1px 0px 2px rgba(255, 255, 255, 0.7);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 100%;
 }
 
-div.portfoliocard div.left_col, div.portfoliocard div.right_col {
+@media (min-width: 768px) {
+  .coverphoto {
+    height: 120px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0px 3px 20px rgba(255, 255, 255, 0.3), 1px 0px 2px rgba(255, 255, 255, 0.7);
+  }
+}
+.contenedorcol {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-top: 8rem;
+}
+
+@media (min-width: 768px) {
+  .contenedorcol {
+    flex-direction: row;
+    margin: 0 auto;
+  }
+}
+.left_col,
+.right_col {
+  display: block;
   float: left;
   height: 340px;
 }
 
-div.portfoliocard div.left_col {
-  width: 40%;
-  padding-top: 85px;
+@media (min-width: 768px) {
+  .left_col,
+.right_col {
+    float: left;
+    height: 340px;
+  }
+}
+.left_col {
+  width: 100%;
   box-sizing: border-box;
 }
 
-div.portfoliocard div.right_col {
-  width: 60%;
+@media (min-width: 768px) {
+  .left_col {
+    width: 40%;
+    padding-top: 85px;
+    box-sizing: border-box;
+  }
+}
+.right_col {
+  width: 100%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  background: rgba(110, 144, 118, 0.034);
-  box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.7);
-  margin-left: -1px;
-  border-bottom-right-radius: 5px;
+  background: rgba(110, 144, 118, 0.184);
 }
 
-div.portfoliocard div.profile_picture {
-  width: 110px;
-  height: 110px;
-  background: rgb(255, 255, 255);
+@media (min-width: 768px) {
+  .right_col {
+    width: 60%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.7);
+    margin-left: -1px;
+    border-bottom-right-radius: 5px;
+  }
+}
+.profile_picture {
   position: absolute;
-  top: 65px;
-  left: 40px;
+  top: 60px;
+  left: 38%;
+  background: rgb(255, 255, 255);
   border-radius: 100%;
+  width: 100px;
+  border: solid 0.8rem #f0f8ff;
   background-image: url("http://cache.spreadshirt.net/Public/Common/images/profile-pic-placeholder_130x130.png");
-  background-size: 100% 100%;
-  padding: 7px;
-  border: 4px solid rgb(255, 255, 255);
+  background-size: cover;
+  box-shadow: 0px 5px 7px 1px #621708;
 }
 
-div.portfoliocard div.right_col h2.name {
+@media (min-width: 768px) {
+  .profile_picture {
+    width: 110px;
+    height: 110px;
+    top: 65px;
+    left: 40px;
+    padding: 7px;
+  }
+}
+.name {
   font-size: 30px;
   font-weight: 300;
   color: rgb(30, 30, 30);
@@ -1886,7 +1944,7 @@ div.portfoliocard div.right_col h2.name {
   margin: 20px 10px 0px 30px;
 }
 
-div.portfoliocard div.right_col h3.location {
+.location {
   font-size: 15px;
   font-weight: 300;
   color: rgb(10, 4, 4);
@@ -1894,13 +1952,12 @@ div.portfoliocard div.right_col h3.location {
   margin: -5px 10px 10px 30px;
 }
 
-div.portfoliocard ul.contact_information {
+.contact_information {
   margin-top: 20px;
   padding-left: 30px;
   list-style-type: none;
 }
-
-div.portfoliocard ul.contact_information li {
+.contact_information li {
   height: 25px;
   width: 180px;
   line-height: 25px;
@@ -1915,8 +1972,7 @@ div.portfoliocard ul.contact_information li {
   box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.6);
   cursor: default;
 }
-
-div.portfoliocard ul.contact_information li:before {
+.contact_information li:before {
   content: "";
   width: 25px;
   height: 25px;
@@ -1928,42 +1984,8 @@ div.portfoliocard ul.contact_information li:before {
   margin-right: 5px;
   opacity: 0.7;
 }
-
-div.portfoliocard ul.contact_information li:hover:before {
+.contact_information li:hover:before {
   opacity: 1;
-}
-
-div.portfoliocard ul.contact_information li.work:before {
-  background-image: url("http://schulzmarcel.de/x/icons/case_24.png");
-}
-
-div.portfoliocard ul.contact_information li.website:before {
-  background-image: url("http://schulzmarcel.de/x/icons/globe_24.png");
-}
-
-div.portfoliocard ul.contact_information li.mail:before {
-  background-image: url("http://schulzmarcel.de/x/icons/paper_plane_24.png");
-}
-
-div.portfoliocard ul.contact_information li.phone:before {
-  background-image: url("http://schulzmarcel.de/x/icons/phone_24.png");
-}
-
-div.portfoliocard ul.contact_information li.resume:before {
-  background-image: url("http://schulzmarcel.de/x/icons/inbox_24.png");
-}
-
-div.portfoliocard div.followers, div.portfoliocard div.following {
-  margin: 15px 0px 0px 35px;
-  font-weight: 300;
-  font-size: 16px;
-  color: rgb(30, 30, 30);
-}
-
-div.portfoliocard div.follow_count {
-  font-weight: 400;
-  font-size: 25px;
-  color: rgb(140, 140, 140);
 }
 
 .imageR {
@@ -1984,57 +2006,49 @@ div.portfoliocard div.follow_count {
   width: 48rem;
 }
 
-.accordion .accordion-item {
+.accordion-item {
   border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: left;
+  padding-left: 2rem;
+  flex-direction: column;
+}
+.accordion-item .condicion {
+  width: 100%;
+  display: block;
+}
+.accordion-item .condicion .condicionTexto {
+  text-align: left;
 }
 
-.accordion .accordion-item button[aria-expanded=true] {
+.accordion-button[aria-expanded=true] {
   border-bottom: 1px solid #03b5d2;
 }
 
-.accordion button {
+.accordion-button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   position: relative;
   display: block;
-  text-align: left;
-  width: 100%;
-  padding: 1em 0;
+  padding: 1rem 0;
   color: #9d1d36;
   font-size: 1.8rem;
   font-weight: 400;
   border: none;
   background: none;
-  outline: none;
 }
-
-.accordion button:hover,
-.accordion button:focus {
-  cursor: pointer;
-  color: #af3c53;
-}
-
-.accordion button:hover::after,
-.accordion button:focus::after {
-  cursor: pointer;
-  color: #03b5d2;
-  border: 1px solid #03b5d2;
-}
-
-.accordion button .accordion-title {
-  padding: 1em 1.5em 1em 0;
-}
-
-.accordion button .icon {
+.accordion-button .icon {
   display: inline-block;
   position: absolute;
-  top: 18px;
-  right: 0;
+  top: 10px;
+  right: -280px;
   width: 22px;
   height: 22px;
   border: 1px solid;
   border-radius: 22px;
 }
-
-.accordion button .icon::before {
+.accordion-button .icon::before {
   display: block;
   position: absolute;
   content: "";
@@ -2044,8 +2058,7 @@ div.portfoliocard div.follow_count {
   height: 2px;
   background: currentColor;
 }
-
-.accordion button .icon::after {
+.accordion-button .icon::after {
   display: block;
   position: absolute;
   content: "";
@@ -2056,30 +2069,67 @@ div.portfoliocard div.follow_count {
   background: currentColor;
 }
 
-.accordion button[aria-expanded=true] {
+@media (min-width: 768px) {
+  .accordion-button {
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0;
+    color: #9d1d36;
+    font-size: 1.8rem;
+    font-weight: 400;
+    border: none;
+    background: none;
+    outline: none;
+  }
+  .accordion-button:hover, .accordion-button:focus {
+    cursor: pointer;
+    color: #af3c53;
+  }
+  .accordion-button:hover::after, .accordion-button:focus::after {
+    cursor: pointer;
+    color: #03b5d2;
+    border: 1px solid #03b5d2;
+  }
+  .accordion-button .accordion-title {
+    padding: 1em 1.5em 1em 0;
+  }
+  .accordion-button .icon {
+    top: 18px;
+    right: 0;
+  }
+  .accordion-button .icon::before {
+    top: 9px;
+    left: 5px;
+  }
+  .accordion-button .icon::after {
+    top: 5px;
+    left: 9px;
+  }
+}
+.accordion-button[aria-expanded=true] {
   color: #03b5d2;
 }
 
-.accordion button[aria-expanded=true] .icon::after {
+.accordion-button[aria-expanded=true] .icon::after {
   width: 0;
 }
 
-.accordion button[aria-expanded=true] + .accordion-content {
+.accordion-button[aria-expanded=true] + .accordion-content {
   opacity: 1;
   max-height: 9em;
   transition: all 200ms linear;
   will-change: opacity, max-height;
 }
 
-.accordion .accordion-content {
+.accordion-content {
   opacity: 0;
   max-height: 0;
   overflow: hidden;
   transition: opacity 200ms linear, max-height 200ms linear;
   will-change: opacity, max-height;
 }
-
-.accordion .accordion-content p {
+.accordion-content p {
   font-size: 1rem;
   font-weight: 300;
   margin: 2em 0;
@@ -2105,12 +2155,6 @@ div.portfoliocard div.follow_count {
   height: 100px;
 }
 
-.container {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
-
 .vendido {
   background-color: rgba(255, 0, 0, 0.74);
   color: white;
@@ -2118,7 +2162,7 @@ div.portfoliocard div.follow_count {
   text-align: center;
 }
 
-.card {
+.cardP {
   margin: 1rem auto;
   background-color: rgba(231, 235, 232, 0.418);
   border-radius: 10px;
