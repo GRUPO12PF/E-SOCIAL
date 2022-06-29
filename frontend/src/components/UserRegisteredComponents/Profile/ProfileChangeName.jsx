@@ -1,12 +1,13 @@
 import React, { useState } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import {cambiarNombre} from "../../../redux/actions/actionUser"
 import s from './Profile.module.css'
 
 export default function ProfileChangeName({closeModalNombre, idUser}) {
   const [nombre, setNombre] = useState("")
   const dispatch = useDispatch()
-
+  const user = useSelector(state => state.usuarioActual)
+console.log(idUser)
 
 
   const handleChange = (e) => {
