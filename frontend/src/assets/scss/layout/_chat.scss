@@ -4,53 +4,67 @@
 $cadaMensaje-msg-arrow-size: 15px;
 
 .bienvenido {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column ;
-  align-items: center ;
+  margin: 3rem auto;
+  padding: 2rem;
+  width: 90%;
+  
+ background-color: v.$fondocard;
+ border-radius: 0.5rem;
+ box-shadow: 20px 18px 5px 0px v.$fondobotones;
+ color: v.$rojomenostinto;
+ 
+ .tituloBienvenido{
+  text-align: center;
+ }
 }
-.reglas{
+
+.reglas {
   margin: 0;
   padding: 0;
   font-weight: bold;
+  text-align:left ;
 }
 
 .contentChat {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  margin: 0 auto;
+  height: fit-content;
+}
+
+@include m.desktop {
+  .contentChat {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
 }
 
 .contChat {
-  z-index: -1;
   color: v.$patito;
-  position: fixed;
   background-color: rgba(110, 144, 118, 0.184);
-  width: 60%;
+  width: 90%;
+  margin: 1rem auto;
   @include m.borderRadius;
-  border-top: solid 1px v.$rojomenostinto ;
-  border-left: solid 1px v.$rojomenostinto ;
-  border-right: solid 1px v.$rojomenostinto ;
-  bottom: 0;
-  right: 5px;
+  border: solid 1px v.$rojomenostinto;
+  padding: 1rem 0;
+
 }
 
 @include m.desktop {
   .contChat {
-    margin: 1rem 5rem;
+    margin: 1rem auto;
     width: 90%;
   }
 }
-
+.chat-window{
+  margin-bottom: 0.2rem;
+}
 .ulChat {
-  
-  padding: 0 20px 0 0;
   list-style: none;
   overflow: scroll;
   height: 270px;
-font-size: 2.5rem;
-
-}
+  font-size: 1.8rem;
+  }
 
 .ulChat::-webkit-scrollbar {
   background-color: transparent;
@@ -61,74 +75,77 @@ font-size: 2.5rem;
 }
 
 .ulChat::-webkit-scrollbar-thumb {
-  background-color: rgba($color: #cbe1ba56, $alpha: 1.0);
+  background-color: rgba($color: v.$fondobotones, $alpha: 1.0);
   width: 15px;
   border-radius: 15px;
 }
 
 .cadaMensaje {
-  z-index: -1;
   position: relative;
   clear: both;
   display: flex;
-  padding: 38px 30px 12px 20px;
-  margin: 0 0 20px 0;
-  border-radius: 10px;
+  align-items: center;
   color: v.$blanco;
   margin: 0.5rem 0;
   padding: 1rem;
-  
+
+  .msj {
+
+    margin: 0.5rem auto;
+    width: 100%;
+    text-align: left;
+    background-color: #c25848c5;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+
+  }
+
 }
-.inicialMsg{
+
+.inicialMsg {
+  margin-top: 1rem;
   padding: 2rem;
   text-align: center;
-  color:#9d1d36;
+  color: v.$colorNav;
 }
 
- .msj {
-    
-    margin: 2rem ;
-    background-color: #c25848c5;
-    border-radius: 25px;
-    padding: 1.5rem;
-    
-    
-  }
-  
 
-  .span {
-    color: #9d1d36;
-    font-weight: 700;
-    
-    padding: 2rem;
-    border-radius: 30%;
-  
-  }
 
-  .otro {
-    color: black;
-    padding: 2rem;
-    border-radius: 30%;
+.span {
+  color: v.$colorNav;
+  font-weight: 700;
+  padding: 0.5rem;
+  border-radius: 30%;
+
+}
+
+.otro {
+  color: v.$black;
+  padding: 0.5rem;
+  border-radius: 30%;
+
+}
+
+.buChat {
+  border-radius: 10%;
+  padding: 1rem;
+  color: v.$colorNav;
+  font-weight: bold;
+}
+
+.inputChat {
+  border-radius: 0.5rem;
+  padding: 1rem;
+  width: 70%;
+  background-color: v.$fondobotones;
+  font-size: 20px;
+  color: v.$black;
+  margin-left: 0.2rem;
  
-  }
+}
 
-  .buChat{
-    border-radius: 10%;
-padding: 1rem;
-color:#9d1d36;
-font-weight: bold;
-  }
- 
-  .inputChat{
-    border-radius: 10%;
-    padding: 1rem;
-    width: 30rem;
-    background-color: #a9b79eb7;
-    font-size: 20px;
-    color: black;
-    }
+.chatform {
+  justify-content: center;
+  display: flex;
   
-    .chatform{
-      justify-content: center;
-      display: flex;
-    }
+}

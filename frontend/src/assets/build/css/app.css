@@ -2151,50 +2151,65 @@ div.portfoliocard div.follow_count {
 }
 
 .bienvenido {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 3rem auto;
+  padding: 2rem;
+  width: 90%;
+  background-color: rgba(110, 144, 118, 0.184);
+  border-radius: 0.5rem;
+  box-shadow: 20px 18px 5px 0px rgba(169, 183, 158, 0.7176470588);
+  color: #621708;
+}
+.bienvenido .tituloBienvenido {
+  text-align: center;
 }
 
 .reglas {
   margin: 0;
   padding: 0;
   font-weight: bold;
+  text-align: left;
 }
 
 .contentChat {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  margin: 0 auto;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
+@media (min-width: 768px) {
+  .contentChat {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+}
 .contChat {
-  z-index: -1;
   color: #F6AA1C;
-  position: fixed;
   background-color: rgba(110, 144, 118, 0.184);
-  width: 60%;
+  width: 90%;
+  margin: 1rem auto;
   border-radius: 0.5rem;
-  border-top: solid 1px #621708;
-  border-left: solid 1px #621708;
-  border-right: solid 1px #621708;
-  bottom: 0;
-  right: 5px;
+  border: solid 1px #621708;
+  padding: 1rem 0;
 }
 
 @media (min-width: 768px) {
   .contChat {
-    margin: 1rem 5rem;
+    margin: 1rem auto;
     width: 90%;
   }
 }
+.chat-window {
+  margin-bottom: 0.2rem;
+}
+
 .ulChat {
-  padding: 0 20px 0 0;
   list-style: none;
   overflow: scroll;
   height: 270px;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
 }
 
 .ulChat::-webkit-scrollbar {
@@ -2206,47 +2221,46 @@ div.portfoliocard div.follow_count {
 }
 
 .ulChat::-webkit-scrollbar-thumb {
-  background-color: #cbe1ba;
+  background-color: #a9b79e;
   width: 15px;
   border-radius: 15px;
 }
 
 .cadaMensaje {
-  z-index: -1;
   position: relative;
   clear: both;
   display: flex;
-  padding: 38px 30px 12px 20px;
-  margin: 0 0 20px 0;
-  border-radius: 10px;
+  align-items: center;
   color: #f0f8ff;
   margin: 0.5rem 0;
   padding: 1rem;
 }
+.cadaMensaje .msj {
+  margin: 0.5rem auto;
+  width: 100%;
+  text-align: left;
+  background-color: rgba(194, 88, 72, 0.7725490196);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
 
 .inicialMsg {
+  margin-top: 1rem;
   padding: 2rem;
   text-align: center;
   color: #9d1d36;
 }
 
-.msj {
-  margin: 2rem;
-  background-color: rgba(194, 88, 72, 0.7725490196);
-  border-radius: 25px;
-  padding: 1.5rem;
-}
-
 .span {
   color: #9d1d36;
   font-weight: 700;
-  padding: 2rem;
+  padding: 0.5rem;
   border-radius: 30%;
 }
 
 .otro {
-  color: black;
-  padding: 2rem;
+  color: #000;
+  padding: 0.5rem;
   border-radius: 30%;
 }
 
@@ -2258,12 +2272,13 @@ div.portfoliocard div.follow_count {
 }
 
 .inputChat {
-  border-radius: 10%;
+  border-radius: 0.5rem;
   padding: 1rem;
-  width: 30rem;
+  width: 70%;
   background-color: rgba(169, 183, 158, 0.7176470588);
   font-size: 20px;
-  color: black;
+  color: #000;
+  margin-left: 0.2rem;
 }
 
 .chatform {
