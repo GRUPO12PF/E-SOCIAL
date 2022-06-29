@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { getAllUsers, deleteUser } from '../../../redux/actions/actionAdmin'
+import { getAllUsers, deleteUser, adminAnUser } from '../../../redux/actions/actionAdmin'
 import { useDispatch, useSelector } from 'react-redux'
 import { cleanData, getBooks } from '../../../redux/actions/actionBooks'
 import { Link } from 'react-router-dom'
@@ -11,6 +11,7 @@ import Remove from '../../../Iconos/Remove.jsx'
 import Edit from '../../../Iconos/Edit.jsx'
 import { isAdmin } from '../../../redux/actions/actionIsAdmin'
 
+import swal from 'sweetalert';
 
 
 function AllUsers() {
@@ -18,6 +19,7 @@ function AllUsers() {
   const allUsers = useSelector((state) => state.allUsuarios);
   const userActu = useSelector((state) => state.usuarioActual);
   const adminState = useSelector((state) => state.isAdmin);
+
 
   console.log("soy el usuario actuaaaaal", adminState);
 
@@ -29,28 +31,40 @@ function AllUsers() {
       dispatch(cleanData());
     };
   }, []);
-  const toggleEditInfo = () => {
-    setEditInfo(!editInfo);
-  };
+  
+
 
   const handleEdit = (e, id) => {
     e.preventDefault();
     console.log("id es ", id);
-    toggleEditInfo();
-    setCurrentUser(id);
+    
+    if(userActu._id === id) {
+      swal("No puedes editarte a ti mismo!");
+    } else {
+      
+        if(allUsers.moderador===false){
+          dispatch(adminAnUser({id: id, moderador: true}))
+          swal("Usuario editado", "success");
+          window.location.reload();
+        }
+       else {
+         swal("El usuario ya es administrador, no puedes quitarle el rol de administrador.");
+       }
+    
+
   };
 
   const handleDelete = async (e, id) => {
     e.preventDefault();
     if (userActu._id === id) {
-      alert("No puedes eliminarte a ti mismo");
+      swal("No puedes eliminarte a ti mismo");
     } else {
       if (
         window.confirm("¿Esta seguro que quiere eliminar este usuario?") ===
         true
       ) {
         dispatch(deleteUser(id));
-        alert("Usuario eliminado correctamente.");
+        swal("Usuario eliminado correctamente.");
 
         window.location.reload();
       }
@@ -78,7 +92,9 @@ function AllUsers() {
                 </tr>
               </thead>
               <tbody>
-                {allUsers?.map((u, i) => {
+                { 
+                allUsers?.map((u, i) => {
+                  console.log(adminState)
                   return (
                     <tr key={i} className={s.containerInfo}>
                       <td className={s.id}>{u.id}</td>

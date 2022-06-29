@@ -225,6 +225,7 @@ const traerUsuarios = async (req, res) => {
                 name: el.nombre,
                 image: el.image,
                 books: el.books,
+                moderador: el.moderador
             };
         });
         return res.json(userMapeado);
@@ -326,8 +327,28 @@ const getUsersList = async (req, res) => {
     } catch (error) {
         console.log(error)    
     }
-
   }
+
+const makeAdminAnUser = async (req, res) => {
+    const id = req.body.id
+    const moderador = req.body.moderador
+    try {
+        const usuario = await Usuario.findByIdAndUpdate(
+            { _id: id},
+            {moderador: moderador},
+            {new: true}
+        )
+
+        if(!usuario){
+            const error = new Error ("No se encontró el usuario.")
+            return res.status(404).json({msg: error.message})
+        }
+        res.json(usuario)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 export {
     registrar,
@@ -345,5 +366,6 @@ export {
     deleteUsuario,
     getUsersList,
     deleteUser,
-    changeName
+    changeName,
+    makeAdminAnUser
 };
