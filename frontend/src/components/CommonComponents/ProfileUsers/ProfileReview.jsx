@@ -11,13 +11,13 @@ const ProfileReview = ({title,description,score}) => {
   return (
     <>
     
-    <div class="containerr">
+    <div className="containerr">
     
-    <div class="accordion">
-      <div class="accordion-item">
+    <div className="accordion">
+      <div className="accordion-item">
         <button onClick={() => setIsActive(!isActive)} id="accordion-button-1" >
           {isActive ? "Ver Menos" : "Ver Mas"}
-          <span class="icon" ></span>
+          <span className="icon" ></span>
         </button>
         
           {!isActive ? <>{null}</>:
