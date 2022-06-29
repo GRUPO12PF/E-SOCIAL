@@ -20,7 +20,7 @@ export function formatToCurrency(value) {
 }
 
 // validaciones del Form
-export function formValidators(values) {
+export function formValidators(values, uploadImg) {
   let errors = {}
 
   // nombre
@@ -91,18 +91,21 @@ export function formValidators(values) {
     : null
 
   // image por file
-  !values.file?.name
-    ? errors.file = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
-    : values.file?.name && !hasExtension(values.file.name)
+  if (uploadImg) {
+    !values.file?.name
       ? errors.file = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
-      : null
-
+      : values.file?.name && !hasExtension(values.file.name)
+        ? errors.file = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
+        : null
+  }
   // image por URL
-  !values.file?.name
-    ? errors.file = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
+  if (!uploadImg) {
+  !values.image
+    ? errors.image = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
     : values.image && !hasExtension(values.image)
       ? errors.image = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
       : null
+  }
 
   return errors
 }
