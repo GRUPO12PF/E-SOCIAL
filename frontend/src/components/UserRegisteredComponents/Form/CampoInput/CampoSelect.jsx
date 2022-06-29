@@ -6,7 +6,6 @@ const CampoSelect = ({ name, input, isCreate, values, errors, value1, option1, v
 
   return (
     <>
-      <label className={s.titleSelect} >{mayúsculaInicial(name)}</label>
 
       {/* valor anterior solo en modo Update */}
       {!isCreate
