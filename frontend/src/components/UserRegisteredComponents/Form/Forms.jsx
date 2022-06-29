@@ -149,7 +149,9 @@ const Forms = () => {
                     </div>
 
                     <ErrorMessage name='category' component={() => (<p className={s.error}>{errors.category}</p>)} />
-                    {!isCreate ? <p className={s.centro}>({category?.sort((a, b) => a.localeCompare(b)).join(', ')})</p> : null}
+                    {!isCreate
+                      ? <p className={s.centro}>({category?.sort((a, b) => a.localeCompare(b)).join(', ')})</p>
+                      : null}
                   </div>
                   <div className={s.fotoF1}>
                     <div id='Selector para subir Img'>
