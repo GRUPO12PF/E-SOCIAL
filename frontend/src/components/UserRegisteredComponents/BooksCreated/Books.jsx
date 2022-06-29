@@ -22,6 +22,7 @@ function Books({ nombre, image, price, id, order }) {
     if (!order.length > 0) {
       e.preventDefault()
       dispatch(deleteBook(id))
+      if(window.confirm("¿Estás seguro que quieres eliminar este libro? Si lo eliminas no podrás deshacer el cambio.")===true)
       swal({
         title: '¡Eliminado con éxito!',
         text: ' ',

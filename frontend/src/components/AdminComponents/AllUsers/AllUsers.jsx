@@ -57,7 +57,7 @@ function AllUsers() {
       swal("No puedes eliminarte a ti mismo");
     } else {
       if (
-        window.confirm("¿Esta seguro que quiere eliminar este usuario?") ===
+        window.confirm("¿Estás seguro que quieres eliminar este usuario? Si lo eliminas, no podrás deshacer esta acción.") ===
         true
       ) {
         dispatch(deleteUser(id));
