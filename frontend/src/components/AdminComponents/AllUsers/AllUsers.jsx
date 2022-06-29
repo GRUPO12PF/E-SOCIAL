@@ -63,11 +63,11 @@ function AllUsers() {
       {adminState ? (
         <div>
           <Link to="/Admin">
-                    <button className={s.btnAtras}>Atrás</button>
+                    <button className="btnAtras">Atrás</button>
                   </Link>
           <div className={s.container}>
             <table class="listado">
-              <thead>
+              <thead className="tituloTabla">
                 <tr>
                   <th>NOMBRE</th>
                   <th>IMAGEN</th>
