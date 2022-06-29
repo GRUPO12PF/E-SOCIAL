@@ -54,9 +54,9 @@ router //delete user admin
 
 router  //delete user
 .route('/deleteUser/:id')
-.delete(checkAuth, deleteUser);
+.delete(deleteUser);
 
 router //update nombre
 .route('/updateNombre/:id')
-.put(checkAuth, changeName);
+.put(changeName);
 export default router;
