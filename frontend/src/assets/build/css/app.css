@@ -2192,7 +2192,7 @@ div.portfoliocard div.follow_count {
 }
 
 .foche {
-  background: rgba(128, 128, 128, 0.548);
+  background: #e8ddbd;
   background-position: center;
   background-size: cover;
   -webkit-backdrop-filter: blur(8px);
