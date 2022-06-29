@@ -15,7 +15,6 @@ import EditCard from './EditCard/EditCard'
 import CampoInput from './CampoInput/CampoInput'
 import CampoSelect from './CampoInput/CampoSelect'
 import s from '../Form/Form.module.css'
-// import { BackButton } from '../../CommonComponents/Buttons/BackButton'
 
 const Forms = () => {
   const [dispatch, navigate] = [useDispatch(), useNavigate()]
@@ -126,6 +125,16 @@ const Forms = () => {
                     req={'*'}
                   />
 
+                  <CampoInput
+                    name='descripcion'
+                    type="text"
+                    as="textarea"
+                    input={cant_pags}
+                    isCreate={isCreate}
+                    errors={errors}
+                    req={'*'}
+                  />
+
                   <div className={s.formContents2}>
                     <label className={s.label}>Categorías*</label>
                     <div className={s.check}>
@@ -217,7 +226,7 @@ const Forms = () => {
               </div> {/* FIN-Requeridos */}
               <br />
               <div id='OPCIONALES' className={s.formContents3}>
-                <button className={s.adicional}onClick={() => setVerMas(!verMas)}>
+                <button className={s.adicional} onClick={() => setVerMas(!verMas)} type="button">
                   {verMas ? "Quitar" : "Opcionales"}
                 </button>
 
@@ -308,8 +317,6 @@ const Forms = () => {
                 type="submit"
                 disabled={Object.keys(errors).length > 0}
               >ENVIAR FORMULARIO</button>
-
-              {/* <BackButton /> */}
 
             </Form>
           )}
