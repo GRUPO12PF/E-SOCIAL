@@ -8,8 +8,10 @@ export default function QuestionForComprado({ mensaje, book, idComprador, idVend
     if (!book?.order.length > 0) {
       navigate(`/details/${book?._id}`)
     } else {
-      alert('Lo siento este libro ya fue comprado!')
-    }
+      swal({
+        title: 'Lo siento este libro ya fue comprado!',
+      });
+      }
   }
 
   function handlePerfilVendedor(e) {
