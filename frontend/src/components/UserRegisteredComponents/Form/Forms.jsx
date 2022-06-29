@@ -15,6 +15,7 @@ import EditCard from './EditCard/EditCard'
 import CampoInput from './CampoInput/CampoInput'
 import CampoSelect from './CampoInput/CampoSelect'
 import s from '../Form/Form.module.css'
+import NotCreator from './NotCreator/NotCreator'
 
 const Forms = () => {
   const [dispatch, navigate] = [useDispatch(), useNavigate()]
@@ -333,7 +334,7 @@ const Forms = () => {
               )}
             </Formik>
           </>)
-          : <h1 className={s.titleForm}>USTED NO ES EL CREADOR DE ESTE LIBRO</h1>
+          : <NotCreator creador={creador} />
         }
       </div>
     </div >
