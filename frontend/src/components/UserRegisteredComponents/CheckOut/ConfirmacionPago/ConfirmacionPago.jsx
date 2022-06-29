@@ -101,7 +101,7 @@ return (
       </Form>)}
     </Formik>
   </div>
-        {/* <Footer/> */}
+        <Footer/>
 </>
 )
 }
