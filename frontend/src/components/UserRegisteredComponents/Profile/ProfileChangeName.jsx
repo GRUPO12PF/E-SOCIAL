@@ -9,10 +9,8 @@ export default function ProfileChangeName({closeModalNombre, idUser}) {
   const user = useSelector(state => state.usuarioActual)
 console.log(idUser)
 
-
   const handleChange = (e) => {
     setNombre(e.target.value)
-    console.log(nombre)
   }
 
   const handleSubmit = async (e) => {
@@ -23,8 +21,7 @@ console.log(idUser)
     })) 
      console.log(hola)
     alert('Tu nombre se modifico correctamente')
-    //window.location.reload()
-   
+    window.location.reload()
   }
 
   return (
