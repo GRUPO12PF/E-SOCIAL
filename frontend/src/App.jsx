@@ -37,9 +37,14 @@ import Questions from "./components/UserRegisteredComponents/Questions/Questions
 import Profile from "./components/UserRegisteredComponents/Profile/Profile"
 import VerificationAdmin from "./components/AdminComponents/VerificationAdmin/VerificationAdmin"
 
+
 export default function App() {
+
+ 
+
   return (
-    <Router>
+    
+      <Router>
       <Routes>
         <Route path="/" element={<AuthLayout />}>
           <Route index element={<Home />} />
@@ -79,5 +84,6 @@ export default function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
+   
   )
 }

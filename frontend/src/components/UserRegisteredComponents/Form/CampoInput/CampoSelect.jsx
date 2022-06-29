@@ -6,13 +6,6 @@ const CampoSelect = ({ name, input, isCreate, values, errors, value1, option1, v
 
   return (
     <>
-      <label className={s.titleSelect} >{mayúsculaInicial(name)}</label>
-
-      {/* valor anterior solo en modo Update */}
-      {!isCreate
-        ? <p className={s.centro}>({input})</p>
-        : null}
-
       <div>
         <Field
           name={name}
@@ -27,6 +20,12 @@ const CampoSelect = ({ name, input, isCreate, values, errors, value1, option1, v
         </Field>
 
         <ErrorMessage name={name} component={() => (<p className={s.error}>{errors[name]}</p>)} />
+        
+        {/* valor anterior solo en modo Update */}
+        {!isCreate
+          ? <p className={s.centro}>({input})</p>
+          : null}
+
       </div>
     </>
   )

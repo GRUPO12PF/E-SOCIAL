@@ -1,7 +1,7 @@
 import React from "react"
 import book from "../../../assets/images/book.svg"
 
-function Book({ nombre, image, price, imageUser }) {
+function Book({ nombre, image, price, imageUser,nameUser }) {
   return (
 
     <div class="box">
@@ -16,6 +16,7 @@ function Book({ nombre, image, price, imageUser }) {
       <div class="bottom">
         <div class="buttons">
           <a class="btn btnWebsite" target="_blank">{nombre}</a>
+          <p className="nombre-usi">{nameUser}</p>
         </div>
       </div>
 

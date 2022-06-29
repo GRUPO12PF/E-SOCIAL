@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,400&family=Raleway:wght@100&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,400,600|Tulpen+One&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Hind:300,400&display=swap");
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -520,6 +521,7 @@ a {
   box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.6);
   transition: 0.5s;
   margin-top: 4rem;
+  position: relative;
 }
 
 .box:hover {
@@ -544,7 +546,8 @@ a {
   bottom: 0;
   padding: 5px 15px;
   letter-spacing: 2px;
-  color: #d6d6d6;
+  color: #e70000;
+  text-shadow: 1px -1px 2px rgba(255, 255, 255, 0.6);
   font-weight: 300;
   background: linear-gradient(to right, transparent 0%, #000 100%);
   width: 100%;
@@ -564,7 +567,6 @@ a {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: rgba(70, 83, 45, 0.4588235294);
   position: absolute;
   right: 30px;
   bottom: -25px;
@@ -600,6 +602,7 @@ a {
 .buttons .btn {
   display: inline-block;
   padding: 10px 30px;
+  background: none;
   text-align: center;
   letter-spacing: 2px;
   text-overflow: ellipsis;
@@ -607,15 +610,10 @@ a {
 }
 
 .btnWebsite {
-  background-color: rgba(70, 83, 45, 0.4588235294);
   transition: 0.5s;
   width: 160px;
   height: 45px;
   box-sizing: border-box;
-}
-
-.btnWebsite:hover {
-  background-color: #eee;
 }
 
 .btnNews {
@@ -626,6 +624,14 @@ a {
 
 .btnNews:hover {
   background-color: #ff7526;
+}
+
+.nombre-usi {
+  position: absolute;
+  right: 3rem;
+  bottom: 7rem;
+  font-family: "Raleway", sans-serif;
+  color: black;
 }
 
 .container-book {

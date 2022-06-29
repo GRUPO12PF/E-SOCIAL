@@ -1,13 +1,13 @@
 input[type=checkbox] {
     display: inline-block;
-    }
-
-.titleForm{
-    margin-top: 1rem;
-    padding: 2rem;
-    text-align: center;
-
 }
+
+.titleForm {
+    margin-top: 4%;
+    text-align: center;
+    font-weight: bold;
+}
+
 .select {
     background: rgba(183, 203, 187, 0.184);
 }
@@ -24,45 +24,43 @@ input[type=checkbox] {
 }
 
 .btnF {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto 0;
     background-color: #a9b79e;
     padding: 5px;
     border-radius: 5px;
-    margin-top: 20px;
-
 }
 
-.confirmP {
+.loadImageBtn {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
     background-color: #a9b79e;
     padding: 5px;
     border-radius: 5px;
-
 }
 
-.uploadButton {
-    background-color: #a9b79e;
-    padding: 5px;
-    border-radius: 5px;
-
-}
-.adicional{
+.adicional {
     background-color: #a9b79e;
     border-radius: 5px;
     padding: 1rem;
-    margin-left: 60%;
-    font-size: 20px;
-
+    margin: 3% auto;
 }
-.inputAdicional{
+
+.inputAdicional {
     padding: 1rem;
     width: 100%;
     border-radius: 5px;
     border: none;
     justify-content: center;
-    
+    font-size: 15px;
+
 }
+
 .tapas {
     margin: 10px auto;
-   }
+}
 
 .ilustrado {
     margin-top: 20px;
@@ -74,7 +72,7 @@ input[type=checkbox] {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
-    
+
 }
 
 .formContents {
@@ -93,7 +91,7 @@ input[type=checkbox] {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     margin: auto;
     padding: 5%;
@@ -103,24 +101,24 @@ input[type=checkbox] {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     background-color: rgba(110, 144, 118, 0.184);
     margin: auto;
-    padding: 2%;
     border-radius: 20px;
     width: 45%;
-    
 }
 
 .requeridos {
     margin: 5%;
-    justify-content: center; 
+    justify-content: center;
+    width: 370px;
 }
 
-.opcionales { 
-    margin: 5%;
+.opcionales {
+    margin: 0 auto 3%;
     align-items: center;
+    width: 370px;
 }
 
 .input {
@@ -142,12 +140,16 @@ input[type=checkbox] {
 }
 
 .selector {
+    display: flex;
+    text-align: center;
+    justify-self: center;
     background: white;
     border: none;
-    padding: 1renm;
+    padding: 1rem;
     color: rgb(0, 0, 0);
     border-radius: 6px;
-    width: 100%;
+    margin: 5% auto 0;
+    width: 100px;
 }
 
 .textarea {
@@ -162,7 +164,15 @@ input[type=checkbox] {
 .label {
     display: flex;
     justify-content: left;
-    text-align: center;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    width: 100%;
+}
+
+.labelCenter {
+    display: flex;
+    justify-content: center;
     color: black;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
@@ -171,11 +181,17 @@ input[type=checkbox] {
 
 .titleSelect {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     text-align: center;
     color: black;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
+}
+
+.previewImg {
+    object-fit: contain;
+    max-height: 400px;
+    padding: 3%;
 }
 
 .range {
@@ -184,7 +200,6 @@ input[type=checkbox] {
     justify-content: center;
     color: black;
 }
-
 
 .back {
     font-family: 'Roboto', sans-serif;
@@ -207,9 +222,9 @@ input[type=checkbox] {
     z-index: 999;
     cursor: pointer;
     background-color: #a9b79e;
-    padding: 5px;
-    width: 15%;
-    margin: auto;
+    padding: 10px;
+    margin: auto auto 1%;
+    font-weight: bold;
 }
 
 .botonFle {
@@ -230,17 +245,6 @@ input[type=checkbox] {
     margin: 3px;
 }
 
-.btt {
-    border: none;
-    background-color: rgba(128, 128, 128, 0.63);
-    padding: 4px;
-    border-radius: 7px;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
-    cursor: pointer;
-    z-index: 99;
-}
-
 .categoriasF {
     padding-top: 20px;
     display: flex;
@@ -248,22 +252,13 @@ input[type=checkbox] {
     flex-direction: column;
 }
 
-.previewF {
-    width: 150px;
-    height: 150px;
-}
-
-
 .check {
-    justify-content: center;
     background-color: rgba(125, 127, 125, 0.184);
     width: 300px;
     height: 250px;
     overflow: scroll;
-    padding: 30px;
-    gap: 2rem;
-    top: 7rem;
-    right: 5rem;
+    padding-left: 10%;
+    padding-top: 4%;
 }
 
 .check::-webkit-scrollbar {
@@ -274,7 +269,22 @@ input[type=checkbox] {
     background: none;
 }
 
-.pF {
+.checkBox {
+    margin: 0px 4% auto 0%;
+    height: 17px;
+    width: 17px;
+    border-radius: 4px;
+}
+
+.optionContainer {
+    display: flex;
+    flex-direction: row;
+    margin: 7% 0;
+}
+
+.textoFile {
+    display: flex;
+    justify-content: center;
     font-size: 14px;
     padding: 20px;
 }
@@ -287,8 +297,9 @@ input[type=checkbox] {
 
 .error {
     color: rgba(255, 0, 0, 0.699);
-    font-size: 12px;
+    font-size: 15px;
     text-align: center;
+    font-weight: bold;
 }
 
 .centro {
