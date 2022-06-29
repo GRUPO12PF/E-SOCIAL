@@ -49,6 +49,7 @@ const ProfileUsers = () => {
       <div className="portfoliocard">
         <div className="coverphoto"></div>
         <div className="profile_picture"><img className="imageR" src={user.image?.url} alt="" /></div>
+        <div className="contenedorcol">
         <div className="left_col">
           <div className="followers">
           {curr?.map(e => {
@@ -70,11 +71,8 @@ const ProfileUsers = () => {
           goToNextPage={goToNextPage}
           goToPreviousPage={goToPreviousPage}
         />
-          
-          </div>
-          <div className="following">
-            
-          </div>
+                    </div>
+         
         </div>
         <div className="right_col">
           <h2 className="name">{user.nombre}</h2>
@@ -95,6 +93,7 @@ const ProfileUsers = () => {
               })
             }
           </div>
+        </div>
         </div>
       </div>
       <div >
