@@ -86,8 +86,5 @@
 
 .probando{
     filter:alpha(opacity=70);
-    width: 650px;
-    margin: 10%;
-    padding: 1%;
-    position: relative;
+
 }

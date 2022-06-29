@@ -8,17 +8,17 @@ const CampoInput = ({ name, text, type, input, isCreate, errors, req, placeholde
 
   return (
     <>
-      <label className={s.label} >{mayúsculaInicial(nombre) + (req ? req : '')}</label>
+      <label className={s.labelBis} >{mayúsculaInicial(nombre) + (req ? req : '')}</label>
       
       {/* valor anterior solo en modo Update */}
       {!isCreate && name !== 'descripcion' && name !== 'price'
-        ? <p className={s.centro}>({input})</p>
+        ? <p className={s.centroBis}>({input})</p>
         : null}
 
       <div>
         <Field
           name={name}
-          className={s.inputAdicional}
+          className={s.inputAdicionalBis}
           type={type}
           id={name}
           placeholder={placeholder}
