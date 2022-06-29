@@ -91,14 +91,18 @@ export function formValidators(values) {
     : null
 
   // image por file
-  values.file?.name && !hasExtension(values.file.name)
+  !values.file?.name
     ? errors.file = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
-    : null
+    : values.file?.name && !hasExtension(values.file.name)
+      ? errors.file = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
+      : null
 
   // image por URL
-  values.image && !hasExtension(values.image)
-    ? errors.image = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
-    : null
+  !values.file?.name
+    ? errors.file = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
+    : values.image && !hasExtension(values.image)
+      ? errors.image = 'Elija una imagen con extensión .jpg, .jpeg, .gif o .png'
+      : null
 
   return errors
 }

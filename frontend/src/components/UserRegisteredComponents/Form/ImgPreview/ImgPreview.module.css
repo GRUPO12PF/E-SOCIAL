@@ -1,4 +1,5 @@
 .previewF{
-    width: 150px;
-    height: 150px;
+    object-fit: contain;
+    max-height: 400px;
+    padding: 3%;
 }
