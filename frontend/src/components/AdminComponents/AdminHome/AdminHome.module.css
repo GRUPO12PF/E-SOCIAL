@@ -1,19 +1,28 @@
 .linked{
-    color: #621708;
-    text-justify: center;
-    margin: 10rem;
+    color: aliceblue;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40rem;
     font-size: 2rem;
     font-weight: bold;
-    background-color: #f2f2f2;
-    border-radius: 10px;
-    border: solid #F6AA1C;
+    background-color: #9d1d36;
+    border-radius: 15px;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
    }
 
 .AdCont{
+    background-color: rgba(110, 144, 118, 0.184);
+    padding: 15rem;
+    margin:10rem;
+    border-radius: 2rem;
+    box-shadow: 0 2px 20px #a9b79e;
+    }
 
-    padding-top: 30rem;
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
+.saludoAdmin{
+    padding: 2rem;
+    width:100%
 }

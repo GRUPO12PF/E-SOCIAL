@@ -1,0 +1,37 @@
+.fondo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 500px;
+    margin-top: 50px;
+    padding-bottom: 80px;
+    padding-top: 80px;
+    background-color: #9d1d36;
+    border-radius: 20px;
+}
+
+.input{
+    width: 300px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+.btn{
+    border: 1px solid white;
+    margin-top: 20px;
+    padding: 7px;
+    border-radius: 10px;
+}
+
+.faltaPoco{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.faltaPoco2{
+    display: flex;
+    justify-content: center;
+    margin-top: 2   px;
+}

@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import NavBar from '../../CommonComponents/NavBar/NavBar'
 import { getAllReviews } from '../../../redux/actions/actionAdmin'
+import { Link } from 'react-router-dom'
+import profile from '../../../assets/images/avatar2.png'
 import s from './AllReviews.module.css'
 
 function AllReviews() {
@@ -16,10 +18,14 @@ function AllReviews() {
 
         <>
             <NavBar />
+
             <div className={s.container}>
+            <Link to="/Admin">
+                    <button className={s.btnAtras}>Atrás</button>
+                  </Link>
                 <div className={s.flex}>
 
-                    <table className={s.usersTable}>
+                    <table className={s.listado}>
 
                         <thead>
                             <tr>
@@ -38,10 +44,10 @@ function AllReviews() {
                                         key={i}
                                         className={s.containerInfo}
                                     >
-                                        <td className={s.id}>{u.comprador?.nombre}</td>
-                                        <td className={s.id}><img src={u.comprador?.image.url} /></td>
+                                        <td className={s.name}>{u.comprador?.nombre}</td>
+                                        <td className={s.id}><img className={s.foto} src={u.comprador?.image.url || profile} /></td>
                                         <td className={s.name}>{u.vendedor?.nombre}</td>
-                                        <td className={s.id}><img src={u.vendedor?.image.url}/></td>
+                                        <td className={s.id}><img className={s.foto} src={u.vendedor?.image.url || profile}/></td>
                                         <td className={s.price}>
                                         {
                                 u.score === 1 ? <p className={s.star}>⭐</p> :

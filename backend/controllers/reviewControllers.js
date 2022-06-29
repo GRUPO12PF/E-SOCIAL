@@ -12,7 +12,6 @@ const nuevaReview = async (req, res) => {
   const newReview = await new Review({
     orden: id,
     vendedor,
-    title: req.body.title,
     description: req.body.description,
     score: req.body.score
   })

@@ -17,11 +17,6 @@ const reviewSchema = mongoose.Schema(
             ref: 'Usuario',
             required: true,
         },
-        title: {
-            type: String,
-            trim: true,
-            required: true,
-        },
         description: {
             type: String,
             trim: true,
