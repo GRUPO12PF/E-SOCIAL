@@ -4,11 +4,12 @@
   flex-wrap: wrap;
   color: #e8ddbd;
   height: 50px;
-  width: 500px;
+  width: 400px;
   padding-top: 7px;
   margin-top: 20px;
   background-color: #9d1d36;
   margin: 0px auto;
+  
 }
 
 .contenedorGral {
@@ -52,4 +53,5 @@
   color: #e8ddbd;
   margin: 20px 2.5px 0px 0px;
   padding: 7px 15px;
+  margin-bottom: 2%;
 }
