@@ -15,7 +15,8 @@ import {
     deleteUsuario,
     getUsersList,
     deleteUser,
-    changeName
+    changeName,
+    makeAdminAnUser
 } from "../controllers/usuarioControllers.js";
 import checkAdmin from "../middleware/checkAdmin.js";
 import checkAuth from "../middleware/checkAuth.js";
@@ -36,10 +37,16 @@ router.get("/traer-orders", obtenerOrdersUsuarios);
 router.get("/actual", checkAuth, usuario);
 router.put("/imagen", checkAuth, cambiarImage);//Cambiar imagen de perfil
 
+
+
 //ADMIN
 router
   .route("/list")
   .get(checkAdmin, getUsersList)
+  
+router
+  .route("/update")
+  .put(makeAdminAnUser)
 
 router //delete user admin
 .route('/delete/:id')

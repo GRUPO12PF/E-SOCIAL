@@ -60,7 +60,7 @@ function Profile() {
         <div className={s.container}>
           <div onClick={() => handleOnClickBooks()}>
             <Link to='/'>
-              <p className={s.prueba}>MIS VENTAS</p>
+              <p className={s.prueba}>MIS LIBROS</p>
             </Link>
           </div>
           <div onClick={() => (handleOnClickOrders())}>
