@@ -1,5 +1,5 @@
 import clienteAxios from "../../config/clienteAxios";
-import { GET_USUARIOS, GET_ORDERS, GET_REVIEW, DELETE_USER } from "../utils/constants";
+import { GET_USUARIOS, GET_ORDERS, GET_REVIEW, DELETE_USER, ADMIN_AN_USER } from "../utils/constants";
 
 export function getAllUsers() {
     return async function (dispatch) {
@@ -47,6 +47,23 @@ export function deleteUser(payload){
         console.log("veamos el json",json)
         return dispatch({
             type: DELETE_USER,
+            payload: json.data
+        })
+    }
+}
+
+export function adminAnUser (payload){
+    const id = localStorage.getItem("token");
+        const config = {
+            headers: {
+                "Content-Type": "multipart/form-data",
+                Authorization: `Bearer ${id}`,
+            },
+        }
+    return async function (dispatch){
+        const json = await clienteAxios.put("/usuarios/update", payload, config)
+        return dispatch({
+            type: ADMIN_AN_USER,
             payload: json.data
         })
     }
