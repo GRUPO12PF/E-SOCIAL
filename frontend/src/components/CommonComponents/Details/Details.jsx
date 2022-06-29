@@ -9,6 +9,8 @@ import { usuarioActual } from "../../../redux/actions/actionUser";
 import { getQA, postQuestion } from "../../../redux/actions/actionQA"
 import DetailsField from "./DetailsField/DetailsField"
 import NotFound from "../../CommonComponents/NotFound/NotFound.jsx"
+import Fle from "../../../Iconos/Fle"
+import Vuelta from "../../../Iconos/Vuelta"
 
 const Details = () => {
   const navigate = useNavigate()
@@ -46,7 +48,7 @@ const Details = () => {
     }, 2000)
   }
 
-  const [verMas, setVerMas] = useState(false)
+
 
   useEffect(() => {
     dispatch(getQA(id))
@@ -93,89 +95,65 @@ const Details = () => {
 
   return (
     <>
-      <NavBar />
-      {
-        detail.msgError ? <NotFound /> :
-          <div>
+    <NavBar/>
+    <div className="cover">
+    <div className="book">
+    <label for="page-1"  class="book__page book__page--1">
+    <img src={image || book} alt="No encontrado" className="image-detalle" />
+    </label>
+    
+    <label for="page-2" class="book__page book__page--4 bgee">
+      <div className="page__content">
+      
+        <div className="page__content-blockquote">
 
 
-            <div className="card-detalle">
-              <div className="clip-detalle">
+          
+         </div>
+         
 
-              </div>
-              <div>
-                <img src={image || book} alt="No encontrado" className="image-detalle" />
-              </div>
 
-              <div>
-                <h3 className="pName-detalle aa">{nombre}</h3>
-                <div className="price-detalle">
-                  {formatToCurrency(price)}
-                </div>
 
-                <div className="description-detalle">
-
-                  <div className="au-tor">
-                  <DetailsField
-                    constant={autor}
-                    clasName="h5-detalle "
-                    title='Autor'
-                  />
+                  
 
                   <DetailsField
                     constant={idioma}
                     clasName="h5-detalle "
                     title='Idioma'
                   />
+                  <br />
 
-
-                  <div>
-                  <h5 className="h5-detalle  ">Categoría</h5> 
-                  {category?.sort((a, b) => a.localeCompare(b)).join(', ')}
-                  </div>
-                  </div>
 
                   
-
-                  <h5 className="h5-detalle">Descripción</h5>
-                  <p className="parra-detalle">
-                    {descripcion}
-                  </p>
-
-                  <button className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider" onClick={() => setVerMas(!verMas)}>
-                    {verMas ? "Ver menos" : "Ver más"}
-                  </button>
-
-                  {!verMas
-                    ? null
-                    : (<div className="edi-to">
+                    
+                    <div className="edi-to">
                       <DetailsField
                         constant={editorial}
-                        clasName="h5-detalle aa"
+                        clasName="h5-detalle"
                         title='Editorial'
                       />
-
+                      <br />
                       <DetailsField
                         constant={edicion}
-                        clasName="h5-detalle aa"
+                        clasName="h5-detalle"
                         title='Edición'
                       />
-
+                      <br />
                       <DetailsField
                         constant={tapa}
-                        clasName="h5-detalle aa"
+                        clasName="h5-detalle "
                         title='Tapa'
                       />
-
+                        <br />
                       <DetailsField
                         constant={publicado}
-                        clasName="h5-detalle aa"
+                        clasName="h5-detalle "
                         title='Año de publicación'
                       />
-
+                      <br />
                       <DetailsField
                         constant={cant_pags}
-                        clasName="h5-detalle aa"
+                        clasName="h5-detalle "
                         title='Páginas'
                       />
 
@@ -193,31 +171,11 @@ const Details = () => {
                         clasName="h5-detalle"
                         title='Saga / Serie'
                       />
-                    </div>)
-                  }
+                    </div>
 
-                </div>
-                <div className="che-detalle">
-                  {
-                    detail.order?.length < 1 ?
-                      token ?
-                        <Link to="/checkout">
-                          <button className="btnn-detalle bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">COMPRAR</button>
-                        </Link>
-                        :
-                        <Link to="/registrar">
-                          <button className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider btnn-detalle">COMPRAR</button>
-                        </Link>
-                      : null
-                  }
-                </div>
-              </div>
-            </div>
-            
-            
-           
+                
 
-            <div  className="respuesta-detail">
+                    <div  className="respuesta-detail">
             <div clasName="question">
               {
                 questionAnswered?.map((e, i) => {
@@ -235,7 +193,7 @@ const Details = () => {
                 token ?
                   <form onSubmit={(e) => handleSubmitSendQuestion(e)}>
                     <input type="text" placeholder="Acá va su pregunta, señor" name="mensaje" value={input.mensaje} onChange={e => handleInputChange(e)} />
-                    {/* <input type="text" placeholder="Acá va su pregunta, señor" name={input.mensaje} />  */}
+                    
                     <button className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">ENVIAR</button>
                   </form>
                   :
@@ -244,24 +202,115 @@ const Details = () => {
                   </Link>
               }
 
-              {/* acá van las preguntas y respuestas */}
+              
             </div>
+
+            <span className="comprame">{
+                    detail.order?.length < 1 ?
+                      token ?
+                        <Link to="/checkout">
+                          <button className="btnn-detalle bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">COMPRAR</button>
+                        </Link>
+                        :
+                        <Link to="/registrar">
+                          <button className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider btnn-detalle">COMPRAR</button>
+                        </Link>
+                      : null
+                  }</span>
+                  
+        </div>
+        <div className="page__content-text">
+       
+
+      
+
+                
+
+        <div className="page__number">3</div>
+      </div>
+    </label>
+      
+   
+    <input type="radio" name="page" id="page-1"/>
+      
+   
+    <input type="radio" name="page" id="page-2"/>
+    <label className="book__page book__page--2">
+      <div className="book__page-front">
+        <div className="page__content">
+          <h1 className="page__content-book-title">{nombre}</h1>
+          <h1 className="page__content-author "><p className="c">{formatToCurrency(price)}</p></h1>
+          
+          <p className="page__content-credits">
+          <DetailsField
+                    constant={autor}
+                    clasName=""
+                    title='Autor'
+                  />
+          </p>
+          <div className="abs">
+                 <Fle  />
+          </div>
            
+
+         
+        </div>
+      </div>
+      <div className="book__page-back">
+        <div className="page__content"><h1>Descripción</h1>
+        <div className="vuelt">
+                  <Vuelta/>
+                 </div>
+          <div className="page__content-table">
+         
+
+                
+
+          <div className="au-tor">
+                 
+
+
+              
+                 <p className="parra-detalle">
+                   {descripcion}
+                 </p>
+                 
+
+
+
+             
+
+       </div>
+       </div>
+
+
+
+
+
+
+          
+          <div className="page__number">2</div>
+        </div>
+      </div>
+    </label>
+  </div>
+
+ 
+           
+  </div>
+  
+ 
             <div className="perfil-v">
 
               <button onClick={handle} className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">PERFIL DEL VENDEDOR</button>
 
             </div>
+ 
+  </>
 
-
-          </div>
-      }
-
-
-
-    </>
-
-  )
-}
+  
+)}
 
 export default Details
+
+

@@ -67,7 +67,7 @@ export default function NavBar() {
               />
             </div>
           ) : (<Link to="/homeout" className="link">REGISTRO / LOGIN</Link>)}
-          <Modal style={customStyls} isOpen={showModal} className="customStyles">
+          <Modal style={customStyls} ariaHideApp={false} isOpen={showModal} className="customStyles">
             <ProfileSettings />
           </Modal>
         </div>
