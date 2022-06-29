@@ -22,7 +22,7 @@ const CampoSelect = ({ name, input, isCreate, values, errors, value1, option1, v
         <ErrorMessage name={name} component={() => (<p className={s.error}>{errors[name]}</p>)} />
         
         {/* valor anterior solo en modo Update */}
-        {!isCreate
+        {!isCreate && input
           ? <p className={s.centro}>({input})</p>
           : null}
 
