@@ -314,6 +314,8 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
   scroll-padding-top: 0rem;
+  min-height: 100%;
+  position: relative;
 }
 
 *,
@@ -326,6 +328,8 @@ body {
   background-color: #e8ddbd;
   font-family: "Roboto", sans-serif;
   font-size: 1.6rem;
+  margin: 0;
+  margin-bottom: 40px;
 }
 body.fijar-body {
   overflow: hidden;
@@ -390,15 +394,12 @@ img {
 }
 
 .footer {
-  padding: 0.2rem;
-  width: 100%;
   background-color: #9d1d36;
   text-align: center;
-  position: relative;
+  position: absolute;
   bottom: 0;
-  display: block;
   width: 100%;
-  z-index: -2;
+  color: white;
 }
 
 .github {
