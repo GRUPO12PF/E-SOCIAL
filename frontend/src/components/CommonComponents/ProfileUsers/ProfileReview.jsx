@@ -9,8 +9,10 @@ const ProfileReview = ({title,description,score}) => {
 
 
   return (
+    <>
+    
     <div class="containerr">
-    <h3>Ver Reviews</h3>
+    
     <div class="accordion">
       <div class="accordion-item">
         <button onClick={() => setIsActive(!isActive)} id="accordion-button-1" >
@@ -37,7 +39,7 @@ const ProfileReview = ({title,description,score}) => {
      
     </div>
   </div>
-  
+  </>
 
   )
 }
