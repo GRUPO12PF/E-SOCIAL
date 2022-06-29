@@ -17,24 +17,25 @@ const EditCard = ({ id, addMode }) => {
   }, [])
 
   return (
-    <div>
-      <h1 className={s.titleForm}>{addMode ? 'Anunciar Producto' : `Editar: ${nombre}`}</h1>
+    <div className={s.contenedorBook}>
+      <h1 className={s.titleForm}>{addMode ? 'Anunciar Producto' : `Editar tu libro`}</h1>
       {
         addMode
           ? null
           : (
-            <div className={s.centro}>
-              <img src={image} alt='portada anterior' style={{maxWidth: "300px"}}/>
-              {priceShow}<br />
+            <div className={s.cardBook}>
+              <img src={image} alt='portada anterior' className={s.imgBook}/>
+              <p className={s.precioBook}> {priceShow}</p>
+              
 
-              <button onClick={() => setVerMas(!verMas)}>
+              <button  className={s.btnBook} onClick={() => setVerMas(!verMas)}>
                 {verMas ? "Ver menos" : "Ver más"}
               </button>
               <br />
 
               {!verMas
                 ? `Desc: ${descripcion?.substring(0, 100)}...`
-                : <p>Desc: {descripcion}</p>}
+                : <p  className={s.textBook}>Desc: {descripcion}</p>}
               <br />
             </div>)
       }
