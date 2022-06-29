@@ -34,23 +34,20 @@ function AllUsers() {
   
 
 
-  const handleEdit = (e, id) => {
+  const handleEdit = (e, id, moderador) => {
     e.preventDefault();
-    console.log("id es ", id);
+    console.log("id es ", id, moderador);
     
     if(userActu._id === id) {
       swal("No puedes editarte a ti mismo!");
     } else {
-      
-        if(allUsers.moderador===false){
-          dispatch(adminAnUser({id: id, moderador: true}))
-          swal("Usuario editado", "success");
-          window.location.reload();
-        }
-       else {
-         swal("El usuario ya es administrador, no puedes quitarle el rol de administrador.");
-       }
-    
+      if(moderador !== false){
+        swal("No podes quitarle el permiso de administrador a este usuario")
+      }else {
+        dispatch(adminAnUser({id: id, moderador: true}))
+        swal("Usuario editado", "success");
+      }
+      } 
 
   };
 
@@ -94,7 +91,7 @@ function AllUsers() {
               <tbody>
                 { 
                 allUsers?.map((u, i) => {
-                  console.log(adminState)
+                  console.log("a ver qué trae", u)
                   return (
                     <tr key={i} className={s.containerInfo}>
                       <td className={s.id}>{u.id}</td>
@@ -107,11 +104,11 @@ function AllUsers() {
                         />
                       </td>
                       <td className={s.verified}>{u.verified}</td>
+                      <td className={s.moderator}>{u.moderador?"SÍ":"NO"}</td>
                       <td className={s.blocked}>{u.blocked}</td>
-                      <td className={s.moderator}>{u.moderator}</td>
                       <td className={s.actions}>
                         <button
-                          onClick={(e) => handleEdit(e, u.id)}
+                          onClick={(e) => handleEdit(e, u.id, u.moderador)}
                           className="btn-edita"
                         >
                           <Edit />
