@@ -42,12 +42,13 @@ function homeChat() {
     <>
       <NavBar />
       <div className="bienvenido">
-        <h2 > Normas de convivencia</h2>
+        <h2 className="tituloBienvenido"> Normas de convivencia</h2>
         <p className="reglas">
-          Sin toxicidad, no toleramos ningún tipo de abuso verbal, falta de respeto, acoso o discriminación. Su incumplimiento supone la expulsión inmediata.
-        <p className="reglas">Sin SPAM. Aquí estamos para compartir contenido, divertirnos, aprender y crecer juntos.
-       </p>
-        </p>
+          Sin toxicidad, no toleramos ningún tipo de abuso verbal, falta de respeto, acoso o discriminación. 
+          </p>
+          <p className="reglas">Su incumplimiento supone la expulsión inmediata.</p>
+          <p className="reglas">Sin SPAM. Aquí estamos para compartir contenido, divertirnos, aprender y crecer juntos.
+         </p>
       </div>
       <div className="contentChat">
         {socket ? (

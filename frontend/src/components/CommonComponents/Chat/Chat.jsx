@@ -112,39 +112,47 @@ export default function Chat({ usuario, socket }) {
     };
   }, [mensajes]);
 
+  const scrolChat = useRef(null);
+  useEffect(() => {
+    scrolChat.current.scrollIntoView({ behavior: "smooth" });
+  });
+
+
   return (
     <div className="chat-window">
-        <div id="ulChat" className="ulChat">
-         {mensajes.length !== 0 ? (
-              mensajes?.map((e, i) => {
-                return (
-                  <li className="cadaMensaje" key={i}>
-                    <li
-                      className={e.usuario === usuario.nombre ? "span" : "otro"}
-                    >
-                      {e.usuario}:
-                    </li>{" "}
-                    <p className="msj"> {e.msg}{" "}</p>
-                    </li>
-                );
-              })
-            ) : (
-              <div className="inicialMsg"> Escriba el primer mensaje </div>
-            )}
-          </div>
-         <form className="chatform"onSubmit={(e) => handleSubmit(e)} action="">
-          <input
-            value={mensaje}
-            className="inputChat"
-            onChange={(e) => setMensaje(e.target.value)}
-            type="text"
-            placeholder="Escribe acá"
-          />
-          <button className="buChat" type="submit">
-            ENVIAR
-          </button>
-        </form>
-      
+      <div id="ulChat" className="ulChat">
+        {mensajes.length !== 0 ? (
+          mensajes?.map((e, i) => {
+            return (
+              <li className="cadaMensaje" key={i}>
+                <span
+                  className={e.usuario === usuario.nombre ? "span" : "otro"}
+                >
+                  {e.usuario}:
+                </span>{" "}
+                <p className="msj"> {e.msg}{" "}</p>
+              </li>
+            );
+          })
+        ) : (
+          <small className="inicialMsg"> Escriba el primer mensaje </small>
+        )}
+        <div ref={scrolChat}></div>
+      </div>
+
+      <form className="chatform" onSubmit={(e) => handleSubmit(e)} action="">
+        <input
+          value={mensaje}
+          className="inputChat"
+          onChange={(e) => setMensaje(e.target.value)}
+          type="text"
+          placeholder="Escribe acá"
+        />
+        <button className="buChat" type="submit">
+          ENVIAR
+        </button>
+      </form>
+
     </div>
   );
 }
