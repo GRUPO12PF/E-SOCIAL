@@ -58,18 +58,23 @@ const Review = ({id, closeModal}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if(input.description && input.score && input.title){
+    if(input.description && input.score){
       console.log("acá están todos los inputs", input)
       if(input.score > 5 || input.score <= 1){
         swal({
-          title: "El score debe ser entre 1 y 5!",
-        });
-
+          title: "¡El score debe ser entre 1 y 5!",
+          text: " ",
+          button: "Ok!",
+        })
       } else {
         dispatch(review(input))
-        alert("ok")
+        swal({
+          title: "¡Review enviada con éxito!",
+          text: " ",
+          icon: "success",
+          button: "Ok!",
+        })
         setInput({
-          title: "",
           vendedor: "",
           description: "",
           score: "",
@@ -77,11 +82,10 @@ const Review = ({id, closeModal}) => {
         })
         Navigate("/")
       }
-    }else{
-    swal({
-      title: "Faltan campos por completar",
-    });
-     
+    } else {
+      swal({
+        title: "Faltan campos por completar",
+      });
     }
   }
 
@@ -94,7 +98,7 @@ const Review = ({id, closeModal}) => {
 
     <form action="" class="" onSubmit={(e)=>handleSubmit(e)}>
 
-      <div class="mb-5">
+      {/* <div class="mb-5">
         <label htmlFor="" class="block mb-2 font-bold text-gray-700 text-3xl">Título</label>
         <input 
            type="text"
@@ -104,10 +108,10 @@ const Review = ({id, closeModal}) => {
         placeholder="Escribi el título" 
         class="text-2xl border border-gray-300 shadow p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition duration-300"
         />
-      </div>
+      </div> */}
 
       <div class="mb-5">
-        <label htmlFor="" class="block mb-2 font-bold text-gray-700 text-3xl">Descripción</label>
+        <label htmlFor="" class="block mb-2 font-bold text-gray-700 text-3xl">Review</label>
         <input 
         type="text"
         name="description"
@@ -116,10 +120,10 @@ const Review = ({id, closeModal}) => {
         placeholder="..." 
         class="text-4xl border border-red-300 shadow p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition duration-300"
         />
-        <p class=" text-red-400 mt-2 text-xl">Descripción name is required</p>  
+        {/* <p class=" text-red-400 mt-2 text-xl">Descripción name is required</p>   */}
       </div>
       <div class="mb-10">
-        <label htmlFor="" class="block mb-2 font-bold text-gray-700 text-3xl">score</label>
+        <label htmlFor="" class="block mb-2 font-bold text-gray-700 text-3xl">Score</label>
         <input type="number"
             name="score"
             value={input.score}
@@ -127,7 +131,7 @@ const Review = ({id, closeModal}) => {
         class="border border-red-300 shadow p-3 w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition duration-300"
         />
       
-        <p class="text-xl text-red-400 mt-2">Score name is required</p>  
+        {/* <p class="text-xl text-red-400 mt-2">El score es re</p>   */}
       </div>
       
       <button type="submit" class="bg-blue-300 hover:bg-blue-400 w-full p-3 shadow-md font-bold text-3xl text-white rounded-lg transition duration-300">Submit</button>

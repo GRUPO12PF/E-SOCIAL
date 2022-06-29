@@ -21,7 +21,11 @@
 			font-weight: bold;
 			font-size: 1em;
 			text-align: left;
-		  	color: #FFFFFF;
+		  	color: aliceblue;
+		}
+
+		.tituloTabla{
+			color: aliceblue;
 		}
 
 		.listado td {
@@ -97,5 +101,11 @@
             height: 110px;
         }
 
-
+.btnAtras {
+    background-color: #9d1d36;
+    color: #e8ddbd;
+    margin: 20px 2.5px 3px 5px;
+    padding: 7px 15px;
+    border-radius: 5px;
+  }
 	
