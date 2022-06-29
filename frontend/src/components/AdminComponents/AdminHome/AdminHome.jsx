@@ -20,12 +20,17 @@ function AdminHome() {
   return (
     <div>
       <NavBar />
-      <div className={s.AdCont}>
+      <div >
+        
+      <div className={s.AdCont} >
+        <h1 className={s.saludoAdmin}>Bienvenido Administrador</h1>
         {
           adminState
-            ? <div value={true}> {/* ¿Es Admin? Edite tranquilo, compañero */}
+            ? <div  value={true}> {/* ¿Es Admin? Edite tranquilo, compañero */}
               <Link to="/admin/users" className={s.linked}>TODOS LOS USUARIOS</Link>
+              <br/>
               <Link to="/admin/allOrders" className={s.linked}>TODOS LAS ÓRDENES DE COMPRA</Link>
+              <br/>
               <Link to="/admin/allReviews" className={s.linked}>TODOS LAS OPINIONES</Link>
             </div>
 
@@ -33,6 +38,7 @@ function AdminHome() {
               CARGANDO . . .
             </div>
         }
+      </div>
       </div>
     </div >
   )

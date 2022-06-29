@@ -8,6 +8,7 @@ import QuestionForComprador from './QuestionForComprador';
 import s from './questionDetail.module.css';
 import NavBar from '../../CommonComponents/NavBar/NavBar';
 import { Link } from 'react-router-dom';
+import Footer from '../../CommonComponents/Footer/Footer';
 
 export default function Questions() {
   const dispatch = useDispatch()
@@ -24,7 +25,7 @@ export default function Questions() {
   }, [dispatch]);
 
   return (
-    <div >
+    <div>
       <NavBar />
       <Link to='/profile'>
         <button className={s.btnBook}>VOLVER AL MENU</button>
@@ -135,7 +136,10 @@ export default function Questions() {
           <h3 className={s.h3}>TODAVIA NO HICISTE NINGUNA PREGUNTA A OTROS USUARIOS...</h3>
         )
         }
-      </div></div>
+      </div>
+      <br />
+      <Footer/>
+      </div>
   )
 }
 

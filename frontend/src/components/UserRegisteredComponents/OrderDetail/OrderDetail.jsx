@@ -7,6 +7,7 @@ import Modal from 'react-modal';
 import s from './OrderDetail.module.css';
 import { Link } from 'react-router-dom';
 import Review from '../Review/Review';
+import Footer from '../../CommonComponents/Footer/Footer';
 
 
 const OrderDetail = () => {
@@ -68,6 +69,7 @@ const OrderDetail = () => {
           id={id}
         />
       </Modal>
+      <Footer/>
     </div>
   )
 }

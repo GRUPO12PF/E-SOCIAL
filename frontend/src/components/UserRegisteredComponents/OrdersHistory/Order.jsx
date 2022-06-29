@@ -12,7 +12,6 @@ function Order({ id, nombre, image }) {
         </div>
 
       </div>
-
     </div>
   )
 }

@@ -1,60 +1,130 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap');
 
-.image{
+.image {
     height: 80px;
     width: 80px;
     border-radius: 50%;
     padding-left: 10px;
 }
-.container{
+
+.container {
     width: 95%;
     max-width: 120rem;
     margin: 2rem auto;
-    background-color: white;
-    margin-top: 5%;
-    border-radius: 10px;
 }
 
-.usersTable{
-    color: white;
+.listado {
+    text-align: left;
+    overflow: hidden;
+    width: 80%;
+    margin: 0 auto;
+    display: table;
+    padding: 0 0 8em 0;
+    background-color: rgba(110, 144, 118, 0.184);
+    color: #381c1c;
     font-size: 17px;
-    width: 60%;
-    padding:2rem 25px ;
-    padding-right: 50px;
-    
-    
+
 }
 
-.flex{
+.listado th h1 {
+    font-weight: bold;
+    font-size: 1em;
+    text-align: left;
+    color: #FFFFFF;
+}
+
+.listado td {
+    font-weight: normal;
+    font-size: 1em;
+    -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+    -moz-box-shadow: 0 2px 2px -2px #0E1119;
+    box-shadow: 0 2px 2px -2px #0E1119;
+}
+
+.listado td,
+.listado th {
+    padding-bottom: 2%;
+    padding-top: 2%;
+    padding-left: 2%;
+}
+
+.listado tr:nth-child(odd) {
+    background-color: rgba(110, 144, 118, 0.184);
+}
+
+.listado tr:nth-child(even) {
+    background-color: rgba(110, 144, 118, 0.184);
+}
+
+.listado th {
+    background-color: #9d1d36;
+}
+
+.listado td:first-child {
+    color: #11090a;
+}
+
+.listado tr:hover {
+    background-color: #a9b79e;
+    -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+    -moz-box-shadow: 0 6px 6px -6px #0E1119;
+    box-shadow: 0 6px 6px -6px #0E1119;
+    cursor: pointer;
+}
+
+td a {
+    color: #4B4A4B;
+}
+
+td a:hover {
+    color: #FFFFFF;
+}
+
+.flex {
     display: flex;
     justify-content: center;
     margin-right: 60px;
 
 }
 
-.containerInfo{
+.containerInfo {
     padding: 20px;
     margin: 20px;
     border-bottom: 1px solid black;
-    color: black;
-    
+
 }
 
-.name{
+.name {
     font-family: 'Lato', sans-serif;
     font-size: 25px;
     padding: 2rem;
-    color: black;
-    
+
 }
 
-.id{
+.foto {
+    border-radius: 50%;
+    width: 110px;
+    height: 110px;
+}
+
+
+.star {
+
+    padding: 2rem;
+}
+
+.no {
+    text-transform: uppercase;
     font-family: 'Lato', sans-serif;
-    font-size: 25px;
+    border-bottom: 2px solid black;
     padding: 2rem;
-    color: black;
+    color: aliceblue;
+    background-color: #9d1d36;
 }
-.star{
-    
-    padding: 2rem;
-}
+.btnAtras {
+    background-color: #9d1d36;
+    color: #e8ddbd;
+    margin: 20px 2.5px 0px 0px;
+    padding: 7px 15px;
+    border-radius: 5px;
+  }

@@ -15,7 +15,7 @@ export default function ProfileImage({ closeModalImage }) {
       <div className={s.containerImagen}>
         <button  onClick={closeModalImage}  >X</button>
         <div className='contFile'>
-          <label className='labelmiinput' htmlFor='mifile'>
+          <label  className={s.input} htmlFor='mifile'>
           </label>
           <input 
             type='file'
