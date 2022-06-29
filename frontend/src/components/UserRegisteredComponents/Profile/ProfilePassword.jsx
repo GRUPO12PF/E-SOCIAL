@@ -5,6 +5,7 @@ import {
   setToResetPassword,
   setStateEmail,
 } from "../../../redux/actions/actionUser"
+import swal from 'sweetalert';
 import validarEmail from "../../../middleware/validarEmail"
 import s from './Profile.module.css'
 
@@ -49,7 +50,8 @@ export default function ProfilePassword({closeModalPassword}) {
       dispatch(setToResetPassword(email))
       setEmail("")
     }
-    alert('Te enviamos al correo las instruciones para el cambio de contraseña')
+    
+    swal("", "Te enviamos al correo las instruciones para el cambio de contraseña", "success");
     window.location.reload()
   }
 

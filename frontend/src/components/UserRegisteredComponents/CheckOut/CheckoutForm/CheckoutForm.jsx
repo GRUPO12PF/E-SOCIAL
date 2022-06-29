@@ -68,7 +68,8 @@ const CheckoutForm = () => {
         setLoading(false)
       }
     } else {
-      alert('no podes comprar el libro que pusiste en venta!')
+      swal("no podes comprar el libro que pusiste en venta!");
+
     }
   }
 

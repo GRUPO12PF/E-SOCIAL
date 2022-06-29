@@ -11,6 +11,7 @@ import DetailsField from "./DetailsField/DetailsField"
 import NotFound from "../../CommonComponents/NotFound/NotFound.jsx"
 import Fle from "../../../Iconos/Fle"
 import Vuelta from "../../../Iconos/Vuelta"
+import swal from 'sweetalert';
 
 const Details = () => {
   const navigate = useNavigate()
@@ -60,7 +61,7 @@ const Details = () => {
     if (userAct !== usuarioVendedor) {
       e.preventDefault();
       if(!input.mensaje.length){
-        alert("No puede enviar una pregunta vacía")
+        swal("No puede enviar una pregunta vacía!");
       } else {
         setInput({
           mensaje: input.mensaje,
@@ -75,11 +76,12 @@ const Details = () => {
         setInput({
           mensaje: ''
         })
-        alert('¡Tu respuesta fue envia con exito!')
+        alert('')
+        swal("", "¡Tu respuesta fue envia con exito!", "success");
       }
     } else {
       e.preventDefault()
-      alert('¡No podés preguntar por un libro que es tuyo!')
+      swal("¡No podés preguntar por un libro que es tuyo!");
       setInput({
         mensaje: ''
       })
