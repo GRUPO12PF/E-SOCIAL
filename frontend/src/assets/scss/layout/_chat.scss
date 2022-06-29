@@ -16,16 +16,17 @@ $cadaMensaje-msg-arrow-size: 15px;
 }
 
 .contentChat {
-  width: 90%;
-  margin: 1rem auto;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .contChat {
   z-index: -1;
   color: v.$patito;
   position: fixed;
-  background-color: v.$rojomenostinto;
-  width: 80%;
+  background-color: rgba(110, 144, 118, 0.184);
+  width: 60%;
   @include m.borderRadius;
   border-top: solid 1px v.$rojomenostinto ;
   border-left: solid 1px v.$rojomenostinto ;
@@ -46,7 +47,7 @@ $cadaMensaje-msg-arrow-size: 15px;
   padding: 0 20px 0 0;
   list-style: none;
   overflow: scroll;
-  height: 520px;
+  height: 270px;
 font-size: 2.5rem;
 
 }
@@ -60,7 +61,7 @@ font-size: 2.5rem;
 }
 
 .ulChat::-webkit-scrollbar-thumb {
-  background-color: rgba($color: #540101a1, $alpha: 1.0);
+  background-color: rgba($color: #cbe1ba56, $alpha: 1.0);
   width: 15px;
   border-radius: 15px;
 }
@@ -81,12 +82,13 @@ font-size: 2.5rem;
 .inicialMsg{
   padding: 2rem;
   text-align: center;
+  color:#9d1d36;
 }
 
  .msj {
     
     margin: 2rem ;
-    background-color: rgba(240, 56, 56, 0.206) ;
+    background-color: #c25848c5;
     border-radius: 25px;
     padding: 1.5rem;
     
@@ -95,7 +97,7 @@ font-size: 2.5rem;
   
 
   .span {
-    color: v.$blanco;
+    color: #9d1d36;
     font-weight: 700;
     
     padding: 2rem;
@@ -104,7 +106,7 @@ font-size: 2.5rem;
   }
 
   .otro {
-    color: v.$letras;
+    color: black;
     padding: 2rem;
     border-radius: 30%;
  
@@ -113,12 +115,17 @@ font-size: 2.5rem;
   .buChat{
     border-radius: 10%;
 padding: 1rem;
+color:#9d1d36;
+font-weight: bold;
   }
  
   .inputChat{
     border-radius: 10%;
     padding: 1rem;
-    
+    width: 30rem;
+    background-color: #a9b79eb7;
+    font-size: 20px;
+    color: black;
     }
   
     .chatform{

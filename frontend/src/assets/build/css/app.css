@@ -2164,16 +2164,17 @@ div.portfoliocard div.follow_count {
 }
 
 .contentChat {
-  width: 90%;
-  margin: 1rem auto;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .contChat {
   z-index: -1;
   color: #F6AA1C;
   position: fixed;
-  background-color: #621708;
-  width: 80%;
+  background-color: rgba(110, 144, 118, 0.184);
+  width: 60%;
   border-radius: 0.5rem;
   border-top: solid 1px #621708;
   border-left: solid 1px #621708;
@@ -2192,7 +2193,7 @@ div.portfoliocard div.follow_count {
   padding: 0 20px 0 0;
   list-style: none;
   overflow: scroll;
-  height: 520px;
+  height: 270px;
   font-size: 2.5rem;
 }
 
@@ -2205,7 +2206,7 @@ div.portfoliocard div.follow_count {
 }
 
 .ulChat::-webkit-scrollbar-thumb {
-  background-color: #540101;
+  background-color: #cbe1ba;
   width: 15px;
   border-radius: 15px;
 }
@@ -2226,24 +2227,25 @@ div.portfoliocard div.follow_count {
 .inicialMsg {
   padding: 2rem;
   text-align: center;
+  color: #9d1d36;
 }
 
 .msj {
   margin: 2rem;
-  background-color: rgba(240, 56, 56, 0.206);
+  background-color: rgba(194, 88, 72, 0.7725490196);
   border-radius: 25px;
   padding: 1.5rem;
 }
 
 .span {
-  color: #f0f8ff;
+  color: #9d1d36;
   font-weight: 700;
   padding: 2rem;
   border-radius: 30%;
 }
 
 .otro {
-  color: #F6AA1C;
+  color: black;
   padding: 2rem;
   border-radius: 30%;
 }
@@ -2251,11 +2253,17 @@ div.portfoliocard div.follow_count {
 .buChat {
   border-radius: 10%;
   padding: 1rem;
+  color: #9d1d36;
+  font-weight: bold;
 }
 
 .inputChat {
   border-radius: 10%;
   padding: 1rem;
+  width: 30rem;
+  background-color: rgba(169, 183, 158, 0.7176470588);
+  font-size: 20px;
+  color: black;
 }
 
 .chatform {
