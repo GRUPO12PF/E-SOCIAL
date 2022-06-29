@@ -5,6 +5,7 @@ import Books from './Books';
 import NavBar from '../../CommonComponents/NavBar/NavBar.jsx';
 import s from './BooksCreated.module.css';
 import { useParams, Link } from 'react-router-dom';
+import Footer from '../../CommonComponents/Footer/Footer';
 
 export default function BooksCreated() {
   const dispatch = useDispatch()
@@ -17,7 +18,7 @@ export default function BooksCreated() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className={s.todo}>
       <NavBar />
 
       <Link to='/profile'>
@@ -50,7 +51,8 @@ export default function BooksCreated() {
           </div>
         </div>
       </div>
-    </>
+      <Footer/>
+    </div>
   )
 }
 

@@ -19,13 +19,13 @@ function ProfileBook({ nombre, autor, image, order, id }) {
     }
     return (
         <div className="container-profile">
-            <div className={s.card}>
-                <div className={s.cardbody}>
-                    <div className={s.vendido}>{vendido ? vendido : null}</div>
-                    <p className={s.texto}>{nombre}</p>
-                    <p className={s.texto}>{autor}</p>
-                    {details ? <button onClick={() => (handleOnClickDetail())}>{details}</button> : null}
-                    <img className={s.im} src={image} />
+            <div className="card">
+                <div className="cardbody">
+                    <div className="vendido">{vendido ? vendido : null}</div>
+                    <p className="texto">{nombre}</p>
+                    <p className="texto">{autor}</p>
+                    {details ? <button  className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider" onClick={() => (handleOnClickDetail())}>{details}</button> : null}
+                    <img className="im "src={image} />
                 </div>
             </div>
         </div>
