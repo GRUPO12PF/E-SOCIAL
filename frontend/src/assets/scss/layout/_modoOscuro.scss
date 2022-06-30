@@ -1,0 +1,65 @@
+
+  * {
+    transition: .3s, border 0s;
+    box-sizing: border-box;
+}
+
+.boton-switch {
+    background: none;
+    border: none;
+    font-size: 52px;
+    /** Agregar variable */
+    cursor: pointer;
+}
+
+.modo-oscuro .boton-modo-claro {
+    display: block;
+}
+
+.boton-modo-claro,
+.modo-oscuro .boton-modo-oscuro {
+    display: none;
+}
+
+//modo oscuro
+
+.modo-oscuro .contentNav {
+    background-color: #0D0F10;
+    color: white;
+}
+
+.modo.oscuro .root {
+    background-color: #2c3e50;
+
+}
+
+.modo-oscuro .contenedorBooks {
+    background-color: #2c3e50;
+}
+
+.modo-oscuro .btn {
+    background-color: #2c3e50;
+    padding: 0%;
+    border-radius: 0%;
+    margin: 0%;
+}
+
+.modo-oscuro .searchBar {
+    background-color: #0D0F10;
+
+}
+
+.modo-oscuro .general {
+    background-color: #2c3e50;
+}
+
+.modo-oscuro .todo {
+	background-color: #2c3e50;
+}
+.modo-oscuro .toodo {
+	background-color: #2c3e50;
+}
+
+.modo-oscuro .containerPerfil{
+	background-color: #0D0F10;
+}
