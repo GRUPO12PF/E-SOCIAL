@@ -16,17 +16,17 @@ export default function Homeout() {
 
  
   function click() {
-    (document?.getElementById('containerHomeout')).classList.add("right-panel-active");
+    (document?.getElementById('container')).classList.add("right-panel-active");
   };
 
   function clickk() {
-    ( document?.getElementById('containerHomeout')).classList.remove("right-panel-active");
+    ( document?.getElementById('container')).classList.remove("right-panel-active");
   };
 
   return (
-    <div class="padre">
+    <div className="padre">
       <div>
-        <div className="containerHomeout" id="containerHomeout" >
+        <div class="container" id="container" >
           <div class="form-container sign-up-container">
             <Login/>
             </div> 
@@ -36,13 +36,13 @@ export default function Homeout() {
           <div class="overlay-container">
             <div class="overlay">
               <div class="overlay-panel overlay-left">
-                <h1>Hola nuevamente!</h1>
+                <h1 class="h1HomeOut">Hola nuevamente!</h1>
                 <p>Para volver a iniciar sesion ingrese su informacion personal</p>
                 <button class="btnLoginRegister" onClick={e=>clickk(e)} id="signIn">Ingresar</button>
                            
                 </div>
               <div class="overlay-panel overlay-right">
-                <h1>Hola le damos la bienvenida!</h1>
+                <h1 class="h1HomeOut">Hola le damos la bienvenida!</h1>
                 <p>Ingrese sus datos personales y comience a comprar libros unicos</p>
                 <button class="btnLoginRegister" onClick={e=>click(e)} id="signUp">Registrarse</button>
               </div>

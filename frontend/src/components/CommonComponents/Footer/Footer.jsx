@@ -7,11 +7,11 @@ function Footer() {
     <div className="footer">
 
       
-      <a className="github" href="https://github.com/GRUPO12PF/E-SOCIAL">  
+      <a className="github" target="_blank" href="https://github.com/GRUPO12PF/E-SOCIAL">  
           <GitHub />
       </a>
       <div className="leyenda">
-          &copy;{new Date().getFullYear()} E-SOCIAL INC | Todos los derechos reservados | {<Link to="/about"> Conócenos </Link>}
+          &copy;{new Date().getFullYear()} E-SOCIAL INC | Todos los derechos reservados | {<Link to="/about" className="conocenos"> Conócenos </Link>}
       </div>
     </div>
   );

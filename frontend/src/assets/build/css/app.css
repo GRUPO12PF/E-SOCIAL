@@ -330,7 +330,6 @@ body {
   background-color: #e8ddbd;
   font-family: "Roboto", sans-serif;
   font-size: 1.6rem;
-  min-height: 100%;
   margin: 0;
   margin-bottom: 40px;
 }
@@ -550,8 +549,8 @@ a {
   bottom: 0;
   padding: 5px 15px;
   letter-spacing: 2px;
-  color: #e70000;
-  text-shadow: 1px -1px 2px rgba(255, 255, 255, 0.6);
+  color: #f0f8ff;
+  text-shadow: #000;
   font-weight: 300;
   background: linear-gradient(to right, transparent 0%, #000 100%);
   width: 100%;
@@ -617,6 +616,7 @@ a {
   transition: 0.5s;
   width: 160px;
   height: 45px;
+  font-weight: bold;
   box-sizing: border-box;
 }
 
@@ -624,10 +624,6 @@ a {
   float: right;
   border: solid 1px #ff7526;
   transition: 0.5s;
-}
-
-.btnNews:hover {
-  background-color: #ff7526;
 }
 
 .nombre-usi {
@@ -778,7 +774,7 @@ a {
   }
 }
 .contentNav .perfil p {
-  color: #220901;
+  color: #e8ddbd;
 }
 .contentNav .perfil span {
   color: #BC3908;
@@ -804,13 +800,13 @@ a {
 .contentNav .perfil .nameUser {
   padding: 0.5rem;
   font-size: 2rem;
-  color: #F6AA1C;
+  color: #e8ddbd;
 }
 
 .link {
   align-items: center;
   justify-content: space-evenly;
-  color: #F6AA1C;
+  color: #e8ddbd;
   font-size: 20px;
   font-weight: bold;
 }
@@ -1010,7 +1006,6 @@ body::-webkit-scrollbar-thumb {
 .formbusqueda {
   position: relative;
   width: 25rem;
-  background: var(--color-brand);
   border-radius: var(--rad);
   margin-top: 2.5rem;
   margin-bottom: 2rem;
@@ -1042,7 +1037,6 @@ body::-webkit-scrollbar-thumb {
           appearance: none;
   transition: all var(--dur) var(--bez);
   transition-property: width, border-radius;
-  z-index: 1;
   position: relative;
 }
 
@@ -1113,7 +1107,7 @@ body::-webkit-scrollbar-thumb {
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  background-color: #621708;
+  background-color: #9d1d36;
   padding: 1rem 0;
 }
 
@@ -1142,7 +1136,7 @@ body::-webkit-scrollbar-thumb {
 .divModalPerfil:hover {
   transition-duration: 500ms;
   width: 80%;
-  background-color: #941B0C;
+  background-color: rgba(232, 221, 189, 0.3);
 }
 
 .icon {
@@ -1707,7 +1701,7 @@ ul {
   width: 100%;
 }
 
-.containerHomeout {
+.container {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -1738,7 +1732,7 @@ ul {
   z-index: 2;
 }
 
-.containerHomeout.right-panel-active .sign-in-container {
+.container.right-panel-active .sign-in-container {
   transform: translateX(100%);
 }
 
@@ -1808,7 +1802,7 @@ ul {
   transition: transform 0.6s ease-in-out;
 }
 
-.containerHomeout.right-panel-active .overlay {
+.container.right-panel-active .overlay {
   transform: translateX(50%);
 }
 
@@ -1831,7 +1825,7 @@ ul {
   transform: translateX(-20%);
 }
 
-.containerHomeout.right-panel-active .overlay-left {
+.container.right-panel-active .overlay-left {
   transform: translateX(0);
 }
 
@@ -1840,7 +1834,7 @@ ul {
   transform: translateX(0);
 }
 
-.containerHomeout.right-panel-active .overlay-right {
+.container.right-panel-active .overlay-right {
   transform: translateX(20%);
 }
 
@@ -1865,6 +1859,9 @@ ul {
 }
 
 .logg {
+  /* display:flex;
+  flex-direction: column; */
+  /* padding-left: 50px; */
   background-color: red;
 }
 
@@ -1980,8 +1977,7 @@ a.nostyle {
   left: 38%;
   background: rgb(255, 255, 255);
   border-radius: 100%;
-  width: 100px;
-  border: solid 0.8rem #f0f8ff;
+  width: 150px;
   background-image: url("http://cache.spreadshirt.net/Public/Common/images/profile-pic-placeholder_130x130.png");
   background-size: cover;
   box-shadow: 0px 5px 7px 1px #621708;
@@ -2048,7 +2044,7 @@ a.nostyle {
   opacity: 1;
 }
 
-.imageR {
+.imageRR {
   border-radius: 50%;
 }
 
@@ -2393,7 +2389,6 @@ a.nostyle {
   color: #3c3c39;
   display: flex;
   justify-content: center;
-  height: 100vh;
   font-family: "Monsterrat", sans-serif;
   position: relative;
   padding: 2rem 0;
@@ -2405,7 +2400,6 @@ a.nostyle {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
-  margin-bottom: 10rem;
 }
 
 em {
@@ -2942,7 +2936,7 @@ td a:hover {
   margin-left: 1%;
 }
 
-.vendido {
+.vendidoBookCreated {
   color: red;
 }
 
@@ -3659,6 +3653,7 @@ td a:hover {
 
 .inputName {
   font-size: 15px;
+  color: black;
 }
 
 .buttonPsw:hover {
@@ -3819,7 +3814,6 @@ td a:hover {
 
 .modo-oscuro .contentNav {
   background-color: #0D0F10;
-  color: white;
 }
 
 .modo.oscuro .root {
@@ -3828,6 +3822,7 @@ td a:hover {
 
 .modo-oscuro .contenedorBooks {
   background-color: #2c3e50;
+  height: 100%;
 }
 
 .modo-oscuro .btn {
@@ -3845,7 +3840,7 @@ td a:hover {
   background-color: #2c3e50;
 }
 
-.modo-oscuro .todo {
+body.modo-oscuro {
   background-color: #2c3e50;
 }
 
@@ -3855,5 +3850,101 @@ td a:hover {
 
 .modo-oscuro .containerPerfil {
   background-color: #0D0F10;
+}
+
+.modo-oscuro .profileModal {
+  background-color: #0D0F10;
+}
+
+.modo-oscuro .divModalPerfil:hover {
+  background-color: #2c3e50;
+}
+
+.modo-oscuro .bottom {
+  background-color: #0D0F10;
+}
+
+.modo-oscuro .btnWebsite {
+  color: #e8ddbd;
+  font-weight: bold;
+}
+
+.modo-oscuro .footer {
+  background-color: #0D0F10;
+}
+
+.modo-oscuro .conocenos {
+  color: #f0f8ff;
+}
+
+.modo-oscuro .foche {
+  background-color: #2c3e50;
+}
+
+.modo-oscuro .btn {
+  color: #f0f8ff;
+  height: 50px;
+  border-radius: 7px;
+}
+
+.modo-oscuro .faltaPoco, .modo-oscuro .faltaPoco2 {
+  color: #f0f8ff;
+}
+
+.modo-oscuro .fondoConfirmacionPago {
+  background-color: #0D0F10;
+}
+
+.modo-oscuro .btnConfirmacionPago {
+  color: #f0f8ff;
+}
+
+.modo-oscuro .bienvenido, .modo-oscuro .reglas, .modo-oscuro .inicialMsg, .modo-oscuro .buChat {
+  color: #f0f8ff;
+}
+
+.modo-oscuro .btnProfile {
+  background-color: #2c3e50;
+  color: #e8ddbd;
+  border-color: #0D0F10;
+}
+
+.modo-oscuro .containerImagen {
+  background-color: #0D0F10;
+}
+
+.modo-oscuro .btnBookCreated, .modo-oscuro .tituloQuestion, .modo-oscuro .buttonOrderDetail, .modo-oscuro .btnHome, .modo-oscuro .tituloOrderHistory, .modo-oscuro .tituloBooksCreated, .modo-oscuro .btnBook {
+  background-color: #0D0F10;
+  color: #f0f8ff;
+}
+
+.modo-oscuro .responseOrderDetail, .modo-oscuro .h3Question, .modo-oscuro .tituloQuestion, .modo-oscuro .textoOrderDetail, .modo-oscuro .textoId {
+  color: white;
+}
+
+.modo-oscuro .texto {
+  color: #0D0F10;
+}
+
+.modo-oscuro .accordion-button {
+  color: #0D0F10;
+  font-weight: bold;
+}
+
+.modo-oscuro .overlay-left, .modo-oscuro .overlay-right {
+  background-color: #0D0F10;
+}
+
+.modo-oscuro .h1HomeOut {
+  color: #f0f8ff;
+}
+
+.modo-oscuro .overlay {
+  background: #0D0F10;
+  background: linear-gradient(to right, #0D0F10, #0D0F10);
+}
+
+.modo-oscuro .btnLoginRegister {
+  background-color: #2c3e50;
 }
 /*# sourceMappingURL=app.css.map */

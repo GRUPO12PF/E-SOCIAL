@@ -4,6 +4,7 @@ import { registroUsuario } from "../../../redux/actions/actionUser"
 import { useNavigate } from "react-router"
 import validarEmail from "../../../middleware/validarEmail"
 import validatePassword from "../../../middleware/validarPassword"
+import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 
 export default function Register() {
   const dispatch = useDispatch()
@@ -17,6 +18,11 @@ export default function Register() {
   const [state, setEstate] = useState(false)
 
   const [errores, setErrores] = useState([])
+
+
+  const handleToggle = () => {
+    setEstate(prevState => !prevState)
+  }
 
   const handleSubmitR = (e) => {
     e.preventDefault()
@@ -76,6 +82,7 @@ export default function Register() {
           id="password1"
           type={state ? "text" : "password"}
           placeholder="Tu contraseña" />
+        <button className='eye' onClick={handleToggle}>{state ? <FaRegEye /> : <FaRegEyeSlash />}</button>
         {errores.length !== 0 && <p>{errores[1]}</p>}
         <button className="btnLoginRegister">Registrarse</button>
       </form>

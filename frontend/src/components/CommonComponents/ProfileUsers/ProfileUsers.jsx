@@ -51,7 +51,7 @@ const ProfileUsers = () => {
       <NavBar />
       <div className="portfoliocard">
         <div className="coverphoto"></div>
-        <div className="profile_picture"><img className="imageR" src={user.image?.url} alt="" /></div>
+        <div className="profile_picture"><img className="imageRR" src={user.image?.url} alt="" /></div>
         <div className="contenedorcol">
           <div className="left_col">
             <div className="followers">
