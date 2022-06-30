@@ -3961,4 +3961,8 @@ body.modo-oscuro {
 .modo-oscuro .nombre-usi {
   color: #f0f8ff;
 }
+
+.modo-oscuro .formikContainer, .modo-oscuro .titleForm, .modo-oscuro .label, .modo-oscuro .labelCenter {
+  color: #f0f8ff;
+}
 /*# sourceMappingURL=app.css.map */
