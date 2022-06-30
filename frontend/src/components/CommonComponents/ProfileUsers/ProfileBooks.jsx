@@ -25,7 +25,7 @@ function ProfileBook({ nombre, autor, image, order, id }) {
                     <p className="texto">{nombre}</p>
                     <p className="texto">{autor}</p>
                     {details ? <button  className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider" onClick={() => (handleOnClickDetail())}>{details}</button> : null}
-                    <img className="im "src={image} />
+                    <img className="im"src={image} />
                 </div>
             </div>
         </div>

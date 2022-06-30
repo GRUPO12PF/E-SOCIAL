@@ -71,8 +71,8 @@ a {
 	bottom: 0;
 	padding: 5px 15px;
 	letter-spacing: 2px;
-	color: #e70000;
-	text-shadow: 1px -1px 2px rgba(255,255,255,0.6);
+	color: v.$blanco;
+	text-shadow: v.$black;
 	font-weight: 300;
 	background: linear-gradient(to right, transparent 0%, #000 100%);
 	width: 100%;
@@ -135,6 +135,10 @@ a {
 	transition: .5s;
 	width: 160px;
 	height: 45px;
+	font-weight: bold;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
 	box-sizing: border-box;
   }
  
@@ -145,16 +149,14 @@ a {
 	border: solid 1px #ff7526;
 	transition: .5s;
   }
-  .btnNews:hover {
-	background-color: #ff7526
-  }
+  
   
   
   
   .nombre-usi{
 	position: absolute;
 	right: 3rem;
-	bottom: 7rem;
+	bottom: 5rem;
 	font-family: 'Raleway', sans-serif;
 	color: black;
   }

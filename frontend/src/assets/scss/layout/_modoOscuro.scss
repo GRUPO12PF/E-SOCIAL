@@ -1,7 +1,12 @@
-
+@use "../base/variables" as v;
   * {
     transition: .3s, border 0s;
     box-sizing: border-box;
+}
+
+#switch-modo-oscuro{
+    position: fixed;
+   bottom: 10rem;
 }
 
 .boton-switch {
@@ -25,7 +30,6 @@
 
 .modo-oscuro .contentNav {
     background-color: #0D0F10;
-    color: white;
 }
 
 .modo.oscuro .root {
@@ -35,6 +39,7 @@
 
 .modo-oscuro .contenedorBooks {
     background-color: #2c3e50;
+    height: 100%;
 }
 
 .modo-oscuro .btn {
@@ -46,14 +51,13 @@
 
 .modo-oscuro .searchBar {
     background-color: #0D0F10;
-
 }
 
 .modo-oscuro .general {
     background-color: #2c3e50;
 }
 
-.modo-oscuro .todo {
+body.modo-oscuro {
 	background-color: #2c3e50;
 }
 .modo-oscuro .toodo {
@@ -62,4 +66,89 @@
 
 .modo-oscuro .containerPerfil{
 	background-color: #0D0F10;
+}
+.modo-oscuro .profileModal{
+    background-color: #0D0F10;
+
+}
+
+.modo-oscuro .divModalPerfil:hover{
+	background-color: #2c3e50;
+}
+
+.modo-oscuro .bottom{
+    background-color: #0D0F10;
+}
+
+
+.modo-oscuro .btnWebsite{
+    color: v.$fondo;
+    font-weight: bold;
+}
+.modo-oscuro .footer{
+    background-color: #0D0F10;
+}
+.modo-oscuro .conocenos{
+    color: v.$blanco
+}
+
+.modo-oscuro .foche{
+    background-color: #2c3e50;
+}
+
+.modo-oscuro .btn{
+    color: v.$blanco;
+    height: 50px;
+    border-radius: 7px;
+}
+.modo-oscuro .faltaPoco, .modo-oscuro .faltaPoco2{
+    color: v.$blanco
+}
+
+.modo-oscuro .fondoConfirmacionPago{
+    background-color: #0D0F10;
+}
+.modo-oscuro .btnConfirmacionPago{
+    color: v.$blanco
+}
+
+.modo-oscuro .bienvenido, .modo-oscuro .reglas, .modo-oscuro .inicialMsg, .modo-oscuro .buChat{
+    color: v.$blanco
+}
+.modo-oscuro .btnProfile{
+    background-color: #2c3e50;
+    color: v.$fondo;
+    border-color: #0D0F10;
+}
+
+.modo-oscuro .containerImagen{
+    background-color:#0D0F10 ;
+}
+.modo-oscuro .btnBookCreated,.modo-oscuro .tituloQuestion, .modo-oscuro .buttonOrderDetail,.modo-oscuro .btnHome, .modo-oscuro .tituloOrderHistory, .modo-oscuro .tituloBooksCreated, .modo-oscuro .btnBook{
+    background-color:#0D0F10 ;
+    color: v.$blanco
+}
+.modo-oscuro .responseOrderDetail, .modo-oscuro .h3Question, .modo-oscuro .tituloQuestion, .modo-oscuro .textoOrderDetail, .modo-oscuro .textoId{
+    color: white
+}
+.modo-oscuro .texto{
+    color:#0D0F10;
+}
+.modo-oscuro .accordion-button{
+    color: #0D0F10;
+    font-weight: bold;
+}
+.modo-oscuro .overlay-left, .modo-oscuro .overlay-right {
+    background-color: #0D0F10;
+}
+.modo-oscuro .h1HomeOut{
+    color: v.$blanco;
+}
+.modo-oscuro .overlay {
+    background: #0D0F10;
+    background: -webkit-linear-gradient(to right, #0D0F10, #0D0F10);
+    background: linear-gradient(to right, #0D0F10, #0D0F10);
+}
+.modo-oscuro .btnLoginRegister{
+    background-color: #2c3e50 ;
 }
