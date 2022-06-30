@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router"
 import { useEffect } from "react"
-import { useDispatch, useSelector} from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import IconsLogout from "../../../Iconos/IconsLogout"
 import Perfil from "../../../Iconos/Perfil"
@@ -10,8 +10,7 @@ import Sales from "../../../Iconos/Sales"
 import { isAdmin } from "../../../redux/actions/actionIsAdmin.js"
 
 export default function ProfileSettings() {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const [dispatch, navigate] = [useDispatch(), useNavigate()]
   const token = localStorage.getItem("token")
   const adm = useSelector(state => state.isAdmin)
 
@@ -19,7 +18,7 @@ export default function ProfileSettings() {
     navigate("/")
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     dispatch(isAdmin())
   }, [])
 
@@ -30,13 +29,6 @@ export default function ProfileSettings() {
 
   return (
     <div className="profileModal">
-
-      <div className="divModalPerfil">
-        <Link to="/profile" >
-          <Perfil />
-          <h3>Perfil</h3>
-        </Link>
-      </div>
 
       <div className="divModalPerfil">
         <Link to="/create" >
@@ -51,14 +43,23 @@ export default function ProfileSettings() {
           <h3>Chat</h3>
         </Link>
       </div>
-      {adm ? (<>
+
       <div className="divModalPerfil">
-        <Link to="/admin">
-          <Admin />
-          <h3>Admin</h3>
+        <Link to="/profile" >
+          <Perfil />
+          <h3>Perfil</h3>
         </Link>
       </div>
-      </> ) : null }
+
+      {adm ? (<>
+        <div className="divModalPerfil">
+          <Link to="/admin">
+            <Admin />
+            <h3>Admin</h3>
+          </Link>
+        </div>
+      </>) : null}
+
       <div className="divModalPerfil" onClick={() => logOut()}>
         <Link to="/">
           <IconsLogout />
