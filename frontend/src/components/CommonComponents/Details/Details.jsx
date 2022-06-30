@@ -25,6 +25,13 @@ const Details = () => {
   const usuarioVendedor = detail.creador
   const idBook = detail._id
   const userAct = usuarioAct._id
+
+  let perfilUser
+  if (token) {
+    perfilUser = 'PERFIL DEL VENDEDOR'
+  }
+
+
   const handle = () => {
     navigate(`/profile/${usuarioVendedor}`)
   }
@@ -264,7 +271,7 @@ const Details = () => {
         </div>
       </div>
       <div className="perfil-v">
-        <button onClick={handle} className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">PERFIL DEL VENDEDOR</button>
+      {perfilUser ? <button onClick={handle} className="bg-gray-600 text-white py-3 px-6 shadow-md rounded inline mt-8 mr-1 ml-1 font-semibold racking-wider">{perfilUser}</button> : null}
       </div>
     </>
   )
