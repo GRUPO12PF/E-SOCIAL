@@ -84,7 +84,6 @@ const Review = ({ id, closeModal }) => {
         title: "Faltan campos por completar",
       });
     }
-    swal("Enviada con éxito!!", "hace click en el botón", "success");
   }
 
   return (

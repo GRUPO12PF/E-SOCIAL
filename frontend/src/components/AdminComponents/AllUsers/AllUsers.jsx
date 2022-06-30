@@ -45,7 +45,7 @@ function AllUsers() {
         swal("No podes quitarle el permiso de administrador a este usuario")
       }else {
         dispatch(adminAnUser({id: id, moderador: true}))
-        swal("Usuario editado", "success");
+        swal("Ahora el usuario tiene permisos de administrador!");
       }
       } 
 
