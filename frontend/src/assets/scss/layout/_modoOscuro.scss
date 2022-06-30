@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+#switch-modo-oscuro{
+    position: fixed;
+   bottom: 10rem;
+}
+
 .boton-switch {
     background: none;
     border: none;
@@ -147,3 +152,11 @@ body.modo-oscuro {
 .modo-oscuro .btnLoginRegister{
     background-color: #2c3e50 ;
 }
+.modo-oscuro .nombre-usi{
+	
+	color: v.$blanco;
+  }
+.modo-oscuro .formikContainer, .modo-oscuro .titleForm, .modo-oscuro .label, .modo-oscuro .labelCenter{
+	
+	color: v.$blanco;
+  }
