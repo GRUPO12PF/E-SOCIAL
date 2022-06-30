@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { setToResetPassword, setStateEmail } from "../../../redux/actions/actionUser"
 import validarEmail from "../../../middleware/validarEmail"
-import s from "./ForgotPassword.module.css"
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("")
@@ -48,14 +47,14 @@ export default function ForgotPassword() {
   }
 
   return (
-    <div className={s.contForgotPass}>
+    <div className="contForgotPass">
       <div>
         <div>
-          <h3 className={s.title}>Ingrese su correo electrónico para recuperar su contraseña</h3>
+          <h3 className="titleForgot">Ingrese su correo electrónico para recuperar su contraseña</h3>
 
-          <form className={s.form} onSubmit={handleSubmit}>
-            <label className={s.label} htmlFor="email">e-mail</label>
-            <input className={s.input}
+          <form className="formForgot" onSubmit={handleSubmit}>
+            <label className="labelForgot" htmlFor="email">e-mail</label>
+            <input className="inputForgot"
               name="email"
               value={email}
               onChange={handleChange}
@@ -71,10 +70,10 @@ export default function ForgotPassword() {
             {respuesta.msg ? (
               <Link to="/">
                 {" "}
-                <button  type="submit">VOLVER</button>{" "}
+                <button  type="submitForgot">VOLVER</button>{" "}
               </Link>
             ) : (
-              <button  className={s.btn} type="submit">Resettear password</button>
+              <button  className="btnForgot" type="submit">Resettear password</button>
             )}
           </form>
         </div>

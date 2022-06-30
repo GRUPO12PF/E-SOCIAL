@@ -2,8 +2,6 @@ import React from "react"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { cleanData, searchByName } from "../../../redux/actions/actionBooks"
-import FilterCategories from "../FilterCategories/FilterCategories"
-import Sorter from "../../CommonComponents/Sorter/Sorter"
 
 export default function SearchBar() {
   const dispatch = useDispatch()
@@ -46,11 +44,6 @@ export default function SearchBar() {
           GO!
         </button>
       </form>
-
-      {/* <div className="divFilter">
-        <FilterCategories />
-        <Sorter />
-      </div>*/}
     </div>
   )
 }
