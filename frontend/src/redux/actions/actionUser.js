@@ -206,7 +206,6 @@ export function cambiarNombre(payload) {
   return async function (dispatch) { 
    try {
       const json = await clienteAxios.put(`/usuarios/updateNombre/${payload.id}` , payload);
-      console.log(json)
       return dispatch({
         type: "UPDATE_NOMBRE",
         payload: json.data,
@@ -217,4 +216,21 @@ export function cambiarNombre(payload) {
     }
   };
 }
+
+export function borrarUsuario(payload) {
+  return async function (dispatch) { 
+   try {
+      const json = await clienteAxios.delete(`/usuarios/deleteUser/${payload.id}`);
+      console.log(json)
+      return dispatch({
+        type: "BORRAR_USUARIO",
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response.data.msg);
+    }
+  };
+}
+
 
