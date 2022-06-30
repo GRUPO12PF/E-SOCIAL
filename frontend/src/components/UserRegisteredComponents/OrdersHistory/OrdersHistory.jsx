@@ -4,7 +4,6 @@ import { useParams, Link } from 'react-router-dom';
 import { historyOrders } from '../../../redux/actions/actionOrder';
 import Order from './Order';
 import NavBar from '../../CommonComponents/NavBar/NavBar';
-import s from './OrderHistory.module.css';
 import Footer from '../../CommonComponents/Footer/Footer';
 
 export default function OrdersHistory() {
@@ -21,9 +20,9 @@ export default function OrdersHistory() {
       <NavBar />
       <div>
         <Link to='/profile'>
-          <button className={s.btnBook}>VOLVER AL MENU</button>
+          <button className="btnBook">VOLVER AL MENU</button>
         </Link>
-        <h3 className={s.titulo}>HISTORIAL DE COMPRAS</h3>
+        <h3 className="tituloOrderHistory">HISTORIAL DE COMPRAS</h3>
         <br /><br />
         <div className='contenedorGral'>
         </div>

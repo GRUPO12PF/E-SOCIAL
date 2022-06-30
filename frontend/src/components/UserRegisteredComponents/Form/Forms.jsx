@@ -14,8 +14,6 @@ import NavBar from '../../CommonComponents/NavBar/NavBar'
 import EditCard from './EditCard/EditCard'
 import CampoInput from './CampoInput/CampoInput'
 import CampoSelect from './CampoInput/CampoSelect'
-import s from '../Form/Form.module.css'
-import NotCreator from './NotCreator/NotCreator'
 
 const Forms = () => {
   const [dispatch, navigate] = [useDispatch(), useNavigate()]
@@ -45,7 +43,7 @@ const Forms = () => {
   }, [dispatch])
 
   return (
-    <div className={s.formFondo}>
+    <div className="formFondo">
       <div>
         <NavBar />
 
@@ -87,11 +85,11 @@ const Forms = () => {
 
           {/* acá arranca el ------------- FORM ------------- */}
           {({ errors, values, handleSubmit, setFieldValue }) => (
-            <Form className={s.formikContainer} onSubmit={handleSubmit} >
+            <Form className="formikContainer" onSubmit={handleSubmit} >
 
-              <div className={s.formReqContents}>
+              <div className="formReqContents">
 
-                <div id='REQUERIDOS' className={s.formBody}>
+                <div id='REQUERIDOS' className="formBody">
 
                   <CampoInput
                     name='nombre'
@@ -140,49 +138,49 @@ const Forms = () => {
                     req={'*'}
                   />
 
-                  <div className={s.formCategories}>
-                    <label className={s.labelCenter}>Categorías*</label>
-                    <div className={s.check}>
+                  <div className="formCategories">
+                    <label className="labelCenter">Categorías*</label>
+                    <div className="check">
                       <div role="group" aria-labelledby="checkbox-group" >
                         {categories?.map((e, i) =>
-                          <div key={i} className={s.optionContainer} >
-                            <Field className={s.checkBox} type="checkbox" name="category" value={`${e}`} />
+                          <div key={i} className="optionContainer" >
+                            <Field className="checkBox" type="checkbox" name="category" value={`${e}`} />
                             {e}
                           </div>
                         )}
                       </div>
                     </div>
 
-                    <ErrorMessage name='category' component={() => (<p className={s.error}>{errors.category}</p>)} />
+                    <ErrorMessage name='category' component={() => (<p className="error">{errors.category}</p>)} />
                     {!isCreate
-                      ? <p className={s.centro}>({category?.sort((a, b) => a.localeCompare(b)).join(', ')})</p>
+                      ? <p className="centro">({category?.sort((a, b) => a.localeCompare(b)).join(', ')})</p>
                       : null}
                   </div>
 
-                  <div className={s.fotoF1}>
+                  <div className="fotoF1">
                     <div id='Selector para subir Img'>
-                      <label className={s.labelCenter} >Fotografía del ejemplar*</label>
+                      <label className="labelCenter" >Fotografía del ejemplar*</label>
                       {uploadImg
                         /* cambiar a Pasar Img por URL */
                         ? <div >
-                          <button className={s.btnF} type="button"
+                          <button className="btnF" type="button"
                             onClick={() => {
                               setUploadImg(false)
                               setFieldValue("image", '')
                             }}>PASAR URL
                           </button>
-                          <p className={s.textoFile}>Cargue el archivo de su imagen</p>
+                          <p className="textoFile">Cargue el archivo de su imagen</p>
                         </div>
 
                         /* cambiar a Img a Cloudinary */
                         : <div>
-                          <button className={s.btnF} type="button"
+                          <button className="btnF" type="button"
                             onClick={() => {
                               setUploadImg(true)
                               setFieldValue("file", '')
                             }}>SUBIR IMAGEN
                           </button>
-                          <p className={s.textoFile}>Ingrese la URL de su imagen</p>
+                          <p className="textoFile">Ingrese la URL de su imagen</p>
                         </div>
                       }
                     </div>
@@ -195,7 +193,7 @@ const Forms = () => {
                             hidden
                             name='file'
                             ref={fileRef}
-                            className={s.input}
+                            className="inputForm"
                             type="file"
                             id="file"
                             onChange={e => {
@@ -203,14 +201,14 @@ const Forms = () => {
                             }}
                           />
 
-                          <button className={s.loadImageBtn} type="button" onClick={() => {
+                          <button className="loadImageBtn" type="button" onClick={() => {
                             fileRef.current.click()
                           }}>
                             CARGAR IMAGEN
                           </button>
 
                           {values.file && <PreviewImage file={values.file} />}
-                          {values.file && confirmImg && <button className={s.loadImageBtn} type="button"
+                          {values.file && confirmImg && <button className="loadImageBtn" type="button"
                             disabled={errors.file}
                             onClick={() => {
                               handleImage(values.file)
@@ -221,32 +219,32 @@ const Forms = () => {
                         : (<div>
                           <Field
                             name="image"
-                            className={s.imgInput}
+                            className="imgInput"
                             type="text"
                             id="image"
                           />
-                          {values.image && <img src={values.image} alt="preview" className={s.previewImg} />}
+                          {values.image && <img src={values.image} alt="preview" className="previewImg"/>}
                         </div>)
                       }
 
                     </div>
-                    <p className={s.error}>{errors.file}</p>
-                    <ErrorMessage name='image' component={() => (<p className={s.error}>{errors.image}</p>)} />
+                    <p className="error">{errors.file}</p>
+                    <ErrorMessage name='image' component={() => (<p className="error">{errors.image}</p>)} />
                   </div>
 
 
                 </div>
               </div> {/* FIN-Requeridos */}
               <br />
-              <div id='OPCIONALES' className={s.formOpcionales}>
-                <button className={s.btnAdicional} onClick={() => setVerMas(!verMas)} type="button">
+              <div id='OPCIONALES' className="formOpcionales">
+                <button className="btnAdicional" onClick={() => setVerMas(!verMas)} type="button">
                   {verMas ? ". . ." : "OPCIONALES"}
                 </button>
 
                 {!verMas
                   ? <>{null}</>
 
-                  : (<div className={s.formBody}>
+                  : (<div className="formBody">
 
                     <CampoInput
                       name='editorial'
@@ -304,7 +302,7 @@ const Forms = () => {
                       errors={errors}
                     />
 
-                    <div className={s.tapas}>
+                    <div className="tapas">
                       <CampoSelect
                         name='ilustrado'
                         input={ilustrado}
@@ -324,7 +322,7 @@ const Forms = () => {
               </div> {/* FIN-Opcionales */}
               <br />
               <button
-                className={s.sendMsg}
+                className="sendMsg"
                 type="submit"
                 disabled={Object.keys(errors).length > 0}
               >ENVIAR FORMULARIO</button>

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { usuarioCreated } from '../../../redux/actions/actionCreatedUser';
 import Books from './Books';
 import NavBar from '../../CommonComponents/NavBar/NavBar.jsx';
-import s from './BooksCreated.module.css';
 import { useParams, Link } from 'react-router-dom';
 import Footer from '../../CommonComponents/Footer/Footer';
 
@@ -18,17 +17,17 @@ export default function BooksCreated() {
   }, [dispatch]);
 
   return (
-    <div className={s.todo}>
+    <div className="todoBooksCreated">
       <NavBar />
 
       <Link to='/profile'>
-        <button className={s.btnBook}>VOLVER AL MENU</button>
+        <button className="btnBookCreated">VOLVER AL MENU</button>
       </Link>
-      <div className={s.container}>
+      <div className="containerCreated">
         <div className="text-center w-full">
-          <h3 className={s.titulo}>MIS LIBROS</h3>
-          <div className={s.contenedorGral}>
-            <div className={s.contenedorBooks}>
+          <h3 className="tituloBooksCreated">MIS LIBROS</h3>
+          <div className="contenedorGralBooksCreated">
+            <div className="contenedorBooksCreated">
               {allBooks.length > 0 ? (
                 allBooks?.map((e, i) => {
                   return (
