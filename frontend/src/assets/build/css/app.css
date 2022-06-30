@@ -1873,6 +1873,12 @@ ul {
   margin-top: 10px;
 }
 
+.eye {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 a.nostyle {
   color: inherit;
   text-decoration: none;
