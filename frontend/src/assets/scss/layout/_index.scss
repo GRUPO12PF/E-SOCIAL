@@ -1,6 +1,5 @@
 
 @forward 'main';
-//@forward 'register';
 @forward 'footer';
 @forward 'settings';
 @forward 'allbooks';
@@ -13,8 +12,13 @@
 @forward 'about';
 @forward 'carousel';
 @forward 'chatbot';
-@forward 'login';
+@forward 'homeout';
 @forward 'profileUsers';
 @forward 'chat';
 @forward 'checkout';
 @forward 'allUser';
+@forward 'confirmAccount';
+@forward 'forgotPassword';
+@forward 'loading';
+@forward 'newPassword';
+@forward 'notFound';

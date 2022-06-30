@@ -1,9 +1,5 @@
 import React, { useEffect } from "react"
 import { useNavigate } from "react-router"
-import { registroGoogle } from "../../../redux/actions/actionUser"
-
-import { useDispatch, useSelector } from "react-redux"
-import './style.css'
 import Login from "./Register"
 import Register from "./Login"
 
@@ -19,20 +15,18 @@ export default function Homeout() {
 }, [token])
 
  
-  //let container = document?.getElementById('container');
-
   function click() {
-    (document?.getElementById('container')).classList.add("right-panel-active");
+    (document?.getElementById('containerHomeout')).classList.add("right-panel-active");
   };
 
   function clickk() {
-    ( document?.getElementById('container')).classList.remove("right-panel-active");
+    ( document?.getElementById('containerHomeout')).classList.remove("right-panel-active");
   };
 
   return (
     <div class="padre">
       <div>
-        <div className="container" id="container" >
+        <div className="containerHomeout" id="containerHomeout" >
           <div class="form-container sign-up-container">
             <Login/>
             </div> 
