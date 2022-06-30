@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
-import s from './questionDetail.module.css';
 import swal from 'sweetalert'
 
 export default function QuestionAnswer({ mensaje, book, idComprador, answers }) {
@@ -23,17 +22,17 @@ export default function QuestionAnswer({ mensaje, book, idComprador, answers }) 
   }
 
   return (
-    <div className={s.container}>
-      <div className={s.flex}>
-        <table className={s.usersTable}>
+    <div className="containerQuestion">
+      <div className="flexQuestion">
+        <table className="usersTable">
           <tbody>
-            <tr className={s.containerInfo}>
-              <td className={s.imageR}><img src={idComprador?.image.url} alt="No disponible" height={50} width={50} /></td>
-              <td className={s.name}><a onClick={(e) => handlePerfil(e)}>{idComprador?.nombre}</a></td>
-              <td className={s.imageR}><img src={book?.image} alt="No disponible" height={50} width={50} /></td>
-              <td className={s.price}><a onClick={(e) => handleLibro(e)}>{book?.nombre}</a></td>
-              <td className={s.blocked}>{mensaje}</td>
-              <td className={s.moderator}>{answers[0]?.mensaje} </td>
+            <tr className="containerInfo">
+              <td className="imageR"><img src={idComprador?.image.url} alt="No disponible" height={50} width={50} /></td>
+              <td className="nameQuestion"><a onClick={(e) => handlePerfil(e)}>{idComprador?.nombre}</a></td>
+              <td className="imageR"><img src={book?.image} alt="No disponible" height={50} width={50} /></td>
+              <td className="priceQuestion"><a onClick={(e) => handleLibro(e)}>{book?.nombre}</a></td>
+              <td className="blockedQuestion">{mensaje}</td>
+              <td className="moderatorQuestion">{answers[0]?.mensaje} </td>
             </tr>
           </tbody>
         </table>

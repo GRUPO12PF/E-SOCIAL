@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
 import profile from '../../../assets/images/avatar.png';
-import s from './Profile.module.css';
 import ProfileImage from './ProfileImage';
 import ProfilePassword from './ProfilePassword';
 import Footer from '../../CommonComponents/Footer/Footer';
@@ -78,45 +77,45 @@ function Profile() {
   return (
     <div>
       <NavBar />
-      <div className={s.todo}>
-        <div className={s.containerPerfil}>
-          <img className={s.img} src={user?.image?.url ? user?.image?.url : profile} alt='Imagen de usuario' />
-          <h1 className={s.h1}>{user.nombre}</h1>
+      <div className="todoProfile">
+        <div className="containerPerfil">
+          <img className="imgProfile" src={user?.image?.url ? user?.image?.url : profile} alt='Imagen de usuario' />
+          <h1 className="h1Profile">{user.nombre}</h1>
           <p>{user?.email}</p>
-          <div className={s.btn}><button onClick={handleButtonImage}>CAMBIAR IMAGEN</button></div>
-          <div className={s.btn}><button onClick={handleButtonPassword}>CAMBIAR CONTRASEÑA</button></div>
-          <div className={s.btn}><button onClick={handleButtonNombre}>CAMBIAR NOMBRE</button></div>
-          <div className={s.btn}><button onClick={handleDelete}>ELIMINAR CUENTA</button></div>
+          <div className="btnProfile"><button onClick={handleButtonImage}>CAMBIAR IMAGEN</button></div>
+          <div className="btnProfile"><button onClick={handleButtonPassword}>CAMBIAR CONTRASEÑA</button></div>
+          <div className="btnProfile"><button onClick={handleButtonNombre}>CAMBIAR NOMBRE</button></div>
+          <div className="btnProfile"><button onClick={handleDelete}>ELIMINAR CUENTA</button></div>
         </div>
         <br />
-        <div className={s.containerPerfil}>
+        <div className="containerPerfil">
           <div onClick={() => handleOnClickBooks()}>
             <Link to='/'>
-              <p className={s.prueba}>MIS LIBROS</p>
+              <p className="pruebaPerfil">MIS LIBROS</p>
             </Link>
           </div>
           <div onClick={() => (handleOnClickOrders())}>
             <Link to='/'>
-              <p className={s.prueba}>MIS COMPRAS</p>
+              <p className="pruebaPerfil">MIS COMPRAS</p>
             </Link>
           </div>
           <div onClick={() => (handleOnClickQuestions())}>
             <Link to='/'>
-              <p className={s.prueba}>PREGUNTAS Y RESPUESTAS</p>
+              <p className="pruebaPerfil">PREGUNTAS Y RESPUESTAS</p>
             </Link>
           </div>
         </div>
-        <Modal isOpen={showModal} style={customStyls} ariaHideApp={false} className={s.probando}>
+        <Modal isOpen={showModal} style={customStyls} ariaHideApp={false} className="probandoProfile">
           <ProfileImage
             closeModalImage={closeModalImage}
           />
         </Modal>
-        <Modal isOpen={showModalP} style={customStyls} ariaHideApp={false} className={s.probando}>
+        <Modal isOpen={showModalP} style={customStyls} ariaHideApp={false} className="probandoProfile">
           <ProfilePassword
             closeModalPassword={closeModalPassword}
           />
         </Modal>
-        <Modal style={customStyls} isOpen={showModalN} ariaHideApp={false} className={s.probando}>
+        <Modal style={customStyls} isOpen={showModalN} ariaHideApp={false} className="probandoProfile">
           <ProfileChangeName
             closeModalNombre={closeModalNombre}
             idUser={idUser}

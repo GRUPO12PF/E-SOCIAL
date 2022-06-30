@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import { postAnswer } from '../../../redux/actions/actionQA';
-import s from './questionDetail.module.css';
 import swal from 'sweetalert';
 
 
@@ -66,30 +65,30 @@ export default function QuestionDetail({ _id, mensaje, book, idComprador }) {
   }
 
   return (
-    <div className={s.container}>
-      <div className={s.flex}>
-        <table className={s.usersTable}>
+    <div className="containerQuestion">
+      <div className="flexQuestion">
+        <table className="usersTable">
           <thead>
             <tr>
-              <th className={s.no}>IMAGEN</th>
-              <th className={s.no}>COMPRADOR</th>
-              <th className={s.no}>IMAGEN</th>
-              <th className={s.no}>LIBRO</th>
-              <th className={s.no}>PREGUNTA</th>
-              <th className={s.no}>RESPONDER</th>
+              <th className="no">IMAGEN</th>
+              <th className="no">COMPRADOR</th>
+              <th className="no">IMAGEN</th>
+              <th className="no">LIBRO</th>
+              <th className="no">PREGUNTA</th>
+              <th className="no">RESPONDER</th>
             </tr>
           </thead>
           <tbody>
-            <tr className={s.containerInfo}>
-              <td className={s.imageR}><img src={idComprador?.image.url} alt="No disponible" height={50} width={50} /></td>
-              <td className={s.name}><a onClick={(e) => handlePerfil(e)}>{idComprador?.nombre}</a></td>
-              <td className={s.imageR}><img src={book?.image} alt="No disponible" height={50} width={50} /></td>
-              <td className={s.price}><a onClick={(e) => handleLibro(e)}>{book?.nombre}</a></td>
-              <td className={s.blocked}>{mensaje}</td>
-              <td className={s.moderator}><div> <form onSubmit={(e) => handleSubmitSendAnswer(e)}>
-                <div className={s.containerAnswer}>
-                  <input className={s.input} type="text" placeholder='...' name="mensaje" value={input.mensaje} onChange={(e) => handleInputChange(e)} />
-                  <button className={s.btn}>enviar</button>
+            <tr className="containerInfo">
+              <td className="imageR"><img src={idComprador?.image.url} alt="No disponible" height={50} width={50} /></td>
+              <td className="nameQuestion"><a onClick={(e) => handlePerfil(e)}>{idComprador?.nombre}</a></td>
+              <td className="imageR"><img src={book?.image} alt="No disponible" height={50} width={50} /></td>
+              <td className="priceQuestion"><a onClick={(e) => handleLibro(e)}>{book?.nombre}</a></td>
+              <td className="blockedQuestion">{mensaje}</td>
+              <td className="moderatorQuestion"><div> <form onSubmit={(e) => handleSubmitSendAnswer(e)}>
+                <div className="containerAnswer">
+                  <input className="inputQuestion" type="text" placeholder='...' name="mensaje" value={input.mensaje} onChange={(e) => handleInputChange(e)} />
+                  <button className="btnQuestion">enviar</button>
                 </div>
               </form>
               </div>

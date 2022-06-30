@@ -4,7 +4,6 @@ import emailjs from '@emailjs/browser'
 import { useNavigate } from 'react-router'
 import NavBar from '../../../CommonComponents/NavBar/NavBar'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
-import s from './Confirmation.module.css'
 import Footer from '../../../CommonComponents/Footer/Footer'
 import swal from 'sweetalert';
 
@@ -18,12 +17,12 @@ const [formEnv, setForm] = useState(false)
 return (
   <>
   <NavBar />
-  <div className={s.faltaPoco}>
+  <div className="faltaPoco">
       <h2>
         Falta poco para terminar el proceso de compra...
       </h2>
     </div>
-    <div className={s.faltaPoco2}>
+    <div className="faltaPoco2">
       <h3>Completá los datos!</h3>
     </div>
 
@@ -71,7 +70,7 @@ return (
         navigate("/")
       }}
     >
-      {({ errors ,values}) => (<Form className={s.fondo} ref={form}>
+      {({ errors ,values}) => (<Form className="fondoConfirmacionPago" ref={form}>
        
         <div >
           <Field
@@ -79,7 +78,7 @@ return (
             name="name"
             id="name"
             placeholder="Nombre (el campo es requerido)"
-            className={s.input}
+            className="inputConfirmacionPago"
           />
           {/* <ErrorMessage name='name' component={() => (<p className='errors'>{errors.name}</p>)} /> */}
         </div>
@@ -89,14 +88,14 @@ return (
             type="email"
             name="email"
             id="email"
-            className={s.input}
+            className="inputConfirmacionPago"
             placeholder="Email (el campo es requerido)"
           />
 
           {/* <ErrorMessage name='email' component={() => (<p className='errors'>{errors.email}</p>)} /> */}
         </div>
 
-        <button className={s.btn} type="submit">Enviar</button>
+        <button className="btnConfirmacionPago" type="submit">Enviar</button>
         {formEnv && <p className='send'>¡Enviado correctamente! ✔</p>}
       </Form>)}
     </Formik>

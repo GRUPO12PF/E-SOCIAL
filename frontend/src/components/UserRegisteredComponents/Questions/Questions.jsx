@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 import QuestionDetail from './QuestionDetail';
 import QuestionAnswer from './QuestionAnswer';
 import QuestionForComprador from './QuestionForComprador';
-import s from './questionDetail.module.css';
 import NavBar from '../../CommonComponents/NavBar/NavBar';
 import { Link } from 'react-router-dom';
 import Footer from '../../CommonComponents/Footer/Footer';
@@ -28,22 +27,22 @@ export default function Questions() {
     <div>
       <NavBar />
       <Link to='/profile'>
-        <button className={s.btnBook}>VOLVER AL MENU</button>
+        <button className="btnBook">VOLVER AL MENU</button>
       </Link>
       <br /> <br />
-      <div className={s.containerTodo}>
-        <h3 className={s.titulo}>Preguntas por responder </h3>
-        <div className={s.container}>
-          <div className={s.flex}>
-            <table className={s.usersTable}>
+      <div className="containerTodo">
+        <h3 className="tituloQuestion">Preguntas por responder </h3>
+        <div className="containerQuestion">
+          <div className="flexQuestion">
+            <table className="usersTable">
               <thead>
                 <tr>
-                  <th className={s.no}>IMAGEN</th>
-                  <th className={s.no}>COMPRADOR</th>
-                  <th className={s.no}>IMAGEN</th>
-                  <th className={s.no}>LIBRO</th>
-                  <th className={s.no}>PREGUNTA</th>
-                  <th className={s.no}>RESPONDER</th>
+                  <th className="no">IMAGEN</th>
+                  <th className="no">COMPRADOR</th>
+                  <th className="no">IMAGEN</th>
+                  <th className="no">LIBRO</th>
+                  <th className="no">PREGUNTA</th>
+                  <th className="no">RESPONDER</th>
                 </tr>
               </thead>
             </table>
@@ -64,21 +63,21 @@ export default function Questions() {
             );
           })
         ) : (
-          <h3 className={s.h3}>TODAVIA NO HAY PREGUNTAS PARA RESPONDER...</h3>
+          <h3 className="h3Question">TODAVIA NO HAY PREGUNTAS PARA RESPONDER...</h3>
         )
         }
-        <h3 className={s.titulo}>Preguntas ya respondidas </h3>
-        <div className={s.container}>
-          <div className={s.flex}>
-            <table className={s.usersTable}>
+        <h3 className="tituloQuestion">Preguntas ya respondidas </h3>
+        <div className="containerQuestion">
+          <div className="flexQuestion">
+            <table className="usersTable">
               <thead>
-                <tr className={s.containerInfo}>
-                  <th className={s.no}>IMAGEN</th>
-                  <th className={s.no}>COMPRADOR</th>
-                  <th className={s.no}>IMAGEN</th>
-                  <th className={s.no}>LIBRO</th>
-                  <th className={s.no}>PREGUNTA</th>
-                  <th className={s.no}>RESPUESTA</th>
+                <tr className="containerInfo">
+                  <th className="no">IMAGEN</th>
+                  <th className="no">COMPRADOR</th>
+                  <th className="no">IMAGEN</th>
+                  <th className="no">LIBRO</th>
+                  <th className="no">PREGUNTA</th>
+                  <th className="no">RESPUESTA</th>
                 </tr>
               </thead></table> </div>
         </div>
@@ -97,20 +96,20 @@ export default function Questions() {
             );
           })
         ) : (
-          <h3 className={s.h3}>TODAVIA NO RESPONDISTE NINGUNA PREGUNTA...</h3>
+          <h3 className="h3Question">TODAVIA NO RESPONDISTE NINGUNA PREGUNTA...</h3>
         )}
-        <h3 className={s.titulo}>Preguntas realizadas a otros usuarios</h3>
-        <div className={s.container}>
-          <div className={s.flex}>
-            <table className={s.usersTable}>
+        <h3 className="tituloQuestion">Preguntas realizadas a otros usuarios</h3>
+        <div className="containerQuestion">
+          <div className="flexQuestion">
+            <table className="usersTable">
               <thead>
-                <tr className={s.containerInfo}>
-                  <th className={s.no}>IMAGEN</th>
-                  <th className={s.no}>VENDEDOR</th>
-                  <th className={s.no}>IMAGEN</th>
-                  <th className={s.no}>LIBRO</th>
-                  <th className={s.no}>PREGUNTA</th>
-                  <th className={s.no}>RESPUESTA</th>
+                <tr className="containerInfo">
+                  <th className="no">IMAGEN</th>
+                  <th className="no">VENDEDOR</th>
+                  <th className="no">IMAGEN</th>
+                  <th className="no">LIBRO</th>
+                  <th className="no">PREGUNTA</th>
+                  <th className="no">RESPUESTA</th>
                 </tr>
               </thead>
             </table>
@@ -133,7 +132,7 @@ export default function Questions() {
             );
           })
         ) : (
-          <h3 className={s.h3}>TODAVIA NO HICISTE NINGUNA PREGUNTA A OTROS USUARIOS...</h3>
+          <h3 className="h3Question">TODAVIA NO HICISTE NINGUNA PREGUNTA A OTROS USUARIOS...</h3>
         )
         }
       </div>

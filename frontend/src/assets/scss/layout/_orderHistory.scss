@@ -1,32 +1,26 @@
-.´todo{
-  height: 100%;
-}
-.container {
-    text-align: center;
-  }
-
-  .titulo {
+.tituloOrderHistory {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     color: #e8ddbd;
-    width: 250px;
     height: 50px;
+    width: 400px;
     padding-top: 7px;
     margin-top: 20px;
     background-color: #9d1d36;
     margin: 0px auto;
+    
   }
-
-
+  
   .contenedorGral {
-    padding-top: 5%;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin: 0;
+    margin-bottom: 40px;
   }
-
+  
   .contenedorBooks {
     width: 100%;
     display: flex;
@@ -38,23 +32,22 @@
     flex-wrap: wrap;
     flex-direction: row;
   }
-
+  
   .buttonPerfil {
     margin-top: 10px;
     margin-left: 7px;
     padding: 4px;
     border-radius: 10px;
-    background: white;
+    background: #0D0F10;
     font-size: 17px;
-    border-color: white;
+    border-color: #0D0F10;
+    color: #F6AA1C;
   }
-
+  
   .buttonPerfil:hover {
     text-decoration: underline;
-    background-color: rgb(181, 181, 181);
-    border-color: rgb(181, 181, 181);
   }
-
+  
   .btnBook {
     background-color: #9d1d36;
     color: #e8ddbd;
@@ -62,8 +55,4 @@
     padding: 7px 15px;
     margin-bottom: 2%;
     margin-left: 1%;
-  }
-
-  .vendido {
-    color: red;
   }
