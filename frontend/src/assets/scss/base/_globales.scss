@@ -7,20 +7,26 @@ html {
     min-height: 100%;
     position: relative;
 }
-*, 
+
+*,
 *:before,
 *:after {
     box-sizing: inherit;
 }
+
 body {
     background-color: v.$fondo;
     font-family: v.$fuente_principal;
     font-size: 1.6rem;
+    min-height: 100%;
     margin: 0;
-  margin-bottom: 40px;
+    margin-bottom: 40px;
+    
+
     &.fijar-body {
         overflow: hidden;
     }
+
     &.body-scroll {
         padding-top: 8.6rem;
     }
@@ -30,35 +36,45 @@ p {
     font-size: 2rem;
     line-height: 1.5;
 }
+
 .contenedor {
     width: 95%;
     max-width: 120rem;
     margin: 0 auto;
 }
-a{
+
+a {
     text-decoration: none;
     color: v.$grisclaro;
-    &:hover{
+
+    &:hover {
         cursor: pointer;
     }
-}  
+}
 
 .a {
     text-decoration: none;
     color: v.$grisclaro;
-    &:hover{
+
+    &:hover {
         cursor: pointer;
     }
 }
-h1, h2, h3 {
+
+h1,
+h2,
+h3 {
     margin: 0 0 5rem 0;
 }
+
 h1 {
     font-size: 4rem;
 }
+
 h2 {
     font-size: 3.6rem;
 }
+
 h3 {
     font-size: 3rem;
 }

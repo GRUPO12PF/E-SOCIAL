@@ -13,8 +13,19 @@
     <title>BooksComerce</title>
   </head>
   <body>
-    <div id="root"></div>
-
+    <div className="root" id="root"></div>
+    <div id="contentNav">
+    <div onClick={cambiarModo} class="switch-modo-oscuro btn" id="switch-modo-oscuro">
+      <button class="boton-modo-claro boton-switch">🌞</button>
+      <button class="boton-modo-oscuro boton-switch">🌚</button>
+    </div>
+    </div>
+    <script>
+     function cambiarModo() {
+  document.body.classList.toggle("modo-oscuro")
+}
+document.getElementById("switch-modo-oscuro").onclick = cambiarModo
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script type="module" src="/src/main.jsx"></script>
