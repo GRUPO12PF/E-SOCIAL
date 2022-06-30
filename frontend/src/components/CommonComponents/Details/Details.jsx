@@ -141,6 +141,12 @@ const Details = () => {
                         title='Edición'
                       />
                       <br />
+                      <div>
+                      <h5 className="h5-detalle  ">Categoría</h5> 
+                      {category?.sort((a, b) => a.localeCompare(b)).join(', ')}
+                  
+                  </div>
+                      <br/>
                       <DetailsField
                         constant={tapa}
                         clasName="h5-detalle "
