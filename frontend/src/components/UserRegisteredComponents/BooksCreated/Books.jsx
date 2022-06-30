@@ -67,9 +67,9 @@ function Books({ nombre, image, price, id, order }) {
               <p className='text-gray-500 mt-1 text-2xl' >{price}</p>
               {token ? (
                 <div >
-                  <button onClick={(e) => handleDeleteBook(e)} className={s.btnBook}>Borrar</button>
-                  <button onClick={(e) => handleUpdateBook(e)} className={s.btnBook}>Actualizar</button>
-                  <button onClick={(e) => handleInfoBook(e)} className={s.btnBook}>Info</button>
+                  <button onClick={(e) => handleDeleteBook(e)} className="btnBook">Borrar</button>
+                  <button onClick={(e) => handleUpdateBook(e)} className="btnBook">Actualizar</button>
+                  <button onClick={(e) => handleInfoBook(e)} className="btnBook">Info</button>
                 </div>
               ) : null}
             </div>
