@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router"
 import { Link } from "react-router-dom"
 import { resetPassword, setStateEmail } from "../../../redux/actions/actionUser.js"
-import s from "./NewPassword.module.css"
 import validatePassword from "../../../middleware/validarPassword"
 
 export default function NewPassword() {
@@ -60,10 +59,10 @@ export default function NewPassword() {
   }
 
   return (
-    <div className={s.contNewPass}>
+    <div className="contNewPass">
       <div>
         <div>
-          <h3 className={s.title}>Resettear Password</h3>
+          <h3 className="titleNewPassword">Resettear Password</h3>
           <form onSubmit={handleSubmit}>
             <label htmlFor="password">Password</label>
             <input

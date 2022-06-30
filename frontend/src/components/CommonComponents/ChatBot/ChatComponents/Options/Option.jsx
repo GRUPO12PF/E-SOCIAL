@@ -1,5 +1,4 @@
 import React from "react";
-import styles from '../Options/Options.module.css'
 
 const Options = (props) => {
   const options = [
@@ -20,12 +19,12 @@ const Options = (props) => {
   ];
 
   const buttonsMarkup = options.map((option) => (
-    <button key={option.id} onClick={option.handler} className={styles.optionButton}>
+    <button key={option.id} onClick={option.handler} className="optionButton">
       {option.text}
     </button>
   ));
 
-  return <div className={styles.optionContainer}>{buttonsMarkup}</div>;
+  return <div className="optionContainer">{buttonsMarkup}</div>;
 };
 
 export default Options;
