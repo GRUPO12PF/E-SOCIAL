@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import {cambiarNombre} from "../../../redux/actions/actionUser"
 import s from './Profile.module.css'
-
+import swal from 'sweetalert';
 export default function ProfileChangeName({closeModalNombre, idUser}) {
   const [nombre, setNombre] = useState("")
   const dispatch = useDispatch()
@@ -20,7 +20,7 @@ console.log(idUser)
         nombre: nombre
     })) 
      console.log(hola)
-    alert('Tu nombre se modifico correctamente')
+    swal('Tu nombre se modifico correctamente')
     window.location.reload()
   }
 

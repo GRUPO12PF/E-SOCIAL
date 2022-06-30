@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import NavBar from '../../CommonComponents/NavBar/NavBar';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-modal';
 import profile from '../../../assets/images/avatar.png';
 import s from './Profile.module.css';
@@ -10,8 +10,11 @@ import ProfileImage from './ProfileImage';
 import ProfilePassword from './ProfilePassword';
 import Footer from '../../CommonComponents/Footer/Footer';
 import ProfileChangeName from './ProfileChangeName';
+import swal from 'sweetalert';
+import { borrarUsuario } from '../../../redux/actions/actionUser'
 
 function Profile() {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const [showModal, setShowModal] = useState(false)
   const [showModalNotification, setShowModalNotification] = useState(false)
@@ -59,6 +62,19 @@ function Profile() {
     showModalN && setShowModalN(false)
   }
 
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    if (
+      window.confirm("¿Estás seguro que quieres eliminar este usuario? Si lo eliminas, no podrás deshacer esta acción.") ===
+      true
+    ) {
+      dispatch(borrarUsuario({ id: idUser }));
+      swal("Usuario eliminado correctamente.", "success");
+      window.location.reload();
+      localStorage.removeItem('token')
+    }
+  };
+
   return (
     <div>
       <NavBar />
@@ -70,7 +86,7 @@ function Profile() {
           <div className={s.btn}><button onClick={handleButtonImage}>CAMBIAR IMAGEN</button></div>
           <div className={s.btn}><button onClick={handleButtonPassword}>CAMBIAR CONTRASEÑA</button></div>
           <div className={s.btn}><button onClick={handleButtonNombre}>CAMBIAR NOMBRE</button></div>
-          <div className={s.btn}><button onClick={handleButtonPassword}>ELIMINAR CUENTA</button></div>
+          <div className={s.btn}><button onClick={handleDelete}>ELIMINAR CUENTA</button></div>
         </div>
         <br />
         <div className={s.containerPerfil}>
@@ -107,6 +123,7 @@ function Profile() {
           />
         </Modal>
       </div>
+      <Footer />
     </div>
   )
 }
