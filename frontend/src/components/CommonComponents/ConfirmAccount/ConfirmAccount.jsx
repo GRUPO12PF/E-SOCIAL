@@ -2,7 +2,6 @@ import React, { useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { validateUser } from "../../../redux/actions/actionUser.js"
-import s from "./ConfirmAccount.module.css"
 
 export default function ConfirmarCuenta() {
   const dispatch = useDispatch()
@@ -16,15 +15,15 @@ export default function ConfirmarCuenta() {
   }, [])
 
   return (
-    <div className={s.contConfirm}>
-      <h2 className={s.title}>
+    <div className="contConfirm">
+      <h2 className="titleConfirm">
         ¡Bienvenido a <span>E-Social</span>!
         <br/>
       </h2>
-      <div className={s.response}>{respuesta.msg}</div>
+      <div className="response">{respuesta.msg}</div>
       <br/>
       <Link to="/">
-        <button className={s.btn}>Volver a HOME</button>
+        <button className="btnConfirm">Volver a HOME</button>
       </Link>
     </div>
   )
