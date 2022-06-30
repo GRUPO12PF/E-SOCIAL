@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import styles from  "../Quizzes/Quizz.module.css";
 
 const FlashCard = ({ question, answer, incrementIndex }) => {
   const [showAnswer, setShowAnswer] = useState(false);
@@ -10,14 +9,14 @@ const FlashCard = ({ question, answer, incrementIndex }) => {
   return (
     <>
       <div
-        className={styles.flashcardcontainer}
+        className="flashcardcontainer"
         onClick={() => setShowAnswer(!showAnswer)}
       >
         {!showAnswer && question}
         {showAnswer && answer}
       </div>
       {showAnswer && (
-        <button onClick={incrementIndex} className={styles.flashcardbutton}>
+        <button onClick={incrementIndex} className="flashcardbutton">
           Siguiente pregunta
         </button>
       )}

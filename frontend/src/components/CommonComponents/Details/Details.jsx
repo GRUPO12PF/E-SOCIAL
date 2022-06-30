@@ -72,12 +72,12 @@ const Details = () => {
           book: idBook,
           idVendedor: usuarioVendedor
         }))
-  
+        swal("", "¡Tu pregunta fue envia con exito!", "success");
         setInput({
           mensaje: ''
         })
-        alert('')
-        swal("", "¡Tu respuesta fue envia con exito!", "success");
+        
+        
       }
     } else {
       e.preventDefault()

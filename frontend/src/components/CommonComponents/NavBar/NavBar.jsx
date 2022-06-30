@@ -7,7 +7,6 @@ import logo from "../../../assets/images/logo.png"
 import profile from "../../../assets/images/avatar2.png"
 import io from "socket.io-client"
 let socket
-
 import ProfileSettings from "../../UserRegisteredComponents/ProfileSettings/ProfileSettings"
 import SearchBar from "../SearchBar/SearchBar"
 import FilterCategories from "../FilterCategories/FilterCategories"
