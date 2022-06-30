@@ -1,6 +1,5 @@
 import { ErrorMessage, Field } from "formik"
 import { mayúsculaInicial } from "../../../../utils/helperFunctions"
-import s from '../Form.module.css'
 
 const CampoSelect = ({ name, input, isCreate, values, errors, value1, option1, value2, option2 }) => {
 
@@ -9,7 +8,7 @@ const CampoSelect = ({ name, input, isCreate, values, errors, value1, option1, v
       <div>
         <Field
           name={name}
-          className={s.selector}
+          className="selector"
           id={name}
           as='select'
           value={values[input]?.defaultValue}
@@ -19,11 +18,11 @@ const CampoSelect = ({ name, input, isCreate, values, errors, value1, option1, v
           <option value={value2}>{option2}</option>
         </Field>
 
-        <ErrorMessage name={name} component={() => (<p className={s.error}>{errors[name]}</p>)} />
+        <ErrorMessage name={name} component={() => (<p className="error">{errors[name]}</p>)} />
         
         {/* valor anterior solo en modo Update */}
         {!isCreate && input
-          ? <p className={s.centro}>({input})</p>
+          ? <p className="centro">({input})</p>
           : null}
 
       </div>
