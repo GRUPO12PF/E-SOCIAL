@@ -72,12 +72,12 @@ const Details = () => {
           book: idBook,
           idVendedor: usuarioVendedor
         }))
-  
+        swal("", "¡Tu pregunta fue envia con exito!", "success");
         setInput({
           mensaje: ''
         })
-        alert('')
-        swal("", "¡Tu respuesta fue envia con exito!", "success");
+        
+        
       }
     } else {
       e.preventDefault()
@@ -141,6 +141,12 @@ const Details = () => {
                         title='Edición'
                       />
                       <br />
+                      <div>
+                      <h5 className="h5-detalle  ">Categoría</h5> 
+                      {category?.sort((a, b) => a.localeCompare(b)).join(', ')}
+                  
+                  </div>
+                      <br/>
                       <DetailsField
                         constant={tapa}
                         clasName="h5-detalle "
