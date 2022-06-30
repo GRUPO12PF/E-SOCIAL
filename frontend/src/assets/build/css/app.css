@@ -617,6 +617,9 @@ a {
   width: 160px;
   height: 45px;
   font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
@@ -629,7 +632,7 @@ a {
 .nombre-usi {
   position: absolute;
   right: 3rem;
-  bottom: 7rem;
+  bottom: 5rem;
   font-family: "Raleway", sans-serif;
   color: black;
 }
@@ -1894,6 +1897,7 @@ a.nostyle {
     border-radius: 6px;
     margin: 2% auto;
     overflow: hidden;
+    padding-bottom: 14rem;
   }
 }
 .coverphoto {
@@ -3793,6 +3797,11 @@ td a:hover {
 * {
   transition: 0.3s, border 0s;
   box-sizing: border-box;
+}
+
+#switch-modo-oscuro {
+  position: fixed;
+  bottom: 10rem;
 }
 
 .boton-switch {

@@ -136,6 +136,9 @@ a {
 	width: 160px;
 	height: 45px;
 	font-weight: bold;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
 	box-sizing: border-box;
   }
  
@@ -153,7 +156,7 @@ a {
   .nombre-usi{
 	position: absolute;
 	right: 3rem;
-	bottom: 7rem;
+	bottom: 5rem;
 	font-family: 'Raleway', sans-serif;
 	color: black;
   }
