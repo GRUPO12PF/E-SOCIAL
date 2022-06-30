@@ -9,7 +9,7 @@ import {
 import { useNavigate } from "react-router"
 import validarEmail from "../../../middleware/validarEmail"
 import validatePassword from "../../../middleware/validarPassword"
-
+import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
 import { GoogleOAuthProvider } from "@react-oauth/google"
 import { GoogleLogin } from "@react-oauth/google"
 
@@ -27,6 +27,11 @@ export default function Login() {
         email: "",
         password: "",
     })
+
+    const handleToggle = () => {
+        setEstate(prevState => !prevState)
+    }
+
 
     function handleChangeEmail(e) {
         setUsuario({
@@ -89,11 +94,11 @@ export default function Login() {
 
     function responseGoogle(el) {
         dispatch(registroGoogle(el))
-    
+
         setTimeout(function () {
-          window.location.reload(1)
+            window.location.reload(1)
         }, 1500) // After 2,5 secs
-      }
+    }
 
     return (
         <>
@@ -128,6 +133,8 @@ export default function Login() {
                             <p>{errors.password}</p>
                         </div>
                     )}
+                    <button className='eye' onClick={handleToggle}>{state ? <FaRegEye /> : <FaRegEyeSlash />}</button>
+
                 </div>
                 {errorEmail && !usuario.email && !usuario.password ? (
                     <p>{errorEmail} </p>
@@ -138,9 +145,9 @@ export default function Login() {
                 <button className="btnLoginRegister">Ingresar</button>
                 <div class="padBoton">
 
-                <GoogleOAuthProvider class="btnLoginRegister" clientId={`${import.meta.env.VITE_URL_CLIENT_ID}`} >
-                    <GoogleLogin  login_uri="" onSuccess={responseGoogle} />
-                </GoogleOAuthProvider> 
+                    <GoogleOAuthProvider class="btnLoginRegister" clientId={`${import.meta.env.VITE_URL_CLIENT_ID}`} >
+                        <GoogleLogin login_uri="" onSuccess={responseGoogle} />
+                    </GoogleOAuthProvider>
                 </div>
             </form>
         </>

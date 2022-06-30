@@ -33,7 +33,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-    background-color: #621708;
+    background-color: v.$colorNav;
     padding: 1rem 0;
 
 }
@@ -59,7 +59,7 @@
     &:hover{
         transition-duration: 500ms;
         width: 80%;
-        background-color: #941B0C;
+        background-color: rgba(232, 221, 189, 0.3);
     }
 }
 .icon{

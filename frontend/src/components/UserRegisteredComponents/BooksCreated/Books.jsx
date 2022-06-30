@@ -59,7 +59,7 @@ function Books({ nombre, image, price, id, order }) {
         <div className='md:flex items-center justify-center'>
 
           <div className='bg-white rounded-md py-12 px-5 my-5 md:my-0 text-center shadow max-w-xs mx-auto md:mx-0 flex-grow transform md:scale-110'>
-            <div className="vendido">{vendido ? vendido : null}</div>
+            <div className="vendidoBookCreated">{vendido ? vendido : null}</div>
             <img className=' w-24 h-24 object-cover shadow-lg mx-auto' src={image || book} alt='Img no encontrada' />
             <div>
 
