@@ -177,7 +177,7 @@ function rootReducer(state = initialState, action) {
       let sortedBooks = [...state.books]
 
       if (action.payload === NEW_FIRST) {
-        sortedBooks.sort((a, b) => a.createdAt.localeCompare(b.createdAt))
+        sortedBooks.sort((a, b) => b.createdAt.localeCompare(a.createdAt))
       }
 
       if (action.payload === NAME_ASC) {
