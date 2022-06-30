@@ -133,8 +133,8 @@ export default function Login() {
                             <p>{errors.password}</p>
                         </div>
                     )}
-                    <button className='eye' onClick={handleToggle}>{state ? <FaRegEye /> : <FaRegEyeSlash />}</button>
 
+                    <span className='eye' onClick={handleToggle}>{state ? <FaRegEye /> : <FaRegEyeSlash />}</span>
                 </div>
                 {errorEmail && !usuario.email && !usuario.password ? (
                     <p>{errorEmail} </p>

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router"
 import validarEmail from "../../../middleware/validarEmail"
 import validatePassword from "../../../middleware/validarPassword"
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa'
+import swal from 'sweetalert';
 
 export default function Register() {
   const dispatch = useDispatch()
@@ -43,6 +44,7 @@ export default function Register() {
     else {
       setErrores([])
       dispatch(registroUsuario(estado))
+      swal("", "Eegistrado con éxito, confirma tu email!", "success");
       navigate("/")
     }
   }
@@ -82,7 +84,7 @@ export default function Register() {
           id="password1"
           type={state ? "text" : "password"}
           placeholder="Tu contraseña" />
-        <button className='eye' onClick={handleToggle}>{state ? <FaRegEye /> : <FaRegEyeSlash />}</button>
+        <span className='eye' onClick={handleToggle}>{state ? <FaRegEye /> : <FaRegEyeSlash />}</span>
         {errores.length !== 0 && <p>{errores[1]}</p>}
         <button className="btnLoginRegister">Registrarse</button>
       </form>
