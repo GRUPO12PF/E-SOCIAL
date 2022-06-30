@@ -64,7 +64,6 @@
 .formbusqueda {
     position: relative;
     width: 25rem;
-    background: var(--color-brand);
     border-radius: var(--rad);
     margin-top: 2.5rem;
     margin-bottom: 2rem;
@@ -93,7 +92,6 @@
     appearance: none; //for iOS input[type="search"] roundedness issue. border-radius alone doesn't work
     transition: all var(--dur) var(--bez);
     transition-property: width, border-radius;
-    z-index: 1;
     position: relative;
   }
   .buttonB {

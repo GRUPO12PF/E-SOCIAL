@@ -28,9 +28,8 @@ console.log(idUser)
       <div className="containerImagen">
       <button onClick={closeModalNombre}  >X</button>
         <div>
-          <p>Cambia tu nombre de usuario</p>
+          <p>Cambia tu nombre</p>
           <form onSubmit={handleSubmit}>
-            <label>Nombre</label>
             <input
              className="inputName"
               name="nombre"
@@ -42,7 +41,7 @@ console.log(idUser)
             />
     
               <button className="buttonPsw" type="submit">
-                CAMBIAR NOMBRE DE USUARIO
+                CAMBIAR
               </button>
           </form>
         </div>

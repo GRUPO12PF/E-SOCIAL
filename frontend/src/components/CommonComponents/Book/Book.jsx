@@ -15,7 +15,7 @@ function Book({ nombre, image, price, imageUser,nameUser }) {
 
       <div class="bottom">
         <div class="buttons">
-          <a class="btn btnWebsite" target="_blank">{nombre}</a>
+          <a class="btnWebsite" target="_blank">{nombre}</a>
           <p className="nombre-usi">{nameUser}</p>
         </div>
       </div>
