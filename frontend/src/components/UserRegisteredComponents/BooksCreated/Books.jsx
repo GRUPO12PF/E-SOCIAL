@@ -4,7 +4,6 @@ import { deleteBook } from '../../../redux/actions/actionBooks';
 import swal from 'sweetalert';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
-import s from './BooksCreated.module.css';
 
 
 
@@ -54,7 +53,7 @@ function Books({ nombre, image, price, id, order }) {
 
   }
   return (
-    <div className={s.book}>
+    <div className="bookCreated">
       <div className='-300 p-5 md:grid'>
 
         <div className='md:flex items-center justify-center'>

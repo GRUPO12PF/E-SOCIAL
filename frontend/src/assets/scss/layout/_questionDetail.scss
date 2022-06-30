@@ -8,7 +8,7 @@
     margin: 5px;
   }
 
-.container{
+.containerQuestion{
     width: 95%;
     max-width: 120rem;
     margin: 2rem auto;
@@ -36,7 +36,7 @@
     margin-left: 1%;
   }
 
-.flex{
+.flexQuestion{
     display: flex;
     justify-content: center;
     border: white;
@@ -52,10 +52,10 @@
     font-size: 17px;
     text-align: center;
 }
-.h3{
+.h3Question{
     text-align: center;
 }
-.name{
+.nameQuestion{
     font-family: 'Lato', sans-serif;
     font-size: 17px;
     padding: 2rem;
@@ -68,7 +68,7 @@
     padding: 2rem;
     text-align: center;
 }
-.titulo{
+.tituloQuestion{
     text-align: center;
     background-color: #9d1d36;
     color: #e8ddbd;
@@ -76,7 +76,7 @@
     margin: 0px auto;
 }
 
-.input{
+.inputQuestion{
     max-width: 250px;
     background-color: #E5E7EB;
     border-color: #E5E7EB;
@@ -88,7 +88,7 @@
     font-size: 15px;
 }
 
-.btn{
+.btnQuestion{
     float: right;
     background-color: #E5E7EB;
     border-color: #E5E7EB;
@@ -112,7 +112,7 @@
     
 }
 
-.moderator{
+.moderatorQuestion{
     font-size: 17px;
 }
 .containerTodo{

@@ -1,6 +1,5 @@
 import { ErrorMessage, Field } from "formik"
 import { mayúsculaInicial } from "../../../../utils/helperFunctions"
-import s from '../Form.module.css'
 
 const CampoInput = ({ name, text, type, input, isCreate, errors, req, placeholder, as }) => {
 
@@ -8,17 +7,17 @@ const CampoInput = ({ name, text, type, input, isCreate, errors, req, placeholde
 
   return (
     <>
-      <label className={s.label} >{mayúsculaInicial(nombre) + (req ? req : '')}</label>
+      <label className="label" >{mayúsculaInicial(nombre) + (req ? req : '')}</label>
 
       {/* valor anterior solo en modo Update */}
         {!isCreate && name !== 'descripcion' && name !== 'price' && input
-          ? <p className={s.oldData}>({input})</p>
+          ? <p className="oldData">({input})</p>
           : null}
 
       <div>
         <Field
           name={name}
-          className={s.campoInput}
+          className="campoInput"
           type={type}
           id={name}
           placeholder={placeholder}
@@ -26,7 +25,7 @@ const CampoInput = ({ name, text, type, input, isCreate, errors, req, placeholde
         />
       </div>
 
-      <ErrorMessage name={name} component={() => (<p className={s.error}>{errors[name]}</p>)} />
+      <ErrorMessage name={name} component={() => (<p className="error">{errors[name]}</p>)} />
 
     </>
   )

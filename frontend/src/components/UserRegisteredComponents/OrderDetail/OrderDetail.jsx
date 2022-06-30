@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getDetalleOrder } from '../../../redux/actions/actionOrder';
 import NavBar from '../../CommonComponents/NavBar/NavBar';
 import Modal from 'react-modal';
-import s from './OrderDetail.module.css';
 import { Link } from 'react-router-dom';
 import Review from '../Review/Review';
 import Footer from '../../CommonComponents/Footer/Footer';
@@ -45,23 +44,23 @@ const OrderDetail = () => {
   return (
     <div>
       <NavBar />
-      <div className={s.containerGral} >
+      <div className="containerGral" >
         <Link to='/profile'>
-          <button className={s.btnHome}>VOLVER AL MENU</button>
+          <button className="btnHome">VOLVER AL MENU</button>
         </Link>
-        <div className={s.container}>
-          <p className={s.texto}>{detalles.books?.nombre}</p>
-          <img className={s.image} src={detalles.books?.image} />
-          <p className={s.textoId}>ID orden: {detalles?._id}</p>
+        <div className="containerOrderDetail">
+          <p className="textoOrderDetail">{detalles.books?.nombre}</p>
+          <img className="imageOrderDetail" src={detalles.books?.image} />
+          <p className="textoId">ID orden: {detalles?._id}</p>
         </div >
-        <div className={s.contenedorSecundario}>
-          <p className={s.items}>{detalles.books?.nombre}</p>
-          <p className={s.items}>{detalles.books?.price}</p>
-          <p className={s.items}>{detalles.books?.descripcion}</p>
-          <p className={s.items}>{detalles.books?.category}</p>
+        <div className="contenedorSecundario">
+          <p className="itemsOrderDetail">{detalles.books?.nombre}</p>
+          <p className="itemsOrderDetail">{detalles.books?.price}</p>
+          <p className="itemsOrderDetail">{detalles.books?.descripcion}</p>
+          <p className="itemsOrderDetail">{detalles.books?.category}</p>
         </div>
-        <div className={s.response}>{response ? response : null}</div>
-        <button id='review' className={s.button} onClick={handleButton}>OPINAR SOBRE EL VENDEDOR</button>
+        <div className="responseOrderDetail">{response ? response : null}</div>
+        <button id='review' className="buttonOrderDetail" onClick={handleButton}>OPINAR SOBRE EL VENDEDOR</button>
       </div>
       <Modal isOpen={showModal} ariaHideApp={false}>
         <Review

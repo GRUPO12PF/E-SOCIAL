@@ -1,6 +1,5 @@
 import { useState } from "react"
 import Loading from '../../../CommonComponents/Loading/Loading'
-import s from "./ImgPreview.module.css"
 
 const PreviewImage = ({ file }) => {
   const [preview, setPreview] = useState(null)
@@ -14,7 +13,7 @@ const PreviewImage = ({ file }) => {
   return (
     <div>
       {preview
-        ? <img src={preview} alt="preview" className={s.previewF} />
+        ? <img src={preview} alt="preview" className="previewF" />
         : <Loading />}
     </div>
   )

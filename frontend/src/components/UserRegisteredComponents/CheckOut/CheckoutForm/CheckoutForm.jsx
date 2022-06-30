@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
-import s from './CheckoutForm.module.css'
 import { buyBook } from "../../../../redux/actions/actionBuy.js"
 import { orderPost } from "../../../../redux/actions/actionOrder"
 import { usuarioActual } from "../../../../redux/actions/actionUser";
